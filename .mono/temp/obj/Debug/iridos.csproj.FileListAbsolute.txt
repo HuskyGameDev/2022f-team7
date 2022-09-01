@@ -1,0 +1,9 @@
+/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/bin/Debug/iridos.dll
+/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/bin/Debug/iridos.pdb
+/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/Debug/iridos.csproj.AssemblyReference.cache
+/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/Debug/iridos.GeneratedMSBuildEditorConfig.editorconfig
+/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/Debug/iridos.AssemblyInfoInputs.cache
+/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/Debug/iridos.AssemblyInfo.cs
+/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/Debug/iridos.csproj.CoreCompileInputs.cache
+/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/Debug/iridos.dll
+/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/Debug/iridos.pdb

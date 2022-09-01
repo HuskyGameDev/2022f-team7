@@ -1,0 +1,53 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/soup/Desktop/Projects/husky-ent/iridos/iridos.csproj": {}
+  },
+  "projects": {
+    "/home/soup/Desktop/Projects/husky-ent/iridos/iridos.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/soup/Desktop/Projects/husky-ent/iridos/iridos.csproj",
+        "projectName": "iridos",
+        "projectPath": "/home/soup/Desktop/Projects/husky-ent/iridos/iridos.csproj",
+        "packagesPath": "/home/soup/.nuget/packages/",
+        "outputPath": "/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/soup/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.2, )",
+              "autoReferenced": true
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

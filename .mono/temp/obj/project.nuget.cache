@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "kBE5kLvhdnQAUFgPLz5C2BGwp8ZYxNMNj9e9p0MajZCIFx3KkkUt11oJ8KBUisysLhTJnxNJ9/Drd0S5/onpHQ==",
+  "success": true,
+  "projectFilePath": "/home/soup/Desktop/Projects/husky-ent/iridos/iridos.csproj",
+  "expectedPackageFiles": [
+    "/home/soup/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "/home/soup/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.2/microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
