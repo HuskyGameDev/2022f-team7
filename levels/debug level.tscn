@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levelTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://player.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+mode = 1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 48, 48 )
+format = 1
+tile_data = PoolIntArray( -786400, 0, 0, -720863, 0, 0, -655326, 0, 0, -589791, 0, 0, -524257, 2, 0, -524256, 0, 0, -458721, 0, 0, -393186, 0, 0, -327651, 0, 0, -262116, 0, 0, -196581, 0, 0, -131046, 0, 0, -65511, 0, 0, 24, 0, 0, 65558, 2, 0, 65559, 0, 0, 131094, 0, 0, 196629, 0, 0, 262164, 0, 0, 327699, 0, 0, 393234, 0, 0, 458768, 2, 0, 458769, 0, 0, 524304, 0, 0, 589838, 2, 0, 589839, 0, 0, 655370, 0, 0, 655374, 0, 0, 720907, 0, 0, 720909, 0, 0, 786444, 0, 0 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 696, 432 )
+collision/safe_margin = 0.01
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 784, 563.25 )
+scale = Vector2( 1, 2.0625 )
+polygon = PoolVector2Array( -8, 6.18182, 248, -40.3636, 248, 6.18182, 64, 6.18182 )
