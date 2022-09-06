@@ -17,8 +17,9 @@ position = Vector2( 696, 432 )
 collision/safe_margin = 0.01
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 784, 576 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2( 784, 563.25 )
+position = Vector2( 0, -8 )
 scale = Vector2( 1, 2.0625 )
 polygon = PoolVector2Array( -8, 6.18182, 248, -40.3636, 248, 6.18182, 64, 6.18182 )
