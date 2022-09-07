@@ -19,3 +19,7 @@ func _on_back_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_Debug_pressed():
+	get_tree().change_scene("res://levels/debug level.tscn")

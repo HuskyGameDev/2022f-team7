@@ -11,6 +11,7 @@ script = ExtResource( 3 )
 
 [node name="playScreen" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -53,7 +54,6 @@ __meta__ = {
 
 [node name="levelSelect" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -86,6 +86,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="Debug" type="Button" parent="levelSelect"]
+anchor_left = 0.386364
+anchor_top = 0.25641
+anchor_right = 0.590909
+anchor_bottom = 0.371794
+rect_pivot_offset = Vector2( 104, 48 )
+text = "debug level"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [connection signal="pressed" from="playScreen/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="playScreen/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="levelSelect/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="levelSelect/Debug" to="." method="_on_Debug_pressed"]

@@ -28,7 +28,7 @@ func _physics_process(delta):
 	vec.x = 0
 	
 	if Input.is_action_just_pressed("dash"):
-		if !isDashing && canDash:
+		if !isDashing && canDash && !is_on_wall():
 			isDashing = true
 			$timer.start()
 			dashStart = self.position.x
@@ -47,19 +47,25 @@ func _physics_process(delta):
 		$Sprite.flip_h = false
 	
 	if isDashing:
+		if is_on_wall():
+			dashEnd()
 		
 		if $Sprite.flip_h:
 			self.position.x = lerp(self.position.x, (dashStart - dashDistance), 0.15)
 		else:
 			self.position.x = lerp(self.position.x, (dashStart + dashDistance), 0.15)
 	
-	move_and_slide(vec, Vector2.UP, true, 4, deg2rad(45), true)
+	move_and_slide_with_snap(vec, Vector2.DOWN, Vector2.UP, true, 4, deg2rad(45), true)
+	print(String(is_on_wall()))
 
 func _on_Timer_timeout():
+	dashEnd()
+
+func _on_dashCooldown_timeout():
+	canDash = true
+
+func dashEnd():
 	isDashing = false
 	canDash = false
 	$timer.stop()
 	$dashCooldown.start()
-
-func _on_dashCooldown_timeout():
-	canDash = true
