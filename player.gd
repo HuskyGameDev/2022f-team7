@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export(PackedScene) var spearScene
+
 export var gravity = 400
 export var jumpPower = 325
 export var moveSpeed = 175
@@ -15,6 +17,10 @@ func _ready():
 	pass #leaving this in event of player needing init code
 
 var vec = Vector2.ZERO
+
+func _process(delta):
+	if Input.is_action_just_pressed("mouseLeft"):
+		call_deferred("throwSpear")
 
 func _physics_process(delta):
 	
@@ -56,7 +62,7 @@ func _physics_process(delta):
 			self.position.x = lerp(self.position.x, (dashStart + dashDistance), 0.15)
 	
 	move_and_slide_with_snap(vec, Vector2.DOWN, Vector2.UP, true, 4, deg2rad(45), true)
-	print(String(is_on_wall()))
+	# print(String(is_on_wall()))
 
 func _on_Timer_timeout():
 	dashEnd()
@@ -69,3 +75,8 @@ func dashEnd():
 	canDash = false
 	$timer.stop()
 	$dashCooldown.start()
+	
+func throwSpear():
+	var spear = spearScene.instance()
+	spear.start(get_local_mouse_position(), position)
+	get_tree().get_root().add_child(spear)

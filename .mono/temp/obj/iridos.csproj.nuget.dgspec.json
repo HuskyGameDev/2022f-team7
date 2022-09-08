@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/soup/Desktop/Projects/husky-ent/iridos/iridos.csproj": {}
+    "D:\\Games\\2022f-team7\\iridos.csproj": {}
   },
   "projects": {
-    "/home/soup/Desktop/Projects/husky-ent/iridos/iridos.csproj": {
+    "D:\\Games\\2022f-team7\\iridos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/soup/Desktop/Projects/husky-ent/iridos/iridos.csproj",
+        "projectUniqueName": "D:\\Games\\2022f-team7\\iridos.csproj",
         "projectName": "iridos",
-        "projectPath": "/home/soup/Desktop/Projects/husky-ent/iridos/iridos.csproj",
-        "packagesPath": "/home/soup/.nuget/packages/",
-        "outputPath": "/home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/",
+        "projectPath": "D:\\Games\\2022f-team7\\iridos.csproj",
+        "packagesPath": "C:\\Users\\cecil\\.nuget\\packages\\",
+        "outputPath": "D:\\Games\\2022f-team7\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/soup/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\cecil\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -45,7 +45,7 @@
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

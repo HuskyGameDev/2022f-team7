@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "kBE5kLvhdnQAUFgPLz5C2BGwp8ZYxNMNj9e9p0MajZCIFx3KkkUt11oJ8KBUisysLhTJnxNJ9/Drd0S5/onpHQ==",
+  "dgSpecHash": "+B0z1dBxILT/W/d4kNP1td8pu2Ptbv/hHdBLOT+xJxI35IOhAwr4ALzVq5nObYA8+ElTiDB3S7L6xrnf5eSywg==",
   "success": true,
-  "projectFilePath": "/home/soup/Desktop/Projects/husky-ent/iridos/iridos.csproj",
+  "projectFilePath": "D:\\Games\\2022f-team7\\iridos.csproj",
   "expectedPackageFiles": [
-    "/home/soup/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "/home/soup/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.2/microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+    "C:\\Users\\cecil\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "C:\\Users\\cecil\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
   ],
   "logs": []
 }

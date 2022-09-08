@@ -7,3 +7,12 @@
 /home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/Debug/iridos.csproj.CoreCompileInputs.cache
 /home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/Debug/iridos.dll
 /home/soup/Desktop/Projects/husky-ent/iridos/.mono/temp/obj/Debug/iridos.pdb
+D:\Games\2022f-team7\.mono\temp\bin\Debug\iridos.dll
+D:\Games\2022f-team7\.mono\temp\bin\Debug\iridos.pdb
+D:\Games\2022f-team7\.mono\temp\obj\Debug\iridos.csproj.AssemblyReference.cache
+D:\Games\2022f-team7\.mono\temp\obj\Debug\iridos.GeneratedMSBuildEditorConfig.editorconfig
+D:\Games\2022f-team7\.mono\temp\obj\Debug\iridos.AssemblyInfoInputs.cache
+D:\Games\2022f-team7\.mono\temp\obj\Debug\iridos.AssemblyInfo.cs
+D:\Games\2022f-team7\.mono\temp\obj\Debug\iridos.csproj.CoreCompileInputs.cache
+D:\Games\2022f-team7\.mono\temp\obj\Debug\iridos.dll
+D:\Games\2022f-team7\.mono\temp\obj\Debug\iridos.pdb
