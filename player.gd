@@ -3,7 +3,7 @@ extends KinematicBody2D
 export(PackedScene) var spearScene
 
 export var gravity = 400
-export var jumpPower = 325
+export var jumpPower = 350
 export var moveSpeed = 175
 
 export var dashDistance = 150 
@@ -23,6 +23,7 @@ func _process(delta):
 		call_deferred("throwSpear")
 
 func _physics_process(delta):
+	print(vec.y)
 	
 	$hud/debugInf.text = String(self.position)
 	
@@ -31,6 +32,10 @@ func _physics_process(delta):
 	else:
 		vec.y = 1
 	
+	if is_on_ceiling():
+		vec.y = 25
+	
+	vec.y = clamp(vec.y, -10000, 600)
 	vec.x = 0
 	
 	if Input.is_action_just_pressed("dash"):
@@ -69,12 +74,6 @@ func _physics_process(delta):
 				self.position.x = lerp(self.position.x, (dashStart + dashDistance), 0.1)
 			
 	move_and_slide_with_snap(vec, Vector2.DOWN, Vector2.UP, true, 4, deg2rad(45), true)
-<<<<<<< Updated upstream
-	# print(String(is_on_wall()))
-=======
-	
-	
->>>>>>> Stashed changes
 
 func _on_Timer_timeout():
 	dashEnd()

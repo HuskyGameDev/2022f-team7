@@ -9,6 +9,7 @@ extents = Vector2( 16, 2 )
 [node name="Spear" type="RigidBody2D"]
 collision_layer = 2
 mass = 5.10204
+gravity_scale = 4.5
 continuous_cd = 2
 linear_damp = -0.5
 script = ExtResource( 2 )

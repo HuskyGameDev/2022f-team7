@@ -8,11 +8,8 @@
 extents = Vector2( 10, 31 )
 
 [node name="player" type="KinematicBody2D"]
-<<<<<<< Updated upstream
 collision_layer = 2
-=======
 collision/safe_margin = 0.1
->>>>>>> Stashed changes
 script = ExtResource( 1 )
 spearScene = ExtResource( 3 )
 
