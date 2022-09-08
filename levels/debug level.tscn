@@ -27,7 +27,6 @@ tile_data = PoolIntArray( -786400, 0, 0, -720863, 0, 0, -655326, 0, 0, -589791, 
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 696, 432 )
-collision/safe_margin = 0.01
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 784, 570 )

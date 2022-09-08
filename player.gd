@@ -34,7 +34,7 @@ func _physics_process(delta):
 	vec.x = 0
 	
 	if Input.is_action_just_pressed("dash"):
-		if !isDashing && canDash && !is_on_wall():
+		if !isDashing && canDash:
 			isDashing = true
 			$timer.start()
 			dashStart = self.position.x
@@ -53,16 +53,28 @@ func _physics_process(delta):
 		$Sprite.flip_h = false
 	
 	if isDashing:
-		if is_on_wall():
-			dashEnd()
+		
+		var space_state = get_world_2d().direct_space_state
+		var result
 		
 		if $Sprite.flip_h:
-			self.position.x = lerp(self.position.x, (dashStart - dashDistance), 0.15)
+			if(space_state.intersect_ray(position, Vector2(position.x - 11, position.y + 28), [self]).size() > 0):
+				dashEnd()
+			else:
+				self.position.x = lerp(self.position.x, (dashStart - dashDistance), 0.1)
 		else:
-			self.position.x = lerp(self.position.x, (dashStart + dashDistance), 0.15)
-	
+			if(space_state.intersect_ray(position, Vector2(position.x - 11, position.y - 28), [self]).size() > 0):
+				dashEnd()
+			else:
+				self.position.x = lerp(self.position.x, (dashStart + dashDistance), 0.1)
+			
 	move_and_slide_with_snap(vec, Vector2.DOWN, Vector2.UP, true, 4, deg2rad(45), true)
+<<<<<<< Updated upstream
 	# print(String(is_on_wall()))
+=======
+	
+	
+>>>>>>> Stashed changes
 
 func _on_Timer_timeout():
 	dashEnd()
