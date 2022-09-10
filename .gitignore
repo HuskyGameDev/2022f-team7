@@ -12,3 +12,5 @@ temp/
 .mono/temp/obj/iridos.csproj.nuget.g.targets
 .mono/temp/obj/project.assets.json
 .mono/temp/obj/project.nuget.cache
+.mono/metadata/ide_messaging_meta.txt
+.mono/assemblies/Debug/api_hash_cache.cfg
