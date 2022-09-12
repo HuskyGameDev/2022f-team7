@@ -40,7 +40,7 @@ func _physics_process(delta):
 			$timer.start()
 	if Input.is_action_pressed("moveDown"):
 		pass #for slam or crouch if needed
-	if Input.is_action_just_pressed("jump") && is_on_floor():
+	if Input.is_action_just_pressed("jump") && is_on_floor() && !isDashing:
 		vec.y = -jumpPower
 	if Input.is_action_pressed("moveLeft") && !isDashing:
 		vec.x += -moveSpeed
@@ -53,6 +53,7 @@ func _physics_process(delta):
 		$Sprite.flip_h = false
 	
 	if isDashing:
+		vec.y = 0
 		if abs(vel.x) < 95 && (.2 - $timer.time_left) > .05:
 			dashEnd()
 			print("end")
