@@ -16,8 +16,10 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=1056
-window/size/height=624
+window/size/width=240
+window/size/height=240
+window/size/test_width=1080
+window/size/test_height=1080
 window/vsync/use_vsync=false
 window/per_pixel_transparency/allowed=true
 window/per_pixel_transparency/enabled=true
@@ -31,6 +33,12 @@ scaling=false
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+texture={
+"flags/filter": false
+}
 
 [input]
 

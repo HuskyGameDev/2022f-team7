@@ -6,9 +6,10 @@
 [ext_resource path="res://Sounds/Footsteps/Lower Footsteps/Grass/Walking_Grass_4_Moser.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 15.5 )
+extents = Vector2( 2.5, 7.75 )
 
 [node name="player" type="KinematicBody2D"]
+position = Vector2( 120, 120 )
 collision_layer = 2
 collision/safe_margin = 0.1
 script = ExtResource( 1 )
@@ -16,34 +17,30 @@ spearScene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 1 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 35, 1, 10, 31 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.25, 0.25 )
+zoom = Vector2( 0.5, 0.5 )
+process_mode = 0
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 3.0
+
+[node name="hud" type="CanvasLayer" parent="Camera2D"]
+
+[node name="debugInf" type="Label" parent="Camera2D/hud"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "FUCK"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 0.5 )
+position = Vector2( 0, 0.75 )
 shape = SubResource( 1 )
-
-[node name="hud" type="Control" parent="."]
-margin_left = -396.0
-margin_top = -234.0
-margin_right = 396.0
-margin_bottom = 234.0
-mouse_filter = 2
-
-[node name="debugInf" type="Label" parent="hud"]
-anchor_left = 0.337121
-anchor_top = 0.337607
-anchor_right = 0.438131
-anchor_bottom = 0.373932
-text = "placeholder"
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="timer" type="Timer" parent="."]
 wait_time = 0.2

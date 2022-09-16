@@ -2,10 +2,10 @@ extends KinematicBody2D
 
 export(PackedScene) var spearScene
 
-export var gravity = 400
-export var jumpPower = 350
-export var moveSpeed = 175
-export var dashSpeed = 5000
+const gravity = 200
+const jumpPower = 150
+const moveSpeed = 50
+const dashSpeed = 1000
 
 
 var isDashing = false
@@ -38,7 +38,8 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	
-	$hud/debugInf.text = String(self.position) + "\n" + String(vel)
+	$Camera2D/hud/debugInf.text = String(self.position) + "\n" + String(vel)
+	
 	
 	vec.y = clamp(vec.y, -10000, 600)
 	
@@ -49,7 +50,7 @@ func _physics_process(delta):
 	
 	if isDashing:
 		vec.y = 0
-		if abs(vel.x) < 95 && (.2 - $timer.time_left) > .05:
+		if abs(vel.x) < 95 && ($timer.wait_time - $timer.time_left) > .05:
 			dashEnd()
 			print("end")
 		if $Sprite.flip_h:
@@ -70,9 +71,8 @@ func _physics_process(delta):
 	position.x = round(position.x)
 	position.y = round(position.y)
 	
-	$Camera2D.position.x = round($Camera2D.position.x)
-	$Camera2D.position.y = round($Camera2D.position.y)
-	
+	#$Camera2D.position.x = round($Camera2D.position.x)
+	#$Camera2D.position.y = round($Camera2D.position.y)
 
 func _on_Timer_timeout():
 	dashEnd()

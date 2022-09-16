@@ -19,15 +19,12 @@ func start(mouseCoords, pos):
 	initSpear = false
 	direction = Vector2(mouseCoords.x, mouseCoords.y)
 	angle = direction.angle()
-	print(rad2deg(angle))
 	
 	rotation = angle
 	position = playerPos
 	linear_velocity = direction.normalized() * speed
 	if rad2deg(angle) < -90:
-		print("left")
 		angular_velocity = -1
 	if rad2deg(angle) > -90:
-		print("right")
 		angular_velocity = 1
 	show()
