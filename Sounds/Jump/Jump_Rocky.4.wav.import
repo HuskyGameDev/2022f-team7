@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Jump_Rocky.4.wav-9e6f886f9b4f36028fc35215db0c7475.sample"
+
+[deps]
+
+source_file="res://Sounds/Jump/Jump_Rocky.4.wav"
+dest_files=[ "res://.import/Jump_Rocky.4.wav-9e6f886f9b4f36028fc35215db0c7475.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

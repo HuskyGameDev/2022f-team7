@@ -11,7 +11,6 @@ script = ExtResource( 3 )
 
 [node name="playScreen" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -54,6 +53,7 @@ __meta__ = {
 
 [node name="levelSelect" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 

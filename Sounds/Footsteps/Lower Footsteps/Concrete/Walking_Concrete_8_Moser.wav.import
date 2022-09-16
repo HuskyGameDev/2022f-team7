@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Walking_Concrete_8_Moser.wav-843d0120b95fcccdb37219e5fb0a3f1a.sample"
+
+[deps]
+
+source_file="res://Sounds/Footsteps/Lower Footsteps/Concrete/Walking_Concrete_8_Moser.wav"
+dest_files=[ "res://.import/Walking_Concrete_8_Moser.wav-843d0120b95fcccdb37219e5fb0a3f1a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Walking_Gravel_6_Moser.wav-9da0279116127f3d46dbb9ddc88e6738.sample"
+
+[deps]
+
+source_file="res://Sounds/Footsteps/Lower Footsteps/Gravel/Walking_Gravel_6_Moser.wav"
+dest_files=[ "res://.import/Walking_Gravel_6_Moser.wav-9da0279116127f3d46dbb9ddc88e6738.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

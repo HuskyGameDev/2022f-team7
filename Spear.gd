@@ -11,9 +11,7 @@ var playerPos
 
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+#TODO: pixel perfect movement, sprites instead of rotation to fit art style
 
 func start(mouseCoords, pos):
 	hide()

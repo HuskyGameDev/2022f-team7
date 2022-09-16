@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Walking_Grass_9_Moser.wav-49a047d5796dddf226f2adaf91ffe81c.sample"
+
+[deps]
+
+source_file="res://Sounds/Footsteps/Lower Footsteps/Grass/Walking_Grass_9_Moser.wav"
+dest_files=[ "res://.import/Walking_Grass_9_Moser.wav-49a047d5796dddf226f2adaf91ffe81c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

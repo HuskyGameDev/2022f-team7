@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Running_Gravel_1_Moser.wav-7173f3b6a0c8ee0abe3baf2c405caac4.sample"
+
+[deps]
+
+source_file="res://Sounds/Footsteps/Lighter Footsteps/Gravel/Running_Gravel_1_Moser.wav"
+dest_files=[ "res://.import/Running_Gravel_1_Moser.wav-7173f3b6a0c8ee0abe3baf2c405caac4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
