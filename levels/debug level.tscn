@@ -6,7 +6,6 @@
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( -117, -168 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -208, -138.5 )
@@ -44,7 +43,6 @@ mix_target = 1
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-visible = false
 modulate = Color( 0.12549, 0.12549, 0.12549, 1 )
 position = Vector2( 136, 99 )
 scale = Vector2( 5, 5 )

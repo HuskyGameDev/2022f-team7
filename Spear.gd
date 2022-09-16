@@ -2,7 +2,7 @@ extends RigidBody2D
 
 
 # Declare member variables here
-export var speed = 500
+export var speed = 200
 var angle
 var initSpear
 var direction

@@ -7,6 +7,7 @@
 extents = Vector2( 16, 2 )
 
 [node name="Spear" type="RigidBody2D"]
+z_index = 100
 collision_layer = 2
 mass = 5.10204
 gravity_scale = 4.5
@@ -16,11 +17,12 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 3.14159
-scale = Vector2( -1, 1 )
+scale = Vector2( -0.5, 0.5 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 6, 32, 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 2 )
+position = Vector2( 0, 1 )
+scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
