@@ -1,13 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/title-placehold.png" type="Texture" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=4]
 
+[sub_resource type="InputEventAction" id=1]
+action = "pause_game"
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
+
+[node name="pause" type="Button" parent="."]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+shortcut = SubResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
@@ -91,7 +103,47 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="pauseScreen" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="quit" type="Button" parent="pauseScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_right = 30.0
+margin_bottom = 27.6921
+text = "Quit"
+
+[node name="return" type="Button" parent="pauseScreen"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -30.0
+margin_top = 50.0
+margin_right = 30.0
+margin_bottom = 80.0
+text = "Return"
+
+[node name="options" type="Button" parent="pauseScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -35.0
+margin_right = 30.0
+margin_bottom = -5.0
+rect_pivot_offset = Vector2( 104, 48 )
+text = "options"
+
+[connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="playScreen/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="playScreen/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="levelSelect/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="levelSelect/Debug" to="." method="_on_Debug_pressed"]
+[connection signal="pressed" from="pauseScreen/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="pauseScreen/return" to="." method="_on_return_pressed"]
