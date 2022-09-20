@@ -9,9 +9,8 @@
 extents = Vector2( 2.5, 7.75 )
 
 [node name="player" type="KinematicBody2D"]
-position = Vector2( 120, 120 )
 collision_layer = 2
-collision/safe_margin = 0.1
+collision/safe_margin = 0.04
 script = ExtResource( 1 )
 spearScene = ExtResource( 3 )
 
@@ -30,6 +29,10 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
 smoothing_speed = 3.0
+drag_margin_left = 0.1
+drag_margin_top = 0.1
+drag_margin_right = 0.1
+drag_margin_bottom = 0.1
 
 [node name="hud" type="CanvasLayer" parent="Camera2D"]
 
