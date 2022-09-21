@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player.png" type="Texture" id=2]
 [ext_resource path="res://Spear.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Footsteps/Lower Footsteps/Grass/Walking_Grass_4_Moser.wav" type="AudioStream" id=4]
+[ext_resource path="res://health.gd" type="Script" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.5, 7.75 )
@@ -40,6 +42,21 @@ drag_margin_bottom = 0.1
 margin_right = 40.0
 margin_bottom = 14.0
 text = "FUCK"
+
+[node name="health" type="Control" parent="Camera2D/hud"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+
+[node name="hearts" type="TextureRect" parent="Camera2D/hud/health"]
+margin_left = -57.0
+margin_top = -58.0
+margin_right = 7.0
+margin_bottom = 6.0
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.75 )
