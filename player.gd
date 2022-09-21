@@ -14,14 +14,14 @@ var tarvec = 0
 var vec = Vector2.ZERO
 var vel = Vector2.ZERO
 
+var current_HP: int = 3
+
 #creates a signal when the player health changes
 signal health_changed(player_hearts)
 
-var current_HP = 3
-
 #starts the current health of the player
 func _ready() -> void:
-	connect("health_changed", get_parent().get_node("res://health.gd"), "on_player_health_changed")
+	connect("health_changed", get_node("Camera2D/hud/health/hearts"), "on_player_health_changed")
 	emit_signal("heath_changed", current_HP)
 	
 func _unhandled_input(event):
@@ -103,7 +103,8 @@ func _on_hit_Enemy():
 	emit_signal("health_changed", current_HP)
 	if current_HP <= 0:
 		visible = false
-		print("gameover")
+		print("gameover") #place holder until we create a death system
+		
 	
 func _on_Timer_timeout():
 	dashEnd()
