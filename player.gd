@@ -14,6 +14,16 @@ var tarvec = 0
 var vec = Vector2.ZERO
 var vel = Vector2.ZERO
 
+#creates a signal when the player health changes
+signal health_changed(player_hearts)
+
+var current_HP = 3
+
+#starts the current health of the player
+func _ready() -> void:
+	connect("health_changed", get_parent().get_node("res://health.gd"), "on_player_health_changed")
+	emit_signal("heath_changed", current_HP)
+	
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("mouseLeft"):
 		call_deferred("throwSpear")
@@ -86,7 +96,15 @@ func _physics_process(delta):
 	
 	$Sprite.global_position.x = stepify(global_position.x, .5)
 	$Sprite.global_position.y = stepify(global_position.y + 1, .5)
-
+	
+# when the enemy hits the player
+func _on_hit_Enemy():
+	current_HP = current_HP - 1
+	emit_signal("health_changed", current_HP)
+	if current_HP <= 0:
+		visible = false
+		print("gameover")
+	
 func _on_Timer_timeout():
 	dashEnd()
 
