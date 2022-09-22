@@ -54,5 +54,9 @@ one_shot = true
 stream = ExtResource( 4 )
 volume_db = -18.656
 
+[node name="spearCooldown" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="timeout" from="timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dashCooldown_timeout"]
+[connection signal="timeout" from="spearCooldown" to="." method="_on_spearCooldown_timeout"]

@@ -12,9 +12,12 @@ var isDashing = false
 var canDash = true
 var vec = Vector2.ZERO
 var vel = Vector2.ZERO
+var hasSpear = true
+var throwingSpear = false
 
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("mouseLeft"):
+	if !throwingSpear && hasSpear && Input.is_action_just_pressed("mouseLeft"):
+		throwingSpear = true
 		call_deferred("throwSpear")
 	
 	vec.x = 0
@@ -87,7 +90,19 @@ func dashEnd():
 	$timer.stop()
 	$dashCooldown.start()
 	
+# Creates and "throws" a new instance of the spear
 func throwSpear():
+	hasSpear = false
 	var spear = spearScene.instance()
 	spear.start(get_local_mouse_position(), position)
 	get_tree().get_root().add_child(spear)
+	spear.connect("spear_collected", self, "_collect_spear")
+	throwingSpear = false
+	
+func _collect_spear():
+	$spearCooldown.start()
+
+
+func _on_spearCooldown_timeout():
+	hasSpear = true
+	$spearCooldown.stop()
