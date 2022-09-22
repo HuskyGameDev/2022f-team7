@@ -21,8 +21,7 @@ signal health_changed(player_hearts)
 
 #starts the current health of the player
 func _ready():
-	connect("health_changed", get_node("Camera2D/hud/health/hearts"), "on_player_health_changed")
-	emit_signal("heath_changed", current_HP)
+	emit_signal("health_changed", current_HP)
 	
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("mouseLeft"):

@@ -74,5 +74,6 @@ one_shot = true
 stream = ExtResource( 4 )
 volume_db = -18.656
 
+[connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
 [connection signal="timeout" from="timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dashCooldown_timeout"]
