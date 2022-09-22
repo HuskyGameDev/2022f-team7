@@ -2,7 +2,7 @@ extends CanvasLayer
 
 func _on_return_pressed():
 	print("returnpressed")
-	get_tree().pause = false
+	get_tree().paused = false
 	$pauseScreen.visible = false
 
 func _on_quit_pressed():
