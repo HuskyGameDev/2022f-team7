@@ -14,11 +14,7 @@ func _on_play_pressed():
 func _on_back_pressed():
 	$levelSelect.visible = false
 	$playScreen.visible = true
-
-func _on_return_pressed():
-	get_tree().pause = false
-	$pauseScreen.visible = false
-
+	
 func _on_quit_pressed():
 	get_tree().quit()
 
