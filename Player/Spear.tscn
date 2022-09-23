@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Player.png" type="Texture" id=1]
-[ext_resource path="res://Spear.gd" type="Script" id=2]
-[ext_resource path="res://BodyCollision.gd" type="Script" id=3]
+[ext_resource path="res://Player/Spear.gd" type="Script" id=2]
+[ext_resource path="res://Player/BodyCollision.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 2 )

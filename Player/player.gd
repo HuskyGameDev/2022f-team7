@@ -4,7 +4,7 @@ export(PackedScene) var spearScene
 
 const gravity = 200
 const jumpPower = 150
-const moveSpeed = 50
+var moveSpeed = 50
 const dashSpeed = 1000
 
 
@@ -72,13 +72,16 @@ func _physics_process(delta):
 		else:
 			vec.x = dashSpeed*pow(.000000001, $timer.wait_time - $timer.time_left)
 	elif tarvec != 0:
-		vel.x += 2 * tarvec
-		vel.x = clamp(vel.x, -moveSpeed, moveSpeed)
-	elif tarvec == 0 && vel.x != 0:
-		if vel.x > 0:
-			vel.x = clamp(vel.x - 2, 0, 50)
+		if is_on_floor():
+			vel.x += 2 * tarvec
 		else:
-			vel.x = clamp(vel.x + 2, -50, 0)
+			vel.x += .2 * tarvec
+		vel.x = clamp(vel.x, -moveSpeed, moveSpeed)
+	elif tarvec == 0 && vel.x != 0 && is_on_floor():
+		if vel.x > 0:
+			vel.x = clamp(vel.x - 2, 0, moveSpeed)
+		else:
+			vel.x = clamp(vel.x + 2, -moveSpeed, 0)
 	if !isDashing:
 		vec.x = vel.x
 	
@@ -88,7 +91,7 @@ func _physics_process(delta):
 		vec.y += delta * gravity 
 	else:
 		vec.y = 0
-	
+		
 	if is_on_ceiling():
 		vec.y = 25
 	

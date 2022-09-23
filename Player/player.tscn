@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Player.png" type="Texture" id=2]
-[ext_resource path="res://Spear.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Spear.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Footsteps/Lower Footsteps/Grass/Walking_Grass_4_Moser.wav" type="AudioStream" id=4]
-[ext_resource path="res://health.gd" type="Script" id=5]
+[ext_resource path="res://Player/health.gd" type="Script" id=5]
 [ext_resource path="res://Assets/heart_64x64.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
