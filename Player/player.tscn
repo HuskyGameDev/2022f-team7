@@ -40,9 +40,10 @@ drag_margin_bottom = 0.1
 [node name="hud" type="CanvasLayer" parent="Camera2D"]
 
 [node name="debugInf" type="Label" parent="Camera2D/hud"]
-margin_right = 40.0
+margin_left = 124.0
+margin_right = 240.0
 margin_bottom = 14.0
-text = "FUCK"
+text = "some coords here"
 
 [node name="health" type="Control" parent="Camera2D/hud"]
 margin_right = 40.0
@@ -64,6 +65,7 @@ position = Vector2( 0, 0.75 )
 shape = SubResource( 1 )
 
 [node name="timer" type="Timer" parent="."]
+process_mode = 0
 wait_time = 0.2
 one_shot = true
 
@@ -77,6 +79,7 @@ volume_db = -18.656
 
 [node name="spearCooldown" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
 
 [connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
 [connection signal="timeout" from="timer" to="." method="_on_Timer_timeout"]
