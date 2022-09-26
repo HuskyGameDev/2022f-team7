@@ -12,6 +12,8 @@ script = ExtResource( 3 )
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 0, 8, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 11, 0, 6, 11, 0, 7, 11, 0, 8, 11, 0, 9, 11, 0, 10, 11, 0, 11, 11, 0, 12, 11, 0, 13, 11, 0, 14, 8, 0, 65536, 2, 0, 65550, 1, 0, 131072, 2, 0, 131086, 1, 0, 196608, 2, 0, 196622, 1, 0, 262144, 2, 0, 262158, 1, 0, 327680, 2, 0, 327694, 1, 0, 393216, 2, 0, 393230, 1, 0, 458752, 2, 0, 458766, 1, 0, 524288, 2, 0, 524302, 1, 0, 589824, 2, 0, 589838, 1, 0, 655360, 2, 0, 655374, 1, 0, 720896, 2, 0, 720910, 1, 0, 786432, 2, 0, 786446, 1, 0, 851968, 2, 0, 851982, 1, 0, 917504, 8, 0, 917505, 6, 0, 917506, 6, 0, 917507, 6, 0, 917508, 6, 0, 917509, 6, 0, 917510, 6, 0, 917511, 6, 0, 917512, 6, 0, 917513, 6, 0, 917514, 6, 0, 917515, 6, 0, 917516, 6, 0, 917517, 6, 0, 917518, 8, 0 )
 
@@ -21,15 +23,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="TextureRect" type="TextureRect" parent="playScreen"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -56.0
-margin_top = 32.0
-margin_right = 56.0
-margin_bottom = 80.0
+anchor_left = 0.266667
+anchor_top = 0.133333
+anchor_right = 0.733333
+anchor_bottom = 0.333333
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="play" type="Button" parent="playScreen"]
 anchor_left = 0.3875

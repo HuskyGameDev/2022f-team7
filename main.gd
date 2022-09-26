@@ -1,7 +1,5 @@
 extends Control
 
-
-
 func _ready():
 	#just in case these are set wrong when in editor
 	$levelSelect.visible = false
@@ -19,4 +17,4 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_Debug_pressed():
-	get_tree().change_scene("res://levels/debug level.tscn")
+	get_tree().get_root().get_child(0).load_level("res://levels/debugLevel.tscn")

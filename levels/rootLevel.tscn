@@ -1,16 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://levels/rootLevel.gd" type="Script" id=1]
-[ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://main.tscn" type="PackedScene" id=3]
 
 [node name="levelRoot" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 1 )
 
-[node name="player" parent="." instance=ExtResource( 2 )]
-pause_mode = 1
-
 [node name="pauseScreen" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="quit" type="Button" parent="pauseScreen"]
 anchor_left = 0.5
@@ -56,7 +54,12 @@ text = "Paused
 "
 valign = 1
 
-[connection signal="game_paused" from="." to="." method="_on_levelRoot_game_paused"]
+[node name="Main" type="CanvasLayer" parent="."]
+
+[node name="Main" parent="Main" instance=ExtResource( 3 )]
+
 [connection signal="pressed" from="pauseScreen/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="pauseScreen/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="pauseScreen/resume" to="." method="_on_resume_pressed"]
+
+[editable path="Main/Main"]

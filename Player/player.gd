@@ -75,7 +75,7 @@ func _physics_process(delta):
 		if is_on_floor():
 			vel.x += 2 * tarvec
 		else:
-			vel.x += .2 * tarvec
+			vel.x += .5 * tarvec
 		vel.x = clamp(vel.x, -moveSpeed, moveSpeed)
 	elif tarvec == 0 && vel.x != 0 && is_on_floor():
 		if vel.x > 0:
@@ -104,7 +104,7 @@ func _physics_process(delta):
 	
 # when the enemy hits the player
 func _on_hit_Enemy():
-	current_HP = current_HP - 1
+	current_HP -= 1
 	emit_signal("health_changed", current_HP)
 	if current_HP <= 0:
 		visible = false
@@ -130,7 +130,7 @@ func throwSpear():
 	hasSpear = false
 	var spear = spearScene.instance()
 	spear.start(get_local_mouse_position(), position)
-	get_tree().get_root().add_child(spear)
+	get_parent().add_child(spear)
 	spear.connect("spear_collected", self, "_collect_spear")
 	throwingSpear = false
 	
