@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://levels/rootLevel.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Text/IridosTitle.png" type="Texture" id=2]
 [ext_resource path="res://main.tscn" type="PackedScene" id=3]
 
 [node name="levelRoot" type="Node2D"]
@@ -57,6 +58,17 @@ valign = 1
 [node name="Main" type="CanvasLayer" parent="."]
 
 [node name="Main" parent="Main" instance=ExtResource( 3 )]
+
+[node name="TextureRect" parent="Main/Main/playScreen" index="0"]
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -69.5
+margin_top = 16.0
+margin_right = 69.5
+margin_bottom = 81.0
+texture = ExtResource( 2 )
 
 [connection signal="pressed" from="pauseScreen/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="pauseScreen/menu" to="." method="_on_menu_pressed"]
