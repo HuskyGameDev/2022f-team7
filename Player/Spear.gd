@@ -2,17 +2,16 @@ extends RigidBody2D
 
 
 # Declare member variables here
-export var speed = 200
+export var speed = 200 # Initial speed with which the spear is thrown
 export var stick_angle = 40 # angle within which the spear will stick to walls
 export var error = 0.05 # The error when checking if velocity is zero
-var angle
-var initSpear
-var direction
-var playerPos
-var stuck = false
-var mouseIn = false
+var angle # Initial angle at which to travel
+var direction # Stores mouse coordinates
+var playerPos # Stores player coordinates
+var stuck = false # Stores whether or not the spear is "stuck" (collectable)
+var mouseIn = false # Stores whether or not the mouse is touching the spear
 
-signal spear_collected
+signal spear_collected # Signal emitted when the spear is collected
 
 
 
@@ -21,25 +20,22 @@ signal spear_collected
 
 func start(mouseCoords, pos):
 	hide() # Hide the spear while it is being positioned
-	playerPos = pos
-	initSpear = false
+	playerPos = pos # Set initial position to player position
 	direction = Vector2(mouseCoords.x, mouseCoords.y) # Gets angle to point based on where the mouse is
 	angle = direction.angle()
-	if(fmod(abs(rad2deg(angle)), 180) > 90): # If the spear is thrown to the left
+	if(fmod(abs(rad2deg(angle)), 180) > 90): # If the spear is thrown to the left, flip the sprite
 		$Sprite.scale = Vector2($Sprite.scale.x, -$Sprite.scale.y)
-	
+	# Set inital values
 	rotation = angle # sets initial rotation
 	position = playerPos # sets initial position
 	linear_velocity = direction.normalized() * speed # sets initial velocity
-	if rad2deg(angle) < -90:
-		angular_velocity = -1
-	if rad2deg(angle) > -90:
-		angular_velocity = 1
+	angular_velocity = -1 if rad2deg(angle) <= -90 else 1
 	show() # show the spear now that it is positioned correctly
 
 
 func _unhandled_input(event):
-	if(mouseIn && stuck && Input.is_action_just_pressed("mouseLeft")):
+	# If the player clicked on the spear OR pressed "E" while stuck, return the spear to the player
+	if(((mouseIn && Input.is_action_just_pressed("mouseLeft")) || Input.is_action_just_pressed("spear_retrieve")) && stuck):
 		collectSpear()
 
 
@@ -56,8 +52,8 @@ func _on_TipCollision_body_entered(body):
 		stick_spear()
 
 
+# Attaches the spear to a wall or floor. Makes the spear static and collidable with the player.
 func stick_spear():
-	#print("STUCK")
 	stuck = true
 	set_deferred("mode", RigidBody2D.MODE_STATIC) # Set static so the spear no longer moves
 	if(!$BodyCollision.colliding): # If the spear is not laying flat on the ground
@@ -68,14 +64,17 @@ func stick_spear():
 		set_collision_mask_bit(1, true)
 
 
+# Returns the spear to the player
 func collectSpear():
 	emit_signal("spear_collected")
 	queue_free()
 
 
+# Update mouse input
 func _on_Spear_mouse_entered():
 	mouseIn = true
 
 
+# Update mouse input
 func _on_Spear_mouse_exited():
 	mouseIn = false
