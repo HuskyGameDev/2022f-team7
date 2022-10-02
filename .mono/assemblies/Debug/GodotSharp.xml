@@ -12356,37 +12356,37 @@
         </member>
         <member name="M:Godot.AnimationNode.GetCaption">
             <summary>
-            <para>Gets the text caption for this node (used by some editors).</para>
+            <para>When inheriting from <see cref="T:Godot.AnimationRootNode"/>, implement this virtual method to override the text caption for this node.</para>
             </summary>
         </member>
         <member name="M:Godot.AnimationNode.GetChildByName(System.String)">
             <summary>
-            <para>Gets a child node by index (used by editors inheriting from <see cref="T:Godot.AnimationRootNode"/>).</para>
+            <para>When inheriting from <see cref="T:Godot.AnimationRootNode"/>, implement this virtual method to return a child node by its <c>name</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.AnimationNode.GetChildNodes">
             <summary>
-            <para>Gets all children nodes in order as a <c>name: node</c> dictionary. Only useful when inheriting <see cref="T:Godot.AnimationRootNode"/>.</para>
+            <para>When inheriting from <see cref="T:Godot.AnimationRootNode"/>, implement this virtual method to return all children nodes in order as a <c>name: node</c> dictionary.</para>
             </summary>
         </member>
         <member name="M:Godot.AnimationNode.GetParameterDefaultValue(System.String)">
             <summary>
-            <para>Gets the default value of a parameter. Parameters are custom local memory used for your nodes, given a resource can be reused in multiple trees.</para>
+            <para>When inheriting from <see cref="T:Godot.AnimationRootNode"/>, implement this virtual method to return the default value of parameter "<c>name</c>". Parameters are custom local memory used for your nodes, given a resource can be reused in multiple trees.</para>
             </summary>
         </member>
         <member name="M:Godot.AnimationNode.GetParameterList">
             <summary>
-            <para>Gets the property information for parameter. Parameters are custom local memory used for your nodes, given a resource can be reused in multiple trees. Format is similar to <see cref="M:Godot.Object.GetPropertyList"/>.</para>
+            <para>When inheriting from <see cref="T:Godot.AnimationRootNode"/>, implement this virtual method to return a list of the properties on this node. Parameters are custom local memory used for your nodes, given a resource can be reused in multiple trees. Format is similar to <see cref="M:Godot.Object.GetPropertyList"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.AnimationNode.HasFilter">
             <summary>
-            <para>Returns <c>true</c> whether you want the blend tree editor to display filter editing on this node.</para>
+            <para>When inheriting from <see cref="T:Godot.AnimationRootNode"/>, implement this virtual method to return whether the blend tree editor should display filter editing on this node.</para>
             </summary>
         </member>
         <member name="M:Godot.AnimationNode.Process(System.Single,System.Boolean)">
             <summary>
-            <para>User-defined callback called when a custom node is processed. The <c>time</c> parameter is a relative delta, unless <c>seek</c> is <c>true</c>, in which case it is absolute.</para>
+            <para>When inheriting from <see cref="T:Godot.AnimationRootNode"/>, implement this virtual method to run some code when this node is processed. The <c>time</c> parameter is a relative delta, unless <c>seek</c> is <c>true</c>, in which case it is absolute.</para>
             <para>Here, call the <see cref="M:Godot.AnimationNode.BlendInput(System.Int32,System.Single,System.Boolean,System.Single,Godot.AnimationNode.FilterAction,System.Boolean)"/>, <see cref="M:Godot.AnimationNode.BlendNode(System.String,Godot.AnimationNode,System.Single,System.Boolean,System.Single,Godot.AnimationNode.FilterAction,System.Boolean)"/> or <see cref="M:Godot.AnimationNode.BlendAnimation(System.String,System.Single,System.Single,System.Boolean,System.Single)"/> functions. You can also use <see cref="M:Godot.AnimationNode.GetParameter(System.String)"/> and <see cref="M:Godot.AnimationNode.SetParameter(System.String,System.Object)"/> to modify local memory.</para>
             <para>This function should return the time left for the current animation to finish (if unsure, pass the value from the main blend being called).</para>
             </summary>
@@ -12984,7 +12984,7 @@
         </member>
         <member name="P:Godot.AnimationNodeStateMachineTransition.AdvanceCondition">
             <summary>
-            <para>Turn on auto advance when this condition is set. The provided name will become a boolean parameter on the <see cref="T:Godot.AnimationTree"/> that can be controlled from code (see <a href="$DOCS_URL/tutorials/animation/animation_tree.html#controlling-from-code"></a>). For example, if <see cref="P:Godot.AnimationTree.TreeRoot"/> is an <see cref="T:Godot.AnimationNodeStateMachine"/> and <see cref="P:Godot.AnimationNodeStateMachineTransition.AdvanceCondition"/> is set to <c>"idle"</c>:</para>
+            <para>Turn on auto advance when this condition is set. The provided name will become a boolean parameter on the <see cref="T:Godot.AnimationTree"/> that can be controlled from code (see <a href="$DOCS_URL/tutorials/animation/animation_tree.html#controlling-from-code">Using AnimationTree</a>). For example, if <see cref="P:Godot.AnimationTree.TreeRoot"/> is an <see cref="T:Godot.AnimationNodeStateMachine"/> and <see cref="P:Godot.AnimationNodeStateMachineTransition.AdvanceCondition"/> is set to <c>"idle"</c>:</para>
             <para><code>
             $animation_tree["parameters/conditions/idle"] = is_on_floor and (linear_velocity.x == 0)
             </code></para>
@@ -13157,7 +13157,7 @@
         </member>
         <member name="M:Godot.AnimationPlayer.GetAnimation(System.String)">
             <summary>
-            <para>Returns the <see cref="T:Godot.Animation"/> with key <c>name</c> or <c>null</c> if not found.</para>
+            <para>Returns the <see cref="T:Godot.Animation"/> with the key <c>name</c>. If the animation does not exist, <c>null</c> is returned and an error is logged.</para>
             </summary>
         </member>
         <member name="M:Godot.AnimationPlayer.GetAnimationList">
@@ -13694,7 +13694,9 @@
         </member>
         <member name="T:Godot.Area">
             <summary>
-            <para>3D area that detects <see cref="T:Godot.CollisionObject"/> nodes overlapping, entering, or exiting. Can also alter or override local physics parameters (gravity, damping) and route audio to custom audio buses.</para>
+            <para>3D area that detects <see cref="T:Godot.CollisionObject"/> nodes overlapping, entering, or exiting. Can also alter or override local physics parameters (gravity, damping) and route audio to a custom audio bus.</para>
+            <para>To give the area its shape, add a <see cref="T:Godot.CollisionShape"/> or a <see cref="T:Godot.CollisionPolygon"/> node as a direct child (or add multiple such nodes as direct children) of the area.</para>
+            <para>Warning: See <see cref="T:Godot.ConcavePolygonShape"/> (also called "trimesh") for a warning about possibly unexpected behavior when using that shape for an area.</para>
             </summary>
         </member>
         <member name="F:Godot.Area.SpaceOverrideEnum.Disabled">
@@ -13832,6 +13834,8 @@
         <member name="T:Godot.Area2D">
             <summary>
             <para>2D area that detects <see cref="T:Godot.CollisionObject2D"/> nodes overlapping, entering, or exiting. Can also alter or override local physics parameters (gravity, damping) and route audio to a custom audio bus.</para>
+            <para>To give the area its shape, add a <see cref="T:Godot.CollisionShape2D"/> or a <see cref="T:Godot.CollisionPolygon2D"/> node as a direct child (or add multiple such nodes as direct children) of the area.</para>
+            <para>Warning: See <see cref="T:Godot.ConcavePolygonShape2D"/> for a warning about possibly unexpected behavior when using that shape for an area.</para>
             </summary>
         </member>
         <member name="F:Godot.Area2D.SpaceOverrideEnum.Disabled">
@@ -14111,6 +14115,8 @@
             <para>Creates a new surface.</para>
             <para>Surfaces are created to be rendered using a <c>primitive</c>, which may be any of the types defined in <see cref="T:Godot.Mesh.PrimitiveType"/>. (As a note, when using indices, it is recommended to only use points, lines, or triangles.) <see cref="M:Godot.Mesh.GetSurfaceCount"/> will become the <c>surf_idx</c> for this new surface.</para>
             <para>The <c>arrays</c> argument is an array of arrays. See <see cref="T:Godot.ArrayMesh.ArrayType"/> for the values used in this array. For example, <c>arrays[0]</c> is the array of vertices. That first vertex sub-array is always required; the others are optional. Adding an index array puts this function into "index mode" where the vertex and other arrays become the sources of data and the index array defines the vertex order. All sub-arrays must have the same length as the vertex array or be empty, except for <see cref="F:Godot.ArrayMesh.ArrayType.Index"/> if it is used.</para>
+            <para><c>compress_flags</c> is a bitfield made of <see cref="T:Godot.Mesh.ArrayFormat"/> values. It defaults to <see cref="F:Godot.Mesh.ArrayFormat.CompressDefault"/>.</para>
+            <para>Note: The default <c>compress_flags</c> enable <see cref="F:Godot.Mesh.ArrayFormat.CompressColor"/>, which makes vertex colors stored as 8-bit unsigned integers. This will clamp overbright vertex colors to <c>Color(1, 1, 1, 1)</c> and reduce their precision. To store HDR vertex colors, remove the vertex color compression flag by passing <c>Mesh.ARRAY_COMPRESS_DEFAULT ^ Mesh.ARRAY_COMPRESS_COLOR</c> as the value of <c>compress_flags</c>.</para>
             </summary>
             <param name="blendShapes">If the parameter is null, then the default value is new Godot.Collections.Array { }</param>
         </member>
@@ -14296,7 +14302,8 @@
         <member name="T:Godot.AudioEffectCapture">
             <summary>
             <para>AudioEffectCapture is an AudioEffect which copies all audio frames from the attached audio effect bus into its internal ring buffer.</para>
-            <para>Application code should consume these audio frames from this ring buffer using <see cref="M:Godot.AudioEffectCapture.GetBuffer(System.Int32)"/> and process it as needed, for example to capture data from a microphone, implement application defined effects, or to transmit audio over the network. When capturing audio data from a microphone, the format of the samples will be stereo 32-bit floating point PCM.</para>
+            <para>Application code should consume these audio frames from this ring buffer using <see cref="M:Godot.AudioEffectCapture.GetBuffer(System.Int32)"/> and process it as needed, for example to capture data from an <see cref="T:Godot.AudioStreamMicrophone"/>, implement application-defined effects, or to transmit audio over the network. When capturing audio data from a microphone, the format of the samples will be stereo 32-bit floating point PCM.</para>
+            <para>Note:  must be <c>true</c> for audio input to work. See also that setting's description for caveats related to permissions and operating system privacy settings.</para>
             </summary>
         </member>
         <member name="P:Godot.AudioEffectCapture.BufferLength">
@@ -15032,7 +15039,8 @@
         </member>
         <member name="P:Godot.AudioServer.CaptureDevice">
             <summary>
-            <para>Name of the current device for audio input (see <see cref="M:Godot.AudioServer.GetDeviceList"/>). On systems with multiple audio inputs (such as analog, USB and HDMI audio), this can be used to select the audio input device. The value <c>"Default"</c> will record audio on the system-wide default audio input. If an invalid device name is set, the value will be reverted back to <c>"Default"</c>.</para>
+            <para>Name of the current device for audio input (see <see cref="M:Godot.AudioServer.CaptureGetDeviceList"/>). On systems with multiple audio inputs (such as analog, USB and HDMI audio), this can be used to select the audio input device. The value <c>"Default"</c> will record audio on the system-wide default audio input. If an invalid device name is set, the value will be reverted back to <c>"Default"</c>.</para>
+            <para>Note:  must be <c>true</c> for audio input to work. See also that setting's description for caveats related to permissions and operating system privacy settings.</para>
             </summary>
         </member>
         <member name="P:Godot.AudioServer.GlobalRateScale">
@@ -15219,6 +15227,7 @@
         <member name="M:Godot.AudioServer.CaptureGetDeviceList">
             <summary>
             <para>Returns the names of all audio input devices detected on the system.</para>
+            <para>Note:  must be <c>true</c> for audio input to work. See also that setting's description for caveats related to permissions and operating system privacy settings.</para>
             </summary>
         </member>
         <member name="M:Godot.AudioServer.SetBusLayout(Godot.AudioBusLayout)">
@@ -15308,6 +15317,12 @@
         <member name="P:Godot.AudioStreamMP3.LoopOffset">
             <summary>
             <para>Time in seconds at which the stream starts after being looped.</para>
+            </summary>
+        </member>
+        <member name="T:Godot.AudioStreamMicrophone">
+            <summary>
+            <para>When used directly in an <see cref="T:Godot.AudioStreamPlayer"/> node, <see cref="T:Godot.AudioStreamMicrophone"/> plays back microphone input in real-time. This can be used in conjunction with <see cref="T:Godot.AudioEffectCapture"/> to process the data or save it.</para>
+            <para>Note:  must be <c>true</c> for audio input to work. See also that setting's description for caveats related to permissions and operating system privacy settings.</para>
             </summary>
         </member>
         <member name="T:Godot.AudioStreamOGGVorbis">
@@ -15424,7 +15439,8 @@
         </member>
         <member name="T:Godot.AudioStreamPlayer2D">
             <summary>
-            <para>Plays audio that dampens with distance from screen center.</para>
+            <para>Plays audio that dampens with distance from a given position.</para>
+            <para>By default, audio is heard from the screen center. This can be changed by adding a <see cref="T:Godot.Listener2D"/> node to the scene and enabling it by calling <see cref="M:Godot.Listener2D.MakeCurrent"/> on it.</para>
             <para>See also <see cref="T:Godot.AudioStreamPlayer"/> to play a sound non-positionally.</para>
             <para>Note: Hiding an <see cref="T:Godot.AudioStreamPlayer2D"/> node does not disable its audio output. To temporarily disable an <see cref="T:Godot.AudioStreamPlayer2D"/>'s audio output, set <see cref="P:Godot.AudioStreamPlayer2D.VolumeDb"/> to a very low value like <c>-100</c> (which isn't audible to human hearing).</para>
             </summary>
@@ -17984,7 +18000,7 @@
         </member>
         <member name="P:Godot.Camera.Size">
             <summary>
-            <para>The camera's size measured as 1/2 the width or height. Only applicable in orthogonal and frustum modes. Since <see cref="P:Godot.Camera.KeepAspect"/> locks on axis, <c>size</c> sets the other axis' size length.</para>
+            <para>The camera's size in meters measured as the diameter of the width or height, depending on <see cref="P:Godot.Camera.KeepAspect"/>. Only applicable in orthogonal and frustum modes.</para>
             </summary>
         </member>
         <member name="P:Godot.Camera.FrustumOffset">
@@ -18447,7 +18463,7 @@
         <member name="T:Godot.CanvasItem">
             <summary>
             <para>Base class of anything 2D. Canvas items are laid out in a tree; children inherit and extend their parent's transform. <see cref="T:Godot.CanvasItem"/> is extended by <see cref="T:Godot.Control"/> for anything GUI-related, and by <see cref="T:Godot.Node2D"/> for anything related to the 2D engine.</para>
-            <para>Any <see cref="T:Godot.CanvasItem"/> can draw. For this, <see cref="M:Godot.CanvasItem.Update"/> must be called, then <see cref="F:Godot.CanvasItem.NotificationDraw"/> will be received on idle time to request redraw. Because of this, canvas items don't need to be redrawn on every frame, improving the performance significantly. Several functions for drawing on the <see cref="T:Godot.CanvasItem"/> are provided (see <c>draw_*</c> functions). However, they can only be used inside the <see cref="M:Godot.Object._Notification(System.Int32)"/>, signal or <see cref="M:Godot.CanvasItem._Draw"/> virtual functions.</para>
+            <para>Any <see cref="T:Godot.CanvasItem"/> can draw. For this, <see cref="M:Godot.CanvasItem.Update"/> is called by the engine, then <see cref="F:Godot.CanvasItem.NotificationDraw"/> will be received on idle time to request redraw. Because of this, canvas items don't need to be redrawn on every frame, improving the performance significantly. Several functions for drawing on the <see cref="T:Godot.CanvasItem"/> are provided (see <c>draw_*</c> functions). However, they can only be used inside <see cref="M:Godot.CanvasItem._Draw"/>, its corresponding <see cref="M:Godot.Object._Notification(System.Int32)"/> or methods connected to the <c>draw</c> signal.</para>
             <para>Canvas items are drawn in tree order. By default, children are on top of their parents so a root <see cref="T:Godot.CanvasItem"/> will be drawn behind everything. This behavior can be changed on a per-item basis.</para>
             <para>A <see cref="T:Godot.CanvasItem"/> can also be hidden, which will also hide its children. It provides many ways to change parameters such as modulation (for itself and its children) and self modulation (only for itself), as well as its blend mode.</para>
             <para>Ultimately, a transform notification can be requested, which will notify the node that its global position changed in case the parent tree changed.</para>
@@ -18466,7 +18482,7 @@
         </member>
         <member name="F:Godot.CanvasItem.NotificationDraw">
             <summary>
-            <para>The <see cref="T:Godot.CanvasItem"/> is requested to draw.</para>
+            <para>The <see cref="T:Godot.CanvasItem"/> is requested to draw (see <see cref="M:Godot.CanvasItem._Draw"/>).</para>
             </summary>
         </member>
         <member name="F:Godot.CanvasItem.NotificationVisibilityChanged">
@@ -18557,7 +18573,8 @@
         </member>
         <member name="M:Godot.CanvasItem._Draw">
             <summary>
-            <para>Overridable function called by the engine (if defined) to draw the canvas item.</para>
+            <para>Called when <see cref="T:Godot.CanvasItem"/> has been requested to redraw (when <see cref="M:Godot.CanvasItem.Update"/> is called, either manually or by the engine).</para>
+            <para>Corresponds to the <see cref="F:Godot.CanvasItem.NotificationDraw"/> notification in <see cref="M:Godot.Object._Notification(System.Int32)"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.CanvasItem.GetCanvasItem">
@@ -18567,7 +18584,7 @@
         </member>
         <member name="M:Godot.CanvasItem.IsVisibleInTree">
             <summary>
-            <para>Returns <c>true</c> if the node is present in the <see cref="T:Godot.SceneTree"/>, its <see cref="P:Godot.CanvasItem.Visible"/> property is <c>true</c> and all its antecedents are also visible. If any antecedent is hidden, this node will not be visible in the scene tree.</para>
+            <para>Returns <c>true</c> if the node is present in the <see cref="T:Godot.SceneTree"/>, its <see cref="P:Godot.CanvasItem.Visible"/> property is <c>true</c> and all its antecedents are also visible. If any antecedent is hidden, this node will not be visible in the scene tree, and is consequently not drawn (see <see cref="M:Godot.CanvasItem._Draw"/>).</para>
             </summary>
         </member>
         <member name="M:Godot.CanvasItem.Show">
@@ -18582,7 +18599,7 @@
         </member>
         <member name="M:Godot.CanvasItem.Update">
             <summary>
-            <para>Queue the <see cref="T:Godot.CanvasItem"/> for update. <see cref="F:Godot.CanvasItem.NotificationDraw"/> will be called on idle time to request redraw.</para>
+            <para>Queues the <see cref="T:Godot.CanvasItem"/> to redraw. During idle time, if <see cref="T:Godot.CanvasItem"/> is visible, <see cref="F:Godot.CanvasItem.NotificationDraw"/> is sent and <see cref="M:Godot.CanvasItem._Draw"/> is called. This only occurs once per frame, even if this method has been called multiple times.</para>
             </summary>
         </member>
         <member name="M:Godot.CanvasItem.SetAsToplevel(System.Boolean)">
@@ -18943,7 +18960,8 @@
         </member>
         <member name="P:Godot.CanvasLayer.FollowViewportEnable">
             <summary>
-            <para>Sets the layer to follow the viewport in order to simulate a pseudo 3D effect.</para>
+            <para>If enabled, the <see cref="T:Godot.CanvasLayer"/> will use the viewport's transform, so it will move when camera moves instead of being anchored in a fixed position on the screen.</para>
+            <para>Together with <see cref="P:Godot.CanvasLayer.FollowViewportScale"/> it can be used for a pseudo 3D effect.</para>
             </summary>
         </member>
         <member name="P:Godot.CanvasLayer.FollowViewportScale">
@@ -19235,8 +19253,8 @@
         </member>
         <member name="M:Godot.CollisionObject.SetCollisionLayerBit(System.Int32,System.Boolean)">
             <summary>
-            <para>If <c>value</c> is <c>true</c>, sets the specified <c>bit</c> in the the <see cref="P:Godot.CollisionObject.CollisionLayer"/>.</para>
-            <para>If <c>value</c> is <c>false</c>, clears the specified <c>bit</c> in the the <see cref="P:Godot.CollisionObject.CollisionLayer"/>.</para>
+            <para>If <c>value</c> is <c>true</c>, sets the specified <c>bit</c> in the <see cref="P:Godot.CollisionObject.CollisionLayer"/>.</para>
+            <para>If <c>value</c> is <c>false</c>, clears the specified <c>bit</c> in the <see cref="P:Godot.CollisionObject.CollisionLayer"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.CollisionObject.GetCollisionLayerBit(System.Int32)">
@@ -19246,8 +19264,8 @@
         </member>
         <member name="M:Godot.CollisionObject.SetCollisionMaskBit(System.Int32,System.Boolean)">
             <summary>
-            <para>If <c>value</c> is <c>true</c>, sets the specified <c>bit</c> in the the <see cref="P:Godot.CollisionObject.CollisionMask"/>.</para>
-            <para>If <c>value</c> is <c>false</c>, clears the specified <c>bit</c> in the the <see cref="P:Godot.CollisionObject.CollisionMask"/>.</para>
+            <para>If <c>value</c> is <c>true</c>, sets the specified <c>bit</c> in the <see cref="P:Godot.CollisionObject.CollisionMask"/>.</para>
+            <para>If <c>value</c> is <c>false</c>, clears the specified <c>bit</c> in the <see cref="P:Godot.CollisionObject.CollisionMask"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.CollisionObject.GetCollisionMaskBit(System.Int32)">
@@ -19370,8 +19388,8 @@
         </member>
         <member name="M:Godot.CollisionObject2D.SetCollisionLayerBit(System.Int32,System.Boolean)">
             <summary>
-            <para>If <c>value</c> is <c>true</c>, sets the specified <c>bit</c> in the the <see cref="P:Godot.CollisionObject2D.CollisionLayer"/>.</para>
-            <para>If <c>value</c> is <c>false</c>, clears the specified <c>bit</c> in the the <see cref="P:Godot.CollisionObject2D.CollisionLayer"/>.</para>
+            <para>If <c>value</c> is <c>true</c>, sets the specified <c>bit</c> in the <see cref="P:Godot.CollisionObject2D.CollisionLayer"/>.</para>
+            <para>If <c>value</c> is <c>false</c>, clears the specified <c>bit</c> in the <see cref="P:Godot.CollisionObject2D.CollisionLayer"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.CollisionObject2D.GetCollisionLayerBit(System.Int32)">
@@ -19381,8 +19399,8 @@
         </member>
         <member name="M:Godot.CollisionObject2D.SetCollisionMaskBit(System.Int32,System.Boolean)">
             <summary>
-            <para>If <c>value</c> is <c>true</c>, sets the specified <c>bit</c> in the the <see cref="P:Godot.CollisionObject2D.CollisionMask"/>.</para>
-            <para>If <c>value</c> is <c>false</c>, clears the specified <c>bit</c> in the the <see cref="P:Godot.CollisionObject2D.CollisionMask"/>.</para>
+            <para>If <c>value</c> is <c>true</c>, sets the specified <c>bit</c> in the <see cref="P:Godot.CollisionObject2D.CollisionMask"/>.</para>
+            <para>If <c>value</c> is <c>false</c>, clears the specified <c>bit</c> in the <see cref="P:Godot.CollisionObject2D.CollisionMask"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.CollisionObject2D.GetCollisionMaskBit(System.Int32)">
@@ -19554,7 +19572,8 @@
         </member>
         <member name="T:Godot.CollisionShape">
             <summary>
-            <para>Editor facility for creating and editing collision shapes in 3D space. You can use this node to represent all sorts of collision shapes, for example, add this to an <see cref="T:Godot.Area"/> to give it a detection shape, or add it to a <see cref="T:Godot.PhysicsBody"/> to create a solid object. IMPORTANT: this is an Editor-only helper to create shapes, use <see cref="M:Godot.CollisionObject.ShapeOwnerGetShape(System.UInt32,System.Int32)"/> to get the actual shape.</para>
+            <para>Editor facility for creating and editing collision shapes in 3D space. Set the <see cref="P:Godot.CollisionShape.Shape"/> property to configure the shape. IMPORTANT: this is an Editor-only helper to create shapes, use <see cref="M:Godot.CollisionObject.ShapeOwnerGetShape(System.UInt32,System.Int32)"/> to get the actual shape.</para>
+            <para>You can use this node to represent all sorts of collision shapes, for example, add this to an <see cref="T:Godot.Area"/> to give it a detection shape, or add it to a <see cref="T:Godot.PhysicsBody"/> to create a solid object.</para>
             </summary>
         </member>
         <member name="P:Godot.CollisionShape.Shape">
@@ -19579,7 +19598,8 @@
         </member>
         <member name="T:Godot.CollisionShape2D">
             <summary>
-            <para>Editor facility for creating and editing collision shapes in 2D space. You can use this node to represent all sorts of collision shapes, for example, add this to an <see cref="T:Godot.Area2D"/> to give it a detection shape, or add it to a <see cref="T:Godot.PhysicsBody2D"/> to create a solid object. IMPORTANT: this is an Editor-only helper to create shapes, use <see cref="M:Godot.CollisionObject2D.ShapeOwnerGetShape(System.UInt32,System.Int32)"/> to get the actual shape.</para>
+            <para>Editor facility for creating and editing collision shapes in 2D space. Set the <see cref="P:Godot.CollisionShape2D.Shape"/> property to configure the shape. IMPORTANT: this is an Editor-only helper to create shapes, use <see cref="M:Godot.CollisionObject2D.ShapeOwnerGetShape(System.UInt32,System.Int32)"/> to get the actual shape.</para>
+            <para>You can use this node to represent all sorts of collision shapes, for example, add this to an <see cref="T:Godot.Area2D"/> to give it a detection shape, or add it to a <see cref="T:Godot.PhysicsBody2D"/> to create a solid object.</para>
             </summary>
         </member>
         <member name="P:Godot.CollisionShape2D.Shape">
@@ -19708,6 +19728,7 @@
             <summary>
             <para>Concave polygon shape resource, which can be set into a <see cref="T:Godot.PhysicsBody"/> or area. This shape is created by feeding a list of triangles.</para>
             <para>Note: When used for collision, <see cref="T:Godot.ConcavePolygonShape"/> is intended to work with static <see cref="T:Godot.PhysicsBody"/> nodes like <see cref="T:Godot.StaticBody"/> and will not work with <see cref="T:Godot.KinematicBody"/> or <see cref="T:Godot.RigidBody"/> with a mode other than Static.</para>
+            <para>Warning: Using this shape for an <see cref="T:Godot.Area"/> (via a <see cref="T:Godot.CollisionShape"/> node, created e.g. by using the Create Trimesh Collision Sibling option in the Mesh menu that appears when selecting a <see cref="T:Godot.MeshInstance"/> node) may give unexpected results: when using Godot Physics, the area will only detect collisions with the triangle faces in the <see cref="T:Godot.ConcavePolygonShape"/> (and not with any "inside" of the shape, for example), and when using Bullet Physics the area will not detect any collisions with the concave shape at all (this is a known bug).</para>
             </summary>
         </member>
         <member name="M:Godot.ConcavePolygonShape.SetFaces(Godot.Vector3[])">
@@ -19724,6 +19745,7 @@
             <summary>
             <para>Concave polygon 2D shape resource for physics. It is made out of segments and is optimal for complex polygonal concave collisions. However, it is not advised to use for <see cref="T:Godot.RigidBody2D"/> nodes. A CollisionPolygon2D in convex decomposition mode (solids) or several convex objects are advised for that instead. Otherwise, a concave polygon 2D shape is better for static collisions.</para>
             <para>The main difference between a <see cref="T:Godot.ConvexPolygonShape2D"/> and a <see cref="T:Godot.ConcavePolygonShape2D"/> is that a concave polygon assumes it is concave and uses a more complex method of collision detection, and a convex one forces itself to be convex in order to speed up collision detection.</para>
+            <para>Warning: Using this shape for an <see cref="T:Godot.Area2D"/> (via a <see cref="T:Godot.CollisionShape2D"/> node) may give unexpected results: the area will only detect collisions with the segments in the <see cref="T:Godot.ConcavePolygonShape2D"/> (and not with any "inside" of the shape, for example).</para>
             </summary>
         </member>
         <member name="P:Godot.ConcavePolygonShape2D.Segments">
@@ -20723,6 +20745,7 @@
         <member name="M:Godot.Control.GrabFocus">
             <summary>
             <para>Steal the focus from another control and become the focused control (see <see cref="P:Godot.Control.FocusMode"/>).</para>
+            <para>Note: Using this method together with <see cref="M:Godot.Object.CallDeferred(System.String,System.Object[])"/> makes it more reliable, especially when called inside <see cref="M:Godot.Node._Ready"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.Control.ReleaseFocus">
@@ -21388,6 +21411,7 @@
         <member name="T:Godot.Curve">
             <summary>
             <para>A curve that can be saved and re-used for other objects. By default, it ranges between <c>0</c> and <c>1</c> on the Y axis and positions points relative to the <c>0.5</c> Y position.</para>
+            <para>See also <see cref="T:Godot.Gradient"/> which is designed for color interpolation. See also <see cref="T:Godot.Curve2D"/> and <see cref="T:Godot.Curve3D"/>.</para>
             </summary>
         </member>
         <member name="F:Godot.Curve.TangentMode.Free">
@@ -21533,8 +21557,8 @@
         </member>
         <member name="M:Godot.Curve2D.AddPoint(Godot.Vector2,System.Nullable{Godot.Vector2},System.Nullable{Godot.Vector2},System.Int32)">
             <summary>
-            <para>Adds a point to a curve at <c>position</c> relative to the <see cref="T:Godot.Curve2D"/>'s position, with control points <c>in</c> and <c>out</c>.</para>
-            <para>If <c>at_position</c> is given, the point is inserted before the point number <c>at_position</c>, moving that point (and every point after) after the inserted point. If <c>at_position</c> is not given, or is an illegal value (<c>at_position &lt;0</c> or <c>at_position &gt;= [method get_point_count]</c>), the point will be appended at the end of the point list.</para>
+            <para>Adds a point with the specified <c>position</c> relative to the curve's own position, with control points <c>in</c> and <c>out</c>. Appends the new point at the end of the point list.</para>
+            <para>If <c>index</c> is given, the new point is inserted before the existing point identified by index <c>index</c>. Every existing point starting from <c>index</c> is shifted further down the list of points. The index must be greater than or equal to <c>0</c> and must not exceed the number of existing points in the line. See <see cref="M:Godot.Curve2D.GetPointCount"/>.</para>
             </summary>
             <param name="in">If the parameter is null, then the default value is new Vector2(0, 0)</param>
             <param name="out">If the parameter is null, then the default value is new Vector2(0, 0)</param>
@@ -21650,8 +21674,8 @@
         </member>
         <member name="M:Godot.Curve3D.AddPoint(Godot.Vector3,System.Nullable{Godot.Vector3},System.Nullable{Godot.Vector3},System.Int32)">
             <summary>
-            <para>Adds a point to a curve at <c>position</c> relative to the <see cref="T:Godot.Curve3D"/>'s position, with control points <c>in</c> and <c>out</c>.</para>
-            <para>If <c>at_position</c> is given, the point is inserted before the point number <c>at_position</c>, moving that point (and every point after) after the inserted point. If <c>at_position</c> is not given, or is an illegal value (<c>at_position &lt;0</c> or <c>at_position &gt;= [method get_point_count]</c>), the point will be appended at the end of the point list.</para>
+            <para>Adds a point with the specified <c>position</c> relative to the curve's own position, with control points <c>in</c> and <c>out</c>. Appends the new point at the end of the point list.</para>
+            <para>If <c>index</c> is given, the new point is inserted before the existing point identified by index <c>index</c>. Every existing point starting from <c>index</c> is shifted further down the list of points. The index must be greater than or equal to <c>0</c> and must not exceed the number of existing points in the line. See <see cref="M:Godot.Curve3D.GetPointCount"/>.</para>
             </summary>
             <param name="in">If the parameter is null, then the default value is new Vector3(0, 0, 0)</param>
             <param name="out">If the parameter is null, then the default value is new Vector3(0, 0, 0)</param>
@@ -23031,6 +23055,7 @@
         <member name="M:Godot.Font.DrawChar(Godot.RID,Godot.Vector2,System.Int32,System.Int32,System.Nullable{Godot.Color},System.Boolean)">
             <summary>
             <para>Draw character <c>char</c> into a canvas item using the font at a given position, with <c>modulate</c> color, and optionally kerning if <c>next</c> is passed. clipping the width. <c>position</c> specifies the baseline, not the top. To draw from the top, ascent must be added to the Y axis. The width used by the character is returned, making this function useful for drawing strings character by character.</para>
+            <para>If <c>outline</c> is <c>true</c>, the outline of the character is drawn instead of the character itself.</para>
             </summary>
             <param name="modulate">If the parameter is null, then the default value is new Color(1, 1, 1, 1)</param>
         </member>
@@ -23929,7 +23954,8 @@
         </member>
         <member name="T:Godot.Gradient">
             <summary>
-            <para>Given a set of colors, this resource will interpolate them in order. This means that if you have color 1, color 2 and color 3, the ramp will interpolate from color 1 to color 2 and from color 2 to color 3. The ramp will initially have 2 colors (black and white), one (black) at ramp lower offset 0 and the other (white) at the ramp higher offset 1.</para>
+            <para>Given a set of colors, this resource will interpolate them in order. This means that if you have color 1, color 2 and color 3, the gradient will interpolate from color 1 to color 2 and from color 2 to color 3. The gradient will initially have 2 colors (black and white), one (black) at gradient lower offset 0 and the other (white) at the gradient higher offset 1.</para>
+            <para>See also <see cref="T:Godot.Curve"/> which supports more complex easing methods, but does not support colors.</para>
             </summary>
         </member>
         <member name="F:Godot.Gradient.InterpolationModeEnum.Linear">
@@ -24688,7 +24714,8 @@
         </member>
         <member name="T:Godot.HTTPClient">
             <summary>
-            <para>Hyper-text transfer protocol client (sometimes called "User Agent"). Used to make HTTP requests to download web content, upload files and other data or to communicate with various services, among other use cases. See the <see cref="T:Godot.HTTPRequest"/> node for a higher-level alternative.</para>
+            <para>Hyper-text transfer protocol client (sometimes called "User Agent"). Used to make HTTP requests to download web content, upload files and other data or to communicate with various services, among other use cases.</para>
+            <para>See the <see cref="T:Godot.HTTPRequest"/> node for a higher-level alternative.</para>
             <para>Note: This client only needs to connect to a host once (see <see cref="M:Godot.HTTPClient.ConnectToHost(System.String,System.Int32,System.Boolean,System.Boolean)"/>) to send multiple requests. Because of this, methods that take URLs usually take just the part after the host instead of the full URL, as the client is already connected to a host. See <see cref="M:Godot.HTTPClient.Request(Godot.HTTPClient.Method,System.String,System.String[],System.String)"/> for a full example and to get started.</para>
             <para>A <see cref="T:Godot.HTTPClient"/> should be reused between multiple requests or to connect to different hosts instead of creating one client per request. Supports SSL and SSL server certificate verification. HTTP status codes in the 2xx range indicate success, 3xx redirection (i.e. "try again, but over here"), 4xx something was wrong with the request, and 5xx something went wrong on the server's side.</para>
             <para>For more information on HTTP, see https://developer.mozilla.org/en-US/docs/Web/HTTP (or read RFC 2616 to get it straight from the source: https://tools.ietf.org/html/rfc2616).</para>
@@ -27365,9 +27392,16 @@
             <para>The InstancePlaceholder does not have a transform. This causes any child nodes to be positioned relatively to the Viewport from point (0,0), rather than their parent as displayed in the editor. Replacing the placeholder with a scene with a transform will transform children relatively to their parent again.</para>
             </summary>
         </member>
+        <member name="M:Godot.InstancePlaceholder.GetStoredValues(System.Boolean)">
+            <summary>
+            <para>Returns the list of properties that will be applied to the node when <see cref="M:Godot.InstancePlaceholder.CreateInstance(System.Boolean,Godot.PackedScene)"/> is called.</para>
+            <para>If <c>with_order</c> is <c>true</c>, a key named <c>.order</c> (note the leading period) is added to the dictionary. This <c>.order</c> key is an <see cref="T:Godot.Collections.Array"/> of <see cref="T:System.String"/> property names specifying the order in which properties will be applied (with index 0 being the first).</para>
+            </summary>
+        </member>
         <member name="M:Godot.InstancePlaceholder.CreateInstance(System.Boolean,Godot.PackedScene)">
             <summary>
-            <para>Not thread-safe. Use <see cref="M:Godot.Object.CallDeferred(System.String,System.Object[])"/> if calling from a thread.</para>
+            <para>Call this method to actually load in the node. The created node will be placed as a sibling above the <see cref="T:Godot.InstancePlaceholder"/> in the scene tree. The <see cref="T:Godot.Node"/>'s reference is also returned for convenience.</para>
+            <para>Note: <see cref="M:Godot.InstancePlaceholder.CreateInstance(System.Boolean,Godot.PackedScene)"/> is not thread-safe. Use <see cref="M:Godot.Object.CallDeferred(System.String,System.Object[])"/> if calling from a thread.</para>
             </summary>
         </member>
         <member name="M:Godot.InstancePlaceholder.ReplaceByInstance(Godot.PackedScene)">
@@ -29227,28 +29261,28 @@
         </member>
         <member name="M:Godot.Line2D.SetPointPosition(System.Int32,Godot.Vector2)">
             <summary>
-            <para>Overwrites the position in point <c>i</c> with the supplied <c>position</c>.</para>
+            <para>Overwrites the position of the point at index <c>index</c> with the supplied <c>position</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Line2D.GetPointPosition(System.Int32)">
             <summary>
-            <para>Returns point <c>i</c>'s position.</para>
+            <para>Returns the position of the point at index <c>index</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Line2D.GetPointCount">
             <summary>
-            <para>Returns the Line2D's amount of points.</para>
+            <para>Returns the amount of points in the line.</para>
             </summary>
         </member>
         <member name="M:Godot.Line2D.AddPoint(Godot.Vector2,System.Int32)">
             <summary>
-            <para>Adds a point at the <c>position</c>. Appends the point at the end of the line.</para>
-            <para>If <c>at_position</c> is given, the point is inserted before the point number <c>at_position</c>, moving that point (and every point after) after the inserted point. If <c>at_position</c> is not given, or is an illegal value (<c>at_position &lt; 0</c> or <c>at_position &gt;= [method get_point_count]</c>), the point will be appended at the end of the point list.</para>
+            <para>Adds a point with the specified <c>position</c> relative to the line's own position. Appends the new point at the end of the point list.</para>
+            <para>If <c>index</c> is given, the new point is inserted before the existing point identified by index <c>index</c>. Every existing point starting from <c>index</c> is shifted further down the list of points. The index must be greater than or equal to <c>0</c> and must not exceed the number of existing points in the line. See <see cref="M:Godot.Line2D.GetPointCount"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.Line2D.RemovePoint(System.Int32)">
             <summary>
-            <para>Removes the point at index <c>i</c> from the line.</para>
+            <para>Removes the point at index <c>index</c> from the line.</para>
             </summary>
         </member>
         <member name="M:Godot.Line2D.ClearPoints">
@@ -29996,6 +30030,7 @@
         <member name="F:Godot.Mesh.ArrayFormat.CompressColor">
             <summary>
             <para>Flag used to mark a compressed (half float) color array.</para>
+            <para>Note: If this flag is enabled, vertex colors will be stored as 8-bit unsigned integers. This will clamp overbright colors to <c>Color(1, 1, 1, 1)</c> and reduce colors' precision.</para>
             </summary>
         </member>
         <member name="F:Godot.Mesh.ArrayFormat.CompressTexUv">
@@ -30041,6 +30076,7 @@
         <member name="F:Godot.Mesh.ArrayFormat.CompressDefault">
             <summary>
             <para>Used to set flags <see cref="F:Godot.Mesh.ArrayFormat.CompressVertex"/>, <see cref="F:Godot.Mesh.ArrayFormat.CompressNormal"/>, <see cref="F:Godot.Mesh.ArrayFormat.CompressTangent"/>, <see cref="F:Godot.Mesh.ArrayFormat.CompressColor"/>, <see cref="F:Godot.Mesh.ArrayFormat.CompressTexUv"/>, <see cref="F:Godot.Mesh.ArrayFormat.CompressTexUv2"/>, <see cref="F:Godot.Mesh.ArrayFormat.CompressWeights"/>, and <see cref="F:Godot.Mesh.ArrayFormat.FlagUseOctahedralCompression"/> quickly.</para>
+            <para>Note: Since this flag enables <see cref="F:Godot.Mesh.ArrayFormat.CompressColor"/>, vertex colors will be stored as 8-bit unsigned integers. This will clamp overbright colors to <c>Color(1, 1, 1, 1)</c> and reduce colors' precision.</para>
             </summary>
         </member>
         <member name="F:Godot.Mesh.ArrayType.Vertex">
@@ -30800,7 +30836,7 @@
         <member name="M:Godot.MultiMesh.SetInstanceColor(System.Int32,Godot.Color)">
             <summary>
             <para>Sets the color of a specific instance by multiplying the mesh's existing vertex colors.</para>
-            <para>For the color to take effect, ensure that <see cref="P:Godot.MultiMesh.ColorFormat"/> is non-<c>null</c> on the <see cref="T:Godot.MultiMesh"/> and <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> is <c>true</c> on the material.</para>
+            <para>For the color to take effect, ensure that <see cref="P:Godot.MultiMesh.ColorFormat"/> is non-<c>null</c> on the <see cref="T:Godot.MultiMesh"/> and <see cref="P:Godot.SpatialMaterial.VertexColorUseAsAlbedo"/> is <c>true</c> on the material. If the color doesn't look as expected, make sure the material's albedo color is set to pure white (<c>Color(1, 1, 1)</c>).</para>
             </summary>
         </member>
         <member name="M:Godot.MultiMesh.GetInstanceColor(System.Int32)">
@@ -37696,6 +37732,7 @@
         <member name="M:Godot.PopupMenu.SetCurrentIndex(System.Int32)">
             <summary>
             <para>Sets the currently focused item as the given <c>index</c>.</para>
+            <para>Passing <c>-1</c> as the index makes so that no item is focused.</para>
             </summary>
         </member>
         <member name="M:Godot.PopupMenu.GetCurrentIndex">
@@ -37738,6 +37775,7 @@
         <member name="T:Godot.PopupPanel">
             <summary>
             <para>Class for displaying popups with a panel background. In some cases it might be simpler to use than <see cref="T:Godot.Popup"/>, since it provides a configurable background. If you are making windows, better check <see cref="T:Godot.WindowDialog"/>.</para>
+            <para>If any <see cref="T:Godot.Control"/> node is added as a child of this <see cref="T:Godot.PopupPanel"/>, it will be stretched to fit the panel's size (similar to how <see cref="T:Godot.PanelContainer"/> works).</para>
             </summary>
         </member>
         <member name="T:Godot.Portal">
@@ -40004,8 +40042,9 @@
         <member name="P:Godot.RoomManager.Active">
             <summary>
             <para>Switches the portal culling system on and off.</para>
-            <para>It is important to note that when portal culling is active, it is responsible for all the 3d culling. Some editor functionality may be more difficult to use, so switching the active flag is intended to be used to make sure your <see cref="T:Godot.Room"/> / <see cref="T:Godot.Portal"/> layout works within the editor.</para>
+            <para>It is important to note that when portal culling is active, it is responsible for all the 3d culling. Some editor visual debugging helpers may not be available when active, so switching the active flag is intended to be used to ensure your <see cref="T:Godot.Room"/> / <see cref="T:Godot.Portal"/> layout works within the editor.</para>
             <para>Switching to <c>active</c> will have no effect when the <c>room graph</c> is unloaded (the rooms have not yet been converted).</para>
+            <para>Note: For efficiency, the portal system is designed to work with only the core visual object types. In particular, only nodes derived from <see cref="T:Godot.VisualInstance"/> are expected to show when the system is active.</para>
             </summary>
         </member>
         <member name="P:Godot.RoomManager.Roomlist">
@@ -40327,11 +40366,13 @@
         <member name="P:Godot.SceneTree.DebugCollisionsHint">
             <summary>
             <para>If <c>true</c>, collision shapes will be visible when running the game from the editor for debugging purposes.</para>
+            <para>Note: This property is not designed to be changed at run-time. Changing the value of <see cref="P:Godot.SceneTree.DebugCollisionsHint"/> while the project is running will not have the desired effect.</para>
             </summary>
         </member>
         <member name="P:Godot.SceneTree.DebugNavigationHint">
             <summary>
             <para>If <c>true</c>, navigation polygons will be visible when running the game from the editor for debugging purposes.</para>
+            <para>Note: This property is not designed to be changed at run-time. Changing the value of <see cref="P:Godot.SceneTree.DebugNavigationHint"/> while the project is running will not have the desired effect.</para>
             </summary>
         </member>
         <member name="P:Godot.SceneTree.Paused">
@@ -40595,9 +40636,18 @@
                 tween.tween_property(sprite, "position", Vector2(0, 0), 1)
             </code></para>
             <para>In the example above, all children of a node are moved one after another to position (0, 0).</para>
+            <para>You should avoid using more than one <see cref="T:Godot.SceneTreeTween"/> per object's property. If two or more tweens animate one property at the same time, the last one created will take priority and assign the final value. If you want to interrupt and restart an animation, consider assigning the <see cref="T:Godot.SceneTreeTween"/> to a variable:</para>
+            <para><code>
+            var tween
+            func animate():
+                if tween:
+                    tween.kill() # Abort the previous animation.
+                tween = create_tween()
+            </code></para>
             <para>Some <see cref="T:Godot.Tweener"/>s use transitions and eases. The first accepts a <see cref="T:Godot.Tween.TransitionType"/> constant, and refers to the way the timing of the animation is handled (see <a href="https://easings.net/">easings.net</a> for some examples). The second accepts an <see cref="T:Godot.Tween.EaseType"/> constant, and controls where the <c>trans_type</c> is applied to the interpolation (in the beginning, the end, or both). If you don't know which transition and easing to pick, you can try different <see cref="T:Godot.Tween.TransitionType"/> constants with <see cref="F:Godot.Tween.EaseType.InOut"/>, and use the one that looks best.</para>
             <para><a href="https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.png">Tween easing and transition types cheatsheet</a></para>
             <para>Note: All <see cref="T:Godot.SceneTreeTween"/>s will automatically start by default. To prevent a <see cref="T:Godot.SceneTreeTween"/> from autostarting, you can call <see cref="M:Godot.SceneTreeTween.Stop"/> immediately after it is created.</para>
+            <para>Note: <see cref="T:Godot.SceneTreeTween"/>s are processing after all of nodes in the current frame, i.e. after <see cref="M:Godot.Node._Process(System.Single)"/> or <see cref="M:Godot.Node._PhysicsProcess(System.Single)"/> (depending on <see cref="T:Godot.Tween.TweenProcessMode"/>).</para>
             </summary>
         </member>
         <member name="F:Godot.SceneTreeTween.TweenPauseMode.Bound">
@@ -41081,7 +41131,8 @@
         </member>
         <member name="P:Godot.Shape2D.CustomSolverBias">
             <summary>
-            <para>The shape's custom solver bias.</para>
+            <para>The shape's custom solver bias. Defines how much bodies react to enforce contact separation when this shape is involved.</para>
+            <para>When set to <c>0.0</c>, the default value of <c>0.3</c> is used.</para>
             </summary>
         </member>
         <member name="M:Godot.Shape2D.Collide(Godot.Transform2D,Godot.Shape2D,Godot.Transform2D)">
@@ -42790,7 +42841,7 @@
             <summary>
             <para>If <c>true</c>, anisotropy is enabled. Anisotropy changes the shape of the specular blob and aligns it to tangent space. This is useful for brushed aluminium and hair reflections.</para>
             <para>Note: Mesh tangents are needed for anisotropy to work. If the mesh does not contain tangents, the anisotropy effect will appear broken.</para>
-            <para>Note: Material anisotropy should not to be confused with anisotropic texture filtering. Anisotropic texture filtering can be enabled by selecting a texture in the FileSystem dock, going to the Import dock, checking the Anisotropic checkbox then clicking Reimport.</para>
+            <para>Note: Material anisotropy should not to be confused with anisotropic texture filtering. Anisotropic texture filtering can be enabled by selecting a texture in the FileSystem dock, going to the Import dock, checking the Anisotropic checkbox then clicking Reimport. The anisotropic filtering level can be changed by adjusting .</para>
             </summary>
         </member>
         <member name="P:Godot.SpatialMaterial.Anisotropy">
@@ -43356,7 +43407,7 @@
         </member>
         <member name="P:Godot.Sprite3D.Texture">
             <summary>
-            <para><see cref="T:Godot.Texture"/> object to draw. If <see cref="P:Godot.GeometryInstance.MaterialOverride"/> is used, this will be overridden.</para>
+            <para><see cref="T:Godot.Texture"/> object to draw. If <see cref="P:Godot.GeometryInstance.MaterialOverride"/> is used, this will be overridden. The size information is still used.</para>
             </summary>
         </member>
         <member name="P:Godot.Sprite3D.Hframes">
@@ -44884,6 +44935,16 @@
             <para>Returns the <see cref="T:Godot.Texture"/> for the tab at index <c>tab_idx</c> or <c>null</c> if the tab has no <see cref="T:Godot.Texture"/>.</para>
             </summary>
         </member>
+        <member name="M:Godot.Tabs.SetTabButtonIcon(System.Int32,Godot.Texture)">
+            <summary>
+            <para>Sets the button icon from the tab at index <c>tab_idx</c>.</para>
+            </summary>
+        </member>
+        <member name="M:Godot.Tabs.GetTabButtonIcon(System.Int32)">
+            <summary>
+            <para>Returns the button icon from the tab at index <c>tab_idx</c>.</para>
+            </summary>
+        </member>
         <member name="M:Godot.Tabs.SetTabDisabled(System.Int32,System.Boolean)">
             <summary>
             <para>If <c>disabled</c> is <c>true</c>, disables the tab at index <c>tab_idx</c>, making it non-interactable.</para>
@@ -46138,34 +46199,34 @@
         </member>
         <member name="M:Godot.Theme.SetIcon(System.String,System.String,Godot.Texture)">
             <summary>
-            <para>Sets the theme's icon <see cref="T:Godot.Texture"/> to <c>texture</c> at <c>name</c> in <c>node_type</c>.</para>
-            <para>Creates <c>node_type</c> if the theme does not have it.</para>
+            <para>Sets the theme's icon <see cref="T:Godot.Texture"/> to <c>texture</c> at <c>name</c> in <c>theme_type</c>.</para>
+            <para>Creates <c>theme_type</c> if the theme does not have it.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetIcon(System.String,System.String)">
             <summary>
-            <para>Returns the icon <see cref="T:Godot.Texture"/> at <c>name</c> if the theme has <c>node_type</c>.</para>
+            <para>Returns the icon <see cref="T:Godot.Texture"/> at <c>name</c> if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.HasIcon(System.String,System.String)">
             <summary>
-            <para>Returns <c>true</c> if icon <see cref="T:Godot.Texture"/> with <c>name</c> is in <c>node_type</c>.</para>
-            <para>Returns <c>false</c> if the theme does not have <c>node_type</c>.</para>
+            <para>Returns <c>true</c> if icon <see cref="T:Godot.Texture"/> with <c>name</c> is in <c>theme_type</c>.</para>
+            <para>Returns <c>false</c> if the theme does not have <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.RenameIcon(System.String,System.String,System.String)">
             <summary>
-            <para>Renames the icon at <c>old_name</c> to <c>name</c> if the theme has <c>node_type</c>. If <c>name</c> is already taken, this method fails.</para>
+            <para>Renames the icon at <c>old_name</c> to <c>name</c> if the theme has <c>theme_type</c>. If <c>name</c> is already taken, this method fails.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.ClearIcon(System.String,System.String)">
             <summary>
-            <para>Clears the icon at <c>name</c> if the theme has <c>node_type</c>.</para>
+            <para>Clears the icon at <c>name</c> if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetIconList(System.String)">
             <summary>
-            <para>Returns all the icons as a <see cref="T:System.String"/> filled with each <see cref="T:Godot.Texture"/>'s name, for use in <see cref="M:Godot.Theme.GetIcon(System.String,System.String)"/>, if the theme has <c>node_type</c>.</para>
+            <para>Returns all the icons as a <see cref="T:System.String"/> filled with each <see cref="T:Godot.Texture"/>'s name, for use in <see cref="M:Godot.Theme.GetIcon(System.String,System.String)"/>, if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetIconTypes">
@@ -46175,36 +46236,36 @@
         </member>
         <member name="M:Godot.Theme.SetStylebox(System.String,System.String,Godot.StyleBox)">
             <summary>
-            <para>Sets theme's <see cref="T:Godot.StyleBox"/> to <c>stylebox</c> at <c>name</c> in <c>node_type</c>.</para>
-            <para>Creates <c>node_type</c> if the theme does not have it.</para>
+            <para>Sets theme's <see cref="T:Godot.StyleBox"/> to <c>stylebox</c> at <c>name</c> in <c>theme_type</c>.</para>
+            <para>Creates <c>theme_type</c> if the theme does not have it.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetStylebox(System.String,System.String)">
             <summary>
-            <para>Returns the <see cref="T:Godot.StyleBox"/> at <c>name</c> if the theme has <c>node_type</c>.</para>
-            <para>Valid <c>name</c>s may be found using <see cref="M:Godot.Theme.GetStyleboxList(System.String)"/>. Valid <c>node_type</c>s may be found using <see cref="M:Godot.Theme.GetStyleboxTypes"/>.</para>
+            <para>Returns the <see cref="T:Godot.StyleBox"/> at <c>name</c> if the theme has <c>theme_type</c>.</para>
+            <para>Valid <c>name</c>s may be found using <see cref="M:Godot.Theme.GetStyleboxList(System.String)"/>. Valid <c>theme_type</c>s may be found using <see cref="M:Godot.Theme.GetStyleboxTypes"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.HasStylebox(System.String,System.String)">
             <summary>
-            <para>Returns <c>true</c> if <see cref="T:Godot.StyleBox"/> with <c>name</c> is in <c>node_type</c>.</para>
-            <para>Returns <c>false</c> if the theme does not have <c>node_type</c>.</para>
+            <para>Returns <c>true</c> if <see cref="T:Godot.StyleBox"/> with <c>name</c> is in <c>theme_type</c>.</para>
+            <para>Returns <c>false</c> if the theme does not have <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.RenameStylebox(System.String,System.String,System.String)">
             <summary>
-            <para>Renames <see cref="T:Godot.StyleBox"/> at <c>old_name</c> to <c>name</c> if the theme has <c>node_type</c>. If <c>name</c> is already taken, this method fails.</para>
+            <para>Renames <see cref="T:Godot.StyleBox"/> at <c>old_name</c> to <c>name</c> if the theme has <c>theme_type</c>. If <c>name</c> is already taken, this method fails.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.ClearStylebox(System.String,System.String)">
             <summary>
-            <para>Clears <see cref="T:Godot.StyleBox"/> at <c>name</c> if the theme has <c>node_type</c>.</para>
+            <para>Clears <see cref="T:Godot.StyleBox"/> at <c>name</c> if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetStyleboxList(System.String)">
             <summary>
-            <para>Returns all the <see cref="T:Godot.StyleBox"/>s as a <see cref="T:System.String"/> filled with each <see cref="T:Godot.StyleBox"/>'s name, for use in <see cref="M:Godot.Theme.GetStylebox(System.String,System.String)"/>, if the theme has <c>node_type</c>.</para>
-            <para>Valid <c>node_type</c>s may be found using <see cref="M:Godot.Theme.GetStyleboxTypes"/>.</para>
+            <para>Returns all the <see cref="T:Godot.StyleBox"/>s as a <see cref="T:System.String"/> filled with each <see cref="T:Godot.StyleBox"/>'s name, for use in <see cref="M:Godot.Theme.GetStylebox(System.String,System.String)"/>, if the theme has <c>theme_type</c>.</para>
+            <para>Valid <c>theme_type</c>s may be found using <see cref="M:Godot.Theme.GetStyleboxTypes"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetStyleboxTypes">
@@ -46214,34 +46275,34 @@
         </member>
         <member name="M:Godot.Theme.SetFont(System.String,System.String,Godot.Font)">
             <summary>
-            <para>Sets the theme's <see cref="T:Godot.Font"/> to <c>font</c> at <c>name</c> in <c>node_type</c>.</para>
-            <para>Creates <c>node_type</c> if the theme does not have it.</para>
+            <para>Sets the theme's <see cref="T:Godot.Font"/> to <c>font</c> at <c>name</c> in <c>theme_type</c>.</para>
+            <para>Creates <c>theme_type</c> if the theme does not have it.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetFont(System.String,System.String)">
             <summary>
-            <para>Returns the <see cref="T:Godot.Font"/> at <c>name</c> if the theme has <c>node_type</c>. If such item does not exist and <see cref="P:Godot.Theme.DefaultFont"/> is set on the theme, the default font will be returned.</para>
+            <para>Returns the <see cref="T:Godot.Font"/> at <c>name</c> if the theme has <c>theme_type</c>. If such item does not exist and <see cref="P:Godot.Theme.DefaultFont"/> is set on the theme, the default font will be returned.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.HasFont(System.String,System.String)">
             <summary>
-            <para>Returns <c>true</c> if <see cref="T:Godot.Font"/> with <c>name</c> is in <c>node_type</c>.</para>
-            <para>Returns <c>false</c> if the theme does not have <c>node_type</c>.</para>
+            <para>Returns <c>true</c> if <see cref="T:Godot.Font"/> with <c>name</c> is in <c>theme_type</c>.</para>
+            <para>Returns <c>false</c> if the theme does not have <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.RenameFont(System.String,System.String,System.String)">
             <summary>
-            <para>Renames the <see cref="T:Godot.Font"/> at <c>old_name</c> to <c>name</c> if the theme has <c>node_type</c>. If <c>name</c> is already taken, this method fails.</para>
+            <para>Renames the <see cref="T:Godot.Font"/> at <c>old_name</c> to <c>name</c> if the theme has <c>theme_type</c>. If <c>name</c> is already taken, this method fails.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.ClearFont(System.String,System.String)">
             <summary>
-            <para>Clears the <see cref="T:Godot.Font"/> at <c>name</c> if the theme has <c>node_type</c>.</para>
+            <para>Clears the <see cref="T:Godot.Font"/> at <c>name</c> if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetFontList(System.String)">
             <summary>
-            <para>Returns all the <see cref="T:Godot.Font"/>s as a <see cref="T:System.String"/> filled with each <see cref="T:Godot.Font"/>'s name, for use in <see cref="M:Godot.Theme.GetFont(System.String,System.String)"/>, if the theme has <c>node_type</c>.</para>
+            <para>Returns all the <see cref="T:Godot.Font"/>s as a <see cref="T:System.String"/> filled with each <see cref="T:Godot.Font"/>'s name, for use in <see cref="M:Godot.Theme.GetFont(System.String,System.String)"/>, if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetFontTypes">
@@ -46251,34 +46312,34 @@
         </member>
         <member name="M:Godot.Theme.SetColor(System.String,System.String,Godot.Color)">
             <summary>
-            <para>Sets the theme's <see cref="T:Godot.Color"/> to <c>color</c> at <c>name</c> in <c>node_type</c>.</para>
-            <para>Creates <c>node_type</c> if the theme does not have it.</para>
+            <para>Sets the theme's <see cref="T:Godot.Color"/> to <c>color</c> at <c>name</c> in <c>theme_type</c>.</para>
+            <para>Creates <c>theme_type</c> if the theme does not have it.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetColor(System.String,System.String)">
             <summary>
-            <para>Returns the <see cref="T:Godot.Color"/> at <c>name</c> if the theme has <c>node_type</c>.</para>
+            <para>Returns the <see cref="T:Godot.Color"/> at <c>name</c> if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.HasColor(System.String,System.String)">
             <summary>
-            <para>Returns <c>true</c> if <see cref="T:Godot.Color"/> with <c>name</c> is in <c>node_type</c>.</para>
-            <para>Returns <c>false</c> if the theme does not have <c>node_type</c>.</para>
+            <para>Returns <c>true</c> if <see cref="T:Godot.Color"/> with <c>name</c> is in <c>theme_type</c>.</para>
+            <para>Returns <c>false</c> if the theme does not have <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.RenameColor(System.String,System.String,System.String)">
             <summary>
-            <para>Renames the <see cref="T:Godot.Color"/> at <c>old_name</c> to <c>name</c> if the theme has <c>node_type</c>. If <c>name</c> is already taken, this method fails.</para>
+            <para>Renames the <see cref="T:Godot.Color"/> at <c>old_name</c> to <c>name</c> if the theme has <c>theme_type</c>. If <c>name</c> is already taken, this method fails.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.ClearColor(System.String,System.String)">
             <summary>
-            <para>Clears the <see cref="T:Godot.Color"/> at <c>name</c> if the theme has <c>node_type</c>.</para>
+            <para>Clears the <see cref="T:Godot.Color"/> at <c>name</c> if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetColorList(System.String)">
             <summary>
-            <para>Returns all the <see cref="T:Godot.Color"/>s as a <see cref="T:System.String"/> filled with each <see cref="T:Godot.Color"/>'s name, for use in <see cref="M:Godot.Theme.GetColor(System.String,System.String)"/>, if the theme has <c>node_type</c>.</para>
+            <para>Returns all the <see cref="T:Godot.Color"/>s as a <see cref="T:System.String"/> filled with each <see cref="T:Godot.Color"/>'s name, for use in <see cref="M:Godot.Theme.GetColor(System.String,System.String)"/>, if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetColorTypes">
@@ -46288,34 +46349,34 @@
         </member>
         <member name="M:Godot.Theme.SetConstant(System.String,System.String,System.Int32)">
             <summary>
-            <para>Sets the theme's constant to <c>constant</c> at <c>name</c> in <c>node_type</c>.</para>
-            <para>Creates <c>node_type</c> if the theme does not have it.</para>
+            <para>Sets the theme's constant to <c>constant</c> at <c>name</c> in <c>theme_type</c>.</para>
+            <para>Creates <c>theme_type</c> if the theme does not have it.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetConstant(System.String,System.String)">
             <summary>
-            <para>Returns the constant at <c>name</c> if the theme has <c>node_type</c>.</para>
+            <para>Returns the constant at <c>name</c> if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.HasConstant(System.String,System.String)">
             <summary>
-            <para>Returns <c>true</c> if constant with <c>name</c> is in <c>node_type</c>.</para>
-            <para>Returns <c>false</c> if the theme does not have <c>node_type</c>.</para>
+            <para>Returns <c>true</c> if constant with <c>name</c> is in <c>theme_type</c>.</para>
+            <para>Returns <c>false</c> if the theme does not have <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.RenameConstant(System.String,System.String,System.String)">
             <summary>
-            <para>Renames the constant at <c>old_name</c> to <c>name</c> if the theme has <c>node_type</c>. If <c>name</c> is already taken, this method fails.</para>
+            <para>Renames the constant at <c>old_name</c> to <c>name</c> if the theme has <c>theme_type</c>. If <c>name</c> is already taken, this method fails.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.ClearConstant(System.String,System.String)">
             <summary>
-            <para>Clears the constant at <c>name</c> if the theme has <c>node_type</c>.</para>
+            <para>Clears the constant at <c>name</c> if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetConstantList(System.String)">
             <summary>
-            <para>Returns all the constants as a <see cref="T:System.String"/> filled with each constant's name, for use in <see cref="M:Godot.Theme.GetConstant(System.String,System.String)"/>, if the theme has <c>node_type</c>.</para>
+            <para>Returns all the constants as a <see cref="T:System.String"/> filled with each constant's name, for use in <see cref="M:Godot.Theme.GetConstant(System.String,System.String)"/>, if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetConstantTypes">
@@ -46330,37 +46391,37 @@
         </member>
         <member name="M:Godot.Theme.SetThemeItem(Godot.Theme.DataType,System.String,System.String,System.Object)">
             <summary>
-            <para>Sets the theme item of <c>data_type</c> to <c>value</c> at <c>name</c> in <c>node_type</c>.</para>
+            <para>Sets the theme item of <c>data_type</c> to <c>value</c> at <c>name</c> in <c>theme_type</c>.</para>
             <para>Does nothing if the <c>value</c> type does not match <c>data_type</c>.</para>
-            <para>Creates <c>node_type</c> if the theme does not have it.</para>
+            <para>Creates <c>theme_type</c> if the theme does not have it.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetThemeItem(Godot.Theme.DataType,System.String,System.String)">
             <summary>
-            <para>Returns the theme item of <c>data_type</c> at <c>name</c> if the theme has <c>node_type</c>.</para>
-            <para>Valid <c>name</c>s may be found using <see cref="M:Godot.Theme.GetThemeItemList(Godot.Theme.DataType,System.String)"/> or a data type specific method. Valid <c>node_type</c>s may be found using <see cref="M:Godot.Theme.GetThemeItemTypes(Godot.Theme.DataType)"/> or a data type specific method.</para>
+            <para>Returns the theme item of <c>data_type</c> at <c>name</c> if the theme has <c>theme_type</c>.</para>
+            <para>Valid <c>name</c>s may be found using <see cref="M:Godot.Theme.GetThemeItemList(Godot.Theme.DataType,System.String)"/> or a data type specific method. Valid <c>theme_type</c>s may be found using <see cref="M:Godot.Theme.GetThemeItemTypes(Godot.Theme.DataType)"/> or a data type specific method.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.HasThemeItem(Godot.Theme.DataType,System.String,System.String)">
             <summary>
-            <para>Returns <c>true</c> if a theme item of <c>data_type</c> with <c>name</c> is in <c>node_type</c>.</para>
-            <para>Returns <c>false</c> if the theme does not have <c>node_type</c>.</para>
+            <para>Returns <c>true</c> if a theme item of <c>data_type</c> with <c>name</c> is in <c>theme_type</c>.</para>
+            <para>Returns <c>false</c> if the theme does not have <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.RenameThemeItem(Godot.Theme.DataType,System.String,System.String,System.String)">
             <summary>
-            <para>Renames the theme item of <c>data_type</c> at <c>old_name</c> to <c>name</c> if the theme has <c>node_type</c>. If <c>name</c> is already taken, this method fails.</para>
+            <para>Renames the theme item of <c>data_type</c> at <c>old_name</c> to <c>name</c> if the theme has <c>theme_type</c>. If <c>name</c> is already taken, this method fails.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.ClearThemeItem(Godot.Theme.DataType,System.String,System.String)">
             <summary>
-            <para>Clears the theme item of <c>data_type</c> at <c>name</c> if the theme has <c>node_type</c>.</para>
+            <para>Clears the theme item of <c>data_type</c> at <c>name</c> if the theme has <c>theme_type</c>.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetThemeItemList(Godot.Theme.DataType,System.String)">
             <summary>
-            <para>Returns all the theme items of <c>data_type</c> as a <see cref="T:System.String"/> filled with each theme items's name, for use in <see cref="M:Godot.Theme.GetThemeItem(Godot.Theme.DataType,System.String,System.String)"/> or a data type specific method, if the theme has <c>node_type</c>.</para>
-            <para>Valid <c>node_type</c>s may be found using <see cref="M:Godot.Theme.GetThemeItemTypes(Godot.Theme.DataType)"/> or a data type specific method.</para>
+            <para>Returns all the theme items of <c>data_type</c> as a <see cref="T:System.String"/> filled with each theme items's name, for use in <see cref="M:Godot.Theme.GetThemeItem(Godot.Theme.DataType,System.String,System.String)"/> or a data type specific method, if the theme has <c>theme_type</c>.</para>
+            <para>Valid <c>theme_type</c>s may be found using <see cref="M:Godot.Theme.GetThemeItemTypes(Godot.Theme.DataType)"/> or a data type specific method.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.GetThemeItemTypes(Godot.Theme.DataType)">
@@ -46410,7 +46471,7 @@
         <member name="M:Godot.Theme.GetTypeList(System.String)">
             <summary>
             <para>Returns all the theme types as a <see cref="T:System.String"/> filled with unique type names, for use in other <c>get_*</c> functions of this theme.</para>
-            <para>Note: <c>node_type</c> has no effect and will be removed in future version.</para>
+            <para>Note: <c>theme_type</c> has no effect and will be removed in future version.</para>
             </summary>
         </member>
         <member name="M:Godot.Theme.CopyDefaultTheme">
@@ -48492,13 +48553,12 @@
         </member>
         <member name="T:Godot.UPNP">
             <summary>
-            <para>Provides UPNP functionality to discover <see cref="T:Godot.UPNPDevice"/>s on the local network and execute commands on them, like managing port mappings (port forwarding) and querying the local and remote network IP address. Note that methods on this class are synchronous and block the calling thread.</para>
-            <para>To forward a specific port:</para>
+            <para>This class can be used to discover compatible <see cref="T:Godot.UPNPDevice"/>s on the local network and execute commands on them, like managing port mappings (for port forwarding/NAT traversal) and querying the local and remote network IP address. Note that methods on this class are synchronous and block the calling thread.</para>
+            <para>To forward a specific port (here <c>7777</c>, note both <see cref="M:Godot.UPNP.Discover(System.Int32,System.Int32,System.String)"/> and <see cref="M:Godot.UPNP.AddPortMapping(System.Int32,System.Int32,System.String,System.String,System.Int32)"/> can return errors that should be checked):</para>
             <para><code>
-            const PORT = 7777
             var upnp = UPNP.new()
-            upnp.discover(2000, 2, "InternetGatewayDevice")
-            upnp.add_port_mapping(port)
+            upnp.discover()
+            upnp.add_port_mapping(7777)
             </code></para>
             <para>To close a specific port (e.g. after you have finished using it):</para>
             <para><code>
@@ -48509,7 +48569,7 @@
             # Emitted when UPnP port mapping setup is completed (regardless of success or failure).
             signal upnp_completed(error)
             
-            # Replace this with your own server port number between 1025 and 65535.
+            # Replace this with your own server port number between 1024 and 65535.
             const SERVER_PORT = 3928
             var thread = null
             
@@ -48536,6 +48596,14 @@
                 # Wait for thread finish here to handle game exit while the thread is running.
                 thread.wait_to_finish()
             </code></para>
+            <para>Terminology: In the context of UPnP networking, "gateway" (or "internet gateway device", short IGD) refers to network devices that allow computers in the local network to access the internet ("wide area network", WAN). These gateways are often also called "routers".</para>
+            <para>Pitfalls:</para>
+            <para>- As explained above, these calls are blocking and shouldn't be run on the main thread, especially as they can block for multiple seconds at a time. Use threading!</para>
+            <para>- Networking is physical and messy. Packets get lost in transit or get filtered, addresses, free ports and assigned mappings change, and devices may leave or join the network at any time. Be mindful of this, be diligent when checking and handling errors, and handle these gracefully if you can: add clear error UI, timeouts and re-try handling.</para>
+            <para>- Port mappings may change (and be removed) at any time, and the remote/external IP address of the gateway can change likewise. You should consider re-querying the external IP and try to update/refresh the port mapping periodically (for example, every 5 minutes and on networking failures).</para>
+            <para>- Not all devices support UPnP, and some users disable UPnP support. You need to handle this (e.g. documenting and requiring the user to manually forward ports, or adding alternative methods of NAT traversal, like a relay/mirror server, or NAT hole punching, STUN/TURN, etc.).</para>
+            <para>- Consider what happens on mapping conflicts. Maybe multiple users on the same network would like to play your game at the same time, or maybe another application uses the same port. Make the port configurable, and optimally choose a port automatically (re-trying with a different port on failure).</para>
+            <para>Further reading: If you want to know more about UPnP (and the Internet Gateway Device (IGD) and Port Control Protocol (PCP) specifically), <a href="https://en.wikipedia.org/wiki/Universal_Plug_and_Play">Wikipedia</a> is a good first stop, the specification can be found at the <a href="https://openconnectivity.org/developer/specifications/upnp-resources/upnp/">Open Connectivity Foundation</a> and Godot's implementation is based on the <a href="https://github.com/miniupnp/miniupnp">MiniUPnP client</a>.</para>
             </summary>
         </member>
         <member name="F:Godot.UPNP.UPNPResult.Success">
@@ -48747,20 +48815,22 @@
         </member>
         <member name="M:Godot.UPNP.AddPortMapping(System.Int32,System.Int32,System.String,System.String,System.Int32)">
             <summary>
-            <para>Adds a mapping to forward the external <c>port</c> (between 1 and 65535) on the default gateway (see <see cref="M:Godot.UPNP.GetGateway"/>) to the <c>internal_port</c> on the local machine for the given protocol <c>proto</c> (either <c>TCP</c> or <c>UDP</c>, with UDP being the default). If a port mapping for the given port and protocol combination already exists on that gateway device, this method tries to overwrite it. If that is not desired, you can retrieve the gateway manually with <see cref="M:Godot.UPNP.GetGateway"/> and call <see cref="M:Godot.UPNP.AddPortMapping(System.Int32,System.Int32,System.String,System.String,System.Int32)"/> on it, if any.</para>
+            <para>Adds a mapping to forward the external <c>port</c> (between 1 and 65535, although recommended to use port 1024 or above) on the default gateway (see <see cref="M:Godot.UPNP.GetGateway"/>) to the <c>internal_port</c> on the local machine for the given protocol <c>proto</c> (either <c>TCP</c> or <c>UDP</c>, with UDP being the default). If a port mapping for the given port and protocol combination already exists on that gateway device, this method tries to overwrite it. If that is not desired, you can retrieve the gateway manually with <see cref="M:Godot.UPNP.GetGateway"/> and call <see cref="M:Godot.UPNP.AddPortMapping(System.Int32,System.Int32,System.String,System.String,System.Int32)"/> on it, if any. Note that forwarding a well-known port (below 1024) with UPnP may fail depending on the device.</para>
+            <para>Depending on the gateway device, if a mapping for that port already exists, it will either be updated or it will refuse this command due to that conflict, especially if the existing mapping for that port wasn't created via UPnP or points to a different network address (or device) than this one.</para>
             <para>If <c>internal_port</c> is <c>0</c> (the default), the same port number is used for both the external and the internal port (the <c>port</c> value).</para>
-            <para>The description (<c>desc</c>) is shown in some router UIs and can be used to point out which application added the mapping. The mapping's lease duration can be limited by specifying a <c>duration</c> (in seconds). However, some routers are incompatible with one or both of these, so use with caution and add fallback logic in case of errors to retry without them if in doubt.</para>
+            <para>The description (<c>desc</c>) is shown in some routers management UIs and can be used to point out which application added the mapping.</para>
+            <para>The mapping's lease <c>duration</c> can be limited by specifying a duration in seconds. The default of <c>0</c> means no duration, i.e. a permanent lease and notably some devices only support these permanent leases. Note that whether permanent or not, this is only a request and the gateway may still decide at any point to remove the mapping (which usually happens on a reboot of the gateway, when its external IP address changes, or on some models when it detects a port mapping has become inactive, i.e. had no traffic for multiple minutes). If not <c>0</c> (permanent), the allowed range according to spec is between <c>120</c> (2 minutes) and <c>86400</c> seconds (24 hours).</para>
             <para>See <see cref="T:Godot.UPNP.UPNPResult"/> for possible return values.</para>
             </summary>
         </member>
         <member name="M:Godot.UPNP.DeletePortMapping(System.Int32,System.String)">
             <summary>
-            <para>Deletes the port mapping for the given port and protocol combination on the default gateway (see <see cref="M:Godot.UPNP.GetGateway"/>) if one exists. <c>port</c> must be a valid port between 1 and 65535, <c>proto</c> can be either <c>TCP</c> or <c>UDP</c>. See <see cref="T:Godot.UPNP.UPNPResult"/> for possible return values.</para>
+            <para>Deletes the port mapping for the given port and protocol combination on the default gateway (see <see cref="M:Godot.UPNP.GetGateway"/>) if one exists. <c>port</c> must be a valid port between 1 and 65535, <c>proto</c> can be either <c>TCP</c> or <c>UDP</c>. May be refused for mappings pointing to addresses other than this one, for well-known ports (below 1024), or for mappings not added via UPnP. See <see cref="T:Godot.UPNP.UPNPResult"/> for possible return values.</para>
             </summary>
         </member>
         <member name="T:Godot.UPNPDevice">
             <summary>
-            <para>UPNP device. See <see cref="T:Godot.UPNP"/> for UPNP discovery and utility functions. Provides low-level access to UPNP control commands. Allows to manage port mappings (port forwarding) and to query network information of the device (like local and external IP address and status). Note that methods on this class are synchronous and block the calling thread.</para>
+            <para>Universal Plug and Play (UPnP) device. See <see cref="T:Godot.UPNP"/> for UPnP discovery and utility functions. Provides low-level access to UPNP control commands. Allows to manage port mappings (port forwarding) and to query network information of the device (like local and external IP address and status). Note that methods on this class are synchronous and block the calling thread.</para>
             </summary>
         </member>
         <member name="F:Godot.UPNPDevice.IGDStatus.Ok">
@@ -59107,6 +59177,7 @@
             <summary>
             <para>Returns the current UNIX epoch timestamp in seconds.</para>
             <para>Important: This is the system clock that the user can manually set. Never use this method for precise time calculation since its results are also subject to automatic adjustments by the operating system. Always use <see cref="M:Godot.OS.GetTicksUsec"/> or <see cref="M:Godot.OS.GetTicksMsec"/> for precise time calculation instead, since they are guaranteed to be monotonic (i.e. never decrease).</para>
+            <para>Note: To get a floating point timestamp with sub-second precision, use <see cref="M:Godot.Time.GetUnixTimeFromSystem"/>.</para>
             </summary>
         </member>
         <member name="M:Godot.OS.GetDatetimeFromUnixTime(System.Int64)">

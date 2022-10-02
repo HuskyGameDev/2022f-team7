@@ -43,6 +43,6 @@ mix_target = 1
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
 modulate = Color( 0.12549, 0.12549, 0.12549, 1 )
-position = Vector2( 96, 98 )
-scale = Vector2( 5, 5 )
+position = Vector2( 210.5, 133.5 )
+scale = Vector2( 8.57812, 6.10938 )
 texture = ExtResource( 3 )

@@ -11,16 +11,17 @@ config_version=4
 [application]
 
 config/name="iridos"
-run/main_scene="res://levels/rootLevel.tscn"
+run/main_scene="res://Levels/rootLevel.tscn"
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=240
-window/size/height=240
-window/size/test_width=1080
-window/size/test_height=1080
-window/vsync/use_vsync=false
+window/size/width=560
+window/size/height=319
+window/size/test_width=1120
+window/size/test_height=638
+window/dpi/allow_hidpi=true
+window/vsync/vsync_via_compositor=true
 window/per_pixel_transparency/allowed=true
 window/per_pixel_transparency/enabled=true
 window/stretch/mode="viewport"
@@ -87,6 +88,10 @@ spear_retrieve={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[mono]
+
+project/assembly_name="iridos"
 
 [physics]
 
