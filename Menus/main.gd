@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 func _ready():
 	#just in case these are set wrong when in editor
