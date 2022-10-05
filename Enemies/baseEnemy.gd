@@ -1,14 +1,33 @@
 extends KinematicBody2D
 
+#0, follow, 1, use path, 2, follow with nav agent
+var mode = 0
+var engaged = false #for 0 and 2
+var vec = Vector2.ZERO
+var player:KinematicBody2D
+
+func _physics_process(delta):
+	match(mode):
+		0:
+			if engaged:
+				$AnimatedSprite.frame = 1
+				vec = (position - player.position).normalized()
+				vec *= -0.2
+				move_and_collide(vec, false)
+			else:
+				$AnimatedSprite.frame = 0
+		1:
+			pass
+		2:
+			pass
 
 
 
-
-func _ready():
-	pass # Replace with function body.
-
-#implement system so enemy movement is based off of 3 concepts
-#movement on rails using a path2d
-#movement based on if the player enters an area2d
-#follow but using a nav agent
-#dynamic: movement depends on enemy state
+#control if the enemy should be engaged with the player
+func _onStartEnter(body):
+	player = body
+	engaged = true
+	print("moving!")
+func _onStopExit(body):
+	engaged = false
+	print("not moving!")

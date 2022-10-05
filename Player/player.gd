@@ -150,7 +150,7 @@ func dashEnd():
 func throwSpear():
 	hasSpear = false
 	var spear = spearScene.instance()
-	spear.start(get_local_mouse_position(), position)
+	spear.start(get_local_mouse_position(), position, vec)
 	get_parent().add_child(spear)
 	spear.connect("spear_collected", self, "_collect_spear")
 	throwingSpear = false

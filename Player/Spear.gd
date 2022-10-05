@@ -18,7 +18,7 @@ signal spear_collected # Signal emitted when the spear is collected
 
 #TODO: pixel perfect movement, sprites instead of rotation to fit art style
 
-func start(mouseCoords, pos):
+func start(mouseCoords, pos, vec):
 	hide() # Hide the spear while it is being positioned
 	playerPos = pos # Set initial position to player position
 	direction = Vector2(mouseCoords.x, mouseCoords.y) # Gets angle to point based on where the mouse is
@@ -28,18 +28,18 @@ func start(mouseCoords, pos):
 	# Set inital values
 	rotation = angle # sets initial rotation
 	position = playerPos # sets initial position
-	linear_velocity = direction.normalized() * speed # sets initial velocity
+	linear_velocity = (direction.normalized() * speed) + vec # sets initial velocity
 	angular_velocity = -1 if rad2deg(angle) <= -90 else 1
 	show() # show the spear now that it is positioned correctly
 
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	# If the player clicked on the spear OR pressed "E" while stuck, return the spear to the player
 	if(((mouseIn && Input.is_action_just_pressed("mouseLeft")) || Input.is_action_just_pressed("spear_retrieve")) && stuck):
 		collectSpear()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# If the spear has stopped moving, freeze it and make it collectable.
 	if(!stuck && linear_velocity.length() <= error):
 		stick_spear()

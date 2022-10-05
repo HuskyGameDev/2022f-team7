@@ -89,6 +89,16 @@ spear_retrieve={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="world collision"
+2d_physics/layer_2="player??"
+2d_physics/layer_3="spear collider"
+2d_physics/layer_4="spear tip"
+2d_physics/layer_5="spear angle check"
+2d_physics/layer_7="enemy collision"
+2d_physics/layer_8="enemy detection"
+
 [mono]
 
 project/assembly_name="iridos"
