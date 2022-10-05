@@ -27,7 +27,5 @@ func _physics_process(delta):
 func _onStartEnter(body):
 	player = body
 	engaged = true
-	print("moving!")
 func _onStopExit(body):
 	engaged = false
-	print("not moving!")

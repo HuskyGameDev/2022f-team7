@@ -3,6 +3,7 @@ extends Node2D
 var player = preload("res://Player/player.tscn")
 
 var activePlayer
+var levelDir
 var level
 
 func _ready():
@@ -11,29 +12,34 @@ func _ready():
 	#$deathScreen.visible = false
 
 func _on_resume_pressed():
-	print("returnpressed")
 	get_tree().paused = false
 	$pauseScreen.hide()
-	
-#func _on_restart_pressed():
 
 func _on_restart_pressed():
-	pass #this doesn't do anything rn
+	level.queue_free() #clear out player and level instances
+	activePlayer.queue_free()
 	
+	level = load(levelDir).instance() #reload level entirely
+	add_child(level)
+	activePlayer = player.instance()
+	level.add_child(activePlayer)
+	
+	get_tree().paused = false #unpause
+	$pauseScreen.hide()
 
 func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_menu_pressed():
-	$level.queue_free()
-	$activePlayer.queue_free()
-	$levelRoot/pauseScreen.hide()
+	level.queue_free()
+	activePlayer.queue_free()
+	$pauseScreen.hide()
 	$main.show()
 	get_tree().paused = false
  
-
 func load_level(levelPath):
-	level = load(levelPath).instance()
+	levelDir = levelPath
+	level = load(levelDir).instance()
 	add_child(level)
 	activePlayer = player.instance()
 	level.add_child(activePlayer)
