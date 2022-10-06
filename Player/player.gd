@@ -3,8 +3,8 @@ extends KinematicBody2D
 export(PackedScene) var spearScene
 
 #player movement constants
-const gravity = 200
-const jumpPower = 150
+const gravity = 400
+const jumpPower = 200
 const moveSpeed = 50
 const dashSpeed = 1000
 
