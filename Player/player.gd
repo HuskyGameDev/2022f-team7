@@ -4,9 +4,10 @@ export(PackedScene) var spearScene
 
 #player movement constants
 const gravity = 400
-const jumpPower = 200
+const jumpPower = 180
 const moveSpeed = 50
 const dashSpeed = 1000
+const jumpDecay = 0.97
 
 #player state and movement trackers
 var isDashing = false
@@ -56,12 +57,12 @@ func _physics_process(delta):
 	
 	processMisc()
 	
-	processMovement()
+	processMovement(delta)
 	
 	processGravity(delta)
 
 #process player movement
-func processMovement():
+func processMovement(delta):
 	#cap player vertical and horizontal vecocity so player has terminal vecocity
 	vec.y = clamp(vec.y, -10000, 600)
 	vec.x = clamp(vec.x, -1500, 1500)
@@ -85,6 +86,10 @@ func processMovement():
 			vec.x = clamp(vec.x - 2, 0, moveSpeed)
 		else:
 			vec.x = clamp(vec.x + 2, -moveSpeed, 0)
+	
+	# If the player releases the jump button mid-jump, cut vertical velocity
+	if(!isDashing && vec.y < 0 && !Input.is_action_pressed("jump")):
+		vec.y = vec.y * jumpDecay * delta
 	
 	#clamp velocity if not actively dashing
 	if !isDashing:
@@ -155,9 +160,12 @@ func throwSpear():
 	spear.connect("spear_collected", self, "_collect_spear")
 	throwingSpear = false
 
+# Returns the spear to the player
 func _collect_spear():
 	$spearCooldown.start()
 
+# Cooldown between picking up the spear and being able to throw it.
+# Prevents the spear from being thrown again immediately upon pickup
 func _on_spearCooldown_timeout():
 	hasSpear = true
 	$spearCooldown.stop()
