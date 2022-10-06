@@ -6,6 +6,7 @@
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
 
 [node name="Node2D" type="Node2D"]
+pause_mode = 1
 
 [node name="TileMap" type="TileMap" parent="." groups=["spear_can_stick"]]
 position = Vector2( -328, -234 )
