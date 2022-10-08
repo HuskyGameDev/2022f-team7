@@ -3,7 +3,7 @@ extends KinematicBody2D
 export(PackedScene) var spearScene
 
 #player movement constants
-const gravity = 400
+const gravity = 2.5
 const jumpPower = 180
 const moveSpeed = 50
 const dashSpeed = 1000
@@ -75,7 +75,6 @@ func processMovement(delta):
 		if abs(vec.x) < 95 && (elapsed) > .05:
 			dashEnd()
 		
-		#determine dash direction
 		#exponential decay function so dash has a speed dropoff before it ends
 		vec.x = -dashSpeed*pow(.000000001, elapsed) if ($Sprite.flip_h) else dashSpeed*pow(.000000001, elapsed)
 		
@@ -90,7 +89,7 @@ func processMovement(delta):
 	
 	# If the player releases the jump button mid-jump, cut vertical velocity
 	if(!isDashing && vec.y < 0 && !Input.is_action_pressed("jump")):
-		vec.y = vec.y * jumpDecay * delta
+		vec.y *= jumpDecay
 	
 	#clamp velocity if not actively dashing
 	if !isDashing:
@@ -103,7 +102,7 @@ func processMovement(delta):
 func processGravity(var delta):
 	#apply gravity effects
 	if !is_on_floor() && !isDashing:
-		vec.y += delta * gravity 
+		vec.y += gravity 
 	else:
 		vec.y = 0 #no gravity if not falling or if dashing
 		
