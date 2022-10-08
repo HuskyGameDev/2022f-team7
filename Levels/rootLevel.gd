@@ -46,7 +46,12 @@ func load_level(levelPath):
 	$main.hide()
 
 func _on_player_death():
-	pass
+	get_tree().paused = true
+	$deathScreenTimer.start()
+	
+func _on_deathScreenTimer_timeout():
+	$deathScreen.visible = true
+	
 
 func _on_level_complete():
 	pass

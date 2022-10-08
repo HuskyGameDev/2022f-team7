@@ -75,10 +75,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -24.0
-margin_top = -10.0
-margin_right = 24.0
-margin_bottom = 10.0
+margin_left = -99.0
+margin_top = 29.5
+margin_right = -51.0
+margin_bottom = 49.5
 text = "Menu"
 
 [node name="quit" type="Button" parent="deathScreen"]
@@ -86,10 +86,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -20.0
-margin_top = -144.0
-margin_right = 20.0
-margin_bottom = -124.0
+margin_left = 51.0
+margin_top = -130.0
+margin_right = 91.0
+margin_bottom = -110.0
 text = "Quit"
 
 [node name="restart" type="Button" parent="deathScreen"]
@@ -97,24 +97,27 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -20.0
-margin_top = -144.0
-margin_right = 20.0
-margin_bottom = -124.0
-text = "Quit"
+margin_left = -28.0
+margin_top = -130.0
+margin_right = 29.0
+margin_bottom = -110.0
+text = "Restart"
 
 [node name="Paused" type="Label" parent="deathScreen"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -22.0
-margin_top = -60.0
-margin_right = 24.0
-margin_bottom = -29.0
-text = "Paused
-"
+margin_left = -33.0
+margin_top = -15.5
+margin_right = 31.0
+margin_bottom = 15.5
+text = "YOU DIED"
 valign = 1
+
+[node name="deathScreenTimer" type="Timer" parent="deathScreen"]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="pressed" from="pauseScreen/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="pauseScreen/quit" to="." method="_on_quit_pressed"]
@@ -123,3 +126,4 @@ valign = 1
 [connection signal="pressed" from="deathScreen/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="deathScreen/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="deathScreen/restart" to="." method="_on_restart_pressed"]
+[connection signal="timeout" from="deathScreen/deathScreenTimer" to="." method="_on_deathScreenTimer_timeout"]

@@ -20,6 +20,7 @@ var current_HP = 3
 
 #creates a signal when the player health changes
 signal health_changed(player_hearts)
+signal player_death
 
 #starts the current health of the player
 func _ready():
@@ -131,12 +132,15 @@ func processMisc():
 	$Sprite.global_position.y = stepify(global_position.y + 1, .5)
 
 # when the enemy hits the player
+
 func _on_hit_Enemy():
 	current_HP -= 1
 	emit_signal("health_changed", current_HP)
 	if current_HP <= 0:
 		visible = false
-		print("gameover") #place holder until we create a death system
+		emit_signal("player_death")
+
+# Dash Stuff
 
 func _on_Timer_timeout():
 	dashEnd()
@@ -150,6 +154,8 @@ func dashEnd():
 	$Camera2D.smoothing_speed = 3
 	$timer.stop()
 	$dashCooldown.start()
+
+# Spear Stuff
 
 # Creates and "throws" a new instance of the spear
 func throwSpear():
