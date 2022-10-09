@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/baseEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
 
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -4.0874, 52.0207, 4.0874, -52.0207, -11, 13, 45.737, -21.7276, -45.737, 21.7276, 45, 12, 18.9496, 18.3543, -18.9496, -18.3543, 43, -42, 43.9512, -4.86142, -43.9512, 4.86142, -17, -67, 0, 0, 0, 0, -49, -63, -31.6488, -22.9181, 31.6488, 22.9181, -56, -41, 21.6283, -12.6, -21.6283, 12.6, -73, -10, 0, 0, 0, 0, -50, 13, -11.211, -18.4535, 11.211, 18.4535, -29, 12, 0, 0, 0, 0, -11, 13 )
+}
+
 [node name="Node2D" type="Node2D"]
 pause_mode = 1
+
+[node name="playerSpawn" type="Position2D" parent="."]
+position = Vector2( -126, 7 )
 
 [node name="TileMap" type="TileMap" parent="." groups=["spear_can_stick"]]
 position = Vector2( -328, -234 )
@@ -48,5 +56,13 @@ modulate = Color( 0.12549, 0.12549, 0.12549, 1 )
 scale = Vector2( -8.3185, 4.04589 )
 texture = ExtResource( 3 )
 
-[node name="enemy" parent="." instance=ExtResource( 2 )]
-position = Vector2( -94, 13 )
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( -4, -11 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( -11, 13 )
+rotate = false
+
+[node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 2 )]
+mode = 1

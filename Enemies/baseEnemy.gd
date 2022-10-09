@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 #0, follow, 1, use path, 2, follow with nav agent
-var mode = 0
+export var mode:int = 0
+var speed:int = 1
 var engaged = false #for 0 and 2
 var vec = Vector2.ZERO
 var player:KinematicBody2D
@@ -16,12 +17,15 @@ func _physics_process(delta):
 				move_and_collide(vec, false)
 			else:
 				$AnimatedSprite.frame = 0
-		1:
-			pass
+		1:#MUST be a child of a pathfollower!
+			self.get_parent().unit_offset += (.0005 * speed)
 		2:
 			pass
 
-
+func _ready():
+	if self.get_parent() is PathFollow2D: 
+		#automatically become path follower if it is a child of a path
+		mode = 1
 
 #control if the enemy should be engaged with the player
 func _onStartEnter(body):

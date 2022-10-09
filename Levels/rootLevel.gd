@@ -4,7 +4,7 @@ var player = preload("res://Player/player.tscn")
 
 var activePlayer
 var levelDir
-var level
+var level:Node2D
 
 func _ready():
 	$pauseScreen.visible = false
@@ -19,10 +19,8 @@ func _on_restart_pressed():
 	level.queue_free() #clear out player and level instances
 	activePlayer.queue_free()
 	
-	level = load(levelDir).instance() #reload level entirely
-	add_child(level)
-	activePlayer = player.instance()
-	level.add_child(activePlayer)
+	createLevel()
+	createPlayer()
 	
 	get_tree().paused = false #unpause
 	$pauseScreen.hide()
@@ -33,16 +31,15 @@ func _on_quit_pressed():
 func _on_menu_pressed():
 	level.queue_free()
 	activePlayer.queue_free()
+	
 	$pauseScreen.hide()
 	$main.show()
 	get_tree().paused = false
  
 func load_level(levelPath):
 	levelDir = levelPath
-	level = load(levelDir).instance()
-	add_child(level)
-	activePlayer = player.instance()
-	level.add_child(activePlayer)
+	createLevel()
+	createPlayer()
 	$main.hide()
 
 func _on_player_death():
@@ -60,3 +57,13 @@ func _unhandled_input(_event):
 	if Input.is_action_just_pressed("pause_game") && !$main.visible:
 		$pauseScreen.visible = !$pauseScreen.visible
 		get_tree().paused = !get_tree().paused
+
+func createLevel():
+	level = load(levelDir).instance()
+	add_child(level)
+
+func createPlayer():
+	activePlayer = player.instance()
+	if level.get_node("playerSpawn") != null:
+		activePlayer.position = level.get_node("playerSpawn").position
+	level.add_child(activePlayer)
