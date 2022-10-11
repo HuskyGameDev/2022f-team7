@@ -6,6 +6,7 @@ var speed:int = 1
 var engaged = false #for 0 and 2
 var vec = Vector2.ZERO
 var player:KinematicBody2D
+var hp: int = 1
 
 func _physics_process(delta):
 	match(mode):
@@ -33,3 +34,10 @@ func _onStartEnter(body):
 	engaged = true
 func _onStopExit(body):
 	engaged = false
+
+
+func _on_hitbox_area_entered(area):
+	if(area.is_in_group('spear')):
+		hp = hp - 1
+		if (hp<=0):
+			queue_free()

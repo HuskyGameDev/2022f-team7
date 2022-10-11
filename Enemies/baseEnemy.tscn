@@ -51,6 +51,8 @@ collision_mask = 64
 shape = SubResource( 6 )
 
 [node name="hitbox" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 65
+collision_mask = 73
 
 [node name="mapCollider" type="CollisionShape2D" parent="hitbox"]
 position = Vector2( 0, 2 )
@@ -58,3 +60,4 @@ shape = SubResource( 2 )
 
 [connection signal="body_entered" from="startRange" to="." method="_onStartEnter"]
 [connection signal="body_exited" from="stopRange" to="." method="_onStopExit"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
