@@ -130,15 +130,6 @@ func processMisc():
 	$Sprite.global_position.x = stepify(global_position.x, .5)
 	$Sprite.global_position.y = stepify(global_position.y + 1, .5)
 
-# when the enemy hits the player
-
-func _on_hit_Enemy():
-	current_HP -= 1
-	emit_signal("health_changed", current_HP)
-	if current_HP <= 0:
-		visible = false
-		emit_signal("player_death")
-
 # Dash Stuff
 
 func _on_Timer_timeout():
@@ -174,3 +165,33 @@ func _collect_spear():
 func _on_spearCooldown_timeout():
 	hasSpear = true
 	$spearCooldown.stop()
+
+#for the blinking of the player
+func _on_BlinkDur_timeout() -> void:
+	self.visible = !self.visible
+
+
+#if hit by enemy, will add groups for different enemies and spikes and other various things in the future
+func _on_hitbox_area_entered(area):
+	#if the hit by a traditional enemy
+	if(area.is_in_group("enemy")):
+		print('test')
+		get_node("hitbox/CollisionShape2D2").set_deferred("disabled", true) 
+		current_HP = current_HP - 1
+		emit_signal("health_changed", current_HP)
+		if current_HP <= 0:
+			visible = false
+			emit_signal("player_death")
+			return
+		$InvilCooldown.start()
+		$BlinkDur.start()
+		
+	
+
+#for the invil frames when getting hit
+func _on_InvilCooldown_timeout():
+	if(current_HP > 0):
+		get_node("hitbox/CollisionShape2D2").set_deferred("disabled", false) 
+		$BlinkDur.stop()
+		self.visible = true 
+

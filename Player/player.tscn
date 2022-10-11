@@ -79,7 +79,24 @@ volume_db = -18.656
 wait_time = 0.1
 one_shot = true
 
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 66
+collision_mask = 65
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
+position = Vector2( 0, 0.75 )
+shape = SubResource( 1 )
+
+[node name="InvilCooldown" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="BlinkDur" type="Timer" parent="."]
+wait_time = 0.1
+
 [connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
 [connection signal="timeout" from="timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dashCooldown_timeout"]
 [connection signal="timeout" from="spearCooldown" to="." method="_on_spearCooldown_timeout"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="InvilCooldown" to="." method="_on_InvilCooldown_timeout"]
+[connection signal="timeout" from="BlinkDur" to="." method="_on_BlinkDur_timeout"]
