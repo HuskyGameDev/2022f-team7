@@ -16,7 +16,7 @@ var tarvec = 0 #target movement direction of player -1 left 1 right 0 none
 var vec = Vector2.ZERO #vector movement applied to player
 var hasSpear = true
 var throwingSpear = false
-var current_HP = 3
+var current_HP = 1
 
 #creates a signal for when the player health changes
 signal health_changed(player_hearts)
