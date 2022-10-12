@@ -58,7 +58,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Button" type="Button" parent="levelSelect"]
+[node name="levelOne" type="Button" parent="levelSelect"]
 anchor_left = 0.386364
 anchor_top = 0.474359
 anchor_right = 0.590909
@@ -94,5 +94,6 @@ __meta__ = {
 
 [connection signal="pressed" from="playScreen/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="playScreen/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="levelSelect/levelOne" to="." method="_on_levelOne_pressed"]
 [connection signal="pressed" from="levelSelect/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="levelSelect/Debug" to="." method="_on_Debug_pressed"]
