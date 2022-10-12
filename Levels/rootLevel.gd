@@ -8,6 +8,7 @@ var level:Node2D
 
 func _ready():
 	$pauseScreen.visible = false
+	$deathScreen.visible = false
 	$main.visible = true
 	#$deathScreen.visible = false
 
@@ -32,6 +33,7 @@ func _on_menu_pressed():
 	level.queue_free()
 	activePlayer.queue_free()
 	
+	$deathScreen.hide()
 	$pauseScreen.hide()
 	$main.show()
 	get_tree().paused = false
