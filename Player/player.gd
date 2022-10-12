@@ -18,9 +18,8 @@ var hasSpear = true
 var throwingSpear = false
 var current_HP = 3
 
-#creates a signal when the player health changes
+#creates a signal for when the player health changes
 signal health_changed(player_hearts)
-signal player_death
 
 #starts the current health of the player
 func _ready():
@@ -175,16 +174,15 @@ func _on_BlinkDur_timeout() -> void:
 func _on_hitbox_area_entered(area):
 	#if the hit by a traditional enemy
 	if(area.is_in_group("enemy")):
-		print('test')
 		get_node("hitbox/CollisionShape2D2").set_deferred("disabled", true) 
 		current_HP = current_HP - 1
+		print(current_HP)
 		emit_signal("health_changed", current_HP)
-		if current_HP <= 0:
-			visible = false
-			emit_signal("player_death")
+		if(current_HP <= 0):
 			return
 		$InvilCooldown.start()
 		$BlinkDur.start()
+		
 		
 	
 
@@ -193,5 +191,5 @@ func _on_InvilCooldown_timeout():
 	if(current_HP > 0):
 		get_node("hitbox/CollisionShape2D2").set_deferred("disabled", false) 
 		$BlinkDur.stop()
-		self.visible = true 
+		self.visible = true
 

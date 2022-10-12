@@ -42,9 +42,12 @@ func load_level(levelPath):
 	createPlayer()
 	$main.hide()
 
-func _on_player_death():
-	get_tree().paused = true
-	$deathScreenTimer.start()
+
+func _on_healthChanged(player_hearts):
+	if (player_hearts <= 0):
+		print('dead')
+		get_tree().paused = true
+		$deathScreenTimer.start()
 	
 func _on_deathScreenTimer_timeout():
 	$deathScreen.visible = true
@@ -67,3 +70,4 @@ func createPlayer():
 	if level.get_node("playerSpawn") != null:
 		activePlayer.position = level.get_node("playerSpawn").position
 	level.add_child(activePlayer)
+	activePlayer.connect("health_changed(player_hearts)",self,"_on_healthChanged(player_hearts)")
