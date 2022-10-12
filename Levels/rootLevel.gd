@@ -23,7 +23,7 @@ func _on_restart_pressed():
 	createPlayer()
 	
 	get_tree().paused = false #unpause
-	$pauseScreen.hide()
+	$deathScreen.hide()
 
 func _on_quit_pressed():
 	get_tree().quit()
@@ -42,13 +42,18 @@ func load_level(levelPath):
 	createPlayer()
 	$main.hide()
 
-func _on_player_death():
-	get_tree().paused = true
-	$deathScreenTimer.start()
+
+func _on_healthChanged(player_hearts):
+	if (player_hearts <= 0):
+		print('dead')
+		get_tree().paused = true
+		$deathScreen/deathTimer.start()
+		
 	
-func _on_deathScreenTimer_timeout():
+func _on_deathTimer_timeout():
+	activePlayer.visible = false
+	activePlayer.get_node("./Camera2D/hud").hide()
 	$deathScreen.visible = true
-	
 
 func _on_level_complete():
 	pass
@@ -67,3 +72,4 @@ func createPlayer():
 	if level.get_node("playerSpawn") != null:
 		activePlayer.position = level.get_node("playerSpawn").position
 	level.add_child(activePlayer)
+	activePlayer.connect("health_changed",self,"_on_healthChanged")

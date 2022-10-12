@@ -18,3 +18,6 @@ func _on_quit_pressed():
 
 func _on_Debug_pressed():
 	get_tree().get_root().get_child(0).load_level("res://Levels/debugLevel.tscn")
+
+func _on_levelOne_pressed():
+	get_tree().get_root().get_child(0).load_level("res://Levels/level1-1.tscn")
