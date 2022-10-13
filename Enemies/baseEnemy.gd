@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 #0, follow, 1, use path, 2, follow with nav agent
 export var mode:int = 0
-var speed:int = 1
+export var speed:int = 1
 var engaged = false #for 0 and 2
 var vec = Vector2.ZERO
 var player:KinematicBody2D

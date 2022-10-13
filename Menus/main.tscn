@@ -1,17 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menus/main.gd" type="Script" id=1]
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Text/IridosTitle.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Text/Courneuf-Regular.ttf" type="DynamicFontData" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 24
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 4 )
+[ext_resource path="res://Assets/Text/fonttheme.tres" type="DynamicFont" id=5]
 
 [sub_resource type="DynamicFont" id=2]
-size = 24
+size = 27
+extra_spacing_char = 3
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 27
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 3
 font_data = ExtResource( 4 )
 
 [node name="main" type="CanvasLayer"]
@@ -32,9 +35,9 @@ anchor_bottom = 1.0
 
 [node name="Title" type="TextureRect" parent="playScreen"]
 anchor_left = 0.257143
-anchor_top = 0.15674
+anchor_top = 0.147336
 anchor_right = 0.723809
-anchor_bottom = 0.35674
+anchor_bottom = 0.347336
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
@@ -44,11 +47,11 @@ __meta__ = {
 
 [node name="play" type="Button" parent="playScreen"]
 anchor_left = 0.3875
-anchor_top = 0.37931
+anchor_top = 0.473354
 anchor_right = 0.592046
-anchor_bottom = 0.494695
+anchor_bottom = 0.588739
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "Play"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -56,9 +59,9 @@ __meta__ = {
 
 [node name="quit" type="Button" parent="playScreen"]
 anchor_left = 0.3875
-anchor_top = 0.533333
+anchor_top = 0.627377
 anchor_right = 0.592046
-anchor_bottom = 0.648717
+anchor_bottom = 0.742761
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
@@ -73,41 +76,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="levelOne" type="Button" parent="levelSelect"]
-anchor_left = 0.3125
-anchor_top = 0.473354
-anchor_right = 0.669643
-anchor_bottom = 0.588738
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -134.0
+margin_top = -18.4038
+margin_right = 134.0
+margin_bottom = 18.4038
 rect_pivot_offset = Vector2( 104, 48 )
 custom_fonts/font = SubResource( 1 )
 text = "1-1 or something"
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="back" type="Button" parent="levelSelect"]
-anchor_left = 0.386364
-anchor_top = 0.692308
-anchor_right = 0.590909
-anchor_bottom = 0.807692
-margin_bottom = 3.05176e-05
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -57.2726
+margin_top = 54.5962
+margin_right = 57.2726
+margin_bottom = 91.4038
 rect_pivot_offset = Vector2( 104, 48 )
 custom_fonts/font = SubResource( 1 )
 text = "Back"
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Debug" type="Button" parent="levelSelect"]
-anchor_left = 0.360714
-anchor_top = 0.253919
-anchor_right = 0.616071
-anchor_bottom = 0.369302
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -93.0
+margin_top = 62.2
+margin_right = 93.0
+margin_bottom = 99.0072
 rect_pivot_offset = Vector2( 104, 48 )
 custom_fonts/font = SubResource( 1 )
 text = "debug level"
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [connection signal="pressed" from="playScreen/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="playScreen/quit" to="." method="_on_quit_pressed"]

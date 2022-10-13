@@ -8,7 +8,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( -4.0874, 52.0207, 4.0874, -52.0207, -11, 13, 45.737, -21.7276, -45.737, 21.7276, 45, 12, 18.9496, 18.3543, -18.9496, -18.3543, 43, -42, 43.9512, -4.86142, -43.9512, 4.86142, -17, -67, 0, 0, 0, 0, -49, -63, -31.6488, -22.9181, 31.6488, 22.9181, -56, -41, 21.6283, -12.6, -21.6283, 12.6, -73, -10, 0, 0, 0, 0, -50, 13, -11.211, -18.4535, 11.211, 18.4535, -29, 12, 0, 0, 0, 0, -11, 13 )
+"points": PoolVector2Array( -4.56586, 2.48561, 4.56586, -2.48561, 68, -45, 9.24307, -5.66166, -9.24307, 5.66166, 67, 17, 3.78632, 4.69503, -3.78632, -4.69503, 53, 15.76, -2.89542, 7.87109, 2.89542, -7.87109, 60, -44, 0, 0, 0, 0, 68, -45 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -54,19 +54,22 @@ mix_target = 1
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground"]
 modulate = Color( 0.12549, 0.12549, 0.12549, 1 )
-scale = Vector2( -8.3185, 4.04589 )
+position = Vector2( 274.373, 164.1 )
+scale = Vector2( -11.6733, 5.98081 )
 texture = ExtResource( 3 )
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2( -4, -11 )
+position = Vector2( -4, -7.70967 )
+scale = Vector2( 1, 0.806452 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( -11, 13 )
+position = Vector2( 68, -45 )
 rotate = false
 
 [node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 2 )]
 mode = 1
+speed = 3
 
 [node name="SpikeEnemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 24, 44 )
+position = Vector2( 176, -12 )

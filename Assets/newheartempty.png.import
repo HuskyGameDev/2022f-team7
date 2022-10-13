@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tileset.png-17cb559e4b2564b835d39be4154d710f.stex"
+path="res://.import/newheartempty.png-53e9c6a6e03fab3f9ae799081fde11d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tileset.png"
-dest_files=[ "res://.import/Tileset.png-17cb559e4b2564b835d39be4154d710f.stex" ]
+source_file="res://Assets/newheartempty.png"
+dest_files=[ "res://.import/newheartempty.png-53e9c6a6e03fab3f9ae799081fde11d5.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
