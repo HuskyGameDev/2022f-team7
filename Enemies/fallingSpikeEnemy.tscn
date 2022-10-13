@@ -37,9 +37,6 @@ frames = SubResource( 3 )
 position = Vector2( 0, 15.25 )
 shape = SubResource( 4 )
 
-[node name="AimTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="AttackDelay" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
@@ -52,6 +49,5 @@ rotation = 3.14159
 polygon = PoolVector2Array( 0, -12, -2, -5, 2, -5 )
 
 [connection signal="body_entered" from="StartRange" to="." method="_on_StartRange_body_entered"]
-[connection signal="timeout" from="AimTimer" to="." method="_on_AimTimer_timeout"]
 [connection signal="timeout" from="AttackDelay" to="." method="_on_AttackDelay_timeout"]
 [connection signal="body_entered" from="Tip" to="." method="_on_Tip_body_entered"]
