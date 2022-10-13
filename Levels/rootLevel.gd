@@ -10,7 +10,6 @@ func _ready():
 	$pauseScreen.visible = false
 	$deathScreen.visible = false
 	$main.visible = true
-	#$deathScreen.visible = false
 
 func _on_resume_pressed():
 	get_tree().paused = false
@@ -25,6 +24,7 @@ func _on_restart_pressed():
 	
 	get_tree().paused = false #unpause
 	$deathScreen.hide()
+	$pauseScreen.hide()
 
 func _on_quit_pressed():
 	get_tree().quit()

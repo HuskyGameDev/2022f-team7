@@ -8,6 +8,8 @@ const jumpPower = 180
 const moveSpeed = 50
 const dashSpeed = 1000
 const jumpDecay = 0.97
+#player's default/max health
+const health	= 3
 
 #player state and movement trackers
 var isDashing = false
@@ -16,13 +18,15 @@ var tarvec = 0 #target movement direction of player -1 left 1 right 0 none
 var vec = Vector2.ZERO #vector movement applied to player
 var hasSpear = true
 var throwingSpear = false
-var current_HP = 1
+var current_HP = 0
 
 #creates a signal for when the player health changes
 signal health_changed(player_hearts)
+signal spear_changed(usable)
 
 #starts the current health of the player
 func _ready():
+	current_HP = health
 	emit_signal("health_changed", current_HP)
 
 func _unhandled_input(_event):
@@ -149,6 +153,7 @@ func dashEnd():
 # Creates and "throws" a new instance of the spear
 func throwSpear():
 	hasSpear = false
+	emit_signal("spear_changed", hasSpear)
 	var spear = spearScene.instance()
 	spear.start(get_local_mouse_position(), position, vec)
 	get_parent().add_child(spear)
@@ -163,6 +168,7 @@ func _collect_spear():
 # Prevents the spear from being thrown again immediately upon pickup
 func _on_spearCooldown_timeout():
 	hasSpear = true
+	emit_signal("spear_changed", hasSpear)
 	$spearCooldown.stop()
 
 #for the blinking of the player

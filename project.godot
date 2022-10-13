@@ -30,10 +30,12 @@ window/stretch/aspect="keep"
 [global]
 
 scaling=false
+theme=false
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+theme/custom_font="res://Assets/Text/fonttheme.tres"
 
 [importer_defaults]
 
