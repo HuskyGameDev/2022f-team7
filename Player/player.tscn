@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Player.png" type="Texture" id=2]
+[ext_resource path="res://Player/playeranims.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://Player/Spear.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Footsteps/Lower Footsteps/Grass/Walking_Grass_4_Moser.wav" type="AudioStream" id=4]
 [ext_resource path="res://Player/health.gd" type="Script" id=5]
@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/Spear.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2.5, 7.75 )
+extents = Vector2( 2.25, 7.75 )
 
 [node name="player" type="KinematicBody2D" groups=["player"]]
 pause_mode = 1
@@ -20,12 +20,13 @@ collision/safe_margin = 0.04
 script = ExtResource( 1 )
 spearScene = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 1 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 2, 0 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 35, 1, 10, 31 )
+frames = ExtResource( 2 )
+animation = "Jump"
+centered = false
+offset = Vector2( -8, -14 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -89,10 +90,11 @@ texture = ExtResource( 8 )
 stretch_mode = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 0.75 )
+visible = false
+position = Vector2( 0.25, 0.75 )
 shape = SubResource( 1 )
 
-[node name="timer" type="Timer" parent="."]
+[node name="dashTime" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.2
 one_shot = true
@@ -110,22 +112,24 @@ wait_time = 0.1
 one_shot = true
 
 [node name="hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 66
 collision_mask = 65
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
-position = Vector2( 0, 0.75 )
+position = Vector2( 0.25, 0.75 )
 shape = SubResource( 1 )
 
 [node name="InvilCooldown" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
+one_shot = true
 
 [node name="BlinkDur" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.15
 
 [connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
 [connection signal="spear_changed" from="." to="Camera2D/hud/health" method="_on_player_spear_changed"]
-[connection signal="timeout" from="timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="dashTime" to="." method="_on_dashTime_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dashCooldown_timeout"]
 [connection signal="timeout" from="spearCooldown" to="." method="_on_spearCooldown_timeout"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

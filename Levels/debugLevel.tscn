@@ -69,5 +69,4 @@ rotate = false
 mode = 1
 
 [node name="SpikeEnemy" parent="." instance=ExtResource( 5 )]
-visible = false
 position = Vector2( 24, 44 )

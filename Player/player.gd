@@ -3,13 +3,13 @@ extends KinematicBody2D
 export(PackedScene) var spearScene
 
 #player movement constants
-const gravity = 2.5
+const gravity   = 2.5
 const jumpPower = 180
 const moveSpeed = 50
 const dashSpeed = 1000
 const jumpDecay = 0.97
 #player's default/max health
-const health	= 3
+const health    = 3
 
 #player state and movement trackers
 var isDashing = false
@@ -20,6 +20,11 @@ var hasSpear = true
 var throwingSpear = false
 var current_HP = 0
 
+var isHurt = false
+var isWalking = false
+var isJumping = false
+var isDying = false
+
 #creates a signal for when the player health changes
 signal health_changed(player_hearts)
 signal spear_changed(usable)
@@ -29,22 +34,27 @@ func _ready():
 	current_HP = health
 	emit_signal("health_changed", current_HP)
 
-func _unhandled_input(_event):
+func processInput():
+	tarvec = 0
+	#deny input if player is dying/dead
+	if isDying:
+		return
+	
 	#spear throw handler (async so any lag of spear spawning isn't affecting player movement)
 	if !throwingSpear && hasSpear && Input.is_action_just_pressed("mouseLeft"):
 		throwingSpear = true
 		call_deferred("throwSpear")
 	
-	tarvec = 0
 	#starts dashing state if possible and starts dash cooldown, as well as cranking camera smoothing so player doesn't launch out of view
 	if Input.is_action_just_pressed("dash"):
 		if !isDashing && canDash:
 			isDashing = true
-			$timer.start()
+			$dashTime.start()
 			$Camera2D.smoothing_speed = 7
 	#apply jump upward vecocity if possible
 	if Input.is_action_just_pressed("jump") && is_on_floor() && !isDashing:
 		vec.y = -jumpPower
+		isJumping = true
 	
 	#apply left/right target direction and reset vecocity of player if changing direction to make movement snappy but smooth
 	#doesn't apply the instance 0ing of vecocity if in air to create air strafe effect
@@ -59,11 +69,33 @@ func _unhandled_input(_event):
 
 func _physics_process(delta):
 	
+	processInput()
+	
 	processMisc()
 	
 	processMovement(delta)
 	
 	processGravity(delta)
+	
+	processState()
+
+func processState():
+	if isDying:
+		$Sprite.animation = "Death"
+		$Sprite.playing = true
+	elif isDashing:
+		$Sprite.animation = "Strafe"  + ("Hurt" if isHurt else "")
+		$Sprite.playing = false
+		$Sprite.frame = 1
+	elif isJumping:
+		$Sprite.animation = "Jump"  + ("Hurt" if isHurt else "")
+		$Sprite.playing = true
+	elif isWalking:
+		$Sprite.animation = "Walk"  + ("Hurt" if isHurt else "")
+		$Sprite.playing = true
+	else:
+		$Sprite.animation = "Look"  + ("Hurt" if isHurt else "")
+		$Sprite.playing = true
 
 #process player movement
 func processMovement(delta):
@@ -74,7 +106,7 @@ func processMovement(delta):
 	#dash block overrides normal player movement
 	if isDashing:
 		#end dash if vecocity is too slow with minimum time left
-		var elapsed = $timer.wait_time - $timer.time_left
+		var elapsed = $dashTime.wait_time - $dashTime.time_left
 		if abs(vec.x) < 95 && (elapsed) > .05:
 			dashEnd()
 		
@@ -100,6 +132,7 @@ func processMovement(delta):
 	
 	#apply calculated properties to body and store result in vec
 	vec = move_and_slide_with_snap(vec, Vector2.DOWN, Vector2.UP, true, 4, deg2rad(45), true)
+	isWalking = vec.x != 0
 
 #process behaviour of gravity on player
 func processGravity(var delta):
@@ -108,6 +141,7 @@ func processGravity(var delta):
 		vec.y += gravity 
 	else:
 		vec.y = 0 #no gravity if not falling or if dashing
+		isJumping = false
 		
 	if is_on_ceiling(): #cancel upward movement if hitting ceiling
 		vec.y = 1
@@ -130,12 +164,12 @@ func processMisc():
 		$Sprite.flip_h = false
 	
 	#prevent sprite snapping being different from world, only a visual issue so only applied to sprite
-	$Sprite.global_position.x = stepify(global_position.x, .5)
-	$Sprite.global_position.y = stepify(global_position.y + 1, .5)
+	#$Sprite.global_position.x = stepify(global_position.x, .5)
+	#$Sprite.global_position.y = stepify(global_position.y + 1, .5)
 
 # Dash Stuff
 
-func _on_Timer_timeout():
+func _on_dashTime_timeout():
 	dashEnd()
 
 func _on_dashCooldown_timeout():
@@ -145,7 +179,7 @@ func dashEnd():
 	isDashing = false
 	canDash = false
 	$Camera2D.smoothing_speed = 3
-	$timer.stop()
+	$dashTime.stop()
 	$dashCooldown.start()
 
 # Spear Stuff
@@ -185,12 +219,11 @@ func _on_hitbox_area_entered(area):
 		print(current_HP)
 		emit_signal("health_changed", current_HP)
 		if(current_HP <= 0):
+			isDying = true
 			return
 		$InvilCooldown.start()
 		$BlinkDur.start()
-		
-		
-	
+		isHurt = true
 
 #for the invil frames when getting hit
 func _on_InvilCooldown_timeout():
@@ -198,4 +231,4 @@ func _on_InvilCooldown_timeout():
 		get_node("hitbox/CollisionShape2D2").set_deferred("disabled", false) 
 		$BlinkDur.stop()
 		self.visible = true
-
+		isHurt = false
