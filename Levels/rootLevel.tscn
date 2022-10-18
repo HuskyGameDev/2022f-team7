@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menus/main.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Text/Courneuf-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Levels/rootLevel.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/PlayerSounds/Player_death_v3.Iridos.capanda.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -138,8 +139,12 @@ __meta__ = {
 }
 
 [node name="deathTimer" type="Timer" parent="deathScreen"]
-wait_time = 2.0
 one_shot = true
+
+[node name="playerDeathSound" type="AudioStreamPlayer" parent="deathScreen"]
+stream = ExtResource( 4 )
+volume_db = 1.0
+pitch_scale = 1.2
 
 [connection signal="pressed" from="pauseScreen/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="pauseScreen/quit" to="." method="_on_quit_pressed"]
