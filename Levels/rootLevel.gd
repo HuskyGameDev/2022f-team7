@@ -48,6 +48,7 @@ func load_level(levelPath):
 func _on_healthChanged(player_hearts):
 	if (player_hearts <= 0):
 		print('dead')
+		$deathScreen/playerDeathSound.play()
 		$deathScreen/deathTimer.start()
 		
 	
@@ -55,6 +56,7 @@ func _on_deathTimer_timeout():
 	activePlayer.get_node("./Camera2D/hud").hide()
 	$deathScreen.visible = true
 	get_tree().paused = true
+	
 
 func _on_level_complete():
 	pass
