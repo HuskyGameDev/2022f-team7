@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://interactables/elevatorExit.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="elevatorExit" type="Sprite"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Copy this sprite into new scenes to work from"
+}
+
+[node name="playerDetection" type="Area2D" parent="."]
+collision_layer = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetection"]
+shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": "adjust per item"
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="elevatorLocation" type="Position2D" parent="."]
