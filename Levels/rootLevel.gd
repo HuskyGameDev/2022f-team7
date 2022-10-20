@@ -3,8 +3,10 @@ extends Node2D
 var player = preload("res://Player/player.tscn")
 
 var activePlayer
+var currentExit
 var levelDir
 var level:Node2D
+var interactArea:Area2D
 
 func _ready():
 	$pauseScreen.visible = false
@@ -77,8 +79,17 @@ func createPlayer():
 	level.add_child(activePlayer)
 	activePlayer.connect("health_changed",self,"_on_healthChanged")
 	activePlayer.connect("interacting",self,"interactHandler")
-	
+
+# creates exit in same style as player
+func createExit():
+	#currentExit = elevatorExit.instance()
+	pass
+
 func interactHandler(interact_with):
 	if interact_with.is_in_group("interactable"):
-		pass
+		interactArea = interact_with
 		
+		
+#find the root of the scene containing interactArea
+func findParent(interactArea):
+		pass
