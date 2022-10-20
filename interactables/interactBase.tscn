@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="interactBase" type="Sprite"]
+__meta__ = {
+"_editor_description_": "Copy this sprite into new scenes to work from"
+}
+
+[node name="playerDetection" type="Area2D" parent="."]
+collision_layer = 33
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerDetection"]
+shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": "adjust per item"
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0

@@ -74,3 +74,9 @@ func createPlayer():
 		activePlayer.position = level.get_node("playerSpawn").position
 	level.add_child(activePlayer)
 	activePlayer.connect("health_changed",self,"_on_healthChanged")
+	activePlayer.connect("interacting",self,"interactHandler")
+	
+func interactHandler(interact_with):
+	if interact_with.is_in_group("interactable"):
+		pass
+		

@@ -25,9 +25,13 @@ var isWalking = false
 var isJumping = false
 var isDying = false
 
+var canInteract = false
+var interactWith:Area2D = null
+
 #creates a signal for when the player health changes
 signal health_changed(player_hearts)
 signal spear_changed(usable)
+signal interacting(interact_with)
 
 #starts the current health of the player
 func _ready():
@@ -39,6 +43,12 @@ func processInput():
 	#deny input if player is dying/dead
 	if isDying:
 		return
+	
+	if canInteract:
+		if Input.is_action_just_pressed("interact") && canInteract:
+			emit_signal("interacting",interactWith)
+		else:
+			return
 	
 	#spear throw handler (async so any lag of spear spawning isn't affecting player movement)
 	if !throwingSpear && hasSpear && Input.is_action_just_pressed("mouseLeft"):
@@ -66,6 +76,7 @@ func processInput():
 		if vec.x < 0 && is_on_floor():
 			vec.x = 0
 		tarvec += 1
+		
 
 func _physics_process(delta):
 	
@@ -209,9 +220,19 @@ func _on_spearCooldown_timeout():
 func _on_BlinkDur_timeout() -> void:
 	self.visible = !self.visible
 
+func _on_interactbox_area_entered(area):
+	if(area.is_in_group("interactable")):
+		canInteract = true
+		interactWith = area
+		
+func _on_interactbox_area_exited(area):
+	if(area.is_in_group("interactable")):
+		canInteract = false
+		interactWith = null
 
 #if hit by enemy, will add groups for different enemies and spikes and other various things in the future
 func _on_hitbox_area_entered(area):
+	
 	#if the hit by a traditional enemy
 	if(area.is_in_group("enemy")):
 		get_node("hitbox/CollisionShape2D2").set_deferred("disabled", true) 
@@ -232,3 +253,4 @@ func _on_InvilCooldown_timeout():
 		$BlinkDur.stop()
 		self.visible = true
 		isHurt = false
+		

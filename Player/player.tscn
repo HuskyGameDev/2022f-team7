@@ -15,7 +15,7 @@ extents = Vector2( 2.25, 7.75 )
 [node name="player" type="KinematicBody2D" groups=["player"]]
 pause_mode = 1
 collision_layer = 66
-collision_mask = 65
+collision_mask = 97
 collision/safe_margin = 0.04
 script = ExtResource( 1 )
 spearScene = ExtResource( 3 )
@@ -89,7 +89,7 @@ margin_bottom = 27.5
 texture = ExtResource( 8 )
 stretch_mode = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="interactbox" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0.25, 0.75 )
 shape = SubResource( 1 )
