@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menus/main.gd" type="Script" id=1]
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=2]
@@ -8,12 +8,6 @@
 
 [sub_resource type="DynamicFont" id=2]
 size = 27
-extra_spacing_char = 3
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 27
-outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 3
 font_data = ExtResource( 4 )
 
@@ -30,44 +24,36 @@ tile_data = PoolIntArray( 0, 8, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 11
 
 [node name="playScreen" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Title" type="TextureRect" parent="playScreen"]
-anchor_left = 0.189286
-anchor_top = 0.0564263
-anchor_right = 0.773214
-anchor_bottom = 0.548589
+anchor_left = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.5
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
-[node name="play" type="Button" parent="playScreen"]
-anchor_left = 0.5
+[node name="VBoxContainer" type="VBoxContainer" parent="playScreen"]
+anchor_left = 0.4
 anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -57.0
-margin_top = -2.5
-margin_right = 57.0
-margin_bottom = 33.5
+anchor_right = 0.6
+anchor_bottom = 0.9
+
+[node name="play" type="Button" parent="playScreen/VBoxContainer"]
+margin_right = 112.0
+margin_bottom = 33.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 5 )
 text = "Play"
 flat = true
 
-[node name="quit" type="Button" parent="playScreen"]
-anchor_left = 0.3875
-anchor_top = 0.639916
-anchor_right = 0.592046
-anchor_bottom = 0.7553
-margin_left = 6.0
-margin_top = -0.133255
-margin_right = 6.0
-margin_bottom = -0.133255
+[node name="quit" type="Button" parent="playScreen/VBoxContainer"]
+margin_top = 37.0
+margin_right = 112.0
+margin_bottom = 70.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
@@ -78,49 +64,42 @@ __meta__ = {
 
 [node name="levelSelect" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="levelOne" type="Button" parent="levelSelect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -134.0
-margin_top = -18.4038
-margin_right = 134.0
-margin_bottom = 18.4038
+[node name="VBoxContainer" type="VBoxContainer" parent="levelSelect"]
+anchor_left = 0.25
+anchor_top = 0.0626959
+anchor_right = 0.75
+anchor_bottom = 0.937304
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="levelOne" type="Button" parent="levelSelect/VBoxContainer"]
+margin_top = 85.0
+margin_right = 280.0
+margin_bottom = 118.0
 rect_pivot_offset = Vector2( 104, 48 )
-custom_fonts/font = SubResource( 1 )
 text = "1-1 or something"
 
-[node name="back" type="Button" parent="levelSelect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -57.2726
-margin_top = 54.5962
-margin_right = 57.2726
-margin_bottom = 91.4038
+[node name="Debug" type="Button" parent="levelSelect/VBoxContainer"]
+margin_top = 122.0
+margin_right = 280.0
+margin_bottom = 155.0
 rect_pivot_offset = Vector2( 104, 48 )
-custom_fonts/font = SubResource( 1 )
-text = "Back"
-
-[node name="Debug" type="Button" parent="levelSelect"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -93.0
-margin_top = 62.2
-margin_right = 93.0
-margin_bottom = 99.0072
-rect_pivot_offset = Vector2( 104, 48 )
-custom_fonts/font = SubResource( 1 )
 text = "debug level"
 
-[connection signal="pressed" from="playScreen/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="playScreen/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="levelSelect/levelOne" to="." method="_on_levelOne_pressed"]
-[connection signal="pressed" from="levelSelect/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="levelSelect/Debug" to="." method="_on_Debug_pressed"]
+[node name="back" type="Button" parent="levelSelect/VBoxContainer"]
+margin_top = 159.0
+margin_right = 280.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 104, 48 )
+text = "Back"
+
+[connection signal="pressed" from="playScreen/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="playScreen/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="levelSelect/VBoxContainer/levelOne" to="." method="_on_levelOne_pressed"]
+[connection signal="pressed" from="levelSelect/VBoxContainer/Debug" to="." method="_on_Debug_pressed"]
+[connection signal="pressed" from="levelSelect/VBoxContainer/back" to="." method="_on_back_pressed"]

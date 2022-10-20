@@ -31,11 +31,13 @@ window/stretch/aspect="keep"
 [global]
 
 scaling=false
-theme=false
+theme=true
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+theme/use_hidpi=true
+theme/custom="res://Assets/uiTheme.tres"
 theme/custom_font="res://Assets/Text/fonttheme.tres"
 
 [importer_defaults]
@@ -100,9 +102,9 @@ interact={
 [layer_names]
 
 2d_physics/layer_1="world collision"
-2d_physics/layer_2="player??"
+2d_physics/layer_2="player"
 2d_physics/layer_3="spear collider"
-2d_physics/layer_4="spear tip"
+2d_physics/layer_4="hurtbox"
 2d_physics/layer_5="spear angle check"
 2d_physics/layer_7="enemy collision"
 2d_physics/layer_8="enemy detection"

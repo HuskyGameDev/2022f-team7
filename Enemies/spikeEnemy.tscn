@@ -47,7 +47,6 @@ one_shot = true
 [node name="Tip" type="Area2D" parent="."]
 
 [node name="TipCollider" type="CollisionPolygon2D" parent="Tip"]
-position = Vector2( 0, 2 )
 polygon = PoolVector2Array( 0, -12, -2, -5, 2, -5 )
 
 [connection signal="body_entered" from="StartRange" to="." method="_on_StartRange_body_entered"]

@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Text/fonttheme.tres" type="DynamicFont" id=1]
+
+[resource]
+Button/colors/font_color = Color( 0, 0, 0, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/fonts/font = ExtResource( 1 )

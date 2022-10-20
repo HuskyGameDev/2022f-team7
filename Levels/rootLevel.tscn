@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menus/main.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Text/Courneuf-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Levels/rootLevel.gd" type="Script" id=3]
-[ext_resource path="res://Sounds/PlayerSounds/Player_death_v3.Iridos.capanda.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Text/fonttheme.tres" type="DynamicFont" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -30,7 +29,6 @@ margin_top = -13.5
 margin_right = 32.0
 margin_bottom = 17.5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 5 )
 text = "Menu"
 
 [node name="quit" type="Button" parent="pauseScreen"]
@@ -86,16 +84,19 @@ text = "Restart"
 
 [node name="deathScreen" type="CanvasLayer" parent="."]
 visible = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="menu" type="Button" parent="deathScreen"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -137.0
-margin_top = 25.5
-margin_right = -74.0
-margin_bottom = 56.5
+margin_left = -34.5
+margin_top = -16.5
+margin_right = 34.5
+margin_bottom = 16.5
 custom_fonts/font = ExtResource( 5 )
 text = "Menu"
 
@@ -125,13 +126,13 @@ text = "Restart"
 
 [node name="YOUDIED" type="Label" parent="deathScreen"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -60.0
-margin_top = -15.5
-margin_right = 52.0
-margin_bottom = 15.5
+anchor_bottom = 1.0
+margin_left = -56.0
+margin_top = -217.0
+margin_right = 56.0
+margin_bottom = -186.0
 custom_fonts/font = SubResource( 1 )
 text = "YOU DIED"
 valign = 1
@@ -142,11 +143,6 @@ __meta__ = {
 [node name="deathTimer" type="Timer" parent="deathScreen"]
 wait_time = 3.0
 one_shot = true
-
-[node name="playerDeathSound" type="AudioStreamPlayer" parent="deathScreen"]
-stream = ExtResource( 4 )
-volume_db = 1.0
-pitch_scale = 1.2
 
 [connection signal="pressed" from="pauseScreen/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="pauseScreen/quit" to="." method="_on_quit_pressed"]

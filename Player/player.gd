@@ -236,11 +236,12 @@ func _on_hitbox_area_entered(area):
 	#if the hit by a traditional enemy
 	if(area.is_in_group("enemy")):
 		get_node("hitbox/CollisionShape2D2").set_deferred("disabled", true) 
-		current_HP = current_HP - 1
+		current_HP -= 1
 		print(current_HP)
 		emit_signal("health_changed", current_HP)
 		if(current_HP <= 0):
 			isDying = true
+			$playerDeathSound.play()
 			return
 		$InvilCooldown.start()
 		$BlinkDur.start()

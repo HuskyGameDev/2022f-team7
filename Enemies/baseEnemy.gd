@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-#0, follow, 1, use path, 2, follow with nav agent
+#0, follow, 1, use path, 2, ground based movement, 3 for custom/no default behavior
 export var mode:int = 0
 export var speed:int = 1
 var engaged = false #for 0 and 2
@@ -21,7 +21,19 @@ func _physics_process(delta):
 		1:#MUST be a child of a pathfollower!
 			self.get_parent().unit_offset += (.0005 * speed)
 		2:
-			pass
+			pass #have not finished yet, no enemies use it either
+		3:
+			customMode()
+	
+	custom()
+
+func custom():
+	pass
+	#method for inherriting enemies to override for custom functionality in addition to the modes
+
+func customMode():
+	pass
+	#method for handling a custom mode in new enemies
 
 func _ready():
 	if self.get_parent() is PathFollow2D: 
@@ -37,7 +49,8 @@ func _onStopExit(body):
 
 
 func _on_hitbox_area_entered(area):
+	print(area)
 	if(area.is_in_group('spear')):
-		hp = hp - 1
+		hp -= 1
 		if (hp<=0):
 			queue_free()
