@@ -46,7 +46,7 @@ drag_margin_bottom = 0.4
 margin_left = 423.0
 margin_right = 521.0
 margin_bottom = 20.0
-text = "some coords"
+text = "coords"
 
 [node name="health" type="Control" parent="Camera2D/hud"]
 anchor_right = 0.171429
@@ -89,7 +89,7 @@ margin_bottom = 27.5
 texture = ExtResource( 8 )
 stretch_mode = 3
 
-[node name="interactbox" type="CollisionShape2D" parent="."]
+[node name="worldbox" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0.25, 0.75 )
 shape = SubResource( 1 )
@@ -117,12 +117,12 @@ pitch_scale = 0.94
 wait_time = 0.1
 one_shot = true
 
-[node name="hitbox" type="Area2D" parent="."]
+[node name="hurtbox" type="Area2D" parent="."]
 visible = false
-collision_layer = 0
-collision_mask = 64
+collision_layer = 2
+collision_mask = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="hitbox"]
+[node name="Collider" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2( 0.25, 0.75 )
 shape = SubResource( 1 )
 
@@ -138,6 +138,6 @@ wait_time = 0.15
 [connection signal="timeout" from="dashTime" to="." method="_on_dashTime_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dashCooldown_timeout"]
 [connection signal="timeout" from="spearCooldown" to="." method="_on_spearCooldown_timeout"]
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="InvilCooldown" to="." method="_on_InvilCooldown_timeout"]
 [connection signal="timeout" from="BlinkDur" to="." method="_on_BlinkDur_timeout"]

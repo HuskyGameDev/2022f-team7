@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 #0, follow, 1, use path, 2, ground based movement, 3 for custom/no default behavior
 export var mode:int = 0
-export var speed:int = 1
+export var speed:float = 1
 var engaged = false #for 0 and 2
 var vec = Vector2.ZERO
 var player:KinematicBody2D
@@ -44,6 +44,7 @@ func _ready():
 func _onStartEnter(body):
 	player = body
 	engaged = true
+
 func _onStopExit(body):
 	engaged = false
 

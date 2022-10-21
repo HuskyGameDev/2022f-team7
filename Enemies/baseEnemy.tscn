@@ -37,23 +37,23 @@ shape = SubResource( 2 )
 
 [node name="startRange" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 128
+collision_mask = 2
 
 [node name="collider" type="CollisionShape2D" parent="startRange"]
 shape = SubResource( 5 )
 
 [node name="stopRange" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 128
+collision_mask = 2
 
 [node name="collider" type="CollisionShape2D" parent="stopRange"]
 shape = SubResource( 6 )
 
 [node name="hitbox" type="Area2D" parent="." groups=["enemy"]]
-collision_layer = 64
-collision_mask = 8
+collision_layer = 0
+collision_mask = 10
 
-[node name="mapCollider" type="CollisionShape2D" parent="hitbox"]
+[node name="collider" type="CollisionShape2D" parent="hitbox"]
 position = Vector2( 0, 2.75 )
 shape = SubResource( 2 )
 

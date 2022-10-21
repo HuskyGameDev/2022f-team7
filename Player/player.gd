@@ -143,7 +143,7 @@ func processMovement(delta):
 	
 	#apply calculated properties to body and store result in vec
 	vec = move_and_slide_with_snap(vec, Vector2.DOWN, Vector2.UP, true, 4, deg2rad(45), true)
-	isWalking = vec.x != 0
+	isWalking = (vec.x != 0) && is_on_floor()
 
 #process behaviour of gravity on player
 func processGravity(var delta):
@@ -232,10 +232,10 @@ func _on_interactbox_area_exited(area):
 
 #if hit by enemy, will add groups for different enemies and spikes and other various things in the future
 func _on_hitbox_area_entered(area):
-	
 	#if the hit by a traditional enemy
 	if(area.is_in_group("enemy")):
-		get_node("hitbox/CollisionShape2D2").set_deferred("disabled", true) 
+		#stop watching for hurtbox collisions
+		$hurtbox/Collider.set_deferred("disabled", true)
 		current_HP -= 1
 		print(current_HP)
 		emit_signal("health_changed", current_HP)
@@ -250,7 +250,7 @@ func _on_hitbox_area_entered(area):
 #for the invil frames when getting hit
 func _on_InvilCooldown_timeout():
 	if(current_HP > 0):
-		get_node("hitbox/CollisionShape2D2").set_deferred("disabled", false) 
+		$hurtbox/Collider.set_deferred("disabled", false)
 		$BlinkDur.stop()
 		self.visible = true
 		isHurt = false
