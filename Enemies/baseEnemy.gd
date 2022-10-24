@@ -12,12 +12,9 @@ func _physics_process(delta):
 	match(mode):
 		0:
 			if engaged:
-				$AnimatedSprite.frame = 1
 				vec = (position - player.position).normalized()
 				vec *= -0.2
 				move_and_collide(vec, false)
-			else:
-				$AnimatedSprite.frame = 0
 		1:#MUST be a child of a pathfollower!
 			self.get_parent().unit_offset += (.0005 * speed)
 		2:
@@ -27,10 +24,12 @@ func _physics_process(delta):
 	
 	custom()
 
+#called per physics frame after mode code
 func custom():
 	pass
 	#method for inherriting enemies to override for custom functionality in addition to the modes
 
+#called per physics frame if enemy is of mode 3
 func customMode():
 	pass
 	#method for handling a custom mode in new enemies

@@ -35,7 +35,7 @@ func start(mouseCoords, pos, vec):
 
 func _unhandled_input(_event):
 	# If the player clicked on the spear OR pressed "E" while stuck, return the spear to the player
-	if(((mouseIn && Input.is_action_just_pressed("mouseLeft")) || Input.is_action_just_pressed("spear_retrieve")) && stuck):
+	if(Input.is_action_just_pressed("spear_retrieve") && stuck):
 		collectSpear()
 
 
@@ -43,7 +43,6 @@ func _physics_process(_delta):
 	# If the spear has stopped moving, freeze it and make it collectable.
 	if(!stuck && linear_velocity.length() <= error):
 		stick_spear()
-		
 
 
 # Runs when the tip of the spear collides with an object
@@ -67,13 +66,3 @@ func stick_spear():
 func collectSpear():
 	emit_signal("spear_collected")
 	queue_free()
-
-
-# Update mouse input
-func _on_Spear_mouse_entered():
-	mouseIn = true
-
-
-# Update mouse input
-func _on_Spear_mouse_exited():
-	mouseIn = false
