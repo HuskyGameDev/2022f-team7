@@ -55,7 +55,8 @@ func processInput():
 		throwingSpear = true
 		call_deferred("throwSpear")
 	
-	#starts dashing state if possible and starts dash cooldown, as well as cranking camera smoothing so player doesn't launch out of view
+	#starts dashing state if possible and starts dash cooldown, as well as
+	#cranking camera smoothing so player doesn't launch out of view
 	if Input.is_action_just_pressed("dash"):
 		if !isDashing && canDash:
 			isDashing = true
@@ -66,7 +67,8 @@ func processInput():
 		vec.y = -jumpPower
 		isJumping = true
 	
-	#apply left/right target direction and reset vecocity of player if changing direction to make movement snappy but smooth
+	#apply left/right target direction and reset vecocity of player if changing direction to
+	#make movement snappy but smooth
 	#doesn't apply the instance 0ing of vecocity if in air to create air strafe effect
 	if Input.is_action_pressed("moveLeft") && !isDashing:
 		if vec.x > 0 && is_on_floor():
@@ -76,7 +78,6 @@ func processInput():
 		if vec.x < 0 && is_on_floor():
 			vec.x = 0
 		tarvec += 1
-		
 
 func _physics_process(delta):
 	

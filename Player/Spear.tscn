@@ -18,7 +18,7 @@ extents = Vector2( 12, 5 )
 
 [node name="Spear" type="RigidBody2D"]
 z_index = 100
-collision_layer = 4
+collision_layer = 0
 input_pickable = true
 mass = 5.10204
 gravity_scale = 3.5
@@ -42,15 +42,13 @@ shape = SubResource( 1 )
 
 [node name="TipCollision" type="Area2D" parent="." groups=["spear"]]
 collision_layer = 8
-collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TipCollision"]
 position = Vector2( 8.5, 1 )
 shape = SubResource( 2 )
 
 [node name="BodyCollision" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 16
+collision_layer = 0
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyCollision"]

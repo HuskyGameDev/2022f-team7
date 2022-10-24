@@ -48,6 +48,7 @@ func _physics_process(_delta):
 
 # Runs when the tip of the spear collides with an object
 func _on_TipCollision_body_entered(body):
+	print("tip touched! " + body.name)
 	if(!stuck && body.is_in_group("spear_can_stick") && (abs(rad2deg(transform.get_rotation()))) < stick_angle || abs(rad2deg(transform.get_rotation())) > 180-stick_angle):
 		stick_spear()
 
@@ -58,11 +59,9 @@ func stick_spear():
 	set_deferred("mode", RigidBody2D.MODE_STATIC) # Set static so the spear no longer moves
 	if(!$BodyCollision.colliding): # If the spear is not laying flat on the ground
 		# updates collision layers so that the spear can collide with the player
-		set_collision_layer_bit(2, true)
-		set_collision_mask_bit(2, true)
-		set_collision_layer_bit(1, true)
-		set_collision_mask_bit(1, true)
-
+		pass
+		self.set_collision_layer_bit(0, true)
+		self.set_collision_mask_bit(0, false)
 
 # Returns the spear to the player
 func collectSpear():

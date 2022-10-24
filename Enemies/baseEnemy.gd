@@ -42,6 +42,7 @@ func _ready():
 
 #control if the enemy should be engaged with the player
 func _onStartEnter(body):
+	print("body touched! " + body.name)
 	player = body
 	engaged = true
 
@@ -50,7 +51,7 @@ func _onStopExit(body):
 
 
 func _on_hitbox_area_entered(area):
-	print(area)
+	print("enemy touched! " + area.name)
 	if(area.is_in_group('spear')):
 		hp -= 1
 		if (hp<=0):
