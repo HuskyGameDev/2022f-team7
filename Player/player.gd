@@ -219,7 +219,7 @@ func _on_spearCooldown_timeout():
 
 #for the blinking of the player
 func _on_BlinkDur_timeout() -> void:
-	self.visible = !self.visible
+	$Sprite.visible = !$Sprite.visible
 
 func _on_interactbox_area_entered(area):
 	if(area.is_in_group("interactable")):
@@ -243,6 +243,8 @@ func _on_hitbox_area_entered(area):
 		if(current_HP <= 0):
 			isDying = true
 			$playerDeathSound.play()
+			self.modulate="353535"
+			$Light2D.visible=false
 			return
 		$InvilCooldown.start()
 		$BlinkDur.start()
@@ -253,6 +255,6 @@ func _on_InvilCooldown_timeout():
 	if(current_HP > 0):
 		$hurtbox/Collider.set_deferred("disabled", false)
 		$BlinkDur.stop()
-		self.visible = true
+		$Sprite.visible = true
 		isHurt = false
 		

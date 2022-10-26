@@ -28,11 +28,6 @@ window/per_pixel_transparency/enabled=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
-[global]
-
-scaling=false
-theme=true
-
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

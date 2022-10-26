@@ -14,6 +14,7 @@ script = ExtResource( 3 )
 visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="pauseScreen"]
+light_mask = 0
 anchor_left = 0.3
 anchor_top = 0.0626959
 anchor_right = 0.7
@@ -23,6 +24,7 @@ __meta__ = {
 }
 
 [node name="Paused2" type="Label" parent="pauseScreen/VBoxContainer"]
+light_mask = 0
 margin_right = 224.0
 margin_bottom = 27.0
 text = "paused"
@@ -34,24 +36,28 @@ __meta__ = {
 }
 
 [node name="resume" type="Button" parent="pauseScreen/VBoxContainer"]
+light_mask = 0
 margin_top = 35.0
 margin_right = 224.0
 margin_bottom = 74.0
 text = "Resume"
 
 [node name="menu" type="Button" parent="pauseScreen/VBoxContainer"]
+light_mask = 0
 margin_top = 82.0
 margin_right = 224.0
 margin_bottom = 121.0
 text = "Menu"
 
 [node name="restart" type="Button" parent="pauseScreen/VBoxContainer"]
+light_mask = 0
 margin_top = 129.0
 margin_right = 224.0
 margin_bottom = 168.0
 text = "Restart"
 
 [node name="quit" type="Button" parent="pauseScreen/VBoxContainer"]
+light_mask = 0
 margin_top = 176.0
 margin_right = 224.0
 margin_bottom = 215.0
@@ -64,6 +70,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="deathScreen"]
+light_mask = 0
 anchor_left = 0.3
 anchor_top = 0.0626959
 anchor_right = 0.7
@@ -73,6 +80,7 @@ __meta__ = {
 }
 
 [node name="Death" type="Label" parent="deathScreen/VBoxContainer"]
+light_mask = 0
 margin_right = 224.0
 margin_bottom = 27.0
 text = "you died"
@@ -84,6 +92,7 @@ __meta__ = {
 }
 
 [node name="menu" type="Button" parent="deathScreen/VBoxContainer"]
+light_mask = 0
 margin_top = 35.0
 margin_right = 224.0
 margin_bottom = 74.0
@@ -91,6 +100,7 @@ custom_fonts/font = ExtResource( 5 )
 text = "Menu"
 
 [node name="quit" type="Button" parent="deathScreen/VBoxContainer"]
+light_mask = 0
 margin_top = 82.0
 margin_right = 224.0
 margin_bottom = 121.0
@@ -98,6 +108,7 @@ custom_fonts/font = ExtResource( 5 )
 text = "Quit"
 
 [node name="restart" type="Button" parent="deathScreen/VBoxContainer"]
+light_mask = 0
 margin_top = 129.0
 margin_right = 224.0
 margin_bottom = 168.0

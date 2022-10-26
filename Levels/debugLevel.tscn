@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
 [ext_resource path="res://interactables/interactBase.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/light.png" type="Texture" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -15,12 +16,21 @@ _data = {
 pause_mode = 1
 
 [node name="interactBase" parent="." instance=ExtResource( 5 )]
-position = Vector2( 63, 33 )
+position = Vector2( 76, 36 )
 
 [node name="playerSpawn" type="Position2D" parent="."]
-position = Vector2( -126, 7 )
+position = Vector2( -171, 30 )
+
+[node name="Light2D" type="Light2D" parent="playerSpawn"]
+scale = Vector2( 5, 5 )
+texture = ExtResource( 6 )
+texture_scale = 0.5
+energy = 0.99
+range_layer_min = -1
+shadow_enabled = true
 
 [node name="TileMap" type="TileMap" parent="." groups=["spear_can_stick", "tilemap"]]
+modulate = Color( 0.368627, 0.368627, 0.368627, 1 )
 position = Vector2( -328, -234 )
 scale = Vector2( 0.5, 0.5 )
 tile_set = ExtResource( 1 )
@@ -52,15 +62,6 @@ pitch_scale = 0.4
 autoplay = true
 mix_target = 1
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground"]
-modulate = Color( 0.12549, 0.12549, 0.12549, 1 )
-position = Vector2( 3.55271e-15, 0 )
-scale = Vector2( 8.75, 4.985 )
-texture = ExtResource( 3 )
-centered = false
-
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( -4, -11 )
 curve = SubResource( 1 )
@@ -72,3 +73,14 @@ rotate = false
 [node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 2 )]
 mode = 1
 speed = 1.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 0.12549, 0.12549, 0.12549, 1 )
+position = Vector2( 3.55271e-15, 0 )
+scale = Vector2( 8.75, 4.985 )
+z_index = -1
+texture = ExtResource( 3 )
+centered = false

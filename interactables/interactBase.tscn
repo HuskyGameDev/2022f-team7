@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://interactables/interactBase.gd" type="Script" id=1]
 [ext_resource path="res://Assets/fingers.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Text/fonttheme.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/light.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19.5, 20.5 )
@@ -15,6 +16,13 @@ __meta__ = {
 "_editor_description_": "Copy this sprite into new scenes to work from"
 }
 
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 5, 5 )
+texture = ExtResource( 4 )
+texture_scale = 0.5
+energy = 0.76
+shadow_enabled = true
+
 [node name="playerDetection" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 __meta__ = {
@@ -22,6 +30,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+light_mask = 0
 texture = ExtResource( 2 )
 
 [node name="interactions" type="Control" parent="."]

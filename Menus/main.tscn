@@ -17,10 +17,12 @@ tile_data = PoolIntArray( 0, 8, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 11
 
 [node name="playScreen" type="Control" parent="."]
 unique_name_in_owner = true
+light_mask = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Title" type="TextureRect" parent="playScreen"]
+light_mask = 0
 anchor_left = 0.2
 anchor_right = 0.8
 anchor_bottom = 0.5
@@ -29,17 +31,20 @@ expand = true
 stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="playScreen"]
+light_mask = 0
 anchor_left = 0.4
 anchor_top = 0.5
 anchor_right = 0.6
 anchor_bottom = 0.9
 
 [node name="play" type="Button" parent="playScreen/VBoxContainer"]
+light_mask = 0
 margin_right = 112.0
 margin_bottom = 39.0
 text = "Play"
 
 [node name="quit" type="Button" parent="playScreen/VBoxContainer"]
+light_mask = 0
 margin_top = 47.0
 margin_right = 112.0
 margin_bottom = 86.0
@@ -51,10 +56,12 @@ __meta__ = {
 [node name="levelSelect" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
+light_mask = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="levelSelect"]
+light_mask = 0
 anchor_left = 0.25
 anchor_top = 0.0626959
 anchor_right = 0.75
@@ -65,6 +72,7 @@ __meta__ = {
 }
 
 [node name="levelOne" type="Button" parent="levelSelect/VBoxContainer"]
+light_mask = 0
 margin_top = 72.0
 margin_right = 280.0
 margin_bottom = 111.0
@@ -72,6 +80,7 @@ rect_pivot_offset = Vector2( 104, 48 )
 text = "1-1 or something"
 
 [node name="Debug" type="Button" parent="levelSelect/VBoxContainer"]
+light_mask = 0
 margin_top = 119.0
 margin_right = 280.0
 margin_bottom = 158.0
@@ -79,6 +88,7 @@ rect_pivot_offset = Vector2( 104, 48 )
 text = "debug level"
 
 [node name="back" type="Button" parent="levelSelect/VBoxContainer"]
+light_mask = 0
 margin_top = 166.0
 margin_right = 280.0
 margin_bottom = 205.0

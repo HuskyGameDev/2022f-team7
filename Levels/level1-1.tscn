@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/baseEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/fallingSpikeEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/light.png" type="Texture" id=4]
 
 [sub_resource type="Curve2D" id=3]
 _data = {
@@ -112,3 +113,14 @@ position = Vector2( -2, 27 )
 rotate = false
 
 [node name="enemy" parent="Path2D6/PathFollow2D" instance=ExtResource( 2 )]
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 81, 152 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 4 )
+texture_scale = 0.5
+energy = 0.99
+shadow_enabled = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.368627, 0.368627, 0.368627, 1 )

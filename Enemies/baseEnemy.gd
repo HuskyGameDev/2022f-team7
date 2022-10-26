@@ -48,7 +48,6 @@ func _onStartEnter(body):
 func _onStopExit(body):
 	engaged = false
 
-
 func _on_hitbox_area_entered(area):
 	print("enemy touched! " + area.name)
 	if(area.is_in_group('spear')):
