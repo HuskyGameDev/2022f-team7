@@ -1,20 +1,48 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[ext_resource path="res://interactables/interactBase.gd" type="Script" id=1]
+[ext_resource path="res://Assets/fingers.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Text/fonttheme.tres" type="DynamicFont" id=3]
 
-[node name="interactBase" type="Area2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 19.5, 20.5 )
+
+[node name="interactBase" type="Area2D" groups=["interactable"]]
+collision_layer = 17
+collision_mask = 3
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Copy this sprite into new scenes to work from"
 }
 
-[node name="playerDetection2" type="CollisionShape2D" parent="."]
+[node name="playerDetection" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 __meta__ = {
 "_editor_description_": "adjust per item"
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
 
 [node name="interactions" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -20.0
+margin_top = -21.0
+margin_right = 20.0
+margin_bottom = -21.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2( 0.25, 0.25 )
+transform = Transform2D( 0.25, 0, 0, 0.25, 0, 0 )
+
+[node name="TextLabel" type="Label" parent="CanvasLayer"]
+anchor_left = -0.185714
+anchor_top = -0.376176
+anchor_right = 0.182143
+anchor_bottom = -0.250784
+custom_fonts/font = ExtResource( 3 )
+text = "The Fingers..."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}

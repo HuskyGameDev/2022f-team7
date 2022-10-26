@@ -88,6 +88,4 @@ func interactHandler(interact_with):
 		interactArea = interact_with
 		
 		
-#find the root of the scene containing interactArea
-func findParent(interactArea):
-		pass
+
