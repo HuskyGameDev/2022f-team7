@@ -15,6 +15,7 @@ _data = {
 pause_mode = 1
 
 [node name="interactBase" parent="." instance=ExtResource( 5 )]
+position = Vector2( 63, 33 )
 
 [node name="playerSpawn" type="Position2D" parent="."]
 position = Vector2( -126, 7 )

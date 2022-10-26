@@ -8,8 +8,8 @@
 extents = Vector2( 19.5, 20.5 )
 
 [node name="interactBase" type="Area2D" groups=["interactable"]]
-collision_layer = 17
-collision_mask = 3
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Copy this sprite into new scenes to work from"
@@ -33,12 +33,17 @@ margin_bottom = -21.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 scale = Vector2( 0.25, 0.25 )
 transform = Transform2D( 0.25, 0, 0, 0.25, 0, 0 )
+follow_viewport_enable = true
 
 [node name="TextLabel" type="Label" parent="CanvasLayer"]
 anchor_left = -0.185714
 anchor_top = -0.376176
 anchor_right = 0.182143
 anchor_bottom = -0.250784
+margin_left = -92.0
+margin_top = -16.0
+margin_right = 114.0
+margin_bottom = 11.0
 custom_fonts/font = ExtResource( 3 )
 text = "The Fingers..."
 align = 1
