@@ -2,6 +2,8 @@ extends RigidBody2D
 
 
 # Declare member variables here
+export (PackedScene) var particles
+
 export var speed = 200 # Initial speed with which the spear is thrown
 export var stick_angle = 40 # angle within which the spear will stick to walls
 export var error = 0.05 # The error when checking if velocity is zero
@@ -65,4 +67,8 @@ func stick_spear():
 # Returns the spear to the player
 func collectSpear():
 	emit_signal("spear_collected")
+	var p = particles.instance()
+	p.transform = transform
+	get_parent().add_child(p)
+	p.emitting = true;
 	queue_free()

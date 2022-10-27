@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Spear.gd" type="Script" id=2]
 [ext_resource path="res://Player/BodyCollision.gd" type="Script" id=3]
 [ext_resource path="res://Player/collectArea.gd" type="Script" id=4]
+[ext_resource path="res://Player/SpearParticles.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 2 )
@@ -25,6 +26,7 @@ mass = 5.10204
 gravity_scale = 3.5
 linear_damp = -0.5
 script = ExtResource( 2 )
+particles = ExtResource( 5 )
 speed = 250
 
 [node name="Sprite" type="Sprite" parent="."]
