@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 
 # Declare member variables here. Examples:
+export (PackedScene) var particles;
+
 var aiming = false
 var aimed = false
 var attacking = false
@@ -55,4 +57,9 @@ func _on_AttackDelay_timeout():
 
 
 func _on_Tip_body_entered(body):
-	if(body.is_in_group("tilemap") && attacking): queue_free()
+	if(body.is_in_group("tilemap") && attacking): 
+		var p = particles.instance()
+		p.transform = transform
+		get_parent().add_child(p)
+		p.emitting = true;
+		queue_free()

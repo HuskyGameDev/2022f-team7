@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
 [ext_resource path="res://interactables/interactBase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/light.png" type="Texture" id=6]
+[ext_resource path="res://Enemies/spikeEnemy.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -14,6 +15,9 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 pause_mode = 1
+
+[node name="SpikeEnemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( -50, 44 )
 
 [node name="interactBase" parent="." instance=ExtResource( 5 )]
 position = Vector2( 76, 36 )
