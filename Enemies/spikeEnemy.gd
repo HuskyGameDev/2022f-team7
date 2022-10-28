@@ -22,8 +22,8 @@ func _ready():
 
 func _physics_process(delta):
 	if(aiming): rotateSpike()
-	if(attacking): hit = move_and_collide(attackDirection * speed * delta)
-	if(hit != null && !hit.collider.is_in_group("tilemap")): queue_free()
+	if(attacking): hit = move_and_collide(attackDirection * speed * delta, true)
+	#if(hit != null && !hit.collider.is_in_group("tilemap")): queue_free()
 	
 func _on_StartRange_body_entered(body):
 	if(!aimed && body.is_in_group("player")):
@@ -54,10 +54,11 @@ func rotateSpike():
 func _on_AttackDelay_timeout():
 	attacking = true
 	attackDirection = get_global_position().direction_to(direction).normalized()
+	$Tip.set_collision_mask_bit(1, true)
 
 
 func _on_Tip_body_entered(body):
-	if(body.is_in_group("tilemap") && attacking): 
+	if(attacking):
 		var p = particles.instance()
 		p.transform = transform
 		get_parent().add_child(p)

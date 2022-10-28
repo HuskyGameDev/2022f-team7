@@ -20,8 +20,8 @@ animations = [ {
 extents = Vector2( 76, 38.5 )
 
 [node name="SpikeEnemy" type="KinematicBody2D"]
-collision_layer = 64
-collision_mask = 64
+collision_layer = 0
+collision_mask = 3
 script = ExtResource( 2 )
 particles = ExtResource( 3 )
 
@@ -34,6 +34,8 @@ scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 
 [node name="StartRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="Collider" type="CollisionShape2D" parent="StartRange"]
 visible = false
@@ -44,13 +46,13 @@ shape = SubResource( 4 )
 one_shot = true
 
 [node name="AttackDelay" type="Timer" parent="."]
-wait_time = 0.4
 one_shot = true
 
-[node name="Tip" type="Area2D" parent="."]
+[node name="Tip" type="Area2D" parent="." groups=["enemy"]]
+collision_layer = 0
 
 [node name="TipCollider" type="CollisionPolygon2D" parent="Tip"]
-polygon = PoolVector2Array( 0, -12, -2, -5, 2, -5 )
+polygon = PoolVector2Array( 0, -11, -1, -10, 1, -10 )
 
 [connection signal="body_entered" from="StartRange" to="." method="_on_StartRange_body_entered"]
 [connection signal="timeout" from="AimTimer" to="." method="_on_AimTimer_timeout"]
