@@ -33,26 +33,36 @@ __meta__ = {
 light_mask = 0
 texture = ExtResource( 2 )
 
-[node name="interactions" type="Control" parent="."]
+[node name="CanvasInteractions" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="interactions" type="Control" parent="CanvasInteractions"]
 margin_left = -20.0
 margin_top = -21.0
 margin_right = 20.0
 margin_bottom = -21.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2( 0.25, 0.25 )
-transform = Transform2D( 0.25, 0, 0, 0.25, 0, 0 )
+[node name="CanvasPrompt" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
 
-[node name="TextLabel" type="Label" parent="CanvasLayer"]
-anchor_left = -0.185714
-anchor_top = -0.376176
-anchor_right = 0.182143
-anchor_bottom = -0.250784
-margin_left = -92.0
-margin_top = -16.0
-margin_right = 114.0
-margin_bottom = 11.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasPrompt"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -98.0
+margin_top = -289.0
+margin_right = 108.0
+margin_bottom = -249.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextLabel" type="Label" parent="CanvasPrompt/HBoxContainer"]
+margin_top = 6.0
+margin_right = 206.0
+margin_bottom = 33.0
 custom_fonts/font = ExtResource( 3 )
 text = "The Fingers..."
 align = 1
@@ -60,3 +70,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

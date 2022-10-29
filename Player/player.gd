@@ -221,6 +221,8 @@ func _on_spearCooldown_timeout():
 func _on_BlinkDur_timeout() -> void:
 	$Sprite.visible = !$Sprite.visible
 
+
+#anticipate deprecation: don't use
 func _on_interactbox_area_entered(area):
 	if(area.is_in_group("interactable")):
 		canInteract = true

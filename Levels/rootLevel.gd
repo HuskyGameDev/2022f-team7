@@ -83,6 +83,8 @@ func createExit():
 	#currentExit = elevatorExit.instance()
 	pass
 
+
+#anticipate deprecation: don't use
 func interactHandler(interact_with):
 	if interact_with.is_in_group("interactable"):
 		interactArea = interact_with

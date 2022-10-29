@@ -42,6 +42,7 @@ func _ready():
 #control if the enemy should be engaged with the player
 func _onStartEnter(body):
 	print("body touched! " + body.name)
+	#if body is in group("player"):
 	player = body
 	engaged = true
 
