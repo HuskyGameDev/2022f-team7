@@ -43,7 +43,6 @@ margin_right = 20.0
 margin_bottom = -21.0
 
 [node name="CanvasPrompt" type="CanvasLayer" parent="."]
-follow_viewport_enable = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasPrompt"]
 anchor_left = 0.5

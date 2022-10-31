@@ -25,13 +25,9 @@ var isWalking = false
 var isJumping = false
 var isDying = false
 
-var canInteract = false
-var interactWith:Area2D = null
-
 #creates a signal for when the player health changes
 signal health_changed(player_hearts)
 signal spear_changed(usable)
-signal interacting(interact_with)
 
 #starts the current health of the player
 func _ready():
@@ -44,11 +40,6 @@ func processInput():
 	if isDying:
 		return
 	
-	if canInteract:
-		if Input.is_action_just_pressed("interact") && canInteract:
-			emit_signal("interacting",interactWith)
-		else:
-			return
 	
 	#spear throw handler (async so any lag of spear spawning isn't affecting player movement)
 	if !throwingSpear && hasSpear && Input.is_action_just_pressed("mouseLeft"):
@@ -220,18 +211,6 @@ func _on_spearCooldown_timeout():
 #for the blinking of the player
 func _on_BlinkDur_timeout() -> void:
 	$Sprite.visible = !$Sprite.visible
-
-
-#anticipate deprecation: don't use
-func _on_interactbox_area_entered(area):
-	if(area.is_in_group("interactable")):
-		canInteract = true
-		interactWith = area
-		
-func _on_interactbox_area_exited(area):
-	if(area.is_in_group("interactable")):
-		canInteract = false
-		interactWith = null
 
 #if hit by enemy, will add groups for different enemies and spikes and other various things in the future
 func _on_hitbox_area_entered(area):

@@ -6,7 +6,6 @@ var activePlayer
 var currentExit
 var levelDir
 var level:Node2D
-var interactArea:Area2D
 
 func _ready():
 	$pauseScreen.visible = false
@@ -76,18 +75,11 @@ func createPlayer():
 		activePlayer.position = level.get_node("playerSpawn").position
 	level.add_child(activePlayer)
 	activePlayer.connect("health_changed",self,"_on_healthChanged")
-	activePlayer.connect("interacting",self,"interactHandler")
 
 # creates exit in same style as player
 func createExit():
 	#currentExit = elevatorExit.instance()
 	pass
-
-
-#anticipate deprecation: don't use
-func interactHandler(interact_with):
-	if interact_with.is_in_group("interactable"):
-		interactArea = interact_with
 		
 		
 
