@@ -77,7 +77,17 @@ margin_top = 72.0
 margin_right = 280.0
 margin_bottom = 111.0
 rect_pivot_offset = Vector2( 104, 48 )
-text = "1-1 or something"
+text = "1-1"
+
+[node name="levelTwo" type="Button" parent="levelSelect/VBoxContainer"]
+margin_right = 24.0
+margin_bottom = 39.0
+text = "1-2"
+
+[node name="levelThree" type="Button" parent="levelSelect/VBoxContainer"]
+margin_right = 24.0
+margin_bottom = 39.0
+text = "1-3"
 
 [node name="Debug" type="Button" parent="levelSelect/VBoxContainer"]
 light_mask = 0
@@ -98,5 +108,7 @@ text = "Back"
 [connection signal="pressed" from="playScreen/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="playScreen/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="levelSelect/VBoxContainer/levelOne" to="." method="_on_levelOne_pressed"]
+[connection signal="pressed" from="levelSelect/VBoxContainer/levelTwo" to="." method="_on_levelTwo_pressed"]
+[connection signal="pressed" from="levelSelect/VBoxContainer/levelThree" to="." method="_on_levelThree_pressed"]
 [connection signal="pressed" from="levelSelect/VBoxContainer/Debug" to="." method="_on_Debug_pressed"]
 [connection signal="pressed" from="levelSelect/VBoxContainer/back" to="." method="_on_back_pressed"]
