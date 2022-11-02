@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 #0, follow, 1, use path, 2, ground based movement, 3 for custom/no default behavior
 export var mode:int = 0
-export var speed:float = 1
+export var railSpeed:float = 1
 var engaged = false #for 0 and 2
 var vec = Vector2.ZERO
 var player:KinematicBody2D
@@ -16,21 +16,21 @@ func _physics_process(delta):
 				vec *= -0.2
 				move_and_collide(vec, false)
 		1:#MUST be a child of a pathfollower!
-			self.get_parent().unit_offset += (.0005 * speed)
+			self.get_parent().unit_offset += (.0005 * railSpeed)
 		2:
 			pass #have not finished yet, no enemies use it either
 		3:
-			customMode()
+			customMode(delta)
 	
-	custom()
+	custom(delta)
 
 #called per physics frame after mode code
-func custom():
+func custom(delta):
 	pass
 	#method for inherriting enemies to override for custom functionality in addition to the modes
 
 #called per physics frame if enemy is of mode 3
-func customMode():
+func customMode(delta):
 	pass
 	#method for handling a custom mode in new enemies
 

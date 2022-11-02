@@ -6,7 +6,7 @@
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
 [ext_resource path="res://interactables/interactBase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/light.png" type="Texture" id=6]
-[ext_resource path="res://Enemies/spikeEnemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemies/mrjab.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -15,9 +15,6 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 pause_mode = 1
-
-[node name="SpikeEnemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( -50, 44 )
 
 [node name="interactBase" parent="." instance=ExtResource( 5 )]
 position = Vector2( 76, 36 )
@@ -76,7 +73,6 @@ rotate = false
 
 [node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 2 )]
 mode = 1
-speed = 1.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -88,3 +84,6 @@ scale = Vector2( 8.75, 4.985 )
 z_index = -1
 texture = ExtResource( 3 )
 centered = false
+
+[node name="enemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( -75, 46 )

@@ -1,8 +1,8 @@
 extends "res://Enemies/baseEnemy.gd"
 
 
-func custom():
+func custom(_delta):
 	$AnimatedSprite.frame = engaged
 
-func customMode(): 
+func customMode(_delta): 
 	pass
