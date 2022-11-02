@@ -3,6 +3,7 @@ extends RigidBody2D
 
 # Declare member variables here
 export (PackedScene) var particles
+export (PackedScene) var particleTrail
 
 export var speed = 200 # Initial speed with which the spear is thrown
 export var stick_angle = 40 # angle within which the spear will stick to walls
@@ -71,4 +72,7 @@ func collectSpear():
 	p.transform = transform
 	get_parent().add_child(p)
 	p.emitting = true;
+	var t = particleTrail.instance()
+	t.transform = transform
+	get_parent().add_child(t)
 	queue_free()
