@@ -93,7 +93,6 @@ position = Vector2( 76, 12 )
 rotate = false
 
 [node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 5 )]
-speed = 3.0
 
 [node name="Path2D2" type="Path2D" parent="."]
 curve = SubResource( 2 )
@@ -103,7 +102,6 @@ position = Vector2( 272, -160 )
 rotate = false
 
 [node name="enemy" parent="Path2D2/PathFollow2D" instance=ExtResource( 5 )]
-speed = 3.0
 
 [node name="Path2D3" type="Path2D" parent="."]
 curve = SubResource( 3 )
@@ -113,7 +111,6 @@ position = Vector2( 466, 90 )
 rotate = false
 
 [node name="enemy" parent="Path2D3/PathFollow2D" instance=ExtResource( 5 )]
-speed = 3.0
 
 [node name="Path2D4" type="Path2D" parent="."]
 position = Vector2( -1, -9 )
@@ -124,7 +121,6 @@ position = Vector2( 524, -20 )
 rotate = false
 
 [node name="enemy" parent="Path2D4/PathFollow2D" instance=ExtResource( 5 )]
-speed = 3.0
 
 [node name="Path2D5" type="Path2D" parent="."]
 position = Vector2( 0, -6 )
@@ -135,7 +131,6 @@ position = Vector2( 321, -184 )
 rotate = false
 
 [node name="enemy" parent="Path2D5/PathFollow2D" instance=ExtResource( 5 )]
-speed = 3.0
 
 [node name="Path2D6" type="Path2D" parent="."]
 curve = SubResource( 6 )
@@ -145,4 +140,99 @@ position = Vector2( 790, -128 )
 rotate = false
 
 [node name="enemy" parent="Path2D6/PathFollow2D" instance=ExtResource( 5 )]
-speed = 3.0
+
+[node name="SpikeEnemy9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 826, -10 )
+rotation = 1.5708
+
+[node name="SpikeEnemy10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 958, -10 )
+rotation = -1.5708
+
+[node name="SpikeEnemy11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 826, 38 )
+rotation = 1.5708
+
+[node name="SpikeEnemy12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 958, 38 )
+rotation = -1.5708
+
+[node name="SpikeEnemy13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 826, 86 )
+rotation = 1.5708
+
+[node name="SpikeEnemy14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 958, 86 )
+rotation = -1.5708
+
+[node name="SpikeEnemy15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 826, 134 )
+rotation = 1.5708
+
+[node name="SpikeEnemy16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 958, 134 )
+rotation = -1.5708
+
+[node name="SpikeEnemy17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 826, 182 )
+rotation = 1.5708
+
+[node name="SpikeEnemy18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 958, 182 )
+rotation = -1.5708
+
+[node name="SpikeEnemy19" parent="." instance=ExtResource( 2 )]
+position = Vector2( 826, 230 )
+rotation = 1.5708
+
+[node name="SpikeEnemy20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 958, 230 )
+rotation = -1.5708
+
+[node name="SpikeEnemy21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 100, 72 )
+rotation = 3.14159
+
+[node name="SpikeEnemy22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, 8 )
+rotation = 3.14159
+
+[node name="SpikeEnemy23" parent="." instance=ExtResource( 2 )]
+position = Vector2( 184, 16 )
+rotation = 3.14159
+
+[node name="SpikeEnemy24" parent="." instance=ExtResource( 2 )]
+position = Vector2( 324, 122 )
+rotation = 3.14159
+
+[node name="SpikeEnemy25" parent="." instance=ExtResource( 2 )]
+position = Vector2( 404, 16 )
+rotation = 3.14159
+
+[node name="SpikeEnemy26" parent="." instance=ExtResource( 2 )]
+position = Vector2( 472, -8 )
+rotation = 3.14159
+
+[node name="SpikeEnemy27" parent="." instance=ExtResource( 2 )]
+position = Vector2( 577, -102 )
+rotation = 3.14159
+
+[node name="SpikeEnemy28" parent="." instance=ExtResource( 2 )]
+position = Vector2( 604, -112 )
+rotation = 3.14159
+
+[node name="SpikeEnemy29" parent="." instance=ExtResource( 2 )]
+position = Vector2( 557, -214 )
+rotation = 3.14159
+
+[node name="SpikeEnemy30" parent="." instance=ExtResource( 2 )]
+position = Vector2( 418, -230 )
+rotation = 3.14159
+
+[node name="SpikeEnemy31" parent="." instance=ExtResource( 2 )]
+position = Vector2( 212, -104 )
+rotation = 3.14159
+
+[node name="SpikeEnemy32" parent="." instance=ExtResource( 2 )]
+position = Vector2( 116, -104 )
+rotation = 3.14159
