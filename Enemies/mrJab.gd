@@ -16,12 +16,13 @@ var hit
 
 #boilerplate methods
 func _ready():
-	rotation = -2*PI
+	pass
+	#rotation = -2*PI
 
 #enemy mode override (called under physics process)
 func customMode(delta):
 	if(aiming): rotateSpike()
-	if(attacking): hit = move_and_collide(attackDirection * speed * delta, true)
+	if(attacking): hit = move_and_slide(attackDirection * speed)
 	#if(hit != null && !hit.collider.is_in_group("tilemap")): queue_free()
 	.customMode(delta)
 
@@ -50,6 +51,10 @@ func _onTipHit(body):
 		p.emitting = true;
 		queue_free()
 
+func _on_hitbox_area_entered(area):
+	if(attacking || aiming ||aimed):
+		._on_hitbox_area_entered(area)
+
 #helper methods
 func rotateSpike():
 	direction = Vector2($"../player".get_global_position().x, $"../player".get_global_position().y) # Get player location
@@ -57,9 +62,10 @@ func rotateSpike():
 	# Adjust rotation/angle so that it doesn't rotate the long way around
 	if abs(rotation - angle) >= PI && rotation != 0:
 		if rotation > angle:
-			rotation = (fposmod(rotation + PI, 2.0*PI) - PI) - (2.0 * PI)
+			rotation = (fposmod(rotation + PI, 2.0*PI) - PI) 
 		else:
-			angle = (fposmod(angle + PI, 2.0*PI) - PI) - (2.0 * PI)
+			angle = (fposmod(angle + PI, 2.0*PI) - PI) 
 	# Set rotation
 	if(rotation > angle + aimSpeed): rotation -= aimSpeed
 	if(rotation < angle - aimSpeed): rotation += aimSpeed
+	$Light2D.global_rotation = 0

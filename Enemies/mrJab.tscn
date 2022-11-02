@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://mrjab.gd" type="Script" id=1]
+[ext_resource path="res://Enemies/mrJab.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/baseEnemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Tileset.png" type="Texture" id=3]
-[ext_resource path="res://Enemies/SpikeParticles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/SpikeParticles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Tileset.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 3 )
+atlas = ExtResource( 4 )
 region = Rect2( 51, 39, 10, 25 )
 
 [sub_resource type="SpriteFrames" id=2]
@@ -24,7 +24,7 @@ extents = Vector2( 76, 38.5 )
 collision_mask = 3
 script = ExtResource( 1 )
 mode = 3
-particles = ExtResource( 4 )
+particles = ExtResource( 3 )
 
 [node name="AnimatedSprite" parent="." index="0"]
 position = Vector2( -2.5, -12.5 )
@@ -38,9 +38,6 @@ polygon = PoolVector2Array( 0, -11, 3, 2, -3, 2 )
 
 [node name="mapCollider" parent="." index="2"]
 shape = null
-
-[node name="startRange" parent="." index="3"]
-visible = true
 
 [node name="collider" parent="startRange" index="0"]
 visible = false
@@ -69,9 +66,6 @@ collision_layer = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="touchBox" index="0"]
 position = Vector2( 0, -2 )
 polygon = PoolVector2Array( 0, -11, -1, -10, 1, -10 )
-
-[node name="Light2D" parent="." index="7"]
-visible = false
 
 [node name="AimTimer" type="Timer" parent="." index="8"]
 one_shot = true

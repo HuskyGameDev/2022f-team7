@@ -23,6 +23,7 @@ anim_speed = 100.0
 anim_speed_random = 1.0
 
 [node name="SpearParticles" type="Particles2D"]
+light_mask = 0
 emitting = false
 amount = 30
 lifetime = 0.75
