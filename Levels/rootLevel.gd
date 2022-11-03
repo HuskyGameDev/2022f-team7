@@ -60,10 +60,13 @@ func _on_deathTimer_timeout():
 func _on_level_complete():
 	pass
 
-func _unhandled_input(_event):
-	if Input.is_action_just_pressed("pause_game") && !$main.visible:
-		$pauseScreen.visible = !$pauseScreen.visible
-		get_tree().paused = !get_tree().paused
+func _input(_event):
+	if Input.is_action_just_pressed("pause_game") && $main.visible == false && $deathScreen.visible == false:
+		if $pauseScreen.visible == false && get_tree().paused == true:
+			return
+		else:
+			$pauseScreen.visible = !$pauseScreen.visible
+			get_tree().paused = !get_tree().paused
 
 func createLevel():
 	level = load(levelDir).instance()
@@ -75,7 +78,7 @@ func createPlayer():
 		activePlayer.position = level.get_node("playerSpawn").position
 	level.add_child(activePlayer)
 	activePlayer.connect("health_changed",self,"_on_healthChanged")
-
+	
 # creates exit in same style as player
 func createExit():
 	#currentExit = elevatorExit.instance()

@@ -59,6 +59,7 @@ position = Vector2( 4, 2 )
 polygon = PoolVector2Array( -8, 6, 248, -42, 248, 6, 64, 6 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 4 )
 pitch_scale = 0.4
 autoplay = true

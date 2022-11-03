@@ -3,22 +3,12 @@ extends Area2D
 var interacting = false;
 var player;
 
-func processInput():
-	
-	if !interacting:
-		print(interacting)
-		return
-	
-	if Input.is_action_just_pressed("interact"):
-		print(interacting);
-		print("player is interacting");
+signal interacted;
 
 func _ready():
-	#$CanvasPrompt.hide()
-	#$CanvasInteractions.hide()
+	$CanvasPrompt.hide()
+	$CanvasInteractions.hide()
 	pass
-
-
 
 func _on_body_entered(body):
 	print("fingers touching " + body.get_name())
@@ -34,3 +24,18 @@ func _on_body_exited(body):
 		interacting = false
 		$CanvasPrompt.hide()
 		$CanvasInteractions.hide()
+		
+func _input(event):
+	if event.is_action_pressed("interact"): #prevent spam in terminal
+		if interacting == false:
+			print("player not interacting")
+			return
+		if get_tree().paused == false:
+			get_tree().paused = true
+			$CanvasInteractions.show()
+			print("player is interacting")
+		else:
+			get_tree().paused = false
+			$CanvasInteractions.hide()
+			print("player stopped interacting")
+			

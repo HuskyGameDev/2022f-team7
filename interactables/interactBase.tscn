@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://interactables/interactBase.gd" type="Script" id=1]
 [ext_resource path="res://Assets/fingers.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Text/fonttheme.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
+[ext_resource path="res://interactables/CanvasInteractions.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19.5, 20.5 )
 
 [node name="interactBase" type="Area2D" groups=["interactable"]]
+pause_mode = 2
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )
@@ -34,41 +36,32 @@ light_mask = 0
 texture = ExtResource( 2 )
 
 [node name="CanvasInteractions" type="CanvasLayer" parent="."]
-visible = false
+script = ExtResource( 5 )
 
 [node name="interactions" type="Control" parent="CanvasInteractions"]
-margin_left = -20.0
-margin_top = -21.0
-margin_right = 20.0
-margin_bottom = -21.0
+margin_left = 261.0
+margin_top = 112.0
+margin_right = 301.0
+margin_bottom = 112.0
+
+[node name="Label" type="Label" parent="CanvasInteractions/interactions"]
+margin_left = -74.0
+margin_top = 36.0
+margin_right = 152.0
+margin_bottom = 63.0
+text = "Elden John"
 
 [node name="CanvasPrompt" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasPrompt"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -98.0
-margin_top = -289.0
-margin_right = 108.0
-margin_bottom = -249.0
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="TextLabel" type="Label" parent="CanvasPrompt/HBoxContainer"]
-margin_top = 6.0
-margin_right = 206.0
-margin_bottom = 33.0
+[node name="TextLabel" type="Label" parent="CanvasPrompt"]
+margin_left = 182.0
+margin_top = 30.0
+margin_right = 412.0
+margin_bottom = 70.0
 custom_fonts/font = ExtResource( 3 )
 text = "The Fingers..."
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="interacted" from="." to="CanvasInteractions/interactions" method="_on_interactBase_interacted"]
