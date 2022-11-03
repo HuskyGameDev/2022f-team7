@@ -84,4 +84,9 @@ func levelTransition(nextLevel):
 	level.queue_free()
 	activePlayer.queue_free()
 	get_tree().paused = false
+	if nextLevel == "lastLevel":
+		$deathScreen.hide()
+		$pauseScreen.hide()
+		$main.show()
+		return
 	load_level(nextLevel)

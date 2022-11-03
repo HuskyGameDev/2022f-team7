@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interactables/elevatorExit.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -245,3 +246,8 @@ scale = Vector2( 8.75, 4.985 )
 z_index = -1
 texture = ExtResource( 3 )
 centered = false
+
+[node name="elevatorExit" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1014, 307 )
+z_index = -1
+nextLevel = "res://Levels/level1-3.tscn"
