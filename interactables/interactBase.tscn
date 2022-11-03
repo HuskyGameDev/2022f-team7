@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://interactables/interactBase.gd" type="Script" id=1]
 [ext_resource path="res://Assets/fingers.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Text/fonttheme.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
-[ext_resource path="res://interactables/CanvasInteractions.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 19.5, 20.5 )
@@ -15,7 +14,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )
 __meta__ = {
-"_editor_description_": "Copy this sprite into new scenes to work from"
+"_editor_description_": "Copy this Area2D into new scenes"
 }
 
 [node name="Light2D" type="Light2D" parent="."]
@@ -36,7 +35,7 @@ light_mask = 0
 texture = ExtResource( 2 )
 
 [node name="CanvasInteractions" type="CanvasLayer" parent="."]
-script = ExtResource( 5 )
+visible = false
 
 [node name="interactions" type="Control" parent="CanvasInteractions"]
 margin_left = 261.0
@@ -55,10 +54,10 @@ text = "Elden John"
 visible = false
 
 [node name="TextLabel" type="Label" parent="CanvasPrompt"]
-margin_left = 182.0
-margin_top = 30.0
-margin_right = 412.0
-margin_bottom = 70.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 230.0
 custom_fonts/font = ExtResource( 3 )
 text = "The Fingers..."
 

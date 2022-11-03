@@ -67,6 +67,7 @@ func _input(_event):
 		else:
 			$pauseScreen.visible = !$pauseScreen.visible
 			get_tree().paused = !get_tree().paused
+			activePlayer.get_node("./Camera2D/hud").visible = !activePlayer.get_node("./Camera2D/hud").visible
 
 func createLevel():
 	level = load(levelDir).instance()
@@ -79,10 +80,8 @@ func createPlayer():
 	level.add_child(activePlayer)
 	activePlayer.connect("health_changed",self,"_on_healthChanged")
 	
-# creates exit in same style as player
-func createExit():
-	#currentExit = elevatorExit.instance()
-	pass
-		
-		
-
+func levelTransition(nextLevel):
+	level.queue_free()
+	activePlayer.queue_free()
+	get_tree().paused = false
+	load_level(nextLevel)

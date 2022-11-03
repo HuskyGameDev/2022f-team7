@@ -31,6 +31,7 @@ signal spear_changed(usable)
 
 #starts the current health of the player
 func _ready():
+	set_collision_layer_bit(2, true)
 	current_HP = health
 	emit_signal("health_changed", current_HP)
 
@@ -84,6 +85,7 @@ func _physics_process(delta):
 
 func processState():
 	if isDying:
+		set_collision_layer_bit(2, false)
 		$Sprite.animation = "Death"
 		$Sprite.playing = true
 	elif isDashing:
