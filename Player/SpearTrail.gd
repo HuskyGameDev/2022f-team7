@@ -1,10 +1,10 @@
-extends KinematicBody2D
+extends Particles2D
 
 
 # Declare member variables here. Examples:
 var direction
 var target
-var speed = 300
+var speed = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,9 +18,9 @@ func _process(delta):
 	direction = global_position.direction_to(target).normalized()
 	if(position.distance_to(target) < 5):
 		$Delay.start()
-		$Particles2D.emitting = false
+		emitting = false
 	else:
-		move_and_slide(direction * speed, Vector2.UP)
+		global_position = global_position.move_toward(target, speed)
 
 
 func _on_Delay_timeout():
