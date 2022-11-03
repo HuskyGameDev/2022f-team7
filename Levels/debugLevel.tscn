@@ -95,5 +95,5 @@ position = Vector2( -75, 46 )
 position = Vector2( -185, 18.5 )
 
 [node name="elevatorExit" parent="." instance=ExtResource( 9 )]
-position = Vector2( -126, 25 )
+position = Vector2( -120, 45 )
 nextLevel = "res://Levels/debugLevelTwo.tscn"
