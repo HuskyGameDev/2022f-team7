@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sounds/Ui/UI-1.Iridos.capanda.wav" type="AudioStream" id=1]
+[ext_resource path="res://Menus/buttonCus.gd" type="Script" id=2]
+
+[node name="Button" type="Button"]
+light_mask = 0
+anchor_right = 0.2375
+anchor_bottom = 0.134796
+text = "sample"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -7.0
+
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
