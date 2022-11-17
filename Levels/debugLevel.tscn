@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
-[ext_resource path="res://interactables/interactBase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/light.png" type="Texture" id=6]
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=8]
-[ext_resource path="res://interactables/elevatorExit.tscn" type="PackedScene" id=9]
+[ext_resource path="res://interactables/interactExit.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -17,9 +16,6 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 pause_mode = 1
-
-[node name="interactBase" parent="." instance=ExtResource( 5 )]
-position = Vector2( 76, 36 )
 
 [node name="playerSpawn" type="Position2D" parent="."]
 position = Vector2( -171, 30 )
@@ -94,6 +90,8 @@ position = Vector2( -75, 46 )
 [node name="enemy2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -185, 18.5 )
 
-[node name="elevatorExit" parent="." instance=ExtResource( 9 )]
-position = Vector2( -120, 45 )
+[node name="interactExit" parent="." instance=ExtResource( 9 )]
+position = Vector2( -124, 46 )
 nextLevel = "res://Levels/debugLevelTwo.tscn"
+
+[editable path="interactExit"]

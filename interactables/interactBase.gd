@@ -2,7 +2,7 @@ extends Area2D
 
 var interacting = false;
 
-signal interacted;
+signal interacted
 
 func _ready():
 	$CanvasPrompt.hide()

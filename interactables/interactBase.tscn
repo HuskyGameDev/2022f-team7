@@ -1,12 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://interactables/interactBase.gd" type="Script" id=1]
-[ext_resource path="res://Assets/fingers.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Text/fonttheme.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 19.5, 20.5 )
+extents = Vector2( 17.5, 21.5 )
 
 [node name="interactBase" type="Area2D" groups=["interactable"]]
 pause_mode = 2
@@ -25,6 +23,8 @@ energy = 0.76
 shadow_enabled = true
 
 [node name="playerDetection" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -9.4 )
+scale = Vector2( 0.4, 0.4 )
 shape = SubResource( 1 )
 __meta__ = {
 "_editor_description_": "adjust per item"
@@ -32,35 +32,18 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0
-texture = ExtResource( 2 )
 
 [node name="CanvasInteractions" type="CanvasLayer" parent="."]
 visible = false
-
-[node name="interactions" type="Control" parent="CanvasInteractions"]
-margin_left = 261.0
-margin_top = 112.0
-margin_right = 301.0
-margin_bottom = 112.0
-
-[node name="Label" type="Label" parent="CanvasInteractions/interactions"]
-margin_left = -74.0
-margin_top = 36.0
-margin_right = 152.0
-margin_bottom = 63.0
-text = "Elden John"
+__meta__ = {
+"_editor_description_": "Interactions appear in here"
+}
 
 [node name="CanvasPrompt" type="CanvasLayer" parent="."]
 visible = false
-
-[node name="TextLabel" type="Label" parent="CanvasPrompt"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -40.0
-margin_right = 230.0
-custom_fonts/font = ExtResource( 3 )
-text = "The Fingers..."
+__meta__ = {
+"_editor_description_": "Prompts appear in here"
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
-[connection signal="interacted" from="." to="CanvasInteractions/interactions" method="_on_interactBase_interacted"]

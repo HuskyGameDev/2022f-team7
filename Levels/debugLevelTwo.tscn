@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
-[ext_resource path="res://interactables/elevatorExit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interactables/interactExit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
-[ext_resource path="res://interactables/interactBase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/light.png" type="Texture" id=6]
 
 [node name="Node2D" type="Node2D"]
@@ -52,25 +51,6 @@ z_index = -1
 texture = ExtResource( 3 )
 centered = false
 
-[node name="interactBase" parent="." instance=ExtResource( 5 )]
-position = Vector2( 149, 25 )
-
-[node name="Label" parent="interactBase/CanvasInteractions/interactions" index="0"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -113.0
-margin_top = -63.0
-margin_right = 113.0
-text = "You thought you could escape 
-Elden John?"
-align = 1
-valign = 1
-autowrap = true
-
-[node name="elevatorExit" parent="." instance=ExtResource( 2 )]
-position = Vector2( 30, 25 )
+[node name="interactExit" parent="." instance=ExtResource( 2 )]
+position = Vector2( 29, 46 )
 nextLevel = "lastLevel"
-
-[editable path="interactBase"]

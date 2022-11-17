@@ -5,7 +5,7 @@
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
-[ext_resource path="res://interactables/elevatorExit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://interactables/interactExit.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -28,6 +28,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( 0, 1 )
 
 [node name="playerSpawn" type="Position2D" parent="."]
 position = Vector2( 280, 310 )
@@ -270,6 +271,6 @@ z_index = -1
 texture = ExtResource( 5 )
 centered = false
 
-[node name="elevatorExit" parent="." instance=ExtResource( 6 )]
-position = Vector2( 281, -2022 )
+[node name="interactExit" parent="." instance=ExtResource( 6 )]
+position = Vector2( 281, -2001 )
 nextLevel = "lastLevel"
