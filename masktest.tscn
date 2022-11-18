@@ -5,6 +5,7 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
+type = 6
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 2

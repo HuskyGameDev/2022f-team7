@@ -2,7 +2,8 @@ extends Node2D
 
 enum tweens {TRANS_LINEAR, TRANS_SINE, TRANS_QUINT, TRANS_QUART, TRANS_QUAD, TRANS_EXPO, TRANS_ELASTIC, TRANS_CUBIC, TRANS_CIRC, TRANS_BOUNCE, TRANS_BACK}
 enum eases {EASE_IN, EASE_OUT, EASE_IN_OUT, EASE_OUT_IN}
-export var isOut = false
+var isOut = false
+
 export(tweens) var type = Tween.TRANS_CUBIC
 export(eases) var easing = Tween.EASE_IN_OUT
 export(float) var speed = 1.0

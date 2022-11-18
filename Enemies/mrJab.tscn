@@ -1,21 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Enemies/mrJab.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/baseEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/SpikeParticles.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Tileset.png" type="Texture" id=4]
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 4 )
-region = Rect2( 51, 39, 10, 25 )
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[ext_resource path="res://Enemies/mrJabAnim.tres" type="SpriteFrames" id=4]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 76, 38.5 )
@@ -27,12 +15,11 @@ mode = 3
 particles = ExtResource( 3 )
 
 [node name="AnimatedSprite" parent="." index="0"]
-position = Vector2( -2.5, -12.5 )
-frames = SubResource( 2 )
-centered = false
+position = Vector2( 0, -7.5 )
+frames = ExtResource( 4 )
+animation = "idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
-visible = false
 position = Vector2( 0, -2 )
 polygon = PoolVector2Array( 0, -11, 3, 2, -3, 2 )
 
@@ -48,11 +35,9 @@ shape = SubResource( 4 )
 shape = null
 
 [node name="hitbox" parent="." index="5"]
-visible = true
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox" index="0"]
-visible = false
 position = Vector2( 0, -2 )
 polygon = PoolVector2Array( 0, -11, 3, 2, -3, 2 )
 
@@ -60,6 +45,7 @@ polygon = PoolVector2Array( 0, -11, 3, 2, -3, 2 )
 shape = null
 
 [node name="touchBox" type="Area2D" parent="." index="6" groups=["enemy"]]
+visible = false
 position = Vector2( 0, -0.5 )
 collision_layer = 0
 
