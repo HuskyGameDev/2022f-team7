@@ -21,7 +21,7 @@ extents = Vector2( 12, 5 )
 
 [node name="Spear" type="RigidBody2D"]
 z_index = 100
-collision_layer = 0
+collision_layer = 4
 input_pickable = true
 mass = 5.10204
 gravity_scale = 3.5

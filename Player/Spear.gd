@@ -51,7 +51,7 @@ func _physics_process(_delta):
 # Runs when the tip of the spear collides with an object
 func _on_TipCollision_body_entered(body):
 	print("tip touched! " + body.name)
-	if(!stuck && body.is_in_group("spear_can_stick") && (abs(rad2deg(transform.get_rotation()))) < stick_angle || abs(rad2deg(transform.get_rotation())) > 180-stick_angle):
+	if(!stuck && body.is_in_group("spear_can_stick") && ((abs(rad2deg(transform.get_rotation()))) < stick_angle || abs(rad2deg(transform.get_rotation())) > 180-stick_angle)):
 		stick_spear()
 
 

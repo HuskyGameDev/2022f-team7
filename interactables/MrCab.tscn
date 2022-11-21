@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/jabStabCab.png" type="Texture" id=1]
+[ext_resource path="res://interactables/MrCab.gd" type="Script" id=2]
+[ext_resource path="res://interactables/interactBase.tscn" type="PackedScene" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 84, 141, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 111, 141, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 54, 141, 16, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 1 ), SubResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[node name="interactBase" instance=ExtResource( 3 )]
+
+[node name="Light2D" parent="." index="0"]
+position = Vector2( 0, 3 )
+
+[node name="playerDetection" parent="." index="1"]
+position = Vector2( 4.76837e-07, -2.38419e-07 )
+
+[node name="Sprite" parent="." index="2"]
+visible = false
+
+[node name="MrCab" type="KinematicBody2D" parent="." index="5"]
+collision_layer = 0
+collision_mask = 7
+script = ExtResource( 2 )
+
+[node name="BodyCollider" type="CollisionPolygon2D" parent="MrCab" index="0"]
+polygon = PoolVector2Array( -3, 8, 3, 8, 3, 5, 0, -6, -3, 5 )
+
+[node name="SpearCollider" type="CollisionPolygon2D" parent="MrCab" index="1"]
+polygon = PoolVector2Array( 0, -7, -3, 5, 3, 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MrCab" index="2"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 4 )
+animation = "walk"
+
+[node name="RayCast2D" type="RayCast2D" parent="MrCab" index="3"]
+position = Vector2( 0, 3 )
+enabled = true
+cast_to = Vector2( -5, 0 )
+collision_mask = 3
+collide_with_areas = true
+
+[node name="Cooldown" type="Timer" parent="MrCab" index="4"]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="MrCab/Cooldown" to="MrCab" method="_on_Cooldown_timeout"]
