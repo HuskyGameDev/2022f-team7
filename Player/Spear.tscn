@@ -29,7 +29,7 @@ linear_damp = -0.5
 script = ExtResource( 2 )
 particles = ExtResource( 5 )
 particleTrail = ExtResource( 6 )
-speed = 250
+speed = 300
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 1 )
@@ -46,7 +46,7 @@ scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
 
 [node name="TipCollision" type="Area2D" parent="." groups=["spear"]]
-collision_layer = 8
+collision_layer = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TipCollision"]
 position = Vector2( 8.5, 1 )
@@ -70,6 +70,7 @@ shape = SubResource( 4 )
 
 [connection signal="body_entered" from="." to="." method="_on_Spear_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_Spear_body_shape_entered"]
+[connection signal="area_entered" from="TipCollision" to="." method="_on_TipCollision_area_entered"]
 [connection signal="body_entered" from="TipCollision" to="." method="_on_TipCollision_body_entered"]
 [connection signal="body_entered" from="BodyCollision" to="BodyCollision" method="_on_BodyCollision_body_entered"]
 [connection signal="body_exited" from="BodyCollision" to="BodyCollision" method="_on_BodyCollision_body_exited"]
