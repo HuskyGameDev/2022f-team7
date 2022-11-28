@@ -12,7 +12,6 @@ var direction
 var attackDirection
 var aimSpeed = 0.02
 var lerpAngle
-var hit
 
 #boilerplate methods
 func _ready():
@@ -22,7 +21,7 @@ func _ready():
 #enemy mode override (called under physics process)
 func customMode(delta):
 	if(aiming): rotateSpike()
-	if(attacking): hit = move_and_slide(attackDirection * speed)
+	if(attacking): move_and_slide(attackDirection * speed)
 	#if(hit != null && !hit.collider.is_in_group("tilemap")): queue_free()
 	.customMode(delta)
 
@@ -31,6 +30,8 @@ func _onStartEnter(body):
 	if(!aimed && body.is_in_group("player")):
 		$AimTimer.start()
 		aiming = true
+		$AnimatedSprite.animation = "alert"
+		$AnimatedSprite.playing = true
 
 #signals
 func _onAimEnd():
@@ -42,6 +43,7 @@ func _onTargetDelayEnd():
 	attacking = true
 	attackDirection = get_global_position().direction_to(direction).normalized()
 	$touchBox.set_collision_mask_bit(1, true)
+	$AnimatedSprite.animation = "fly"
 
 func _onTipHit(body):
 	if(attacking):

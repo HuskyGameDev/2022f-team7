@@ -3,12 +3,14 @@ extends KinematicBody2D
 
 export var direction = false # False for left, true for right.
 export var speed = 15
-export var gravity = 50
+export var gravity = 2.5
 export var ray_near_cast = 5
 export var ray_far_cast = 17
+export var npc = false #if mr cab has anything to say
 var cooldown = false # Cooldown so that Mr.Cab doesn't spam direction changes
 var spear_attached = false
 var spear_direction = false # false if the spear is attached to the left side, true if attached to the right side
+var yvel = 0
 
 
 func _ready():
@@ -21,7 +23,8 @@ func _ready():
 func _physics_process(delta):
 	if($RayCast2D.get_collider() != null && $RayCast2D.get_collider().name != "Spear" && !cooldown) : 
 		flipDirection()
-	var yvel = gravity if !is_on_floor() else 0
+	yvel += gravity if !is_on_floor() else 0
+	yvel = clamp(yvel, -10000, 600)
 	move_and_slide(Vector2(speed, yvel), Vector2.UP)
 
 

@@ -30,12 +30,13 @@ animations = [ {
 position = Vector2( 0, 3 )
 
 [node name="playerDetection" parent="." index="1"]
-position = Vector2( 4.76837e-07, -2.38419e-07 )
+position = Vector2( 0, -2.38419e-07 )
 
 [node name="Sprite" parent="." index="2"]
 visible = false
 
 [node name="MrCab" type="KinematicBody2D" parent="." index="5"]
+pause_mode = 1
 collision_layer = 0
 collision_mask = 3
 script = ExtResource( 2 )
