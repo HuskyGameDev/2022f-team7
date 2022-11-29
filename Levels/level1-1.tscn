@@ -155,6 +155,7 @@ rotate = false
 
 [node name="enemy" parent="Path2D7/PathFollow2D" instance=ExtResource( 5 )]
 mode = 1
+railSpeed = 1.25
 
 [node name="Path2D8" type="Path2D" parent="."]
 curve = SubResource( 14 )
@@ -165,6 +166,7 @@ rotate = false
 
 [node name="enemy" parent="Path2D8/PathFollow2D" instance=ExtResource( 5 )]
 mode = 1
+railSpeed = 1.25
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
