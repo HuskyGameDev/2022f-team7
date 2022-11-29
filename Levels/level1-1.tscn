@@ -149,7 +149,7 @@ railSpeed = 1.75
 curve = SubResource( 13 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D7"]
-position = Vector2( 868, -374 )
+position = Vector2( 885, -403 )
 rotation = 0.0244346
 rotate = false
 
@@ -161,7 +161,7 @@ railSpeed = 1.25
 curve = SubResource( 14 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D8"]
-position = Vector2( 443, -384 )
+position = Vector2( 446, -379 )
 rotate = false
 
 [node name="enemy" parent="Path2D8/PathFollow2D" instance=ExtResource( 5 )]
@@ -182,7 +182,7 @@ centered = false
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 809, -576 )
 z_index = -1
-nextLevel = "res://Levels/debugLevelTwo.tscn"
+nextLevel = "res://Levels/level1-2.tscn"
 
 [node name="mrStab2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 62, -325.5 )
