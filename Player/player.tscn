@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/playeranims.tres" type="SpriteFrames" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Spear.png" type="Texture" id=8]
 [ext_resource path="res://Sounds/PlayerSounds/Player_death_v3.Iridos.capanda.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/light.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Player.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.25, 7.75 )
@@ -27,9 +28,21 @@ light_mask = 0
 position = Vector2( 2, 0 )
 scale = Vector2( 0.5, 0.5 )
 frames = ExtResource( 2 )
-animation = "Jump"
+animation = "Look"
 centered = false
 offset = Vector2( -8, -14 )
+
+[node name="Spear" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+position = Vector2( -4, 2 )
+rotation = 0.200091
+scale = Vector2( 1, -1 )
+texture = ExtResource( 11 )
+offset = Vector2( 0, 1.5 )
+region_enabled = true
+region_rect = Rect2( 0, 6, 32, 7 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 5, 5 )
@@ -152,6 +165,7 @@ wait_time = 0.15
 
 [connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
 [connection signal="spear_changed" from="." to="Camera2D/hud/health" method="_on_player_spear_changed"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="dashTime" to="." method="_on_dashTime_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dashCooldown_timeout"]
 [connection signal="timeout" from="spearCooldown" to="." method="_on_spearCooldown_timeout"]

@@ -10,7 +10,6 @@ export var npc = false #if mr cab has anything to say
 var cooldown = false # Cooldown so that Mr.Cab doesn't spam direction changes
 var spear_attached = false
 var spear_direction = false # false if the spear is attached to the left side, true if attached to the right side
-#var yvel = 0
 
 var vec = Vector2.ZERO
 

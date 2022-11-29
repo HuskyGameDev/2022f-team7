@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menus/main.gd" type="Script" id=1]
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Text/IridosTitle.png" type="Texture" id=3]
 [ext_resource path="res://Menus/buttonCus.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/uiTheme.tres" type="Theme" id=5]
 
 [node name="main" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -132,9 +133,11 @@ margin_top = 23.0
 margin_right = 308.0
 margin_bottom = 49.0
 rect_scale = Vector2( 1.6, 1.75 )
+theme = ExtResource( 5 )
 bbcode_enabled = true
-bbcode_text = "[center][color=black]Controls[/color][/center]"
+bbcode_text = "[center]Controls[/center]"
 text = "Controls"
+fit_content_height = true
 scroll_active = false
 
 [node name="ControlsText" type="RichTextLabel" parent="controlsScreen"]
@@ -143,14 +146,17 @@ margin_top = 89.0
 margin_right = 647.0
 margin_bottom = 264.0
 rect_scale = Vector2( 0.8, 0.8 )
+theme = ExtResource( 5 )
 bbcode_enabled = true
-bbcode_text = "[color=black]-Use WASD to move, and spacebar to jump.
+bbcode_text = "-Use WASD to move, and spacebar to jump.
 -LShift to dash
--Left Click to throw the spear. Click on the spear again or press Q to retrieve it.
--Use E to interact with objects[/color]"
+-Left Click to throw the spear.
+-Click on the spear again or press Q to retrieve it.
+-Use E to interact with objects"
 text = "-Use WASD to move, and spacebar to jump.
 -LShift to dash
--Left Click to throw the spear. Click on the spear again or press Q to retrieve it.
+-Left Click to throw the spear.
+-Click on the spear again or press Q to retrieve it.
 -Use E to interact with objects"
 scroll_active = false
 
