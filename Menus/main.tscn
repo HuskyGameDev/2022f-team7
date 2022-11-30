@@ -81,6 +81,11 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="tutorialLevel" type="Button" parent="levelSelect/VBoxContainer"]
+margin_right = 24.0
+margin_bottom = 39.0
+text = "Tutorial"
+
 [node name="levelOne" parent="levelSelect/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -172,6 +177,7 @@ text = "Back"
 [connection signal="pressed" from="playScreen/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="playScreen/VBoxContainer/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="playScreen/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="levelSelect/VBoxContainer/tutorialLevel" to="." method="_on_tutorialLevel_pressed"]
 [connection signal="pressed" from="levelSelect/VBoxContainer/levelOne" to="." method="_on_levelOne_pressed"]
 [connection signal="pressed" from="levelSelect/VBoxContainer/levelTwo" to="." method="_on_levelTwo_pressed"]
 [connection signal="pressed" from="levelSelect/VBoxContainer/levelThree" to="." method="_on_levelThree_pressed"]
