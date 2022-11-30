@@ -108,6 +108,7 @@ rotate = false
 
 [node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 3 )]
 mode = 1
+railSpeed = 1.25
 
 [node name="Path2D2" type="Path2D" parent="."]
 position = Vector2( 499, 0 )
@@ -119,6 +120,7 @@ rotate = false
 
 [node name="enemy" parent="Path2D2/PathFollow2D" instance=ExtResource( 3 )]
 mode = 1
+railSpeed = 1.25
 
 [node name="Path2D3" type="Path2D" parent="."]
 curve = SubResource( 2 )
@@ -129,6 +131,7 @@ rotate = false
 
 [node name="enemy" parent="Path2D3/PathFollow2D" instance=ExtResource( 3 )]
 mode = 1
+railSpeed = 2.5
 
 [node name="Path2D7" type="Path2D" parent="."]
 position = Vector2( 0, -1200 )
@@ -140,6 +143,7 @@ rotate = false
 
 [node name="enemy" parent="Path2D7/PathFollow2D" instance=ExtResource( 3 )]
 mode = 1
+railSpeed = 2.5
 
 [node name="Path2D4" type="Path2D" parent="."]
 curve = SubResource( 3 )
@@ -150,6 +154,7 @@ rotate = false
 
 [node name="enemy" parent="Path2D4/PathFollow2D" instance=ExtResource( 3 )]
 mode = 1
+railSpeed = 2.5
 
 [node name="Path2D8" type="Path2D" parent="."]
 position = Vector2( 0, -1200 )
@@ -161,6 +166,7 @@ rotate = false
 
 [node name="enemy" parent="Path2D8/PathFollow2D" instance=ExtResource( 3 )]
 mode = 1
+railSpeed = 2.5
 
 [node name="Path2D5" type="Path2D" parent="."]
 curve = SubResource( 4 )
@@ -172,6 +178,7 @@ rotate = false
 [node name="enemy" parent="Path2D5/PathFollow2D" instance=ExtResource( 3 )]
 position = Vector2( 0, 3 )
 mode = 1
+railSpeed = 3.0
 
 [node name="Path2D6" type="Path2D" parent="."]
 position = Vector2( 440, 0 )
@@ -184,6 +191,7 @@ rotate = false
 [node name="enemy" parent="Path2D6/PathFollow2D" instance=ExtResource( 3 )]
 position = Vector2( 0, -3 )
 mode = 1
+railSpeed = 3.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
