@@ -73,6 +73,7 @@ margin_bottom = 215.0
 text = "Quit game"
 
 [node name="deathScreen" type="CanvasLayer" parent="."]
+visible = false
 __meta__ = {
 "_edit_use_anchors_": true
 }
