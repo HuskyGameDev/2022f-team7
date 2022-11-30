@@ -33,6 +33,7 @@ func _on_quit_pressed():
 func _on_menu_pressed():
 	level.queue_free()
 	activePlayer.queue_free()
+	$AudioStreamPlayer.playing = false
 	
 	$deathScreen.hide()
 	$pauseScreen.hide()
@@ -50,6 +51,7 @@ func _on_healthChanged(player_hearts):
 	if (player_hearts <= 0):
 		print('dead')
 		$deathScreen/deathTimer.start()
+		$AudioStreamPlayer.playing = false
 
 func _on_deathTimer_timeout():
 	activePlayer.get_node("./Camera2D/hud").hide()
@@ -72,6 +74,7 @@ func _input(_event):
 func createLevel():
 	level = load(levelDir).instance()
 	add_child(level)
+	$AudioStreamPlayer.playing = true
 
 func createPlayer():
 	activePlayer = player.instance()
