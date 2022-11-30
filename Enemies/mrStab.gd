@@ -27,10 +27,11 @@ func customMode(delta):
 		vec.y += 2.5
 		vec.y = clamp(vec.y, 0, 100)
 
-func _onTipHit(body):
+func _on_hitbox_body_entered(body):
 	if(attacking):
 		var p = particles.instance()
 		p.transform = transform
 		get_parent().add_child(p)
 		p.emitting = true;
 		queue_free()
+		._on_hitbox_area_entered(body)

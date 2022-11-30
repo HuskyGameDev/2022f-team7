@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 #0, follow, 1, use path, 2, ground based movement, 3 for custom/no default behavior
-export var mode:int = 0
+enum modes {follow, rails, walker, custom}
+export (modes) var mode = modes.follow
 export var railSpeed:float = 1
 var engaged = false #for 0 and 2
 var vec = Vector2.ZERO

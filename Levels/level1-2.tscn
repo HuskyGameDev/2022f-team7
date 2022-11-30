@@ -38,6 +38,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
+pause_mode = 1
 
 [node name="playerSpawn" type="Position2D" parent="."]
 position = Vector2( 82, 198 )

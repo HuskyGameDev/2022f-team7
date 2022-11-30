@@ -34,25 +34,18 @@ shape = SubResource( 3 )
 [node name="collider" parent="stopRange" index="0"]
 shape = null
 
+[node name="hitbox" parent="." index="5"]
+visible = true
+collision_mask = 11
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox" index="0"]
-visible = false
 position = Vector2( 0, -12.5 )
-polygon = PoolVector2Array( 0, 13, 3, 0, -3, 0 )
+polygon = PoolVector2Array( 0, 14.5, 3, 0, -3, 0 )
 
 [node name="collider" parent="hitbox" index="1"]
 shape = null
 
-[node name="touchBox" type="Area2D" parent="." index="6"]
-visible = false
-position = Vector2( 0, -0.5 )
-collision_layer = 0
-collision_mask = 3
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="touchBox" index="0"]
-position = Vector2( 0, 11.5 )
-polygon = PoolVector2Array( 0, -10, -1, -11, 1, -11 )
-
-[node name="Light2D" parent="." index="7"]
+[node name="Light2D" parent="." index="6"]
 position = Vector2( 0, -12.5 )
 
-[connection signal="body_entered" from="touchBox" to="." method="_onTipHit"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

@@ -87,6 +87,7 @@ func processState():
 	if isDying:
 		set_collision_layer_bit(2, false)
 		$Sprite.animation = "Death"
+		$Sprite/Spear.visible = false
 		$Sprite.playing = true
 	elif isDashing:
 		$Sprite.animation = "Strafe"  + ("Hurt" if isHurt else "")
@@ -166,9 +167,11 @@ func processMisc():
 	if tarvec < 0:
 		$Sprite.flip_h = true
 		$Sprite/Spear.flip_h = true
+		$Sprite/Spear.rotation_degrees = -11.5
 	elif tarvec > 0:
 		$Sprite.flip_h = false
 		$Sprite/Spear.flip_h = false
+		$Sprite/Spear.rotation_degrees = 11.5
 	
 	#prevent sprite snapping being different from world, only a visual issue so only applied to sprite
 	#$Sprite.global_position.x = stepify(global_position.x, .5)

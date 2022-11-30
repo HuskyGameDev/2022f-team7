@@ -72,6 +72,7 @@ position = Vector2( -58, -6 )
 rotate = false
 
 [node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 2 )]
+pause_mode = 1
 mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -86,9 +87,11 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="enemy" parent="." instance=ExtResource( 7 )]
+pause_mode = 1
 position = Vector2( -75, 46 )
 
 [node name="enemy2" parent="." instance=ExtResource( 8 )]
+pause_mode = 1
 position = Vector2( -185, 18.5 )
 
 [node name="interactExit" parent="." instance=ExtResource( 9 )]
