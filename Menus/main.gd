@@ -11,8 +11,13 @@ func _on_play_pressed():
 
 func _on_back_pressed():
 	$levelSelect.visible = false
+	$controlsScreen.visible = false
 	$playScreen.visible = true
-	
+
+func _on_controls_pressed():
+	$playScreen.visible = false
+	$controlsScreen.visible = true
+
 func _on_quit_pressed():
 	get_tree().quit()
 

@@ -43,7 +43,8 @@ func _ready():
 func _onStartEnter(body):
 	print("body touched! " + body.name)
 	#if body is in group("player"):
-	player = body
+	if(body.get_class() == "KinematicBody2D"):
+		player = body
 	engaged = true
 
 func _onStopExit(body):

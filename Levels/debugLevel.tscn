@@ -96,6 +96,6 @@ position = Vector2( -124, 46 )
 nextLevel = "res://Levels/debugLevelTwo.tscn"
 
 [node name="MrCab" parent="." instance=ExtResource( 5 )]
-position = Vector2( -9, 38 )
+position = Vector2( 12, 38 )
 
 [editable path="interactExit"]

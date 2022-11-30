@@ -165,12 +165,21 @@ func processMisc():
 	#flip sprite based on intended direction, might be changed to actual movement direction
 	if tarvec < 0:
 		$Sprite.flip_h = true
+		$Sprite/Spear.flip_h = true
 	elif tarvec > 0:
 		$Sprite.flip_h = false
+		$Sprite/Spear.flip_h = false
 	
 	#prevent sprite snapping being different from world, only a visual issue so only applied to sprite
 	#$Sprite.global_position.x = stepify(global_position.x, .5)
 	#$Sprite.global_position.y = stepify(global_position.y + 1, .5)
+
+#spear bobbing effect
+func spearBob():
+	if hasSpear:
+		return
+		#move across parabola around player back and forth
+		#gonna be in desmos hell for a hot sec
 
 # Dash Stuff
 
@@ -192,6 +201,7 @@ func dashEnd():
 # Creates and "throws" a new instance of the spear
 func throwSpear():
 	hasSpear = false
+	$Sprite/Spear.visible = false
 	emit_signal("spear_changed", hasSpear)
 	var spear = spearScene.instance()
 	spear.start(get_local_mouse_position(), position, vec)
@@ -202,6 +212,7 @@ func throwSpear():
 # Returns the spear to the player
 func _collect_spear():
 	$spearCooldown.start()
+	$Sprite/Spear.visible = true
 
 # Cooldown between picking up the spear and being able to throw it.
 # Prevents the spear from being thrown again immediately upon pickup
@@ -240,4 +251,3 @@ func _on_InvilCooldown_timeout():
 		$BlinkDur.stop()
 		$Sprite.visible = true
 		isHurt = false
-		

@@ -50,9 +50,13 @@ func _physics_process(_delta):
 
 # Runs when the tip of the spear collides with an object
 func _on_TipCollision_body_entered(body):
-	print("tip touched! " + body.name)
 	if(!stuck && body.is_in_group("spear_can_stick") && ((abs(rad2deg(transform.get_rotation()))) < stick_angle || abs(rad2deg(transform.get_rotation())) > 180-stick_angle)):
 		stick_spear()
+
+
+func _on_TipCollision_area_entered(area):
+	if(!stuck && area.is_in_group("spear_can_attach") && ((abs(rad2deg(transform.get_rotation()))) < stick_angle || abs(rad2deg(transform.get_rotation())) > 180-stick_angle)):
+		call_deferred("attach_spear", area)
 
 
 # Attaches the spear to a wall or floor. Makes the spear static and collidable with the player.
@@ -76,3 +80,18 @@ func collectSpear():
 	t.transform = transform
 	get_parent().add_child(t)
 	queue_free()
+
+# Attaches the spear to a different parent. 
+# Makes the spear inherit it's new parents' position and collidable with the player
+func attach_spear(var area):
+	var pos = global_position
+	stuck = true
+	get_parent().remove_child(self)
+	area.add_child(self)
+	global_position = pos
+	mode = RigidBody2D.MODE_KINEMATIC
+	# Update collision layers
+	self.set_collision_layer_bit(4, true)
+	#self.set_collision_mask_bit(0, false)
+	$Area2D.set_collision_layer_bit(0, false)
+

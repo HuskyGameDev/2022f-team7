@@ -30,20 +30,25 @@ animations = [ {
 position = Vector2( 0, 3 )
 
 [node name="playerDetection" parent="." index="1"]
-position = Vector2( 4.76837e-07, -2.38419e-07 )
+position = Vector2( 0, -2.38419e-07 )
 
 [node name="Sprite" parent="." index="2"]
 visible = false
 
 [node name="MrCab" type="KinematicBody2D" parent="." index="5"]
+pause_mode = 1
 collision_layer = 0
-collision_mask = 7
+collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="BodyCollider" type="CollisionPolygon2D" parent="MrCab" index="0"]
 polygon = PoolVector2Array( -3, 8, 3, 8, 3, 5, 0, -6, -3, 5 )
 
-[node name="SpearCollider" type="CollisionPolygon2D" parent="MrCab" index="1"]
+[node name="SpearDetection" type="Area2D" parent="MrCab" index="1" groups=["spear_can_attach"]]
+collision_layer = 0
+collision_mask = 4
+
+[node name="SpearCollider" type="CollisionPolygon2D" parent="MrCab/SpearDetection" index="0"]
 polygon = PoolVector2Array( 0, -7, -3, 5, 3, 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="MrCab" index="2"]
@@ -62,4 +67,5 @@ collide_with_areas = true
 wait_time = 0.25
 one_shot = true
 
+[connection signal="body_entered" from="MrCab/SpearDetection" to="MrCab" method="_on_SpearDetection_body_entered"]
 [connection signal="timeout" from="MrCab/Cooldown" to="MrCab" method="_on_Cooldown_timeout"]
