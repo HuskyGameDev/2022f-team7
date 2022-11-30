@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interactables/interactExit.tscn" type="PackedScene" id=9]
+[ext_resource path="res://EarthTileSet.tres" type="TileSet" id=10]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -28,6 +29,16 @@ texture_scale = 0.5
 energy = 0.99
 range_layer_min = -1
 shadow_enabled = true
+
+[node name="TileMap2" type="TileMap" parent="." groups=["spear_can_stick", "tilemap"]]
+position = Vector2( -328, -234 )
+scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 16, 16 )
+cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 2162736, 14, 0, 2162737, 13, 0, 2162738, 11, 0, 2228271, 14, 0, 2228272, 15, 0, 2228273, 15, 0, 2228274, 15, 0, 2228275, 11, 0, 2293806, 14, 0, 2293807, 15, 0, 2293808, 15, 0, 2293809, 15, 0, 2293810, 15, 0, 2293811, 15, 0, 2293812, 11, 0 )
 
 [node name="TileMap" type="TileMap" parent="." groups=["spear_can_stick", "tilemap"]]
 modulate = Color( 0.368627, 0.368627, 0.368627, 1 )
