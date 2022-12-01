@@ -15,6 +15,7 @@ func _ready():
 func _on_resume_pressed():
 	get_tree().paused = false
 	$pauseScreen.hide()
+	activePlayer.get_node("./Camera2D/hud").visible = !activePlayer.get_node("./Camera2D/hud").visible
 
 func _on_restart_pressed():
 	level.queue_free() #clear out player and level instances
