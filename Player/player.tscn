@@ -67,7 +67,6 @@ drag_margin_bottom = 0.4
 [node name="hud" type="CanvasLayer" parent="Camera2D"]
 
 [node name="debugInf" type="Label" parent="Camera2D/hud"]
-visible = false
 light_mask = 0
 margin_left = 423.0
 margin_right = 521.0
