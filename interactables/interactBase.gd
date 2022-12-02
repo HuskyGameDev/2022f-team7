@@ -1,44 +1,72 @@
 extends Area2D
 
 var interacting = false;
+enum type {popup, dialog, cutscene, button}
+export (type) var mode = type.popup
+
+export var dialog:String = "placeholder!"
 
 signal interacted
 
 func _ready():
-	$CanvasPrompt.hide()
-	$CanvasInteractions.hide()
-	
+	$CanvasInteractions/popup.hide()
+	$CanvasInteractions/dialog.hide()
+	$CanvasInteractions/hint.hide()
 
 func _on_body_entered(body):
-	print("fingers touching " + body.get_name())
+	print("interact in range of " + body.get_name())
 	if(body.is_in_group("player")):
 		interacting = true
-		$CanvasPrompt.show()
-		
+		$CanvasInteractions/hint.show()
+		if mode == type.cutscene:
+			cutscene()
+
 func _on_body_exited(body):
-	print("fingers stopped touching " + body.get_name())
+	print("interact not in range of " + body.get_name())
 	if(body.is_in_group("player")):
 		interacting = false
-		$CanvasPrompt.hide()
-		$CanvasInteractions.hide()
+		$CanvasInteractions/hint.hide()
+		$CanvasInteractions/popup.hide()
 		
 func _input(event):
-	if event.is_action_pressed("interact"): #prevent spam in terminal
-		if interacting == false:
-			print("player not interacting")
-			return
-		if get_tree().paused == true && $CanvasInteractions.visible == false:
-			print("other process in progress")
-			return
-		
-		if get_tree().paused == false:
-			get_tree().paused = true
-			$CanvasInteractions.show()
-			$CanvasPrompt.hide()
-			print("player is interacting")
-		else:
-			get_tree().paused = false
-			$CanvasInteractions.hide()
-			$CanvasPrompt.show()
-			print("player stopped interacting")
-			
+	if event.is_action_pressed("interact"):
+		match(mode):
+			type.popup:
+				popup()
+			type.dialog:
+				dialog()
+			type.button:
+				button()
+
+func popup(): #TODO: clean this up
+	if interacting == false:
+		print("player not interacting")
+		return
+	if get_tree().paused == true && $CanvasInteractions.visible == false:
+		print("other process in progress")
+		return
+	
+	if get_tree().paused == false:
+		get_tree().paused = true
+		$CanvasInteractions/popup.show()
+		print("player is interacting")
+	else:
+		get_tree().paused = false
+		$CanvasInteractions/popup.hide()
+		print("player stopped interacting")
+
+func dialog():
+	pass #unfinished
+
+func cutscene():
+	pass #unfinished
+
+func button():
+	print("activated!")
+	#types that use this mode will extend this function to do whatever non blocking things needs to happen
+
+func _on_option1_pressed():
+	pass
+
+func _on_option2_pressed():
+	pass

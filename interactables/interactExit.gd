@@ -10,14 +10,12 @@ func _ready():
 		print("connecting")
 		levelRoot = get_tree().get_root().get_child(0)
 		connect("change_level", levelRoot, "levelTransition")
-	$CanvasPrompt.hide();
-	$CanvasInteractions.hide();
+	
+	._ready() #super call
 
-func _on_No_pressed():
-	get_tree().paused = false
-	$CanvasInteractions.hide()
-	$CanvasPrompt.show()
-
-
-func _on_Yes_pressed():
+func _on_option1_pressed():
 	emit_signal("change_level", nextLevel)
+
+func _on_option2_pressed():
+	get_tree().paused = false
+	$CanvasInteractions/popup.hide()

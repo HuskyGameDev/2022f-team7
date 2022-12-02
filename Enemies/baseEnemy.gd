@@ -11,16 +11,16 @@ var hp: int = 1
 
 func _physics_process(delta):
 	match(mode):
-		0:
+		modes.follow:
 			if engaged:
 				vec = (position - player.position).normalized()
 				vec *= -0.2
 				move_and_collide(vec, false)
-		1:#MUST be a child of a pathfollower!
+		modes.rails:#MUST be a child of a pathfollower!
 			self.get_parent().unit_offset += (.0005 * railSpeed)
-		2:
+		modes.walker:
 			pass #have not finished yet, no enemies use it either
-		3:
+		modes.custom:
 			customMode(delta)
 	
 	custom(delta)
@@ -42,7 +42,7 @@ func _ready():
 
 #control if the enemy should be engaged with the player
 func _onStartEnter(body):
-	print("body touched! " + body.name)
+
 	#if body is in group("player"):
 	if(body.get_class() == "KinematicBody2D"):
 		player = body
@@ -52,7 +52,6 @@ func _onStopExit(body):
 	engaged = false
 
 func _on_hitbox_area_entered(area):
-	print("enemy touched! " + area.name)
 	if(area.is_in_group('spear')):
 		hp -= 1
 		if (hp<=0):
