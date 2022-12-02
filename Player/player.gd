@@ -8,6 +8,7 @@ const jumpPower = 180
 const moveSpeed = 50
 const dashSpeed = 1000
 const jumpDecay = 0.97
+const springPower = 400
 #player's default/max health
 const health    = 3
 
@@ -19,6 +20,7 @@ var vec = Vector2.ZERO #vector movement applied to player
 var hasSpear = true
 var throwingSpear = false
 var current_HP = 0
+var usedSpring = false
 
 var isHurt = false
 var isWalking = false
@@ -127,7 +129,13 @@ func processMovement(delta):
 			vec.x = clamp(vec.x - 2, 0, moveSpeed)
 		else:
 			vec.x = clamp(vec.x + 2, -moveSpeed, 0)
-	
+			
+			
+	if(usedSpring):
+		usedSpring = false
+		isJumping = true
+		vec.y = -springPower
+		
 	# If the player releases the jump button mid-jump, cut vertical velocity
 	if(!isDashing && vec.y < 0 && !Input.is_action_pressed("jump")):
 		vec.y *= jumpDecay
@@ -254,3 +262,10 @@ func _on_InvilCooldown_timeout():
 		$BlinkDur.stop()
 		$Sprite.visible = true
 		isHurt = false
+
+		
+
+
+func _on_springhitbox_area_entered(area):
+	if(area.is_in_group("spring")):
+		usedSpring = true # Replace with function body.
