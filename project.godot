@@ -101,9 +101,9 @@ interact={
 2d_physics/layer_3="spear"
 2d_physics/layer_4="hitbox"
 
-[mono]
+[logging]
 
-project/assembly_name="iridos"
+file_logging/enable_file_logging=true
 
 [physics]
 
