@@ -3,26 +3,26 @@
 Hello! We're Husky Game Development Enterprise over at Michigan Technological University. At the enterprise, we have students create games throughout their semesters with us. Check out all of our students' games!
 
 Controls:
-A to move left & D to move right
-W/spacebar to jump
-Q/leftclick to pick up spear if absent from inventory
-left-click to throw spear if present in inventory
+A to move left & D to move right,
+W/spacebar to jump,
+Q/leftclick to pick up spear if absent from inventory,
+left-click to throw spear if present in inventory,
 Left-Shift to dash
 
 Credits:
-Niklas Romero
-Andy Martin
-Reese Bunker
-Cecilia Schmitz
-Ian Hughes
-Ian Sandford
-Sage Moser
-Alex Knapp
-Isabella Capanda
-Andrew Tran
-Jack Colwell
-Owen Crosby
-Soup Cobb
+Niklas Romero,
+Andy Martin,
+Reese Bunker,
+Cecilia Schmitz,
+Ian Hughes,
+Ian Sandford,
+Sage Moser,
+Alex Knapp,
+Isabella Capanda,
+Andrew Tran,
+Jack Colwell,
+Owen Crosby,
+Soup Cobb,
 Ethan Fournier
 
 Installation Instructions:
