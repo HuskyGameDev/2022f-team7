@@ -27,3 +27,5 @@ Ethan Fournier
 
 Installation Instructions:
 Download & unzip the Iridos.zip. Select the folder that correlates to your OS and run the executable.
+
+![actionshot](https://user-images.githubusercontent.com/97367615/206595019-f7194226-baae-4ba8-84de-6394a0856fe7.png)
