@@ -105,6 +105,10 @@ interact={
 
 file_logging/enable_file_logging=true
 
+[mono]
+
+project/assembly_name="iridos"
+
 [physics]
 
 common/physics_fps=144
