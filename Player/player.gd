@@ -144,8 +144,10 @@ func processMovement(delta):
 	if !isDashing:
 		vec.x = clamp(vec.x, -moveSpeed, moveSpeed)
 	
+	
+	
 	#apply calculated properties to body and store result in vec
-	vec = move_and_slide_with_snap(vec, Vector2.DOWN, Vector2.UP, true, 4, deg2rad(45), true)
+	vec = move_and_slide_with_snap(vec, Vector2.DOWN, Vector2.UP, true, 4, deg2rad(46), true)
 	isWalking = (vec.x != 0) && is_on_floor()
 
 #process behaviour of gravity on player
@@ -154,7 +156,8 @@ func processGravity(var delta):
 	if !is_on_floor() && !isDashing:
 		vec.y += gravity 
 	else:
-		vec.y = 0 #no gravity if not falling or if dashing
+		if (isDashing):
+			vec.y = 0 #prevents dashes from launching you if you're on a slope
 		isJumping = false
 		
 	if is_on_ceiling(): #cancel upward movement if hitting ceiling

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/playeranims.tres" type="SpriteFrames" id=2]
@@ -11,6 +11,10 @@
 [ext_resource path="res://Sounds/PlayerSounds/Player_death_v3.Iridos.capanda.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/light.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Player.png" type="Texture" id=11]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 2.75
+height = 10.0
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.25, 7.75 )
@@ -119,9 +123,8 @@ texture = ExtResource( 8 )
 stretch_mode = 3
 
 [node name="worldbox" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0.25, 0.75 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="dashTime" type="Timer" parent="."]
 process_mode = 0
