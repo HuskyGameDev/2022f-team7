@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export(PackedScene) var spearScene
+export(PackedScene) var spearMeleeScene
 
 #player movement constants
 const gravity   = 2.5
@@ -18,7 +19,7 @@ var canDash = true
 var tarvec = 0 #target movement direction of player -1 left 1 right 0 none
 var vec = Vector2.ZERO #vector movement applied to player
 var hasSpear = true
-var throwingSpear = false
+var usingSpear = false
 var current_HP = 0
 var usedSpring = false
 
@@ -45,9 +46,13 @@ func processInput():
 	
 	
 	#spear throw handler (async so any lag of spear spawning isn't affecting player movement)
-	if !throwingSpear && hasSpear && Input.is_action_just_pressed("mouseLeft"):
-		throwingSpear = true
+	if !usingSpear && hasSpear && Input.is_action_just_pressed("mouseRight"):
+		usingSpear = true
 		call_deferred("throwSpear")
+	
+	if !usingSpear && hasSpear && Input.is_action_just_pressed("mouseLeft"):
+		usingSpear = true
+		call_deferred("attackSpear")
 	
 	#starts dashing state if possible and starts dash cooldown, as well as
 	#cranking camera smoothing so player doesn't launch out of view
@@ -221,11 +226,23 @@ func throwSpear():
 	spear.start(get_local_mouse_position(), position, vec)
 	get_parent().add_child(spear)
 	spear.connect("spear_collected", self, "_collect_spear")
-	throwingSpear = false
+	usingSpear = false
+
+# Creates an instance of the melee attack version of the spear
+func attackSpear():
+	$Sprite/Spear.visible = false
+	emit_signal("spear_changed", hasSpear)
+	var spear = spearMeleeScene.instance()
+	spear.start(get_local_mouse_position())
+	add_child(spear);
+	spear.connect("spear_attack_ended", self, "_collect_spear")
 
 # Returns the spear to the player
 func _collect_spear():
-	$spearCooldown.start()
+	if(usingSpear):
+		usingSpear = false;
+	else:
+		$spearCooldown.start()
 	$Sprite/Spear.visible = true
 
 # Cooldown between picking up the spear and being able to throw it.
