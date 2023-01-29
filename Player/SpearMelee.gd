@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var distance = 12; # Length of poke
-var speed = 60; # Speed to move spear
+var speed = 90; # Speed to move spear
 var direction; # Stores mouse coordinates
 var angle; # Stores angle to poke
 var startPos = Vector2.ZERO; # Stores start position

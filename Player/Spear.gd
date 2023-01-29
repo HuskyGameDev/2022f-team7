@@ -11,7 +11,7 @@ export var error = 0.05 # The error when checking if velocity is zero
 var angle # Initial angle at which to travel
 var direction # Stores mouse coordinates
 var playerPos # Stores player coordinates
-var stuck = false # Stores whether or not the spear is "stuck" (collectable)
+var stuck = false # Stores whether or not the spear is "stuck" to an object
 var mouseIn = false # Stores whether or not the mouse is touching the spear
 
 signal spear_collected # Signal emitted when the spear is collected
@@ -37,8 +37,8 @@ func start(mouseCoords, pos, vec):
 
 
 func _unhandled_input(_event):
-	# If the player clicked on the spear OR pressed "E" while stuck, return the spear to the player
-	if(Input.is_action_just_pressed("spear_retrieve") && stuck):
+	# If the player clicked on the spear OR pressed "Q", return the spear to the player
+	if(Input.is_action_just_pressed("spear_retrieve")):
 		collectSpear()
 
 
