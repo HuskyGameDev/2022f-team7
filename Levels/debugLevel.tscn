@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
@@ -10,10 +10,47 @@
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=8]
 [ext_resource path="res://interactables/interactExit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://EarthTileSet.tres" type="TileSet" id=10]
+[ext_resource path="res://Assets/platform.PNG" type="Texture" id=11]
+[ext_resource path="res://Levels/MovingPlatform.gd" type="Script" id=12]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -58, -6, 0, 0, 0, 0, 21, -9, 0, 0, 0, 0, 20, 47, 0, 0, 0, 0, -58, 45, 0, 0, 0, 0, -58, -6 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 4 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -6, 16 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "platform"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -152, -22 ), Vector2( -101, -22 ), Vector2( -152, -22 ) ]
 }
 
 [node name="Node2D" type="Node2D"]
@@ -111,5 +148,23 @@ nextLevel = "res://Levels/debugLevelTwo.tscn"
 
 [node name="MrCab" parent="." instance=ExtResource( 5 )]
 position = Vector2( 12, 38 )
+
+[node name="MovingPlatform" type="KinematicBody2D" parent="."]
+position = Vector2( -6, 16 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="MovingPlatform"]
+scale = Vector2( 0.0174672, 0.0174292 )
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatform"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatform"]
+anims/RESET = SubResource( 3 )
+anims/platform = SubResource( 4 )
 
 [editable path="interactExit"]
