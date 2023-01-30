@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menus/main.gd" type="Script" id=1]
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Text/IridosTitle.png" type="Texture" id=3]
 [ext_resource path="res://Menus/buttonCus.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/uiTheme.tres" type="Theme" id=5]
+[ext_resource path="res://Menus/buttonCus.gd" type="Script" id=6]
 
 [node name="main" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -110,6 +111,12 @@ margin_right = 280.0
 margin_bottom = 158.0
 text = "1-3"
 
+[node name="levelFour" type="Button" parent="levelSelect/VBoxContainer"]
+margin_right = 24.0
+margin_bottom = 39.0
+text = "1-4"
+script = ExtResource( 6 )
+
 [node name="debug" parent="levelSelect/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -181,6 +188,7 @@ text = "Back"
 [connection signal="pressed" from="levelSelect/VBoxContainer/levelOne" to="." method="_on_levelOne_pressed"]
 [connection signal="pressed" from="levelSelect/VBoxContainer/levelTwo" to="." method="_on_levelTwo_pressed"]
 [connection signal="pressed" from="levelSelect/VBoxContainer/levelThree" to="." method="_on_levelThree_pressed"]
+[connection signal="pressed" from="levelSelect/VBoxContainer/levelFour" to="." method="_on_levelFour_pressed"]
 [connection signal="pressed" from="levelSelect/VBoxContainer/debug" to="." method="_on_Debug_pressed"]
 [connection signal="pressed" from="levelSelect/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="controlsScreen/back" to="." method="_on_back_pressed"]
