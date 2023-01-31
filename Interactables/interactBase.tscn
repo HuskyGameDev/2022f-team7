@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://interactables/interactBase.gd" type="Script" id=1]
+[ext_resource path="res://Interactables/interactBase.gd" type="Script" id=1]
 [ext_resource path="res://Menus/buttonCus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
@@ -27,6 +27,7 @@ __meta__ = {
 }
 
 [node name="CanvasInteractions" type="CanvasLayer" parent="."]
+layer = 5
 __meta__ = {
 "_editor_description_": "Interactions appear in here"
 }
@@ -76,7 +77,8 @@ size_flags_vertical = 6
 texture = ExtResource( 3 )
 stretch_mode = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasInteractions/dialog/VBoxContainer/HBoxContainer"]
+[node name="dialogBox" type="RichTextLabel" parent="CanvasInteractions/dialog/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 margin_left = 72.0
 margin_right = 344.0
 margin_bottom = 120.0

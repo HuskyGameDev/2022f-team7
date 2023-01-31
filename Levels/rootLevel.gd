@@ -15,6 +15,7 @@ func _ready():
 func _on_resume_pressed():
 	get_tree().paused = false
 	$pauseScreen.hide()
+	$AudioStreamPlayer.stream_paused = false
 	activePlayer.get_node("./Camera2D/hud").visible = !activePlayer.get_node("./Camera2D/hud").visible
 
 func _on_restart_pressed():
@@ -69,13 +70,15 @@ func _input(_event):
 			return
 		else:
 			$pauseScreen.visible = !$pauseScreen.visible
-			get_tree().paused = !get_tree().paused
+			$AudioStreamPlayer.stream_paused = !$AudioStreamPlayer.stream_paused
 			activePlayer.get_node("./Camera2D/hud").visible = !activePlayer.get_node("./Camera2D/hud").visible
+			get_tree().paused = !get_tree().paused
 
 func createLevel():
 	level = load(levelDir).instance()
 	add_child(level)
 	$AudioStreamPlayer.playing = true
+	$AudioStreamPlayer.stream_paused = false
 
 func createPlayer():
 	activePlayer = player.instance()
@@ -89,8 +92,10 @@ func levelTransition(nextLevel):
 	activePlayer.queue_free()
 	get_tree().paused = false
 	if nextLevel == "lastLevel":
+		$AudioStreamPlayer.playing = false
 		$deathScreen.hide()
 		$pauseScreen.hide()
 		$main.show()
 		return
 	load_level(nextLevel)
+	

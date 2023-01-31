@@ -1,4 +1,4 @@
-extends "res://interactables/interactBase.gd"
+extends "res://Interactables/interactBase.gd"
 
 var levelRoot;
 
