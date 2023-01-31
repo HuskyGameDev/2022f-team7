@@ -1,17 +1,18 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
-[ext_resource path="res://interactables/MrCab.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Interactables/MrCab.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/light.png" type="Texture" id=6]
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=8]
-[ext_resource path="res://interactables/interactExit.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://EarthTileSet.tres" type="TileSet" id=10]
 [ext_resource path="res://Assets/platform.PNG" type="Texture" id=11]
 [ext_resource path="res://Levels/platform.gd" type="Script" id=12]
+[ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -181,6 +182,9 @@ position = Vector2( -185, 18.5 )
 position = Vector2( -124, 46 )
 nextLevel = "res://Levels/debugLevelTwo.tscn"
 
+[node name="CanvasInteractions" parent="interactExit" index="2"]
+layer = 1
+
 [node name="MrCab" parent="." instance=ExtResource( 5 )]
 position = Vector2( 12, 38 )
 
@@ -219,5 +223,8 @@ shape = SubResource( 5 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="KinematicBody2D"]
 anims/RESET = SubResource( 6 )
 anims/platform = SubResource( 7 )
+
+[node name="interactBase" parent="." instance=ExtResource( 13 )]
+position = Vector2( 131, 14 )
 
 [editable path="interactExit"]

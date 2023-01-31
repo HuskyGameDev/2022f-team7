@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/jabStabCab.png" type="Texture" id=1]
-[ext_resource path="res://interactables/MrCab.gd" type="Script" id=2]
-[ext_resource path="res://interactables/interactBase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Interactables/MrCab.gd" type="Script" id=2]
+[ext_resource path="res://Interactables/interactBase.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
