@@ -13,9 +13,8 @@
 [ext_resource path="res://Assets/Player.png" type="Texture" id=11]
 [ext_resource path="res://Player/SpearMelee.tscn" type="PackedScene" id=12]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 2.75
-height = 10.0
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.25, 7.75 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.25, 7.75 )

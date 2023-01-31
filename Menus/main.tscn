@@ -66,71 +66,86 @@ text = "Quit"
 
 [node name="levelSelect" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 light_mask = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="levelSelect"]
-light_mask = 0
-anchor_left = 0.25
-anchor_top = 0.0626959
-anchor_right = 0.75
-anchor_bottom = 0.937304
+[node name="HBoxContainer" type="HBoxContainer" parent="levelSelect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 16.0
+margin_bottom = -20.0
 alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="levelSelect/HBoxContainer"]
+margin_left = 143.0
+margin_right = 417.0
+margin_bottom = 283.0
+follow_focus = true
+scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="tutorialLevel" type="Button" parent="levelSelect/VBoxContainer"]
-margin_right = 24.0
+[node name="VBoxContainer" type="VBoxContainer" parent="levelSelect/HBoxContainer/ScrollContainer"]
+light_mask = 0
+margin_right = 250.0
+margin_bottom = 321.0
+rect_min_size = Vector2( 250, 250 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="tutorialLevel" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_right = 250.0
 margin_bottom = 39.0
 text = "Tutorial"
 
-[node name="levelOne" parent="levelSelect/VBoxContainer" instance=ExtResource( 4 )]
+[node name="levelOne" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 25.0
-margin_right = 280.0
-margin_bottom = 64.0
+margin_top = 47.0
+margin_right = 250.0
+margin_bottom = 86.0
 text = "1-1"
 
-[node name="levelTwo" parent="levelSelect/VBoxContainer" instance=ExtResource( 4 )]
+[node name="levelTwo" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 280.0
-margin_bottom = 111.0
+margin_top = 94.0
+margin_right = 250.0
+margin_bottom = 133.0
 text = "1-2"
 
-[node name="levelThree" parent="levelSelect/VBoxContainer" instance=ExtResource( 4 )]
+[node name="levelThree" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 119.0
-margin_right = 280.0
-margin_bottom = 158.0
+margin_top = 141.0
+margin_right = 250.0
+margin_bottom = 180.0
 text = "1-3"
 
-[node name="levelFour" type="Button" parent="levelSelect/VBoxContainer"]
-margin_right = 24.0
-margin_bottom = 39.0
+[node name="levelFour" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 188.0
+margin_right = 250.0
+margin_bottom = 227.0
 text = "1-4"
 script = ExtResource( 6 )
 
-[node name="debug" parent="levelSelect/VBoxContainer" instance=ExtResource( 4 )]
+[node name="debug" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 166.0
-margin_right = 280.0
-margin_bottom = 205.0
+margin_top = 235.0
+margin_right = 250.0
+margin_bottom = 274.0
 text = "Debug"
 
-[node name="back" parent="levelSelect/VBoxContainer" instance=ExtResource( 4 )]
+[node name="back" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 213.0
-margin_right = 280.0
-margin_bottom = 252.0
+margin_top = 282.0
+margin_right = 250.0
+margin_bottom = 321.0
 text = "Back"
 
 [node name="controlsScreen" type="Control" parent="."]
@@ -184,11 +199,11 @@ text = "Back"
 [connection signal="pressed" from="playScreen/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="playScreen/VBoxContainer/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="playScreen/VBoxContainer/quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="levelSelect/VBoxContainer/tutorialLevel" to="." method="_on_tutorialLevel_pressed"]
-[connection signal="pressed" from="levelSelect/VBoxContainer/levelOne" to="." method="_on_levelOne_pressed"]
-[connection signal="pressed" from="levelSelect/VBoxContainer/levelTwo" to="." method="_on_levelTwo_pressed"]
-[connection signal="pressed" from="levelSelect/VBoxContainer/levelThree" to="." method="_on_levelThree_pressed"]
-[connection signal="pressed" from="levelSelect/VBoxContainer/levelFour" to="." method="_on_levelFour_pressed"]
-[connection signal="pressed" from="levelSelect/VBoxContainer/debug" to="." method="_on_Debug_pressed"]
-[connection signal="pressed" from="levelSelect/VBoxContainer/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/tutorialLevel" to="." method="_on_tutorialLevel_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelOne" to="." method="_on_levelOne_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelTwo" to="." method="_on_levelTwo_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelThree" to="." method="_on_levelThree_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelFour" to="." method="_on_levelFour_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/debug" to="." method="_on_Debug_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="controlsScreen/back" to="." method="_on_back_pressed"]
