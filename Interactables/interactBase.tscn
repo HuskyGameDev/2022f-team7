@@ -11,7 +11,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )
 __meta__ = {
-"_editor_description_": "Copy this Area2D into new scenes"
+"_editor_description_": ""
 }
 
 [node name="Light2D" type="Light2D" parent="."]

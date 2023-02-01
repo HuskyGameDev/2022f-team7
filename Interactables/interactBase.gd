@@ -3,9 +3,12 @@ extends Area2D
 var inRange = false
 var interacting = false
 enum type {popup, dialog, cutscene, button}
-export (type) var mode = type.popup
 
+export (type) var mode = type.popup
+export var pauseTree = false
 export var dialog:String = "placeholder!"
+
+onready var pauseScreen = get_node("/root/levelRoot/pauseScreen")
 
 signal interacted #unused
 
@@ -29,14 +32,17 @@ func _on_body_exited(body):
 		$CanvasInteractions/hint.hide()
 		$CanvasInteractions/popup.hide()
 		
+
+#note that all modes are responsible for the interact state
 func _input(event):
 	if event.is_action_pressed("interact") && inRange:
-		print(get_tree().paused)
-		interacting = true
 		
-		if get_tree().paused:
+		if pauseScreen.visible:
 			print("other process in progress")
 			return
+		
+		if pauseTree:
+			get_tree().paused = true
 		
 		match(mode):
 			type.popup:
@@ -47,8 +53,10 @@ func _input(event):
 				button()
 
 func popup():
-	$CanvasInteractions/popup.visible = !$CanvasInteractions/popup.visible
-	interacting = $CanvasInteractions/popup.visible
+	interacting = !interacting
+	$CanvasInteractions/popup.visible = interacting
+	get_tree().paused = interacting && pauseTree
+	
 #	if get_tree().paused == true && $CanvasInteractions.visible == false:
 #		print("other process in progress")
 #		return

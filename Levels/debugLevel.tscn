@@ -172,7 +172,7 @@ centered = false
 
 [node name="enemy" parent="." instance=ExtResource( 7 )]
 pause_mode = 1
-position = Vector2( -75, 46 )
+position = Vector2( 69, 30 )
 
 [node name="enemy2" parent="." instance=ExtResource( 8 )]
 pause_mode = 1

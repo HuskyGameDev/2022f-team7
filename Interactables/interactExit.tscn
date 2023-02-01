@@ -9,6 +9,7 @@ extents = Vector2( 10.6667, 8.66667 )
 
 [node name="interactExit" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
+pauseTree = true
 nextLevel = ""
 
 [node name="Light2D" parent="." index="0"]

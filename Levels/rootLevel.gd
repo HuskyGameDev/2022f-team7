@@ -6,6 +6,7 @@ var activePlayer
 var currentExit
 var levelDir
 var level:Node2D
+var alreadyPaused
 
 func _ready():
 	$pauseScreen.visible = false
@@ -13,10 +14,7 @@ func _ready():
 	$main.visible = true
 
 func _on_resume_pressed():
-	get_tree().paused = false
-	$pauseScreen.hide()
-	$AudioStreamPlayer.stream_paused = false
-	activePlayer.get_node("./Camera2D/hud").visible = !activePlayer.get_node("./Camera2D/hud").visible
+	pauseControl()
 
 func _on_restart_pressed():
 	level.queue_free() #clear out player and level instances
@@ -59,20 +57,23 @@ func _on_deathTimer_timeout():
 	activePlayer.get_node("./Camera2D/hud").hide()
 	$deathScreen.visible = true
 	get_tree().paused = true
-	
 
 func _on_level_complete():
 	pass
 
 func _input(_event):
 	if Input.is_action_just_pressed("pause_game") && $main.visible == false && $deathScreen.visible == false:
-		if $pauseScreen.visible == false && get_tree().paused == true:
-			return
-		else:
-			$pauseScreen.visible = !$pauseScreen.visible
-			$AudioStreamPlayer.stream_paused = !$AudioStreamPlayer.stream_paused
-			activePlayer.get_node("./Camera2D/hud").visible = !activePlayer.get_node("./Camera2D/hud").visible
-			get_tree().paused = !get_tree().paused
+		pauseControl()
+
+func pauseControl():
+	if $pauseScreen.visible == false:
+		alreadyPaused = (get_tree().paused)
+	
+	$pauseScreen.visible = !$pauseScreen.visible
+	$AudioStreamPlayer.stream_paused = !$AudioStreamPlayer.stream_paused
+	activePlayer.get_node("./Camera2D/hud").visible = !activePlayer.get_node("./Camera2D/hud").visible
+	if !alreadyPaused:
+		get_tree().paused = $pauseScreen.visible
 
 func createLevel():
 	level = load(levelDir).instance()
