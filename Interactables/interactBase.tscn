@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Interactables/interactBase.gd" type="Script" id=1]
 [ext_resource path="res://Menus/buttonCus.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Assets/awfulDialog.png" type="Texture" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Text/fontthemesmall.tres" type="DynamicFont" id=5]
 
 [node name="interactBase" type="Area2D" groups=["interactable"]]
 pause_mode = 2
@@ -43,50 +44,39 @@ text = "hint"
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="ColorRect" type="ColorRect" parent="CanvasInteractions/dialog"]
+[node name="ColorRect" type="TextureRect" parent="CanvasInteractions/dialog"]
 light_mask = 0
 anchor_left = 0.192857
 anchor_top = 0.60815
 anchor_right = 0.807143
 anchor_bottom = 0.984326
-color = Color( 0.494118, 0.494118, 0.494118, 0.517647 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
+texture = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasInteractions/dialog"]
-anchor_left = 0.192857
-anchor_top = 0.60815
+anchor_left = 0.207143
+anchor_top = 0.633229
 anchor_right = 0.807143
-anchor_bottom = 0.984326
+anchor_bottom = 0.968652
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasInteractions/dialog/VBoxContainer"]
-margin_right = 344.0
-margin_bottom = 120.0
+margin_right = 336.0
+margin_bottom = 106.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="TextureRect" type="TextureRect" parent="CanvasInteractions/dialog/VBoxContainer/HBoxContainer"]
-margin_top = 28.0
-margin_right = 64.0
-margin_bottom = 92.0
-size_flags_vertical = 6
-texture = ExtResource( 3 )
-stretch_mode = 3
 
 [node name="dialogBox" type="RichTextLabel" parent="CanvasInteractions/dialog/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-margin_left = 72.0
-margin_right = 344.0
-margin_bottom = 120.0
+margin_right = 336.0
+margin_bottom = 106.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "this is some sample text!"
+custom_fonts/normal_font = ExtResource( 5 )
+text = "Did you know that there is an impostor among us? And if you see Dr. Breen, tell him I said 'screw you'. Anyways Blizzard T. Husky is a top and I WILL fight anyone who says otherwise :("
 scroll_active = false
-scroll_following = true
+deselect_on_focus_loss_enabled = false
 
 [node name="popup" type="Control" parent="CanvasInteractions"]
 visible = false

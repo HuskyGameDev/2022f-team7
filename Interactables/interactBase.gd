@@ -2,12 +2,16 @@ extends Area2D
 
 var inRange = false
 var interacting = false
+var dialogTest = false
+var amountVis : float = 0
 enum type {popup, dialog, cutscene, button}
 
+export var textSpeed = 30
 export (type) var mode = type.popup
 export var pauseTree = false
 export var dialog:String = "placeholder!"
 
+onready var dialogBox = $CanvasInteractions/dialog/VBoxContainer/HBoxContainer/dialogBox
 onready var pauseScreen = get_node("/root/levelRoot/pauseScreen")
 
 signal interacted #unused
@@ -62,7 +66,21 @@ func popup():
 #		return
 
 func dialog():
-	pass #unfinished
+	dialogTest = !dialogTest
+	interacting = !interacting
+	$CanvasInteractions/dialog.visible = interacting
+	get_tree().paused = interacting && pauseTree
+	dialogBox.get_v_scroll().value = 0
+	amountVis = 0
+	print(dialogBox.get_total_character_count())
+
+func _process(delta):
+	if dialogTest && dialogBox.get_total_character_count() != dialogBox.visible_characters:
+		amountVis += (textSpeed * delta)
+		dialogBox.visible_characters = amountVis
+		
+		if dialogBox.get_visible_line_count() > 5:
+			dialogBox.get_v_scroll().value += 3
 
 func cutscene():
 	pass #unfinished

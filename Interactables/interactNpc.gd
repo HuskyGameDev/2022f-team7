@@ -7,3 +7,4 @@ func _ready():
 
 func dialog():
 	print("test")
+	.dialog()

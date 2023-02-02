@@ -29,6 +29,7 @@ animations = [ {
 [node name="interactBase" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 mode = 1
+pauseTree = true
 
 [node name="playerDetection" parent="." index="1"]
 position = Vector2( 0, -2 )
