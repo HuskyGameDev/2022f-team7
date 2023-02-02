@@ -189,6 +189,39 @@ nextLevel = "res://Levels/debugLevelTwo.tscn"
 [node name="CanvasInteractions" parent="interactExit" index="2"]
 layer = 1
 
+[node name="ColorRect" parent="interactExit/CanvasInteractions/dialog" index="0"]
+color = Color( 0.494118, 0.494118, 0.494118, 0.517647 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" parent="interactExit/CanvasInteractions/dialog" index="1"]
+anchor_left = 0.192857
+anchor_top = 0.60815
+anchor_bottom = 0.984326
+
+[node name="HBoxContainer" parent="interactExit/CanvasInteractions/dialog/VBoxContainer" index="0"]
+margin_right = 344.0
+margin_bottom = 120.0
+
+[node name="TextureRect" parent="interactExit/CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="0"]
+margin_top = 28.0
+margin_right = 64.0
+margin_bottom = 92.0
+size_flags_vertical = 6
+texture = ExtResource( 3 )
+stretch_mode = 3
+
+[node name="dialogBox" parent="interactExit/CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 72.0
+margin_right = 344.0
+margin_bottom = 120.0
+visible_characters = -1
+percent_visible = 1.0
+text = "this is some sample text!"
+scroll_following = true
+deselect_on_focus_loss_enabled = true
+
 [node name="MrCab" parent="." instance=ExtResource( 5 )]
 position = Vector2( 12, 38 )
 

@@ -458,6 +458,7 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2( 72.8298, -67.0564 )
 rotate = false
 
 [node name="enemy" parent="Path2D3/PathFollow2D" instance=ExtResource( 3 )]
@@ -473,6 +474,8 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
+visible = false
+position = Vector2( 0, -1 )
 rotate = false
 
 [node name="enemy" parent="Path2D5/PathFollow2D" instance=ExtResource( 3 )]
@@ -487,6 +490,7 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D9"]
+rotation = 1.24932
 
 [node name="enemy" parent="Path2D9/PathFollow2D" instance=ExtResource( 3 )]
 mode = 1
@@ -500,6 +504,7 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D6"]
+position = Vector2( 0, -1 )
 rotate = false
 
 [node name="enemy" parent="Path2D6/PathFollow2D" instance=ExtResource( 3 )]
@@ -525,6 +530,7 @@ position = Vector2( 475, -127 )
 curve = SubResource( 27 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+rotation = 1.2372
 
 [node name="enemy" parent="Path2D4/PathFollow2D" instance=ExtResource( 3 )]
 mode = 1
