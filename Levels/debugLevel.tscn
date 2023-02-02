@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=9]
-[ext_resource path="res://EarthTileSet.tres" type="TileSet" id=10]
 [ext_resource path="res://Assets/platform.PNG" type="Texture" id=11]
 [ext_resource path="res://Levels/platform.gd" type="Script" id=12]
 [ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=13]
@@ -107,16 +106,6 @@ energy = 0.99
 range_layer_min = -1
 shadow_enabled = true
 
-[node name="TileMap2" type="TileMap" parent="." groups=["spear_can_stick", "tilemap"]]
-position = Vector2( -328, -234 )
-scale = Vector2( 0.5, 0.5 )
-tile_set = ExtResource( 10 )
-cell_size = Vector2( 16, 16 )
-cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
-collision_mask = 0
-format = 1
-tile_data = PoolIntArray( 2097206, 1, 0, 2097207, 2, 0, 2097208, 2, 0, 2097209, 2, 0, 2097210, 2, 0, 2097211, 3, 0, 2162736, 14, 0, 2162737, 13, 0, 2162738, 11, 0, 2228271, 14, 0, 2228272, 15, 0, 2228273, 15, 0, 2228274, 15, 0, 2228275, 11, 0, 2293806, 14, 0, 2293807, 15, 0, 2293808, 15, 0, 2293809, 15, 0, 2293810, 15, 0, 2293811, 15, 0, 2293812, 11, 0 )
-
 [node name="TileMap" type="TileMap" parent="." groups=["spear_can_stick", "tilemap"]]
 modulate = Color( 0.368627, 0.368627, 0.368627, 1 )
 position = Vector2( -328, -234 )
@@ -189,12 +178,6 @@ nextLevel = "res://Levels/debugLevelTwo.tscn"
 [node name="CanvasInteractions" parent="interactExit" index="2"]
 layer = 1
 
-[node name="ColorRect" parent="interactExit/CanvasInteractions/dialog" index="0"]
-color = Color( 0.494118, 0.494118, 0.494118, 0.517647 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
 [node name="VBoxContainer" parent="interactExit/CanvasInteractions/dialog" index="1"]
 anchor_left = 0.192857
 anchor_top = 0.60815
@@ -204,21 +187,9 @@ anchor_bottom = 0.984326
 margin_right = 344.0
 margin_bottom = 120.0
 
-[node name="TextureRect" parent="interactExit/CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="0"]
-margin_top = 28.0
-margin_right = 64.0
-margin_bottom = 92.0
-size_flags_vertical = 6
-texture = ExtResource( 3 )
-stretch_mode = 3
-
-[node name="dialogBox" parent="interactExit/CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="1"]
-margin_left = 72.0
+[node name="dialogBox" parent="interactExit/CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="0"]
 margin_right = 344.0
 margin_bottom = 120.0
-visible_characters = -1
-percent_visible = 1.0
-text = "this is some sample text!"
 scroll_following = true
 deselect_on_focus_loss_enabled = true
 
