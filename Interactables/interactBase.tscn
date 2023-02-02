@@ -44,7 +44,7 @@ text = "hint"
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="ColorRect" type="TextureRect" parent="CanvasInteractions/dialog"]
+[node name="TextureRect" type="TextureRect" parent="CanvasInteractions/dialog"]
 light_mask = 0
 anchor_left = 0.192857
 anchor_top = 0.60815
@@ -74,34 +74,47 @@ margin_bottom = 106.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 5 )
-text = "Did you know that there is an impostor among us? And if you see Dr. Breen, tell him I said 'screw you'. Anyways Blizzard T. Husky is a top and I WILL fight anyone who says otherwise :("
+bbcode_enabled = true
+bbcode_text = "Did you know that there is an [color=red]impostor[/color] among us? And if you see Dr. Breen, tell him I said 'screw you'.\\ Anyways [tornado radius=5 freq=5]Blizzard T. Husky[/tornado] is a top and I WILL fight anyone who says otherwise :("
+text = "Did you know that there is an impostor among us? And if you see Dr. Breen, tell him I said 'screw you'.\\ Anyways Blizzard T. Husky is a top and I WILL fight anyone who says otherwise :("
 scroll_active = false
 deselect_on_focus_loss_enabled = false
+
+[node name="Blinky" type="ColorRect" parent="CanvasInteractions/dialog"]
+anchor_left = 0.778571
+anchor_top = 0.934169
+anchor_right = 0.792857
+anchor_bottom = 0.959248
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="popup" type="Control" parent="CanvasInteractions"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="ColorRect" type="ColorRect" parent="CanvasInteractions/popup"]
+[node name="TextureRect" type="TextureRect" parent="CanvasInteractions/popup"]
 light_mask = 0
-anchor_left = 0.192857
-anchor_top = 0.311912
-anchor_right = 0.807143
-anchor_bottom = 0.688088
-color = Color( 0.494118, 0.494118, 0.494118, 0.517647 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.0
+margin_top = -60.0001
+margin_right = 172.0
+margin_bottom = 60.0001
+texture = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasInteractions/popup"]
-anchor_left = 0.192857
-anchor_top = 0.311912
-anchor_right = 0.807143
-anchor_bottom = 0.688088
-__meta__ = {
-"_edit_use_anchors_": true
-}
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.0
+margin_top = -54.5
+margin_right = 172.0
+margin_bottom = 52.5
 
 [node name="message" type="Label" parent="CanvasInteractions/popup/VBoxContainer"]
 margin_right = 344.0
@@ -116,9 +129,9 @@ autowrap = true
 max_lines_visible = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasInteractions/popup/VBoxContainer"]
-margin_top = 74.0
+margin_top = 68.0
 margin_right = 344.0
-margin_bottom = 113.0
+margin_bottom = 107.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 alignment = 1

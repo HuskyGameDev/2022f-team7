@@ -2,7 +2,7 @@ extends Area2D
 
 var inRange = false
 var interacting = false
-var dialogTest = false
+var dialogActive = false
 var amountVis : float = 0
 enum type {popup, dialog, cutscene, button}
 
@@ -60,22 +60,28 @@ func popup():
 	interacting = !interacting
 	$CanvasInteractions/popup.visible = interacting
 	get_tree().paused = interacting && pauseTree
-	
-#	if get_tree().paused == true && $CanvasInteractions.visible == false:
-#		print("other process in progress")
-#		return
 
 func dialog():
-	dialogTest = !dialogTest
+	if amountVis <= int(dialogBox.get_total_character_count()) && $CanvasInteractions/dialog.visible:
+		return
+	dialogActive = !dialogActive
 	interacting = !interacting
 	$CanvasInteractions/dialog.visible = interacting
 	get_tree().paused = interacting && pauseTree
 	dialogBox.get_v_scroll().value = 0
 	amountVis = 0
-	print(dialogBox.get_total_character_count())
+	$CanvasInteractions/dialog/Blinky.color = Color.white
 
 func _process(delta):
-	if dialogTest && dialogBox.get_total_character_count() != dialogBox.visible_characters:
+	if dialogActive && amountVis <= int(dialogBox.get_total_character_count()):
+		if(dialogBox.text[amountVis] == "\\"):
+			
+			if Input.is_action_just_pressed("interact"):
+				amountVis += 1
+				$CanvasInteractions/dialog/Blinky.color = Color.white
+			else: 
+				$CanvasInteractions/dialog/Blinky.color = Color.red
+				return
 		amountVis += (textSpeed * delta)
 		dialogBox.visible_characters = amountVis
 		

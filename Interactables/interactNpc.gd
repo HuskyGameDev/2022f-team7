@@ -6,5 +6,7 @@ func _ready():
 	._ready() #super call
 
 func dialog():
-	print("test")
-	.dialog()
+	.dialog()#interacting is set here so be careful
+	$AnimatedSprite.playing = interacting
+	if !interacting: $AnimatedSprite.frame = 0
+
