@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Levels/platform.gd" type="Script" id=12]
 [ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Interactables/KeyForPlatform.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Lava_Geyser.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -230,6 +231,9 @@ position = Vector2( 131, 14 )
 
 [node name="KeyPlatform" parent="." instance=ExtResource( 14 )]
 position = Vector2( -86, 38 )
+
+[node name="Node2D" parent="." instance=ExtResource( 15 )]
+position = Vector2( -157, 46 )
 
 [connection signal="ActivatedMovingPlatforms" from="KeyPlatform" to="MovingPlatform1" method="_on_KeyPlatform_ActivatedMovingPlatforms"]
 [connection signal="ActivatedMovingPlatforms" from="KeyPlatform" to="KinematicBody2D" method="_on_KeyPlatform_ActivatedMovingPlatforms"]
