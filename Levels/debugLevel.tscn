@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://Assets/platform.PNG" type="Texture" id=11]
 [ext_resource path="res://Levels/platform.gd" type="Script" id=12]
 [ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Interactables/KeyForPlatform.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Levels/Lava_Geyser.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Interactables/SwitchPuzzle.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Levels/DoorTest.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -259,5 +263,21 @@ anims/platform = SubResource( 7 )
 
 [node name="interactBase" parent="." instance=ExtResource( 13 )]
 position = Vector2( 131, 14 )
+
+[node name="KeyPlatform" parent="." instance=ExtResource( 14 )]
+position = Vector2( -86, 38 )
+
+[node name="Node2D" parent="." instance=ExtResource( 15 )]
+position = Vector2( -157, 46 )
+
+[node name="SwitchPuzzle" parent="." instance=ExtResource( 16 )]
+position = Vector2( -197, 37 )
+
+[node name="DoorTest" parent="." instance=ExtResource( 17 )]
+position = Vector2( -230, -91 )
+
+[connection signal="ActivatedMovingPlatforms" from="KeyPlatform" to="MovingPlatform1" method="_on_KeyPlatform_ActivatedMovingPlatforms"]
+[connection signal="ActivatedMovingPlatforms" from="KeyPlatform" to="KinematicBody2D" method="_on_KeyPlatform_ActivatedMovingPlatforms"]
+[connection signal="switchActivated" from="SwitchPuzzle" to="DoorTest" method="_on_SwitchPuzzle_switchActivated"]
 
 [editable path="interactExit"]
