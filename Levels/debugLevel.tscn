@@ -2,7 +2,7 @@
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Assets/background.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
 [ext_resource path="res://Interactables/MrCab.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/light.png" type="Texture" id=6]
@@ -107,7 +107,7 @@ range_layer_min = -1
 shadow_enabled = true
 
 [node name="TileMap" type="TileMap" parent="." groups=["spear_can_stick", "tilemap"]]
-modulate = Color( 0.368627, 0.368627, 0.368627, 1 )
+modulate = Color( 0.839216, 0.839216, 0.839216, 1 )
 position = Vector2( -328, -234 )
 scale = Vector2( 0.5, 0.5 )
 tile_set = ExtResource( 1 )
@@ -155,13 +155,17 @@ mode = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer"]
-modulate = Color( 0.12549, 0.12549, 0.12549, 1 )
-position = Vector2( 3.55271e-15, 0 )
-scale = Vector2( 8.75, 4.985 )
-z_index = -1
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.341176, 0.341176, 0.341176, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.00313
+margin_bottom = -3.05176e-05
 texture = ExtResource( 3 )
-centered = false
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="enemy" parent="." instance=ExtResource( 7 )]
 pause_mode = 1
