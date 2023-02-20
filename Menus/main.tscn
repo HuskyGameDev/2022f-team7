@@ -194,6 +194,20 @@ margin_bottom = 227.0
 text = "1-4"
 script = ExtResource( 6 )
 
+[node name="levelFive" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 188.0
+margin_right = 250.0
+margin_bottom = 227.0
+text = "1-5"
+script = ExtResource( 6 )
+
+[node name="levelSix" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 188.0
+margin_right = 250.0
+margin_bottom = 227.0
+text = "2-1"
+script = ExtResource( 6 )
+
 [node name="debug" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -263,7 +277,7 @@ text = "Back"
 light_mask = 0
 position = Vector2( 60, 287 )
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( 28, -2 )
 
@@ -280,6 +294,7 @@ range_layer_max = 1
 light_mask = 0
 position = Vector2( 411, -2 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite/AnimatedSprite"]
@@ -299,6 +314,8 @@ range_layer_max = 1
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelTwo" to="." method="_on_levelTwo_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelThree" to="." method="_on_levelThree_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelFour" to="." method="_on_levelFour_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelFive" to="." method="_on_levelFive_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelSix" to="." method="_on_levelSix_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/debug" to="." method="_on_Debug_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="controlsScreen/back" to="." method="_on_back_pressed"]
