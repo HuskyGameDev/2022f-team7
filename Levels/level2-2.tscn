@@ -566,8 +566,7 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 1316, -569 )
+position = Vector2( 488, -905 )
 nextLevel = "lastLevel"
 
 [node name="MrStab" parent="." instance=ExtResource( 7 )]

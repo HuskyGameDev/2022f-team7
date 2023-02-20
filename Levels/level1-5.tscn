@@ -566,9 +566,8 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 1316, -569 )
-nextLevel = "lastLevel"
+position = Vector2( 1008, -641 )
+nextLevel = "res://Levels/level2-1.tscn"
 
 [node name="MrStab" parent="." instance=ExtResource( 7 )]
 visible = false
