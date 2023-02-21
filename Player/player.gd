@@ -22,6 +22,8 @@ var hasSpear = true
 var usingSpear = false
 var current_HP = 0
 var usedSpring = false
+var spearState = 1; # Whether the spear is normal (0), red (1), yellow (2), or blue (3)
+var maxSpearState = 3;
 
 var isHurt = false
 var isWalking = false
@@ -34,6 +36,7 @@ signal spear_changed(usable)
 
 #starts the current health of the player
 func _ready():
+	set_spear_state(spearState);
 	set_collision_layer_bit(2, true)
 	current_HP = health
 	emit_signal("health_changed", current_HP)
@@ -53,6 +56,9 @@ func processInput():
 	if !usingSpear && hasSpear && Input.is_action_just_pressed("mouseLeft"):
 		usingSpear = true
 		call_deferred("attackSpear")
+	
+	if(!usingSpear && hasSpear && Input.is_action_just_pressed("switch_spear")):
+		switch_spear_state();
 	
 	#starts dashing state if possible and starts dash cooldown, as well as
 	#cranking camera smoothing so player doesn't launch out of view
@@ -223,7 +229,7 @@ func throwSpear():
 	$Sprite/Spear.visible = false
 	emit_signal("spear_changed", hasSpear)
 	var spear = spearScene.instance()
-	spear.start(get_local_mouse_position(), position, vec)
+	spear.start(get_local_mouse_position(), position, vec, spearState)
 	get_parent().add_child(spear)
 	spear.connect("spear_collected", self, "_collect_spear")
 	usingSpear = false
@@ -233,7 +239,7 @@ func attackSpear():
 	$Sprite/Spear.visible = false
 	emit_signal("spear_changed", hasSpear)
 	var spear = spearMeleeScene.instance()
-	spear.start(get_local_mouse_position())
+	spear.start(get_local_mouse_position(), spearState)
 	add_child(spear);
 	spear.connect("spear_attack_ended", self, "_collect_spear")
 
@@ -283,8 +289,27 @@ func _on_InvilCooldown_timeout():
 		$Sprite.visible = true
 		isHurt = false
 
-		
+func switch_spear_state():
+	spearState = spearState + 1;
+	if(spearState > maxSpearState): spearState = 0;
+	print("current spear state: " + str(spearState));
+	set_spear_color();
 
+func set_spear_state(var s):
+	spearState = s;
+	if(spearState >= maxSpearState): spearState = 0;
+	print("current spear state: " + str(spearState));
+	set_spear_color();
+
+func set_spear_color():
+	if(spearState == 0):
+		$Sprite/Spear.modulate = Color(1, 1, 1);
+	elif(spearState == 1):
+		$Sprite/Spear.modulate = Color(0.83, 0.38, 0.38);
+	elif(spearState == 2):
+		$Sprite/Spear.modulate = Color(0.92, 0.92, 0.15);
+	elif(spearState == 3):
+		$Sprite/Spear.modulate = Color(0.41, 0.41, 1.0);
 
 func _on_springhitbox_area_entered(area):
 	if(area.is_in_group("spring")):

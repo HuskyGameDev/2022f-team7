@@ -13,15 +13,18 @@ var direction # Stores mouse coordinates
 var playerPos # Stores player coordinates
 var stuck = false # Stores whether or not the spear is "stuck" to an object
 var mouseIn = false # Stores whether or not the mouse is touching the spear
+var state = 0; # Whether the spear is normal (0), red (1), yellow (2), or blue (3)
 
 signal spear_collected # Signal emitted when the spear is collected
 
 
 
 
-#TODO: pixel perfect movement, sprites instead of rotation to fit art style
+#TODO: pixel perfect movement, sprites instead of rotation to fit art styl
 
-func start(mouseCoords, pos, vec):
+func start(mouseCoords, pos, vec, s):
+	state = s
+	set_color()
 	hide() # Hide the spear while it is being positioned
 	playerPos = pos # Set initial position to player position
 	direction = Vector2(mouseCoords.x, mouseCoords.y) # Gets angle to point based on where the mouse is
@@ -50,11 +53,13 @@ func _physics_process(_delta):
 
 # Runs when the tip of the spear collides with an object
 func _on_TipCollision_body_entered(body):
+	if(state == 1 && !body.is_in_group("player")): AOEattack();
 	if(!stuck && body.is_in_group("spear_can_stick") && ((abs(rad2deg(transform.get_rotation()))) < stick_angle || abs(rad2deg(transform.get_rotation())) > 180-stick_angle)):
 		stick_spear()
 
 
 func _on_TipCollision_area_entered(area):
+	if(state == 1 && !area.is_in_group("player") && !area.name == "collectArea"): AOEattack();
 	if(!stuck && area.is_in_group("spear_can_attach") && ((abs(rad2deg(transform.get_rotation()))) < stick_angle || abs(rad2deg(transform.get_rotation())) > 180-stick_angle)):
 		call_deferred("attach_spear", area)
 
@@ -93,5 +98,17 @@ func attach_spear(var area):
 	# Update collision layers
 	self.set_collision_layer_bit(4, true)
 	#self.set_collision_mask_bit(0, false)
-	$Area2D.set_collision_layer_bit(0, false)
+	$collectArea.set_collision_layer_bit(0, false)
 
+func set_color():
+	if(state == 0):
+		$Sprite.modulate = Color(1, 1, 1);
+	elif(state == 1):
+		$Sprite.modulate = Color(0.83, 0.38, 0.38);
+	elif(state == 2):
+		$Sprite.modulate = Color(0.92, 0.92, 0.15);
+	elif(state == 3):
+		$Sprite.modulate = Color(0.41, 0.41, 1.0);
+
+func AOEattack():
+	$AOEattack.start();

@@ -1,10 +1,38 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Spear.png" type="Texture" id=1]
 [ext_resource path="res://Player/SpearMelee.gd" type="Script" id=2]
+[ext_resource path="res://Player/AOEattack.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 1 )
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 16.0
+
+[sub_resource type="Gradient" id=11]
+colors = PoolColorArray( 0.996078, 0.152941, 0, 1, 0.8, 0.52549, 0.027451, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 11 )
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0, 0.806452, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.2
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 9 )
+color_initial_ramp = SubResource( 6 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 z_index = -1
@@ -26,3 +54,29 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SpearTip"]
 polygon = PoolVector2Array( 4, -3, 9, -3, 9, 1, 4, 1 )
+
+[node name="AOEattack" type="Area2D" parent="." groups=["spear"]]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 3 )
+
+[node name="AOEshape" type="CollisionShape2D" parent="AOEattack"]
+position = Vector2( 12, 2 )
+shape = SubResource( 10 )
+
+[node name="AOEparticles" type="Particles2D" parent="AOEattack"]
+position = Vector2( 12, 2 )
+emitting = false
+amount = 150
+lifetime = 0.2
+one_shot = true
+process_material = SubResource( 13 )
+
+[node name="AOEtimer" type="Timer" parent="AOEattack"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="area_entered" from="SpearTip" to="." method="_on_SpearTip_area_entered"]
+[connection signal="body_entered" from="SpearTip" to="." method="_on_SpearTip_body_entered"]
+[connection signal="timeout" from="AOEattack/AOEtimer" to="AOEattack" method="end"]
