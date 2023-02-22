@@ -110,6 +110,7 @@ switch_spear={
 2d_physics/layer_2="player"
 2d_physics/layer_3="spear"
 2d_physics/layer_4="hitbox"
+2d_physics/layer_5="enemy"
 
 [logging]
 

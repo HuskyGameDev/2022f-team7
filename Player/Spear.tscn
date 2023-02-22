@@ -50,6 +50,7 @@ color_initial_ramp = SubResource( 11 )
 [node name="Spear" type="RigidBody2D"]
 z_index = 100
 collision_layer = 4
+collision_mask = 17
 input_pickable = true
 mass = 5.10204
 gravity_scale = 3.5
@@ -69,13 +70,11 @@ region_enabled = true
 region_rect = Rect2( 0, 6, 32, 7 )
 
 [node name="SpearShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 1 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
 
 [node name="TipCollision" type="Area2D" parent="." groups=["spear"]]
-visible = false
 collision_layer = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TipCollision"]
@@ -83,7 +82,6 @@ position = Vector2( 8.5, 1 )
 shape = SubResource( 2 )
 
 [node name="BodyCollision" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 script = ExtResource( 3 )
 
@@ -96,7 +94,6 @@ collision_mask = 0
 script = ExtResource( 4 )
 
 [node name="PickupShape" type="CollisionShape2D" parent="collectArea"]
-visible = false
 position = Vector2( 0, 1 )
 shape = SubResource( 4 )
 

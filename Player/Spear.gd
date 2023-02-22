@@ -25,6 +25,7 @@ signal spear_collected # Signal emitted when the spear is collected
 func start(mouseCoords, pos, vec, s):
 	state = s
 	set_color()
+	if(state == 3): set_collision_mask_bit(4, false);
 	hide() # Hide the spear while it is being positioned
 	playerPos = pos # Set initial position to player position
 	direction = Vector2(mouseCoords.x, mouseCoords.y) # Gets angle to point based on where the mouse is
