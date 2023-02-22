@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Interactables/interactBase.gd" type="Script" id=1]
 [ext_resource path="res://Menus/buttonCus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/awfulDialog.png" type="Texture" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Text/fontthemesmall.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/dialogNew.png" type="Texture" id=6]
 
 [node name="interactBase" type="Area2D" groups=["interactable"]]
 pause_mode = 2
@@ -50,7 +51,7 @@ anchor_left = 0.192857
 anchor_top = 0.60815
 anchor_right = 0.807143
 anchor_bottom = 0.984326
-texture = ExtResource( 3 )
+texture = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasInteractions/dialog"]
 anchor_left = 0.207143
@@ -75,8 +76,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
-bbcode_text = "Did you know that there is an [color=red]impostor[/color] among us? And if you see Dr. Breen, tell him I said 'screw you'.\\ Anyways [tornado radius=5 freq=5]Blizzard T. Husky[/tornado] is a top and I WILL fight anyone who says otherwise :("
-text = "Did you know that there is an impostor among us? And if you see Dr. Breen, tell him I said 'screw you'.\\ Anyways Blizzard T. Husky is a top and I WILL fight anyone who says otherwise :("
 scroll_active = false
 deselect_on_focus_loss_enabled = false
 

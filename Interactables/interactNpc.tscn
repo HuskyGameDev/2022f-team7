@@ -29,6 +29,7 @@ animations = [ {
 [node name="interactBase" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 mode = 1
+dialog = ""
 
 [node name="playerDetection" parent="." index="1"]
 position = Vector2( 0, -2 )
@@ -36,6 +37,10 @@ shape = SubResource( 4 )
 
 [node name="hint" parent="CanvasInteractions" index="0"]
 text = "Mr. Cab"
+
+[node name="dialogBox" parent="CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="0"]
+bbcode_text = "Did you know that there is an [color=red]impostor[/color] among us? Here's another cool test sentence :3.\\ Anyways [tornado radius=5 freq=5]Blizzard T. Husky[/tornado] is a top and I WILL fight anyone who says otherwise :("
+text = "Did you know that there is an impostor among us? Here's another cool test sentence :3.\\ Anyways Blizzard T. Husky is a top and I WILL fight anyone who says otherwise :("
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="4"]
 scale = Vector2( 0.5, 0.5 )
