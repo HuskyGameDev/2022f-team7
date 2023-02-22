@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=2]
@@ -9,36 +9,6 @@
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Levels/platform.gd" type="Script" id=8]
 [ext_resource path="res://Assets/platform.PNG" type="Texture" id=9]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 7.93701, 0, -7.93701, 0, 0, 0, 3.9685, 0.198425, -3.9685, -0.198425, -22, 1, 4.56378, 1.78583, -4.56378, -1.78583, -38, -4, 0.198425, 2.97638, -0.198425, -2.97638, -53, -16, -6.34961, 0.992126, 6.34961, -0.992126, -37, -21, -5.5559, -1.19055, 5.5559, 1.19055, -12, -18, -4.96063, -0.39685, 4.96063, 0.39685, 17, -13, -2.97638, -1.78583, 2.97638, 1.78583, 41, -11, 2.57953, -3.37323, -2.57953, 3.37323, 47, -1, 5.75433, 0, -5.75433, 0, 26, 3, 10.3181, 0.595275, -10.3181, -0.595275, 0, 0 )
-}
-
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( -3.58584, -5.6925, 3.58584, 5.6925, 72.8298, -67.0564, 3.18741, -4.51474, -3.18741, 4.51474, 50.1451, -44.7043, 2.39056, -4.71103, -2.39056, 4.71103, 34.624, -11.7643, 1.19528, -2.9444, -1.19528, 2.9444, 23.8786, 15.2936, 2.19135, -1.37405, -2.19135, 1.37405, 17.909, 29.4107, 0.398427, 2.7481, -0.398427, -2.7481, 11.9393, 29.4107, -2.19135, 5.10362, 2.19135, -5.10362, 14.3272, 22.3522, -3.18741, 6.67396, 3.18741, -6.67396, 26.2665, -3.52928, -2.78899, 5.49621, 2.78899, -5.49621, 39.3997, -31.7636, -2.78899, 3.33698, 2.78899, -3.33698, 50.1451, -51.7629, -4.18348, 1.76664, 4.18348, -1.76664, 64.4723, -64.7036, -3.58584, -3.33698, 3.58584, 3.33698, 72.8298, -67.0564 )
-}
-
-[sub_resource type="Curve2D" id=4]
-_data = {
-"points": PoolVector2Array( -0.594603, -10.4056, 0.594603, 10.4056, 0, -1, -10.7029, -2.67572, 10.7029, 2.67572, 31, 1, -6.24334, -3.86492, 6.24334, 3.86492, 56, 11, -3.56762, -4.16222, 3.56762, 4.16222, 74, 30, -4.75683, -3.56762, 4.75683, 3.56762, 87, 47, -6.83794, -6.54064, 6.83794, 6.54064, 104, 61, -2.67572, -1.18921, 2.67572, 1.18921, 128, 85, -2.67572, 1.18921, 2.67572, -1.18921, 134, 88, 0, 2.08111, 0, -2.08111, 135, 83, 2.67572, 1.78381, -2.67572, -1.78381, 131, 79, 5.05413, 4.75683, -5.05413, -4.75683, 123, 70, 8.32445, 6.83794, -8.32445, -6.83794, 104, 55, 4.75683, 5.05413, -4.75683, -5.05413, 89, 41, 8.62175, 8.91905, -8.62175, -8.91905, 72, 18, 8.62175, 3.56762, -8.62175, -3.56762, 50, 4, 5.35143, 0.891905, -5.35143, -0.891905, 26, -3, 2.97302, -9.51366, -2.97302, 9.51366, 0, -1 )
-}
-
-[sub_resource type="Curve2D" id=26]
-_data = {
-"points": PoolVector2Array( 1, -10, -1, 10, 0, 0, -2.75, -1.75, 2.75, 1.75, 20, 6, -1.75, -3.75, 1.75, 3.75, 27, 14, -4.5, -3.5, 4.5, 3.5, 32, 28, -4.25, 2.25, 4.25, -2.25, 43, 27, -3, 4, 3, -4, 53, 19, 5.75, 4.75, -5.75, -4.75, 52, -2, 8.75, -1.25, -8.75, 1.25, 21, -8, 2.5, -8.5, -2.5, 8.5, 0, 0 )
-}
-
-[sub_resource type="Curve2D" id=3]
-_data = {
-"points": PoolVector2Array( 2.52269, 2.31247, -2.52269, -2.31247, 0, 0, 3.36359, 0.420448, -3.36359, -0.420448, -13, -3, 3.15336, 0.210224, -3.15336, -0.210224, -27, -4, 3.36359, 0, -3.36359, 0, -42, -5, 4.41471, 0.210224, -4.41471, -0.210224, -54, -5, 1.89202, 1.47157, -1.89202, -1.47157, -63, -6, -2.10224, 2.52269, 2.10224, -2.52269, -63, -11, -3.36359, 0, 3.36359, 0, -55, -13, -3.99426, -0.630672, 3.99426, 0.630672, -46, -12, -5.2556, -0.210224, 5.2556, 0.210224, -32, -10, -4.83515, -0.630672, 4.83515, 0.630672, -18, -9, -5.04538, -0.420448, 5.04538, 0.420448, -7, -8, -4.20448, -3.57381, 4.20448, 3.57381, 3, -5, -0.840896, -2.31247, 0.840896, 2.31247, 8, 3, 1.05112, -2.94314, -1.05112, 2.94314, 8, 10, 2.10224, -2.10224, -2.10224, 2.10224, 3, 18, 2.31247, -3.36359, -2.31247, 3.36359, -5, 26, 3.15336, -1.89202, -3.15336, 1.89202, -11, 32, 3.15336, -1.68179, -3.15336, 1.68179, -20, 37, 4.13567, -0.256096, -4.13567, 0.256096, -30, 38, 5.89008, -0.0458715, -5.89008, 0.0458715, -43, 39, 5.89008, -1.02818, -5.89008, 1.02818, -56, 39, 3.57761, 1.26134, -3.57761, -1.26134, -67, 39, -0.210224, 1.89202, 0.210224, -1.89202, -73, 36, -1.89202, 1.05112, 1.89202, -1.05112, -69, 32, -6.72717, 0.420448, 6.72717, -0.420448, -58, 30, -7.12468, -1.03199, 7.12468, 1.03199, -42, 31, -5.2556, 2.73291, 5.2556, -2.73291, -20, 29, -2.10224, 2.31247, 2.10224, -2.31247, -7, 20, -1.68179, 2.31247, 1.68179, -2.31247, -1, 12, 2.94314, 5.2556, -2.94314, -5.2556, 0, 0 )
-}
-
-[sub_resource type="Curve2D" id=27]
-_data = {
-"points": PoolVector2Array( 4.67722, -8.46354, -4.67722, 8.46354, 0, 0, -9.79988, 0, 9.79988, 0, 56, 23, 5.79084, 6.68174, -5.79084, -6.68174, 106, -2, 7.34991, -12.4726, -7.34991, 12.4726, 0, 0 )
-}
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 4 )
@@ -363,6 +333,11 @@ tracks/0/keys = {
 "values": [ Vector2( 1264, -453 ), Vector2( 1264, -453 ), Vector2( 1248, -453 ), Vector2( 1248, -453 ), Vector2( 1264, -453 ) ]
 }
 
+[sub_resource type="Curve2D" id=26]
+_data = {
+"points": PoolVector2Array( 23.8315, 0, -23.8315, 0, 288, -233, 0, 23.8315, 0, -23.8315, 248, -273, -24.0543, -0.222725, 24.0543, 0.222725, 288, -313, -0.222725, -24.0543, 0.222725, 24.0543, 328, -273, 24.0543, 0.445449, -24.0543, -0.445449, 288, -233 )
+}
+
 [node name="Node2D" type="Node2D"]
 pause_mode = 1
 position = Vector2( 0, 1 )
@@ -393,166 +368,31 @@ tile_data = PoolIntArray( -7077888, 8, 0, -7077887, 8, 0, -7077886, 8, 0, -70778
 
 [node name="MrJab" parent="." instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 444, -281 )
+position = Vector2( 408, -361 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrJab2" parent="." instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 570, -681 )
+position = Vector2( 448, -361 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrJab3" parent="." instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 1082, -513 )
+position = Vector2( 695, -361 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrJab4" parent="." instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 776, -433 )
-
-[node name="MrJab5" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 662, -265 )
-
-[node name="MrJab6" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 92, -249 )
-
-[node name="MrJab7" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 578, -313 )
-
-[node name="MrJab8" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 1164, -489 )
-
-[node name="MrJab9" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 1164, -233 )
-
-[node name="MrJab10" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 412, -545 )
-
-[node name="Path2D" type="Path2D" parent="."]
-visible = false
-position = Vector2( 267, -688 )
-curve = SubResource( 1 )
+position = Vector2( 737, -361 )
 __meta__ = {
-"_edit_group_": true
+"_edit_lock_": true
 }
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-rotate = false
-
-[node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 3 )]
-mode = 1
-railSpeed = 1.25
-
-[node name="Path2D2" type="Path2D" parent="."]
-visible = false
-position = Vector2( 1009, -555 )
-curve = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-rotate = false
-
-[node name="enemy" parent="Path2D2/PathFollow2D" instance=ExtResource( 3 )]
-mode = 1
-railSpeed = 1.25
-
-[node name="Path2D3" type="Path2D" parent="."]
-visible = false
-position = Vector2( 96, -170 )
-scale = Vector2( 0.83757, 0.85003 )
-curve = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
-position = Vector2( 72.8298, -67.0564 )
-rotate = false
-
-[node name="enemy" parent="Path2D3/PathFollow2D" instance=ExtResource( 3 )]
-position = Vector2( 0, -1.52588e-05 )
-mode = 1
-railSpeed = 2.5
-
-[node name="Path2D5" type="Path2D" parent="."]
-visible = false
-position = Vector2( 779, -629 )
-curve = SubResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
-visible = false
-position = Vector2( 0, -1 )
-rotate = false
-
-[node name="enemy" parent="Path2D5/PathFollow2D" instance=ExtResource( 3 )]
-mode = 1
-railSpeed = 3.0
-
-[node name="Path2D9" type="Path2D" parent="."]
-visible = false
-position = Vector2( 530, -440 )
-curve = SubResource( 26 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D9"]
-rotation = 1.24932
-
-[node name="enemy" parent="Path2D9/PathFollow2D" instance=ExtResource( 3 )]
-mode = 1
-railSpeed = 2.5
-
-[node name="Path2D6" type="Path2D" parent="."]
-visible = false
-position = Vector2( 2446, 1641.75 )
-curve = SubResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D6"]
-position = Vector2( 0, -1 )
-rotate = false
-
-[node name="enemy" parent="Path2D6/PathFollow2D" instance=ExtResource( 3 )]
-mode = 1
-railSpeed = 3.0
-
-[node name="Path2D8" type="Path2D" parent="."]
-visible = false
-position = Vector2( 306, -539 )
-curve = SubResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D8"]
-rotate = false
-
-[node name="enemy" parent="Path2D8/PathFollow2D" instance=ExtResource( 3 )]
-mode = 1
-railSpeed = 2.5
-
-[node name="Path2D4" type="Path2D" parent="."]
-visible = false
-position = Vector2( 475, -127 )
-curve = SubResource( 27 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
-rotation = 1.2372
-
-[node name="enemy" parent="Path2D4/PathFollow2D" instance=ExtResource( 3 )]
-mode = 1
-railSpeed = 2.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -571,101 +411,133 @@ nextLevel = "res://Levels/level2-1.tscn"
 
 [node name="MrStab" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 504, -447 )
+position = Vector2( 231, -213 )
 scale = Vector2( 0.995076, 1 )
-
-[node name="MrStab2" parent="." instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 936, -583 )
-scale = Vector2( 0.995076, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab3" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 629, -621 )
+position = Vector2( 370, -421 )
 scale = Vector2( 0.995076, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab4" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 576, -621 )
+position = Vector2( 465, -453 )
 scale = Vector2( 0.995076, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab5" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 616, -743 )
+position = Vector2( 717, -751 )
 scale = Vector2( 0.995076, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab6" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 183, -759 )
+position = Vector2( 738, -455 )
 scale = Vector2( 0.995076, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab7" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 261, -575 )
+position = Vector2( 263, -599 )
 scale = Vector2( 0.995076, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab8" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 220, -511 )
+position = Vector2( 140, -463 )
 scale = Vector2( 0.995076, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab9" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 1145, -527 )
+position = Vector2( 1125, -605 )
 scale = Vector2( 0.965488, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab10" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 1237, -583 )
+position = Vector2( 823, -303 )
 scale = Vector2( 0.965488, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab11" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 1024, -439 )
+position = Vector2( 1077, -637 )
 scale = Vector2( 0.962138, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab12" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 1037, -229 )
+position = Vector2( 1084, -524 )
 scale = Vector2( 0.962138, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab13" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 890, -279 )
+position = Vector2( 932, -365 )
 scale = Vector2( 0.962138, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab14" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 838, -199 )
+position = Vector2( 770, -333 )
 scale = Vector2( 0.962138, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab15" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 233, -341 )
+position = Vector2( 203, -381 )
 scale = Vector2( 0.962138, 1 )
-
-[node name="MrStab16" parent="." instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 547, -167 )
-scale = Vector2( 0.964588, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab17" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 519, -167 )
+position = Vector2( 652, -693 )
 scale = Vector2( 0.964588, 1 )
-
-[node name="MrStab18" parent="." instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 219, -143 )
-scale = Vector2( 0.964588, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MrStab19" parent="." instance=ExtResource( 7 )]
 visible = false
-position = Vector2( 186, -143 )
+position = Vector2( 305, -599 )
 scale = Vector2( 0.964588, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MovingPlatform1" type="KinematicBody2D" parent="."]
-visible = false
 position = Vector2( 104, -269 )
 script = ExtResource( 8 )
 __meta__ = {
@@ -853,3 +725,138 @@ shape = SubResource( 5 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatform10"]
 anims/RESET = SubResource( 24 )
 anims/platform = SubResource( 25 )
+
+[node name="Path2D2" type="Path2D" parent="."]
+visible = false
+position = Vector2( -5, 0 )
+curve = SubResource( 26 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2( 288, -233 )
+rotate = false
+
+[node name="enemy" parent="Path2D2/PathFollow2D" instance=ExtResource( 3 )]
+
+[node name="Path2D3" type="Path2D" parent="."]
+visible = false
+position = Vector2( -143, -143 )
+curve = SubResource( 26 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2( 288, -233 )
+rotate = false
+
+[node name="enemy" parent="Path2D3/PathFollow2D" instance=ExtResource( 3 )]
+
+[node name="Path2D4" type="Path2D" parent="."]
+visible = false
+position = Vector2( -5, -286 )
+curve = SubResource( 26 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+position = Vector2( 288, -233 )
+rotate = false
+
+[node name="enemy" parent="Path2D4/PathFollow2D" instance=ExtResource( 3 )]
+
+[node name="Path2D5" type="Path2D" parent="."]
+visible = false
+position = Vector2( 287, -286 )
+curve = SubResource( 26 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
+position = Vector2( 288, -233 )
+rotate = false
+
+[node name="enemy" parent="Path2D5/PathFollow2D" instance=ExtResource( 3 )]
+
+[node name="Path2D6" type="Path2D" parent="."]
+visible = false
+position = Vector2( 429, -431 )
+curve = SubResource( 26 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D6"]
+position = Vector2( 288, -233 )
+rotate = false
+
+[node name="enemy" parent="Path2D6/PathFollow2D" instance=ExtResource( 3 )]
+
+[node name="Path2D7" type="Path2D" parent="."]
+visible = false
+position = Vector2( 572, -286 )
+curve = SubResource( 26 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D7"]
+position = Vector2( 288, -233 )
+rotate = false
+
+[node name="enemy" parent="Path2D7/PathFollow2D" instance=ExtResource( 3 )]
+
+[node name="Path2D8" type="Path2D" parent="."]
+visible = false
+position = Vector2( 573, 1 )
+curve = SubResource( 26 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D8"]
+position = Vector2( 288, -233 )
+rotate = false
+
+[node name="enemy" parent="Path2D8/PathFollow2D" instance=ExtResource( 3 )]
+
+[node name="Path2D9" type="Path2D" parent="."]
+visible = false
+position = Vector2( 716, -142 )
+curve = SubResource( 26 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D9"]
+position = Vector2( 288, -233 )
+rotate = false
+
+[node name="enemy" parent="Path2D9/PathFollow2D" instance=ExtResource( 3 )]
+
+[node name="Path2D10" type="Path2D" parent="."]
+visible = false
+position = Vector2( 861, -285 )
+curve = SubResource( 26 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D10"]
+position = Vector2( 288, -233 )
+rotate = false
+
+[node name="enemy" parent="Path2D10/PathFollow2D" instance=ExtResource( 3 )]
