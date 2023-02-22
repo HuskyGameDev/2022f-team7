@@ -1,8 +1,7 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/backgroundTest.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
 [ext_resource path="res://Interactables/MrCab.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/light.png" type="Texture" id=6]
@@ -182,7 +181,6 @@ modulate = Color( 0.341176, 0.341176, 0.341176, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.00313
 margin_bottom = -3.05176e-05
-texture = ExtResource( 3 )
 expand = true
 stretch_mode = 2
 __meta__ = {
