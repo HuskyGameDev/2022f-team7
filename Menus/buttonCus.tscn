@@ -6,8 +6,9 @@
 
 [node name="Button" type="Button"]
 light_mask = 0
-anchor_right = 0.2375
-anchor_bottom = 0.134796
+anchor_right = 0.214286
+anchor_bottom = 0.122257
+rect_clip_content = true
 theme = ExtResource( 3 )
 text = "sample"
 script = ExtResource( 2 )

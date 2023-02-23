@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Interactables/interactBase.gd" type="Script" id=1]
 [ext_resource path="res://Menus/buttonCus.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/awfulDialog.png" type="Texture" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Text/fontthemesmall.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Assets/dialogNew.png" type="Texture" id=6]
@@ -89,7 +88,6 @@ __meta__ = {
 }
 
 [node name="popup" type="Control" parent="CanvasInteractions"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -103,22 +101,21 @@ margin_left = -172.0
 margin_top = -60.0001
 margin_right = 172.0
 margin_bottom = 60.0001
-texture = ExtResource( 3 )
+texture = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasInteractions/popup"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -172.0
-margin_top = -54.5
-margin_right = 172.0
+margin_left = -165.0
+margin_top = -54.0
+margin_right = 165.0
 margin_bottom = 52.5
 
 [node name="message" type="Label" parent="CanvasInteractions/popup/VBoxContainer"]
-margin_right = 344.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 344, 60 )
+margin_right = 330.0
+margin_bottom = 57.0
 rect_clip_content = true
 size_flags_vertical = 3
 text = "Example
@@ -128,9 +125,9 @@ autowrap = true
 max_lines_visible = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasInteractions/popup/VBoxContainer"]
-margin_top = 68.0
-margin_right = 344.0
-margin_bottom = 107.0
+margin_top = 64.0
+margin_right = 330.0
+margin_bottom = 103.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 alignment = 1
@@ -138,17 +135,20 @@ alignment = 1
 [node name="option1" parent="CanvasInteractions/popup/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 95.0
-margin_right = 165.0
+margin_right = 163.0
 margin_bottom = 39.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
 text = "one"
 
 [node name="option2" parent="CanvasInteractions/popup/VBoxContainer/HBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 173.0
-margin_right = 249.0
+margin_left = 167.0
+margin_right = 330.0
 margin_bottom = 39.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
 text = "two"
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
