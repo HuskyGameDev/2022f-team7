@@ -308,12 +308,16 @@ func set_spear_state(var s):
 func set_spear_color():
 	if(spearState == 0):
 		$Sprite/Spear.modulate = Color(1, 1, 1);
+		$Camera2D/hud/health/spear.modulate = Color(1, 1, 1);
 	elif(spearState == 1):
 		$Sprite/Spear.modulate = Color(0.83, 0.38, 0.38);
+		$Camera2D/hud/health/spear.modulate = Color(0.83, 0.38, 0.38);
 	elif(spearState == 2):
 		$Sprite/Spear.modulate = Color(0.92, 0.92, 0.15);
+		$Camera2D/hud/health/spear.modulate = Color(0.92, 0.92, 0.15);
 	elif(spearState == 3):
 		$Sprite/Spear.modulate = Color(0.41, 0.41, 1.0);
+		$Camera2D/hud/health/spear.modulate = Color(0.41, 0.41, 1.0);
 
 
 func _on_springHitBox_area_entered(area):
