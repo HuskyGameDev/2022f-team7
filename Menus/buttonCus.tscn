@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sounds/Ui/UI-1.Iridos.capanda.wav" type="AudioStream" id=1]
 [ext_resource path="res://Menus/buttonCus.gd" type="Script" id=2]
+[ext_resource path="res://Assets/uiTheme.tres" type="Theme" id=3]
 
 [node name="Button" type="Button"]
 light_mask = 0
 anchor_right = 0.2375
 anchor_bottom = 0.134796
+theme = ExtResource( 3 )
 text = "sample"
 script = ExtResource( 2 )
 __meta__ = {

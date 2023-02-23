@@ -105,7 +105,7 @@ grow_horizontal = 2
 [node name="play" parent="playScreen/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 146.0
+margin_right = 134.0
 margin_bottom = 39.0
 text = "Play"
 
@@ -113,7 +113,7 @@ text = "Play"
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 47.0
-margin_right = 146.0
+margin_right = 134.0
 margin_bottom = 86.0
 text = "Controls"
 
@@ -121,7 +121,7 @@ text = "Controls"
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 94.0
-margin_right = 146.0
+margin_right = 134.0
 margin_bottom = 133.0
 text = "Quit"
 
