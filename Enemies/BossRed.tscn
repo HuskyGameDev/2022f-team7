@@ -27,4 +27,7 @@ frames = SubResource( 1 )
 [node name="stomp" type="CollisionShape2D" parent="BossStompHitbox" index="0"]
 shape = SubResource( 2 )
 
+[node name="aimTime" type="Timer" parent="." index="8"]
+
 [connection signal="timeout" from="ChargeUp" to="." method="_on_ChargeUp_timeout"]
+[connection signal="timeout" from="aimTime" to="." method="_on_aimTime_timeout"]
