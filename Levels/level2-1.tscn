@@ -568,7 +568,7 @@ pause_mode = 1
 position = Vector2( 0, 1 )
 
 [node name="playerSpawn" type="Position2D" parent="."]
-position = Vector2( 512, -1001 )
+position = Vector2( 136, -73 )
 __meta__ = {
 "_edit_group_": true
 }
