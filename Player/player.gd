@@ -23,7 +23,7 @@ var hasSpear = true
 var usingSpear = false
 var current_HP = 0
 var usedSpring = false
-var spearState = 1; # Whether the spear is normal (0), red (1), yellow (2), or blue (3)
+var spearState = 0; # Whether the spear is normal (0), red (1), yellow (2), or blue (3)
 var maxSpearState = 3;
 
 var isHurt = false
@@ -232,8 +232,8 @@ func throwSpear():
 	$Sprite/Spear.visible = false
 	emit_signal("spear_changed", hasSpear)
 	var spear = spearScene.instance()
-	spear.start(get_local_mouse_position(), position, vec, spearState)
 	get_parent().add_child(spear)
+	spear.start(get_local_mouse_position(), position, vec, spearState)
 	spear.connect("spear_collected", self, "_collect_spear")
 	usingSpear = false
 
