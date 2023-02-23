@@ -14,9 +14,11 @@ var playerPos # Stores player coordinates
 var stuck = false # Stores whether or not the spear is "stuck" to an object
 var mouseIn = false # Stores whether or not the mouse is touching the spear
 var state = 0; # Whether the spear is normal (0), red (1), yellow (2), or blue (3)
-var homing_speed = 4;
-var enemies = [];
-var enemy;
+var homing_speed = 4; # Speed multipler to home in on targets
+var enemies = []; # Array of enemies in scene to home in on
+var enemy; # Selected enemy to home in on
+var homing = true; # Whether or not an enemy can be found to home in on
+export var homing_distance = 100; # Distance an enemy has to be to the spear for homing to work
 
 signal spear_collected # Signal emitted when the spear is collected
 
@@ -54,7 +56,7 @@ func _unhandled_input(_event):
 
 func _physics_process(_delta):
 	# home in on an enemy if in state 2
-	if(state == 2 && is_instance_valid(enemy)):
+	if(state == 2 && is_instance_valid(enemy) && homing && !stuck):
 		linear_velocity = lerp(linear_velocity, global_position.direction_to(enemy.global_position) * (speed / 2), 0.1);
 		rotation = global_position.direction_to(enemy.global_position).angle()
 	
@@ -143,4 +145,5 @@ func get_closest_enemy(var v):
 		if distance == null || d < distance: 
 			distance = d; 
 			n = e;
+	if(distance == null || distance > homing_distance): homing = false;
 	return n;

@@ -32,6 +32,7 @@ func _onStartEnter(body):
 		aiming = true
 		$AnimatedSprite.animation = "alert"
 		$AnimatedSprite.playing = true
+		set_collision_layer_bit(4, true)
 
 #signals
 func _onAimEnd():
