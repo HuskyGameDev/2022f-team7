@@ -11,21 +11,25 @@ var aiming
 var hit
 var attackDirection 
 var speed = 200
-
-
+var aimed
+var charge 
 #will
 func _physics_process(delta):
 	match(mode):
-		modes.follow:
+		0:
+			var playerPos = $"../player".get_global_position() - self.global_position
 			if engaged:
-				vec = (position - player.position).normalized()
-				vec *= -0.2
-				move_and_collide(vec, false)
-		modes.rails:#MUST be a child of a pathfollower!
+				if playerPos.length < 1:
+					pass
+				else:
+					vec = (position - player.position).normalized()
+					vec *= -0.2
+					move_and_collide(vec, false)
+		1:
 			self.get_parent().unit_offset += (.0005 * railSpeed)
-		modes.walker:
-			pass #have not finished yet, no enemies use it either
-		modes.custom:
+		2:
+			pass
+		3:
 			customMode(delta)
 
 	custom(delta)
@@ -35,11 +39,6 @@ func custom(delta):
 	if(aiming): rotateBoss()
 	if(attacking): hit = move_and_collide(attackDirection * speed)
 	.customMode(delta)
-
-#called per physics frame if enemy is of mode 3
-func customMode(delta):
-	pass
-	#method for handling a custom mode in new enemies
 
 func _ready():
 	.ready()
@@ -66,6 +65,9 @@ func _onStartEnter(body):
 	if(body.get_class() == "KinematicBody2D"):
 		player = body
 	engaged = true
+	if(!aimed && body.is_in_group("player") && charge):
+		$AimTimer.start()
+		aiming = true
 
 func _onStopExit(body):
 	engaged = false
@@ -110,12 +112,14 @@ func _on_ChargeUp_timeout():
 	attacking = true
 	attackDirection = get_global_position().direction_to(direction).normalized()
 	
-	pass # Replace with function body.
 
 
 func _on_stunTimer_timeout():
-	pass # Replace with function body.
+	vulnerable = true
+	#play recover 
+	mode = 1
 
 
 func _on_aimTime_timeout():
-	pass # Replace with function body.
+	aiming = false
+	aimed = true

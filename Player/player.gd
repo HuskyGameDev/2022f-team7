@@ -12,6 +12,7 @@ const jumpDecay = 0.97
 const springPower = 400
 #player's default/max health
 const health    = 3
+var invincible
 
 #player state and movement trackers
 var isDashing = false
@@ -36,10 +37,12 @@ signal spear_changed(usable)
 
 #starts the current health of the player
 func _ready():
+	invincible = false
 	set_spear_state(spearState);
 	set_collision_layer_bit(2, true)
 	current_HP = health
 	emit_signal("health_changed", current_HP)
+	$healthUpBox/Collider.set_deferred("disabled", true)
 
 func processInput():
 	tarvec = 0
@@ -280,7 +283,8 @@ func _on_hitbox_area_entered(area):
 		$InvilCooldown.start()
 		$BlinkDur.start()
 		isHurt = true
-
+	if(current_HP < 3):
+		$healthUpBox/Collider.set_deferred("disabled", false)
 #for the invil frames when getting hit
 func _on_InvilCooldown_timeout():
 	if(current_HP > 0):
@@ -311,6 +315,16 @@ func set_spear_color():
 	elif(spearState == 3):
 		$Sprite/Spear.modulate = Color(0.41, 0.41, 1.0);
 
-func _on_springhitbox_area_entered(area):
-	if(area.is_in_group("spring")):
-		usedSpring = true # Replace with function body.
+
+func _on_springHitBox_area_entered(area):
+		if(area.is_in_group("spring")):
+			usedSpring = true 
+
+
+func _on_healthUpBox_area_entered(area):
+	if(area.is_in_group("healthUp") && current_HP < 3):
+		current_HP += 1
+		print(current_HP)
+		emit_signal("health_changed", current_HP)
+	if(current_HP >= 3):
+		$healthUpBox/Collider.set_deferred("disabled", true)
