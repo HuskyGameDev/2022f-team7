@@ -102,4 +102,3 @@ func levelTransition(nextLevel):
 		$main.show()
 		return
 	load_level(nextLevel)
-	

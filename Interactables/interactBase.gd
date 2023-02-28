@@ -73,6 +73,11 @@ func dialog():
 	$CanvasInteractions/dialog/Blinky.color = Color.white
 
 func _process(delta):
+	if get_tree().paused && !pauseTree: #if game is paused and interaction doesn't pause tree
+			dialogBox.pause_mode = Node.PAUSE_MODE_STOP
+			return
+	else: dialogBox.pause_mode = Node.PAUSE_MODE_INHERIT
+	
 	if dialogActive && amountVis <= int(dialogBox.get_total_character_count()):
 		if(dialogBox.text[amountVis] == "\\"):
 			

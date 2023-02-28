@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menus/main.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menus/buttonCus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/rootLevel.gd" type="Script" id=3]
 [ext_resource path="res://Sounds/Music/Iridos BGM mix 2.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Buttons/defaultBase.png" type="Texture" id=5]
 
 [node name="levelRoot" type="Node2D"]
 pause_mode = 2
@@ -20,6 +21,21 @@ volume_db = -11.0
 layer = 10
 visible = false
 
+[node name="NinePatchRect" type="NinePatchRect" parent="pauseScreen"]
+light_mask = 0
+anchor_left = 0.278571
+anchor_top = 0.0532915
+anchor_right = 0.719643
+anchor_bottom = 0.717868
+texture = ExtResource( 5 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="HBoxContainer" type="HBoxContainer" parent="pauseScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,8 +44,8 @@ alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="pauseScreen/HBoxContainer"]
 light_mask = 0
-margin_left = 159.0
-margin_right = 401.0
+margin_left = 165.0
+margin_right = 395.0
 margin_bottom = 299.0
 __meta__ = {
 "_edit_use_anchors_": true
@@ -37,7 +53,7 @@ __meta__ = {
 
 [node name="Paused" type="Label" parent="pauseScreen/HBoxContainer/VBoxContainer"]
 light_mask = 0
-margin_right = 242.0
+margin_right = 230.0
 margin_bottom = 27.0
 text = "paused"
 align = 1
@@ -50,37 +66,52 @@ __meta__ = {
 [node name="resume" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 35.0
-margin_right = 242.0
-margin_bottom = 74.0
+margin_top = 31.0
+margin_right = 230.0
+margin_bottom = 70.0
 text = "Resume"
 
 [node name="menu" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 82.0
-margin_right = 242.0
-margin_bottom = 121.0
+margin_top = 74.0
+margin_right = 230.0
+margin_bottom = 113.0
 text = "Return to menu"
 
 [node name="restart" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 129.0
-margin_right = 242.0
-margin_bottom = 168.0
+margin_top = 117.0
+margin_right = 230.0
+margin_bottom = 156.0
 text = "Restart level"
 
 [node name="quit" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 176.0
-margin_right = 242.0
-margin_bottom = 215.0
+margin_top = 160.0
+margin_right = 230.0
+margin_bottom = 199.0
 text = "Quit game"
 
 [node name="deathScreen" type="CanvasLayer" parent="."]
 visible = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="deathScreen"]
+light_mask = 0
+anchor_left = 0.278571
+anchor_top = 0.0532915
+anchor_right = 0.719643
+anchor_bottom = 0.583072
+texture = ExtResource( 5 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -93,8 +124,8 @@ alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="deathScreen/HBoxContainer"]
 light_mask = 0
-margin_left = 159.0
-margin_right = 401.0
+margin_left = 165.0
+margin_right = 395.0
 margin_bottom = 299.0
 __meta__ = {
 "_edit_use_anchors_": true
@@ -102,7 +133,7 @@ __meta__ = {
 
 [node name="Death" type="Label" parent="deathScreen/HBoxContainer/VBoxContainer"]
 light_mask = 0
-margin_right = 242.0
+margin_right = 230.0
 margin_bottom = 27.0
 text = "you died"
 align = 1
@@ -115,25 +146,25 @@ __meta__ = {
 [node name="menu" parent="deathScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 35.0
-margin_right = 242.0
-margin_bottom = 74.0
+margin_top = 31.0
+margin_right = 230.0
+margin_bottom = 70.0
 text = "Return to menu"
 
 [node name="restart" parent="deathScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 82.0
-margin_right = 242.0
-margin_bottom = 121.0
+margin_top = 74.0
+margin_right = 230.0
+margin_bottom = 113.0
 text = "Restart level"
 
 [node name="quit" parent="deathScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 129.0
-margin_right = 242.0
-margin_bottom = 168.0
+margin_top = 117.0
+margin_right = 230.0
+margin_bottom = 156.0
 text = "Quit game"
 
 [node name="deathTimer" type="Timer" parent="deathScreen"]
