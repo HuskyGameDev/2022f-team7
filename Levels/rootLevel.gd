@@ -66,6 +66,9 @@ func _input(_event):
 		pauseControl()
 
 func pauseControl():
+	if  !$deathScreen/deathTimer.is_stopped() || $deathScreen.visible:
+		return
+	
 	if $pauseScreen.visible == false:
 		alreadyPaused = (get_tree().paused)
 	
