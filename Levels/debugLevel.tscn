@@ -1,7 +1,8 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/FireSlug/fireslug.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
 [ext_resource path="res://Interactables/MrCab.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/light.png" type="Texture" id=6]
@@ -222,6 +223,14 @@ text = "Did you know that there is an impostor among us? And if you see Dr. Bree
 scroll_following = true
 deselect_on_focus_loss_enabled = true
 
+[node name="option1" parent="interactExit/CanvasInteractions/popup/VBoxContainer/HBoxContainer" index="0"]
+margin_left = 0.0
+margin_right = 163.0
+
+[node name="option2" parent="interactExit/CanvasInteractions/popup/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 167.0
+margin_right = 330.0
+
 [node name="MrCab" parent="." instance=ExtResource( 5 )]
 position = Vector2( 12, 38 )
 
@@ -275,6 +284,9 @@ position = Vector2( -197, 37 )
 
 [node name="DoorTest" parent="." instance=ExtResource( 17 )]
 position = Vector2( -230, -91 )
+
+[node name="fireslug" parent="." instance=ExtResource( 3 )]
+position = Vector2( -44, 40 )
 
 [connection signal="ActivatedMovingPlatforms" from="KeyPlatform" to="MovingPlatform1" method="_on_KeyPlatform_ActivatedMovingPlatforms"]
 [connection signal="ActivatedMovingPlatforms" from="KeyPlatform" to="KinematicBody2D" method="_on_KeyPlatform_ActivatedMovingPlatforms"]

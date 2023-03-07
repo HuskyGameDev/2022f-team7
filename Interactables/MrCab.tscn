@@ -32,10 +32,10 @@ position = Vector2( 0, 3 )
 [node name="playerDetection" parent="." index="1"]
 position = Vector2( 0, -2.38419e-07 )
 
-[node name="Sprite" parent="." index="2"]
+[node name="Sprite" parent="." index="3"]
 visible = false
 
-[node name="MrCab" type="KinematicBody2D" parent="." index="5"]
+[node name="MrCab" type="KinematicBody2D" parent="." index="4"]
 pause_mode = 1
 collision_layer = 0
 collision_mask = 3

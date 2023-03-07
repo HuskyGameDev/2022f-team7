@@ -268,7 +268,7 @@ func _on_BlinkDur_timeout() -> void:
 #if hit by enemy, will add groups for different enemies and spikes and other various things in the future
 func _on_hitbox_area_entered(area):
 	#if the hit by a traditional enemy
-	if(area.is_in_group("enemy")):
+	if(area.is_in_group("enemy") && $InvilCooldown.time_left == 0):
 		#stop watching for hurtbox collisions
 		$hurtbox/Collider.set_deferred("disabled", true)
 		current_HP -= 1

@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Enemies/baseEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/FireSlug/fireslug.gd" type="Script" id=2]
+[ext_resource path="res://Assets/crowsword.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/FireSlug/FireTrail.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="fireslug" instance=ExtResource( 1 )]
+collision_mask = 1
+script = ExtResource( 2 )
+trailScene = ExtResource( 4 )
+
+[node name="AnimatedSprite" parent="." index="0"]
+modulate = Color( 0.760784, 0.219608, 0.219608, 1 )
+frames = SubResource( 1 )
+
+[node name="mapCollider" parent="." index="1"]
+position = Vector2( 0, 0 )
+
+[node name="hitbox" parent="." index="4"]
+visible = true
+collision_mask = 6
+
+[node name="collider" parent="hitbox" index="0"]
+position = Vector2( 0, -0.5 )
+
+[node name="Light2D" parent="." index="5"]
+visible = false
+
+[node name="LeftDownRay" type="RayCast2D" parent="." index="6"]
+position = Vector2( -6, 3 )
+enabled = true
+cast_to = Vector2( 0, 4 )
+collide_with_areas = true
+
+[node name="RightDownRay" type="RayCast2D" parent="." index="7"]
+position = Vector2( 6, 3 )
+enabled = true
+cast_to = Vector2( 0, 4 )
+collide_with_areas = true
+
+[node name="LeftSideRay" type="RayCast2D" parent="." index="8"]
+position = Vector2( -5, 0 )
+cast_to = Vector2( -2, 0 )
+
+[node name="RightSideRay" type="RayCast2D" parent="." index="9"]
+position = Vector2( 4, 0 )
+cast_to = Vector2( 2, 0 )
+
+[node name="MotionTween" type="Tween" parent="." index="10"]
+repeat = true
+playback_process_mode = 0
+playback/repeat = true
+
+[node name="RightFireTrail" type="Position2D" parent="." index="11"]
+position = Vector2( 5, 6 )
+
+[node name="LeftFireTrail" type="Position2D" parent="." index="12"]
+position = Vector2( -5, 6 )
+
+[node name="TrailTimer" type="Timer" parent="." index="13"]
+wait_time = 0.25
+autostart = true
+
+[connection signal="timeout" from="TrailTimer" to="." method="_on_TrailTimer_timeout"]
