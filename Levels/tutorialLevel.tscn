@@ -27,7 +27,7 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 3801088, 15, 0, 3801089, 11, 0, 3801093, 14, 0, 3801094, 15, 0, 3866624, 15, 0, 3866625, 15, 0, 3866626, 13, 0, 3866627, 13, 0, 3866628, 13, 0, 3866629, 15, 0, 3866630, 15, 0 )
+tile_data = PoolIntArray( 3801088, 4, 0, 3801094, 0, 0, 3866624, 4, 0, 3866625, 2, 0, 3866626, 2, 0, 3866627, 2, 0, 3866628, 2, 0, 3866629, 2, 0, 3866630, 0, 0 )
 
 [node name="TileMap" type="TileMap" parent="." groups=["spear_can_stick"]]
 modulate = Color( 0.368627, 0.368627, 0.368627, 1 )
@@ -56,20 +56,21 @@ z_index = -1
 nextLevel = "res://Levels/level1-1.tscn"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = -58.0
-margin_top = 427.0
-margin_right = 58.0
-margin_bottom = 447.0
+margin_left = -12.0
+margin_top = 425.0
+margin_right = 66.0
+margin_bottom = 446.0
 custom_fonts/normal_font = ExtResource( 3 )
 text = "Use WASD to move
 Use SPACE to jump"
+fit_content_height = true
 scroll_active = false
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
-margin_left = 129.0
-margin_top = 427.0
-margin_right = 247.0
-margin_bottom = 446.0
+margin_left = 161.0
+margin_top = 417.0
+margin_right = 246.0
+margin_bottom = 436.0
 custom_fonts/normal_font = ExtResource( 3 )
 text = "Use L SHIFT to dash horizontally"
 scroll_active = false

@@ -7,8 +7,8 @@ export(PackedScene) var spearMeleeScene
 const gravity   = 2.5
 const jumpPower = 180
 const moveSpeed = 50
-const dashSpeed = 1000
-const jumpDecay = 0.97
+const dashSpeed = 500
+const jumpDecay = 0.9
 const springPower = 400
 #player's default/max health
 const health    = 3
@@ -16,6 +16,7 @@ var invincible
 
 #player state and movement trackers
 var isDashing = false
+var dashEnd = false #for a visual effect
 var canDash = true
 var tarvec = 0 #target movement direction of player -1 left 1 right 0 none
 var vec = Vector2.ZERO #vector movement applied to player
@@ -98,14 +99,19 @@ func _physics_process(delta):
 	processGravity(delta)
 	
 	processState()
+	
+	spearBob()
 
 func processState():
+	if is_on_floor() && dashEnd:
+		dashEnd = false
+	
 	if isDying:
 		set_collision_layer_bit(2, false)
 		$Sprite.animation = "Death"
 		$Sprite/Spear.visible = false
 		$Sprite.playing = true
-	elif isDashing:
+	elif isDashing || dashEnd:
 		$Sprite.animation = "Strafe"  + ("Hurt" if isHurt else "")
 		$Sprite.playing = false
 		$Sprite.frame = 1
@@ -133,7 +139,7 @@ func processMovement(delta):
 			dashEnd()
 		
 		#exponential decay function so dash has a speed dropoff before it ends
-		vec.x = -dashSpeed*pow(.000000001, elapsed) if ($Sprite.flip_h) else dashSpeed*pow(.000000001, elapsed)
+		vec.x = -dashSpeed*pow(.01, elapsed) if ($Sprite.flip_h) else dashSpeed*pow(.01, elapsed)
 		
 	#ramp up player velocity, reduce rampup if airborne
 	elif tarvec != 0:
@@ -190,13 +196,16 @@ func processMisc():
 	
 	#flip sprite based on intended direction, might be changed to actual movement direction
 	if tarvec < 0:
+		$Sprite/Spear.offset.x = -4
 		$Sprite.flip_h = true
 		$Sprite/Spear.flip_h = true
-		$Sprite/Spear.rotation_degrees = -11.5
+		$Sprite/Spear.rotation_degrees = -14.5
 	elif tarvec > 0:
+		$Sprite/Spear.offset.x = 0
 		$Sprite.flip_h = false
 		$Sprite/Spear.flip_h = false
-		$Sprite/Spear.rotation_degrees = 11.5
+		$Sprite/Spear.rotation_degrees = 14.5
+	
 	
 	#prevent sprite snapping being different from world, only a visual issue so only applied to sprite
 	#$Sprite.global_position.x = stepify(global_position.x, .5)
@@ -204,8 +213,15 @@ func processMisc():
 
 #spear bobbing effect
 func spearBob():
-	if hasSpear:
-		return
+	if is_on_floor() && !isDashing:
+		$Sprite/AnimationPlayer.play("spearBob")
+	else:
+		$Sprite/AnimationPlayer.stop(false)
+	
+	if hasSpear && abs(vec.x) > 0:
+		$Sprite/AnimationPlayer.playback_speed = 1.0 * clamp(abs(vec.x / 75.0), 0.0, (50.0/75.0) )
+	else:
+		$Sprite/AnimationPlayer.playback_speed = 0
 		#move across parabola around player back and forth
 		#gonna be in desmos hell for a hot sec
 
@@ -219,6 +235,7 @@ func _on_dashCooldown_timeout():
 
 func dashEnd():
 	isDashing = false
+	dashEnd = true
 	canDash = false
 	$Camera2D.smoothing_speed = 3
 	$dashTime.stop()
@@ -229,6 +246,7 @@ func dashEnd():
 # Creates and "throws" a new instance of the spear
 func throwSpear():
 	hasSpear = false
+	
 	$Sprite/Spear.visible = false
 	emit_signal("spear_changed", hasSpear)
 	var spear = spearScene.instance()
@@ -307,6 +325,7 @@ func set_spear_state(var s):
 
 func set_spear_color():
 	if(spearState == 0):
+		
 		$Sprite/Spear.modulate = Color(1, 1, 1);
 		$Camera2D/hud/health/spear.modulate = Color(1, 1, 1);
 	elif(spearState == 1):
@@ -332,3 +351,7 @@ func _on_healthUpBox_area_entered(area):
 		emit_signal("health_changed", current_HP)
 	if(current_HP >= 3):
 		$healthUpBox/Collider.set_deferred("disabled", true)
+
+
+func _on_Tween_tween_completed():
+	pass # Replace with function body.

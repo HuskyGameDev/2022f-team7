@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/playeranims.tres" type="SpriteFrames" id=2]
@@ -12,6 +12,22 @@
 [ext_resource path="res://Assets/light.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Player.png" type="Texture" id=11]
 [ext_resource path="res://Player/SpearMelee.tscn" type="PackedScene" id=12]
+[ext_resource path="res://PlayerspearBob.tres" type="Animation" id=13]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Spear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2.00759, 0.0108993 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2.25, 7.75 )
@@ -37,19 +53,22 @@ animation = "Look"
 centered = false
 offset = Vector2( -8, -14 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+anims/RESET = SubResource( 4 )
+anims/spearBob = ExtResource( 13 )
+
 [node name="Spear" type="Sprite" parent="Sprite"]
+unique_name_in_owner = true
 show_behind_parent = true
-position = Vector2( -4, 2 )
-rotation = 0.200091
+position = Vector2( -2.00759, 0.0108993 )
+rotation = 0.253073
 scale = Vector2( 1, -1 )
 texture = ExtResource( 11 )
-offset = Vector2( 0, 1.5 )
 region_enabled = true
 region_rect = Rect2( 0, 6, 32, 7 )
 
-[node name="Tween" type="Tween" parent="."]
-
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 scale = Vector2( 5, 5 )
 texture = ExtResource( 10 )
 texture_scale = 0.5
@@ -187,7 +206,6 @@ shape = SubResource( 1 )
 
 [connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
 [connection signal="spear_changed" from="." to="Camera2D/hud/health" method="_on_player_spear_changed"]
-[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="dashTime" to="." method="_on_dashTime_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dashCooldown_timeout"]
 [connection signal="timeout" from="spearCooldown" to="." method="_on_spearCooldown_timeout"]
