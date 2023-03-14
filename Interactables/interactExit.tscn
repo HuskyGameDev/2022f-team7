@@ -24,20 +24,13 @@ shape = SubResource( 1 )
 [node name="hint" parent="CanvasInteractions" index="0"]
 text = "Elevator"
 
-[node name="ColorRect" parent="CanvasInteractions/popup" index="0"]
-color = Color( 0.494118, 0.494118, 0.494118, 1 )
-
 [node name="message" parent="CanvasInteractions/popup/VBoxContainer" index="0"]
 text = "Proceed to the next level?"
 
 [node name="option1" parent="CanvasInteractions/popup/VBoxContainer/HBoxContainer" index="0"]
-margin_left = 105.0
-margin_right = 172.0
 text = "Yes"
 
 [node name="option2" parent="CanvasInteractions/popup/VBoxContainer/HBoxContainer" index="1"]
-margin_left = 180.0
-margin_right = 239.0
 text = "No"
 
 [node name="Sprite" parent="." index="3"]
