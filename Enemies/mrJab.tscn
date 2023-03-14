@@ -6,7 +6,7 @@
 [ext_resource path="res://Enemies/mrJabAnim.tres" type="SpriteFrames" id=4]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 246.5, 38.5 )
+extents = Vector2( 76, 38.5 )
 
 [node name="enemy" instance=ExtResource( 2 )]
 collision_layer = 0
@@ -27,11 +27,8 @@ polygon = PoolVector2Array( 0, -11, 3, 2, -3, 2 )
 [node name="mapCollider" parent="." index="2"]
 shape = null
 
-[node name="startRange" parent="." index="3"]
-visible = true
-
 [node name="collider" parent="startRange" index="0"]
-position = Vector2( -170.5, -38.5 )
+position = Vector2( 0, -38.5 )
 shape = SubResource( 4 )
 
 [node name="collider" parent="stopRange" index="0"]
@@ -66,6 +63,9 @@ one_shot = true
 light_mask = 0
 position = Vector2( 0, -6.5 )
 scale = Vector2( 0.1, 0.55 )
+
+[node name="losCast" type="Position2D" parent="." index="11"]
+position = Vector2( 0, -3 )
 
 [connection signal="body_entered" from="touchBox" to="." method="_onTipHit"]
 [connection signal="timeout" from="AimTimer" to="." method="_onAimEnd"]

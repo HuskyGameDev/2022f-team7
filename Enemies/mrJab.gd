@@ -25,7 +25,7 @@ func _ready():
 #enemy mode override (called under physics process)
 func customMode(delta):
 	if(playerBody != null && playerBody.is_in_group("player")):
-		result = get_world_2d().direct_space_state.intersect_ray(global_position, playerBody.global_position, [self, playerBody], collision_mask)
+		result = get_world_2d().direct_space_state.intersect_ray($losCast.global_position, playerBody.global_position, [self, playerBody], collision_mask)
 		if result.size() == 0:
 			_onStartEnter(playerBody)
 	if(aiming): rotateSpike()
@@ -38,7 +38,7 @@ func customMode(delta):
 func _onStartEnter(body):
 	._onStartEnter(body)
 	playerBody = body
-	result = get_world_2d().direct_space_state.intersect_ray(global_position, playerBody.global_position, [self, playerBody], collision_mask)
+	result = get_world_2d().direct_space_state.intersect_ray($losCast.global_position, playerBody.global_position, [self, playerBody], collision_mask)
 	print(body.is_in_group("player"))
 	print(result.size())
 	print(!aimed)
