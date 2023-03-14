@@ -1,7 +1,6 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
-[ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/FireSlug/fireslug.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
 [ext_resource path="res://Interactables/MrCab.tscn" type="PackedScene" id=5]
@@ -18,11 +17,6 @@
 [ext_resource path="res://Interactables/SwitchPuzzle.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Levels/DoorTest.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/backgroundTest2.png" type="Texture" id=18]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -58, -6, 0, 0, 0, 0, 21, -9, 0, 0, 0, 0, 20, 47, 0, 0, 0, 0, -58, 45, 0, 0, 0, 0, -58, -6 )
-}
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 4 )
@@ -150,18 +144,6 @@ stream = ExtResource( 4 )
 pitch_scale = 0.4
 autoplay = true
 mix_target = 1
-
-[node name="Path2D" type="Path2D" parent="."]
-position = Vector2( -4, -11 )
-curve = SubResource( 1 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( -58, -6 )
-rotate = false
-
-[node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 2 )]
-pause_mode = 1
-mode = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

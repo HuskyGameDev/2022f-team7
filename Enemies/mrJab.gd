@@ -12,6 +12,10 @@ var direction
 var attackDirection
 var aimSpeed = 0.02
 var lerpAngle
+var result
+var playerBody
+
+var returnVec = Vector2.ZERO
 
 #boilerplate methods
 func _ready():
@@ -20,14 +24,27 @@ func _ready():
 
 #enemy mode override (called under physics process)
 func customMode(delta):
+	if(playerBody != null && playerBody.is_in_group("player")):
+		result = get_world_2d().direct_space_state.intersect_ray(global_position, playerBody.global_position, [self, playerBody], collision_mask)
+		if result.size() == 0:
+			_onStartEnter(playerBody)
 	if(aiming): rotateSpike()
-	if(attacking): move_and_slide(attackDirection * speed)
-	#if(hit != null && !hit.collider.is_in_group("tilemap")): queue_free()
+	if(attacking): 
+		returnVec = move_and_slide(attackDirection * speed)
+		if(returnVec.length() < 50): #if going too slow
+			_onTipHit(null)
 	.customMode(delta)
 
 func _onStartEnter(body):
 	._onStartEnter(body)
-	if(!aimed && body.is_in_group("player")):
+	playerBody = body
+	result = get_world_2d().direct_space_state.intersect_ray(global_position, playerBody.global_position, [self, playerBody], collision_mask)
+	print(body.is_in_group("player"))
+	print(result.size())
+	print(!aimed)
+	if aiming || aimed: return
+	if(body.is_in_group("player") && result.size() == 0 && $VisibilityNotifier2D.is_on_screen()):
+		$VisibilityNotifier2D.queue_free()
 		$AimTimer.start()
 		aiming = true
 		$AnimatedSprite.animation = "alert"
@@ -55,7 +72,7 @@ func _onTipHit(body):
 		queue_free()
 
 func _on_hitbox_area_entered(area):
-	if(attacking || aiming ||aimed):
+	if(attacking || aiming || aimed):
 		._on_hitbox_area_entered(area)
 
 #helper methods
