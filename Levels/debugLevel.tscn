@@ -218,14 +218,6 @@ text = "Did you know that there is an impostor among us? And if you see Dr. Bree
 scroll_following = true
 deselect_on_focus_loss_enabled = true
 
-[node name="option1" parent="interactExit/CanvasInteractions/popup/VBoxContainer/HBoxContainer" index="0"]
-margin_left = 0.0
-margin_right = 163.0
-
-[node name="option2" parent="interactExit/CanvasInteractions/popup/VBoxContainer/HBoxContainer" index="1"]
-margin_left = 167.0
-margin_right = 330.0
-
 [node name="MrCab" parent="." instance=ExtResource( 5 )]
 position = Vector2( 12, 38 )
 
@@ -269,7 +261,7 @@ anims/platform = SubResource( 7 )
 position = Vector2( 132, 14 )
 
 [node name="KeyPlatform" parent="." instance=ExtResource( 14 )]
-position = Vector2( -86, 38 )
+position = Vector2( -87, 41 )
 
 [node name="Node2D" parent="." instance=ExtResource( 15 )]
 position = Vector2( -157, 46 )
