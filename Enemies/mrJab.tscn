@@ -32,7 +32,8 @@ position = Vector2( 0, -38.5 )
 shape = SubResource( 4 )
 
 [node name="collider" parent="stopRange" index="0"]
-shape = null
+position = Vector2( 0, -38.5 )
+shape = SubResource( 4 )
 
 [node name="hitbox" parent="." index="5"]
 collision_mask = 8
