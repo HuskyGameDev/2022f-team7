@@ -1,10 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Interactables/interactBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/jabStabCab.png" type="Texture" id=2]
 [ext_resource path="res://Interactables/interactNpc.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Text/Courneuf-Regular.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="DynamicFont" id=6]
+size = 18
+font_data = ExtResource( 4 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -39,8 +44,7 @@ shape = SubResource( 4 )
 text = "Mr. Cab"
 
 [node name="dialogBox" parent="CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="0"]
-bbcode_text = "Did you know that there is an [color=red]impostor[/color] among us? Here's another cool test sentence :3.\\ Anyways [tornado radius=5 freq=5]Blizzard T. Husky[/tornado] is a top and I WILL fight anyone who says otherwise :("
-text = "Did you know that there is an impostor among us? Here's another cool test sentence :3.\\ Anyways Blizzard T. Husky is a top and I WILL fight anyone who says otherwise :("
+custom_fonts/normal_font = SubResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="4"]
 scale = Vector2( 0.5, 0.5 )

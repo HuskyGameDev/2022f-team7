@@ -9,7 +9,7 @@ enum type {popup, dialog, cutscene, button}
 export var textSpeed = 30
 export (type) var mode = type.popup
 export var pauseTree = false
-export var dialog:String = "placeholder!"
+export (String, MULTILINE) var dialog = "placeholder!"
 
 onready var dialogBox = $CanvasInteractions/dialog/VBoxContainer/HBoxContainer/dialogBox
 onready var pauseScreen = get_node("/root/levelRoot/pauseScreen")
@@ -20,6 +20,7 @@ func _ready():
 	$CanvasInteractions/popup.hide()
 	$CanvasInteractions/dialog.hide()
 	$CanvasInteractions/hint.hide()
+	$CanvasInteractions/dialog/VBoxContainer/HBoxContainer/dialogBox.bbcode_text = dialog
 
 func _on_body_entered(body):
 	print("interact in range of " + body.get_name())
@@ -67,13 +68,15 @@ func dialog():
 	dialogActive = !dialogActive
 	interacting = !interacting
 	$CanvasInteractions/dialog.visible = interacting
+	if interacting == false:
+		dialogEnd()
 	get_tree().paused = interacting && pauseTree
 	dialogBox.get_v_scroll().value = 0
 	amountVis = 0
 	$CanvasInteractions/dialog/Blinky.color = Color.white
 
 func _process(delta):
-	if get_tree().paused && !pauseTree: #if game is paused and interaction doesn't pause tree
+	if get_node("/root/levelRoot/pauseScreen").visible: #if game is paused and interaction doesn't pause tree
 			dialogBox.pause_mode = Node.PAUSE_MODE_STOP
 			return
 	else: dialogBox.pause_mode = Node.PAUSE_MODE_INHERIT
@@ -95,6 +98,9 @@ func _process(delta):
 
 func cutscene():
 	pass #unfinished
+
+func dialogEnd():
+	pass
 
 func button():
 	print("activated!")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=7]
 [ext_resource path="res://EarthTileSet.tres" type="TileSet" id=8]
 
 [sub_resource type="Curve2D" id=1]
@@ -97,7 +98,7 @@ margin_top = 346.0
 margin_right = 820.0
 margin_bottom = 368.0
 custom_fonts/normal_font = ExtResource( 3 )
-text = "Press E to interact with objects."
+text = "Press E to interact with objects and NPCs."
 scroll_active = false
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
@@ -114,8 +115,13 @@ position = Vector2( 356, 402 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 87.7955, 26 )
 rotate = false
 
 [node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 5 )]
 mode = 1
 railSpeed = 2.5
+
+[node name="interactBase" parent="." instance=ExtResource( 7 )]
+position = Vector2( 760, 376 )
+dialog = "I am the only npc you will see in this demo :)\\ [tornado radius=5 freq=5]I will now self destruct.[/tornado]"
