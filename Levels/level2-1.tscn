@@ -569,7 +569,7 @@ pause_mode = 1
 position = Vector2( 0, 1 )
 
 [node name="playerSpawn" type="Position2D" parent="."]
-position = Vector2( 232, -1001 )
+position = Vector2( 144, -73 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1127,7 +1127,7 @@ centered = false
 
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 95, -1129 )
-nextLevel = "res://Levels/level2-2.tscn"
+nextLevel = "lastLevel"
 
 [node name="MrStab" parent="." instance=ExtResource( 7 )]
 position = Vector2( 224, -749 )
