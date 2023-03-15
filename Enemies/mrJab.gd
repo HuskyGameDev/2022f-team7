@@ -75,13 +75,14 @@ func _on_hitbox_area_entered(area):
 #helper methods
 
 func lineOfSight(var body:Node2D):
+	if (aiming || aimed): return
 	result = get_world_2d().direct_space_state.intersect_ray($losCast.global_position, playerBody.global_position, [self, playerBody], collision_mask)
 	return result.size() == 0 && $VisibilityNotifier2D.is_on_screen()
 
 func alertSpike():
 	engaged = false
-	$startRange.monitoring = false
-	$stopRange.monitoring = false
+	$startRange.set_deferred("monitoring", false)
+	$stopRange.set_deferred("monitoring", false)
 	$VisibilityNotifier2D.queue_free() #no need for this
 	
 	aiming = true

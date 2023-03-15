@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Text/fontthemesmall.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
+[ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://EarthTileSet.tres" type="TileSet" id=8]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -5.03245, 6.62164, 0, 0, 87.7955, 26, 0, 0, 0, 0, 26.1296, 57, 0, 0, 0, 0, 33.4459, 30, 0, 0, 0, 0, 87.7955, 26 )
+}
 
 [node name="Node2D" type="Node2D"]
 pause_mode = 1
@@ -102,3 +108,14 @@ margin_bottom = 367.0
 custom_fonts/normal_font = ExtResource( 3 )
 text = "Press Q to retrieve the spear."
 scroll_active = false
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 356, 402 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotate = false
+
+[node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 5 )]
+mode = 1
+railSpeed = 2.5
