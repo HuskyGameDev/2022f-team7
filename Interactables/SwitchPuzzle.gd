@@ -6,11 +6,11 @@ var inRange = false
 signal switchActivated(check)
 
 func _ready():
-	$Sprite.modulate = Color.red
+	$AnimatedSprite.frame = SwitchOn
 
 func _input(event):
 	if(event.is_action_pressed("interact") && inRange):
-		$Sprite.modulate = Color.green if !SwitchOn else Color.red
+		$AnimatedSprite.frame = !SwitchOn
 		SwitchOn = !SwitchOn
 		emit_signal("switchActivated",SwitchOn)
 

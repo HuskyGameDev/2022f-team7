@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
 
-
+export var startEnabled = false
 
 func _ready():
-	$AnimationPlayer.stop(false)
+	if startEnabled: $AnimationPlayer.play("platform")
 
 func _on_KeyPlatform_ActivatedMovingPlatforms():
 	$AnimationPlayer.play("platform")
