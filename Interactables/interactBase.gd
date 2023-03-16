@@ -34,6 +34,15 @@ func _on_body_exited(body):
 	print("interact not in range of " + body.get_name())
 	if(body.is_in_group("player")):
 		inRange = false
+		
+		dialogActive = false
+		interacting = false
+		dialogBox.get_v_scroll().value = 0
+		amountVis = 0
+		dialogBox.visible_characters = 0
+		dialogEnd()
+		
+		$CanvasInteractions/dialog.hide()
 		$CanvasInteractions/hint.hide()
 		$CanvasInteractions/popup.hide()
 		

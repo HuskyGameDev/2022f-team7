@@ -124,4 +124,5 @@ railSpeed = 2.5
 
 [node name="interactBase" parent="." instance=ExtResource( 7 )]
 position = Vector2( 760, 376 )
+pauseTree = true
 dialog = "I am the only npc you will see in this demo :)\\ [tornado radius=5 freq=5]I will now self destruct.[/tornado]"

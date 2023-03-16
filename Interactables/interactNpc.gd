@@ -12,4 +12,5 @@ func dialog():
 
 func dialogEnd():
 	.dialogEnd()
+	$AnimatedSprite.playing = false
 	queue_free()
