@@ -283,7 +283,7 @@ centered = false
 
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1008, -641 )
-nextLevel = "res://Levels/level2-1.tscn"
+nextLevel = "res://Levels/level1-Boss.tscn"
 
 [node name="MovingPlatform1" type="KinematicBody2D" parent="."]
 position = Vector2( 256, -269 )
