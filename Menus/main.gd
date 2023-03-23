@@ -40,6 +40,9 @@ func _on_levelFour_pressed():
 func _on_levelFive_pressed():
 	get_tree().get_root().get_child(0).load_level("res://Levels/level1-5.tscn")
 	
+func _on_levelBoss_pressed():
+	get_tree().get_root().get_child(0).load_level("res://Levels/level1-Boss.tscn")
+	
 func _on_levelSix_pressed():
 	get_tree().get_root().get_child(0).load_level("res://Levels/level2-1.tscn")
 	

@@ -73,7 +73,7 @@ tile_data = PoolIntArray( 65541, 6, 0, 65565, 6, 0, 131077, 7, 0, 131101, 7, 0, 
 light_mask = 0
 position = Vector2( 60, 287 )
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
 offset = Vector2( 28, -2 )
 
@@ -90,7 +90,6 @@ range_layer_max = 1
 light_mask = 0
 position = Vector2( 411, -2 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite/AnimatedSprite"]
@@ -207,7 +206,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="levelSelect/HBoxContainer/ScrollContainer"]
 light_mask = 0
 margin_right = 250.0
-margin_bottom = 383.0
+margin_bottom = 426.0
 rect_min_size = Vector2( 250, 250 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -254,6 +253,13 @@ margin_top = 215.0
 margin_right = 250.0
 margin_bottom = 254.0
 text = "1-5"
+script = ExtResource( 6 )
+
+[node name="levelBoss" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 301.0
+margin_right = 250.0
+margin_bottom = 340.0
+text = "1-Boss"
 script = ExtResource( 6 )
 
 [node name="levelSix" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
@@ -357,6 +363,7 @@ text = "Back"
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelThree" to="." method="_on_levelThree_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelFour" to="." method="_on_levelFour_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelFive" to="." method="_on_levelFive_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelBoss" to="." method="_on_levelBoss_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelSix" to="." method="_on_levelSix_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelSeven" to="." method="_on_levelSeven_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/debug" to="." method="_on_Debug_pressed"]
