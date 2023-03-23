@@ -212,46 +212,52 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="tutorialLevel" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="intro" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
 margin_right = 250.0
 margin_bottom = 39.0
+text = "Intro"
+
+[node name="tutorialLevel" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 250.0
+margin_bottom = 82.0
 text = "Tutorial"
 
 [node name="levelOne" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 43.0
+margin_top = 86.0
 margin_right = 250.0
-margin_bottom = 82.0
+margin_bottom = 125.0
 text = "1-1"
 
 [node name="levelTwo" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 86.0
+margin_top = 129.0
 margin_right = 250.0
-margin_bottom = 125.0
+margin_bottom = 168.0
 text = "1-2"
 
 [node name="levelThree" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 129.0
-margin_right = 250.0
-margin_bottom = 168.0
-text = "1-3"
-
-[node name="levelFour" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
 margin_top = 172.0
 margin_right = 250.0
 margin_bottom = 211.0
+text = "1-3"
+
+[node name="levelFour" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 215.0
+margin_right = 250.0
+margin_bottom = 254.0
 text = "1-4"
 script = ExtResource( 6 )
 
 [node name="levelFive" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 215.0
+margin_top = 258.0
 margin_right = 250.0
-margin_bottom = 254.0
+margin_bottom = 297.0
 text = "1-5"
 script = ExtResource( 6 )
 
@@ -263,9 +269,9 @@ text = "1-Boss"
 script = ExtResource( 6 )
 
 [node name="levelSix" type="Button" parent="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer"]
-margin_top = 258.0
+margin_top = 301.0
 margin_right = 250.0
-margin_bottom = 297.0
+margin_bottom = 340.0
 text = "2-1"
 script = ExtResource( 6 )
 
@@ -364,6 +370,7 @@ text = "Back"
 [connection signal="pressed" from="playScreen/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="playScreen/VBoxContainer/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="playScreen/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/intro" to="." method="_on_intro_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/tutorialLevel" to="." method="_on_tutorialLevel_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelOne" to="." method="_on_levelOne_pressed"]
 [connection signal="pressed" from="levelSelect/HBoxContainer/ScrollContainer/VBoxContainer/levelTwo" to="." method="_on_levelTwo_pressed"]

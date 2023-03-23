@@ -122,7 +122,7 @@ fit_content_height = true
 scroll_active = false
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2( 566, 326 )
+position = Vector2( 566, 319 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]

@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Interactables/interactBase.gd" type="Script" id=1]
 [ext_resource path="res://Menus/buttonCus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Buttons/defaultBase.png" type="Texture" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Text/fontthemesmall.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Text/Courneuf-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/dialogNew.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+extra_spacing_char = 1
+font_data = ExtResource( 5 )
 
 [node name="interactBase" type="Area2D" groups=["interactable"]]
 pause_mode = 2
@@ -35,6 +40,7 @@ __meta__ = {
 }
 
 [node name="hint" type="Label" parent="CanvasInteractions"]
+visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -27.0
@@ -42,6 +48,7 @@ margin_right = 131.0
 text = "hint"
 
 [node name="dialog" type="Control" parent="CanvasInteractions"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -74,7 +81,7 @@ margin_right = 336.0
 margin_bottom = 106.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 scroll_active = false
 deselect_on_focus_loss_enabled = false
@@ -89,6 +96,7 @@ __meta__ = {
 }
 
 [node name="popup" type="Control" parent="CanvasInteractions"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
