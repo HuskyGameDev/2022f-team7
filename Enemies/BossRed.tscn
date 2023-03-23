@@ -29,5 +29,9 @@ shape = SubResource( 2 )
 
 [node name="aimTime" type="Timer" parent="." index="8"]
 
+[node name="StompDur" type="Timer" parent="." index="9"]
+wait_time = 2.0
+
 [connection signal="timeout" from="ChargeUp" to="." method="_on_ChargeUp_timeout"]
 [connection signal="timeout" from="aimTime" to="." method="_on_aimTime_timeout"]
+[connection signal="timeout" from="StompDur" to="." method="_on_StompDur_timeout"]

@@ -7,13 +7,15 @@ var direction
 var angle
 var aimSpeed
 var MCinder = preload("res://Enemies/flameyHead.tscn")
+var BossHands = preload("res://Enemies/BossRedHands.tscn")
 var aiming
 var hit
 var attackDirection 
 var speed = 200
 var aimed
 var charge 
-#will
+
+#will change later
 func _physics_process(delta):
 	match(mode):
 		0:
@@ -43,7 +45,12 @@ func custom(delta):
 func _ready():
 	.ready()
 	hp = 5
+	add_child(BossHands.instance())
+	BossHands.instance().global_position = Vector2(0,0)
+	add_child(BossHands.instance())
+	BossHands.instance().global_position = Vector2(0,0)
 	$BossStompHitbox.set_deferred("disabled",true)
+	#add intro animation here
 
 #will change later for refinement
 func rotateBoss():
@@ -90,10 +97,13 @@ func attackCharge():
 func attackStomp():
 	#add animation here
 	$BossStompHitbox.set_deferred("disabled",false)
-	stun()
+	$StompDur.start()
 	
 func stun():
 	vulnerable = true
+	remove_child(BossHands)
+	remove_child(BossHands)
+	#add animation here to go into stun state
 	$stunTimer.start()
 	
 	#add animation here for stun state
@@ -117,9 +127,19 @@ func _on_ChargeUp_timeout():
 func _on_stunTimer_timeout():
 	vulnerable = true
 	#play recover 
+	#respawns hands after stun is over
+	add_child(BossHands.instance())
+	BossHands.instance().global_position = Vector2(0,0)
+	add_child(BossHands.instance())
+	BossHands.instance().global_position = Vector2(0,0)
 	mode = 1
 
 
 func _on_aimTime_timeout():
 	aiming = false
 	aimed = true
+
+
+func _on_StompDur_timeout():
+	$BossStompHitbox.set_deferred("disabled",true)
+	stun()
