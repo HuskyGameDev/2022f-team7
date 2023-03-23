@@ -13,7 +13,6 @@ animations = [ {
 } ]
 
 [node name="enemy" instance=ExtResource( 1 )]
-collision_layer = 16
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="0"]
