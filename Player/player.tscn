@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/playeranims.tres" type="SpriteFrames" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/Player.png" type="Texture" id=11]
 [ext_resource path="res://Player/SpearMelee.tscn" type="PackedScene" id=12]
 [ext_resource path="res://PlayerspearBob.tres" type="Animation" id=13]
+[ext_resource path="res://Assets/HudBackground.png" type="Texture" id=14]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -89,6 +90,11 @@ drag_margin_right = 0.4
 drag_margin_bottom = 0.4
 
 [node name="hud" type="CanvasLayer" parent="Camera2D"]
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/hud"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 14 )
 
 [node name="debugInf" type="Label" parent="Camera2D/hud"]
 light_mask = 0

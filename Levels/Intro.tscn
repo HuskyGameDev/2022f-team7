@@ -178,6 +178,9 @@ dialog = "yea ok so just jump into the mouth of the cave and you should be able 
 position = Vector2( 0, -0.5 )
 shape = SubResource( 1 )
 
+[node name="hint" parent="interactBase/CanvasInteractions" index="0"]
+text = "Robert"
+
 [node name="Sprite2" type="Sprite" parent="interactBase"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
