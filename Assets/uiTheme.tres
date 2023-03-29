@@ -1,10 +1,12 @@
-[gd_resource type="Theme" load_steps=11 format=2]
+[gd_resource type="Theme" load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Text/fonttheme.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Buttons/defaultDisabled.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Buttons/defaultHover.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Buttons/defaultBase.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Buttons/defaultClick.png" type="Texture" id=5]
+[ext_resource path="res://Assets/scrollTemplate.png" type="Texture" id=6]
+[ext_resource path="res://Assets/scroller.png" type="Texture" id=7]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -46,6 +48,41 @@ margin_right = 6.0
 margin_top = 6.0
 margin_bottom = 6.0
 
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 13, 12, 12 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 8.0
+margin_bottom = 8.0
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 26, 12, 12 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 4.0
+margin_bottom = 4.0
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 12, 12 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 4.0
+margin_bottom = 4.0
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 12, 39 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 5.0
+margin_bottom = 5.0
+
 [resource]
 Button/colors/font_color = Color( 0, 0, 0, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
@@ -58,3 +95,13 @@ Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 4 )
 RichTextLabel/colors/default_color = Color( 1, 1, 1, 1 )
 RichTextLabel/fonts/normal_font = ExtResource( 1 )
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/decrement_pressed = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/icons/increment_pressed = null
+VScrollBar/styles/grabber = SubResource( 10 )
+VScrollBar/styles/grabber_highlight = SubResource( 11 )
+VScrollBar/styles/grabber_pressed = SubResource( 12 )
+VScrollBar/styles/scroll = SubResource( 9 )
