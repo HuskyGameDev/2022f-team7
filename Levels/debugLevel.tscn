@@ -164,7 +164,7 @@ dialog = "Did you know that there is an [color=red]impostor[/color] among us? He
 position = Vector2( -157, 46 )
 
 [node name="SwitchPuzzle" parent="." instance=ExtResource( 16 )]
-position = Vector2( -197, 37 )
+position = Vector2( -185, -13 )
 
 [node name="DoorTest" parent="." instance=ExtResource( 17 )]
 position = Vector2( -229, -42 )

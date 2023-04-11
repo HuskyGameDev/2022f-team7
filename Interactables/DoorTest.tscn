@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Interactables/Door.gd" type="Script" id=1]
 [ext_resource path="res://Assets/switchDoor.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
@@ -31,11 +32,26 @@ position = Vector2( 0, -28 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 2 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
+z_index = -5
 collision_mask = 0
 
+[node name="Light2D" type="Light2D" parent="StaticBody2D"]
+light_mask = 0
+position = Vector2( 0, -72 )
+scale = Vector2( 0.25, 0.75 )
+texture = ExtResource( 3 )
+energy = 0.0
+mode = 3
+range_z_min = -5
+range_z_max = -5
+range_item_cull_mask = 2
+
 [node name="NinePatchRect" type="NinePatchRect" parent="StaticBody2D"]
+light_mask = 3
 margin_left = -5.0
 margin_top = -48.0
 margin_right = 5.0
@@ -47,6 +63,9 @@ patch_margin_left = 1
 patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="DoorCollider" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 0, -24 )
