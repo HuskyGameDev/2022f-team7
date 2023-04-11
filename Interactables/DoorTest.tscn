@@ -33,6 +33,20 @@ shape = SubResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
+collision_mask = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="StaticBody2D"]
+margin_left = -5.0
+margin_top = -48.0
+margin_right = 5.0
+margin_bottom = -1.0
+rect_pivot_offset = Vector2( 114, -70 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 2, 16, 12, 16 )
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
 
 [node name="DoorCollider" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 0, -24 )

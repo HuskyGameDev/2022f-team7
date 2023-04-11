@@ -237,7 +237,7 @@ func dashEnd():
 	isDashing = false
 	dashEnd = true
 	canDash = false
-	$Camera2D.smoothing_speed = 3
+	$Camera2D.smoothing_speed = 10
 	$dashTime.stop()
 	$dashCooldown.start()
 

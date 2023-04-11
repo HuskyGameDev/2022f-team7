@@ -38,3 +38,4 @@ frames = SubResource( 4 )
 animation = "switch"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

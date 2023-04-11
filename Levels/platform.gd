@@ -1,9 +1,13 @@
 extends Node2D
 
+enum tweens {TRANS_LINEAR, TRANS_SINE, TRANS_QUINT, TRANS_QUART, TRANS_QUAD, TRANS_EXPO, TRANS_ELASTIC, TRANS_CUBIC, TRANS_CIRC, TRANS_BOUNCE, TRANS_BACK}
+enum eases {EASE_IN, EASE_OUT, EASE_IN_OUT, EASE_OUT_IN}
 
 export var startEnabled = true
 export(float, 10) var speed = 0.5
 export(int, 10) var delay = 1
+export(tweens) var type = Tween.TRANS_SINE
+export(eases) var easing = Tween.EASE_IN_OUT
 
 var start = Vector2(0,0)
 
@@ -24,8 +28,8 @@ func _on_Timer_timeout():
 	movePlat()
 
 func movePlat():
-	if !atEnd: $Tween.interpolate_property($platform, "position", start, $target.position, 1/speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	else:      $Tween.interpolate_property($platform, "position", $target.position, start, 1/speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	if !atEnd: $Tween.interpolate_property($platform, "position", start, $target.position, 1/speed, type, easing)
+	else:      $Tween.interpolate_property($platform, "position", $target.position, start, 1/speed, type, easing)
 	$Tween.start()
 	atEnd = !atEnd
 

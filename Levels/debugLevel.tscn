@@ -173,7 +173,7 @@ position = Vector2( -229, -42 )
 position = Vector2( 167, 48 )
 
 [node name="Node2D2" type="Node2D" parent="."]
-position = Vector2( -39, -1 )
+position = Vector2( 112, -100 )
 script = ExtResource( 20 )
 
 [node name="Area2D" type="Area2D" parent="Node2D2" groups=["spear"]]
