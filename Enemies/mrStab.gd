@@ -15,7 +15,7 @@ func _onStartEnter(body):
 	attacking = true
 	$AnimatedSprite.animation = "alert"
 	$AnimatedSprite.playing = true
-	set_collision_layer_bit(4, true)
+	set_collision_layer_bit(4, true) #become vulnerable
 
 func _on_hitbox_area_entered(area):
 	if(attacking):

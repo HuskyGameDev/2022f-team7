@@ -149,7 +149,8 @@ texture = ExtResource( 8 )
 stretch_mode = 3
 
 [node name="worldbox" type="CollisionShape2D" parent="."]
-position = Vector2( 0.25, 0.75 )
+visible = false
+position = Vector2( 0.25, 0.74 )
 shape = SubResource( 2 )
 
 [node name="dashTime" type="Timer" parent="."]
