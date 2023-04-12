@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Enemies/baseEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/flameyhead.png" type="Texture" id=2]
@@ -6,6 +6,53 @@
 [ext_resource path="res://Enemies/flameyHead.gd" type="Script" id=4]
 [ext_resource path="res://Sounds/Attacks/Flamey-Head-Loop.Capanda.Team-7.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sounds/Attacks/Flamey-Head-intro.Capanda.Team-7.wav" type="AudioStream" id=6]
+[ext_resource path="res://Enemies/DeathParticles.gd" type="Script" id=7]
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.658824, 0.517647, 0.952941, 1, 0.419608, 0.243137, 0.458824, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.748387, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 1
+emission_sphere_radius = 4.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 3, 0 )
+initial_velocity = 2.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+color_ramp = SubResource( 5 )
+color_initial_ramp = SubResource( 3 )
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.748387, 1 )
+colors = PoolColorArray( 0.564706, 0.368627, 0.662745, 1, 0.419608, 0.243137, 0.458824, 1, 0.419608, 0.243137, 0.458824, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 30.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+color_ramp = SubResource( 8 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,17 +66,38 @@ animations = [ {
 collision_mask = 16
 script = ExtResource( 4 )
 
-[node name="AnimatedSprite" parent="." index="0"]
+[node name="TrailParticles" type="Particles2D" parent="." index="0"]
+light_mask = 0
+position = Vector2( 0, 4 )
+emitting = false
+amount = 40
+local_coords = false
+process_material = SubResource( 6 )
+
+[node name="DeathParticles" type="Particles2D" parent="." index="1"]
+light_mask = 0
+position = Vector2( 0, 4 )
+emitting = false
+amount = 200
+lifetime = 0.4
+process_material = SubResource( 9 )
+script = ExtResource( 7 )
+
+[node name="DeathTimer" type="Timer" parent="DeathParticles" index="0"]
+wait_time = 0.5
+
+[node name="AnimatedSprite" parent="." index="2"]
 frames = SubResource( 1 )
 
-[node name="Ambiance" type="AudioStreamPlayer2D" parent="." index="6"]
+[node name="Ambiance" type="AudioStreamPlayer2D" parent="." index="8"]
 stream = ExtResource( 5 )
 volume_db = 3.0
 autoplay = true
 max_distance = 300.0
 attenuation = 2.54912
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="." index="7"]
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." index="9"]
 stream = ExtResource( 6 )
 
+[connection signal="timeout" from="DeathParticles/DeathTimer" to="DeathParticles" method="_on_DeathTimer_timeout"]
 [connection signal="finished" from="Ambiance" to="." method="_on_Ambiance_finished"]
