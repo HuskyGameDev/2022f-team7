@@ -42,7 +42,6 @@ func _ready():
 
 #control if the enemy should be engaged with the player
 func _onStartEnter(body):
-
 	#if body is in group("player"):
 	if(body.get_class() == "KinematicBody2D"):
 		player = body
@@ -55,4 +54,5 @@ func _on_hitbox_area_entered(area):
 	if(area.is_in_group('spear')):
 		hp -= 1
 		if (hp<=0):
+			
 			queue_free()
