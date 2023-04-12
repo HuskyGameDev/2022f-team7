@@ -30,6 +30,11 @@ func customMode(delta):
 
 func _on_hitbox_body_entered(body):
 	if(attacking):
+		$DeathSound.playing = true;
+		var ds = $DeathSound;
+		remove_child(ds)
+		get_parent().add_child(ds)
+		ds.transform = transform;
 		var p = particles.instance()
 		p.transform = transform
 		get_parent().add_child(p)

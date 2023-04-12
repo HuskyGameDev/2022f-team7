@@ -73,6 +73,7 @@ func processInput():
 			$Camera2D.smoothing_speed = 7
 	#apply jump upward vecocity if possible
 	if Input.is_action_just_pressed("jump") && is_on_floor() && !isDashing:
+		$JumpSound.play();
 		vec.y = -jumpPower
 		isJumping = true
 	
@@ -121,6 +122,9 @@ func processState():
 	elif isWalking:
 		$Sprite.animation = "Walk"  + ("Hurt" if isHurt else "")
 		$Sprite.playing = true
+		if($WalkTimer.time_left == 0): 
+			$WalkTimer.start()
+			$WalkSound.play()
 	else:
 		$Sprite.animation = "Look"  + ("Hurt" if isHurt else "")
 		$Sprite.playing = true
@@ -355,3 +359,11 @@ func _on_healthUpBox_area_entered(area):
 
 func _on_Tween_tween_completed():
 	pass # Replace with function body.
+
+
+func _on_WalkTimer_timeout():
+	if(isWalking):
+		$WalkSound.play();
+		$WalkTimer.start()
+	else:
+		$WalkSound.playing = false

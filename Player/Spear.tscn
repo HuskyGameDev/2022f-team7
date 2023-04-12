@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Player.png" type="Texture" id=1]
 [ext_resource path="res://Player/Spear.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Player/SpearParticles.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/SpearTrail.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player/AOEattack.gd" type="Script" id=7]
+[ext_resource path="res://Sounds/Jump/Jump_Whoosh.1.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/Spear/Spear Rocky.2.wav" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 2 )
@@ -118,6 +120,14 @@ process_material = SubResource( 10 )
 [node name="AOEtimer" type="Timer" parent="AOEattack"]
 wait_time = 0.2
 one_shot = true
+
+[node name="ThrowSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -12.0
+
+[node name="StickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = -14.0
 
 [connection signal="body_entered" from="." to="." method="_on_Spear_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_Spear_body_shape_entered"]

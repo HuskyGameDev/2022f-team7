@@ -62,6 +62,12 @@ func _onTargetDelayEnd():
 
 func _onTipHit(body):
 	if(attacking):
+		if($DeathSound != null):
+			$DeathSound.playing = true;
+			var ds = $DeathSound;
+			remove_child(ds)
+			get_parent().add_child(ds)
+			ds.transform = transform;
 		var p = particles.instance()
 		p.transform = transform
 		get_parent().add_child(p)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemies/mrJab.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/baseEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/SpikeParticles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemies/mrJabAnim.tres" type="SpriteFrames" id=4]
+[ext_resource path="res://Sounds/Other/Rock-Falling-1.Capanda.Team-7.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 76, 38.5 )
@@ -67,6 +68,10 @@ scale = Vector2( 0.1, 0.55 )
 
 [node name="losCast" type="Position2D" parent="." index="11"]
 position = Vector2( 0, -3 )
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." index="12"]
+stream = ExtResource( 5 )
+volume_db = -10.0
 
 [connection signal="body_entered" from="touchBox" to="." method="_onTipHit"]
 [connection signal="timeout" from="AimTimer" to="." method="_onAimEnd"]

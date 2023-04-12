@@ -46,6 +46,7 @@ func start(mouseCoords, pos, vec, s):
 	linear_velocity = (direction.normalized() * speed) + vec # sets initial velocity
 	angular_velocity = -1 if rad2deg(angle) <= -90 else 1
 	show() # show the spear now that it is positioned correctly
+	$ThrowSound.playing = true;
 
 
 func _unhandled_input(_event):
@@ -81,6 +82,7 @@ func _on_TipCollision_area_entered(area):
 # Attaches the spear to a wall or floor. Makes the spear static and collidable with the player.
 func stick_spear():
 	stuck = true
+	$StickSound.playing = true;
 	set_deferred("mode", RigidBody2D.MODE_STATIC) # Set static so the spear no longer moves
 	if(!$BodyCollision.colliding): # If the spear is not laying flat on the ground
 		# updates collision layers so that the spear can collide with the player
@@ -103,6 +105,7 @@ func collectSpear():
 # Attaches the spear to a different parent. 
 # Makes the spear inherit it's new parents' position and collidable with the player
 func attach_spear(var area):
+	$StickSound.playing = true;
 	var pos = global_position
 	stuck = true
 	get_parent().remove_child(self)

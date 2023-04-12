@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/playeranims.tres" type="SpriteFrames" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Player/SpearMelee.tscn" type="PackedScene" id=12]
 [ext_resource path="res://PlayerspearBob.tres" type="Animation" id=13]
 [ext_resource path="res://Assets/HudBackground.png" type="Texture" id=14]
+[ext_resource path="res://Sounds/Jump/Jump_Rocky.2.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/Footsteps/Lower Footsteps/Concrete/Walking_Concrete_1_Moser.wav" type="AudioStream" id=16]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -209,6 +211,19 @@ collision_mask = 0
 position = Vector2( 0.25, 0.75 )
 shape = SubResource( 1 )
 
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -12.0
+
+[node name="WalkSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = -9.0
+pitch_scale = 0.8
+
+[node name="WalkTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
 [connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
 [connection signal="spear_changed" from="." to="Camera2D/hud/health" method="_on_player_spear_changed"]
 [connection signal="timeout" from="dashTime" to="." method="_on_dashTime_timeout"]
@@ -219,3 +234,4 @@ shape = SubResource( 1 )
 [connection signal="timeout" from="BlinkDur" to="." method="_on_BlinkDur_timeout"]
 [connection signal="area_entered" from="springHitBox" to="." method="_on_springHitBox_area_entered"]
 [connection signal="area_entered" from="healthUpBox" to="." method="_on_healthUpBox_area_entered"]
+[connection signal="timeout" from="WalkTimer" to="." method="_on_WalkTimer_timeout"]

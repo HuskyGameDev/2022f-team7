@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Enemies/baseEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/flameyhead.png" type="Texture" id=2]
 [ext_resource path="res://Assets/flameyhead_red.png" type="Texture" id=3]
 [ext_resource path="res://Enemies/flameyHead.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/Attacks/Flamey-Head-Loop.Capanda.Team-7.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/Attacks/Flamey-Head-intro.Capanda.Team-7.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,3 +21,15 @@ script = ExtResource( 4 )
 
 [node name="AnimatedSprite" parent="." index="0"]
 frames = SubResource( 1 )
+
+[node name="Ambiance" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource( 5 )
+volume_db = 3.0
+autoplay = true
+max_distance = 300.0
+attenuation = 2.54912
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." index="7"]
+stream = ExtResource( 6 )
+
+[connection signal="finished" from="Ambiance" to="." method="_on_Ambiance_finished"]
