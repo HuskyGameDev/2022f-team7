@@ -15,5 +15,8 @@ func _input(event):
 		emit_signal("switchActivated",SwitchOn)
 
 func _on_Area2D_area_entered(area):
-	if(area.is_in_group("player")):
-		inRange = true
+	inRange = true
+
+
+func _on_Area2D_body_exited(body):
+	inRange = false

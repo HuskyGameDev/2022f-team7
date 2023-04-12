@@ -478,7 +478,7 @@ centered = false
 
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 539, -480 )
-nextLevel = "lastLevel"
+nextLevel = "res://Levels/level2-4.tscn"
 
 [node name="MrJab" parent="." instance=ExtResource( 2 )]
 position = Vector2( 110, -104 )
@@ -535,7 +535,6 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
-position = Vector2( 0, -6.10352e-05 )
 rotate = false
 
 [node name="enemy" parent="Path2D3/PathFollow2D" instance=ExtResource( 3 )]
@@ -551,7 +550,6 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
-position = Vector2( 0, -6.10352e-05 )
 rotate = false
 
 [node name="enemy" parent="Path2D5/PathFollow2D" instance=ExtResource( 3 )]
@@ -581,7 +579,6 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D6"]
-position = Vector2( 0, -6.10352e-05 )
 rotate = false
 
 [node name="enemy" parent="Path2D6/PathFollow2D" instance=ExtResource( 3 )]
