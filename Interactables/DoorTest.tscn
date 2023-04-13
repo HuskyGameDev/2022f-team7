@@ -28,6 +28,7 @@ region_enabled = true
 region_rect = Rect2( 0, 61, 16, 3 )
 
 [node name="part" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -28 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 2 )
@@ -63,10 +64,12 @@ patch_margin_left = 1
 patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
+axis_stretch_vertical = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="DoorCollider" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2( 0, -24 )
 shape = SubResource( 1 )
