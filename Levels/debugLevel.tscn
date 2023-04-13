@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://RedTiles.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/awfulDialog.png" type="Texture" id=10]
+[ext_resource path="res://Interactables/HealthPickup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Interactables/KeyForPlatform.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/Lava_Geyser.tscn" type="PackedScene" id=15]
@@ -193,6 +194,9 @@ position = Vector2( -87, 41 )
 [node name="MovingPlatform" parent="." instance=ExtResource( 21 )]
 position = Vector2( -105, 0 )
 startEnabled = false
+
+[node name="HealthPickup" parent="." instance=ExtResource( 11 )]
+position = Vector2( -41, 38 )
 
 [connection signal="switchActivated" from="SwitchPuzzle" to="DoorTest" method="_on_SwitchPuzzle_switchActivated"]
 [connection signal="timeout" from="Node2D2/Timer" to="Node2D2" method="_on_Timer_timeout"]

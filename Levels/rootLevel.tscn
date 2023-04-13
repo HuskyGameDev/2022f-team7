@@ -16,6 +16,72 @@ stream = ExtResource( 4 )
 volume_db = -11.0
 
 [node name="main" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="optionsScreen" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+
+[node name="NinePatchRect" type="NinePatchRect" parent="optionsScreen"]
+light_mask = 0
+anchor_left = 0.314286
+anchor_top = 0.0532915
+anchor_right = 0.685715
+anchor_bottom = 0.45141
+margin_right = -0.000335693
+margin_bottom = 0.000106812
+texture = ExtResource( 5 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="optionsScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 20.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="optionsScreen/HBoxContainer"]
+light_mask = 0
+margin_left = 186.0
+margin_right = 373.0
+margin_bottom = 113.0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Options" type="Label" parent="optionsScreen/HBoxContainer/VBoxContainer"]
+light_mask = 0
+margin_right = 187.0
+margin_bottom = 27.0
+text = "options"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_editor_description_": "will make stylized later"
+}
+
+[node name="mute" parent="optionsScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 31.0
+margin_right = 187.0
+margin_bottom = 70.0
+text = "Music On/Off"
+
+[node name="pauseBack" parent="optionsScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 74.0
+margin_right = 187.0
+margin_bottom = 113.0
+text = "Back"
 
 [node name="pauseScreen" type="CanvasLayer" parent="."]
 layer = 10
@@ -26,7 +92,9 @@ light_mask = 0
 anchor_left = 0.278571
 anchor_top = 0.0532915
 anchor_right = 0.719643
-anchor_bottom = 0.717868
+anchor_bottom = 0.852664
+margin_right = -0.000335693
+margin_bottom = 0.000106812
 texture = ExtResource( 5 )
 patch_margin_left = 6
 patch_margin_top = 6
@@ -71,28 +139,36 @@ margin_right = 230.0
 margin_bottom = 70.0
 text = "Resume"
 
-[node name="menu" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+[node name="options" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 74.0
 margin_right = 230.0
 margin_bottom = 113.0
-text = "Return to menu"
+text = "Options"
 
-[node name="restart" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+[node name="menu" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 117.0
 margin_right = 230.0
 margin_bottom = 156.0
-text = "Restart level"
+text = "Return to menu"
 
-[node name="quit" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+[node name="restart" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 160.0
 margin_right = 230.0
 margin_bottom = 199.0
+text = "Restart level"
+
+[node name="quit" parent="pauseScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 203.0
+margin_right = 230.0
+margin_bottom = 242.0
 text = "Quit game"
 
 [node name="deathScreen" type="CanvasLayer" parent="."]
@@ -173,7 +249,10 @@ one_shot = true
 
 [node name="Node2D" type="Node2D" parent="."]
 
+[connection signal="pressed" from="optionsScreen/HBoxContainer/VBoxContainer/mute" to="." method="_on_mute_pressed"]
+[connection signal="pressed" from="optionsScreen/HBoxContainer/VBoxContainer/pauseBack" to="." method="_on_pauseBack_pressed"]
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

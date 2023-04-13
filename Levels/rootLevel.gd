@@ -12,9 +12,21 @@ func _ready():
 	$pauseScreen.visible = false
 	$deathScreen.visible = false
 	$main.visible = true
+	$optionsScreen.visible = false
 
 func _on_resume_pressed():
 	pauseControl()
+
+func _on_mute_pressed():
+	$AudioStreamPlayer.playing = !$AudioStreamPlayer.playing
+
+func _on_options_pressed():
+	$pauseScreen.hide()
+	$optionsScreen.show()
+
+func _on_pauseBack_pressed():
+	$optionsScreen.hide()
+	$pauseScreen.show()
 
 func _on_restart_pressed():
 	level.queue_free() #clear out player and level instances
