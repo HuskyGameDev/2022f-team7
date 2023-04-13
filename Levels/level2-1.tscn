@@ -7,7 +7,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Levels/platform.gd" type="Script" id=8]
+[ext_resource path="res://Interactables/platformOLD.gd" type="Script" id=8]
 [ext_resource path="res://Assets/platform.PNG" type="Texture" id=9]
 [ext_resource path="res://RedTiles.tres" type="TileSet" id=10]
 [ext_resource path="res://Assets/red platform.PNG" type="Texture" id=11]
@@ -1016,7 +1016,7 @@ position = Vector2( 320, -889 )
 position = Vector2( 424, -177 )
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2( 1160, -688 )
+position = Vector2( 996, -868.795 )
 curve = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -1030,7 +1030,7 @@ mode = 1
 railSpeed = 1.25
 
 [node name="Path2D2" type="Path2D" parent="."]
-position = Vector2( 1160, -555 )
+position = Vector2( 996, -735.795 )
 curve = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -1044,7 +1044,7 @@ mode = 1
 railSpeed = 1.25
 
 [node name="Path2D3" type="Path2D" parent="."]
-position = Vector2( 1160, -170 )
+position = Vector2( 996, -350.795 )
 scale = Vector2( 0.83757, 0.85003 )
 curve = SubResource( 2 )
 __meta__ = {
@@ -1061,7 +1061,7 @@ mode = 1
 railSpeed = 2.5
 
 [node name="Path2D5" type="Path2D" parent="."]
-position = Vector2( 1160, -629 )
+position = Vector2( 996, -809.795 )
 curve = SubResource( 4 )
 __meta__ = {
 "_edit_group_": true
@@ -1077,7 +1077,7 @@ mode = 1
 railSpeed = 3.0
 
 [node name="Path2D9" type="Path2D" parent="."]
-position = Vector2( 1160, -440 )
+position = Vector2( 996, -620.795 )
 curve = SubResource( 26 )
 __meta__ = {
 "_edit_group_": true
@@ -1106,7 +1106,7 @@ mode = 1
 railSpeed = 3.0
 
 [node name="Path2D8" type="Path2D" parent="."]
-position = Vector2( 1160, -539 )
+position = Vector2( 996, -719.795 )
 curve = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -1120,7 +1120,7 @@ mode = 1
 railSpeed = 2.5
 
 [node name="Path2D4" type="Path2D" parent="."]
-position = Vector2( 1160, -127 )
+position = Vector2( 996, -307.795 )
 curve = SubResource( 27 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]

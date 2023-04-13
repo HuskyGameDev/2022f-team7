@@ -34,7 +34,6 @@ var isDying = false
 
 #creates a signal for when the player health changes
 signal health_changed(player_hearts)
-signal spear_changed(usable)
 
 #starts the current health of the player
 func _ready():
@@ -69,6 +68,7 @@ func processInput():
 	if Input.is_action_just_pressed("dash"):
 		if !isDashing && canDash:
 			isDashing = true
+			$Camera2D/hud/sprint.visible = !isDashing
 			$dashTime.start()
 			$Camera2D.smoothing_speed = 7
 	#apply jump upward vecocity if possible
@@ -236,6 +236,7 @@ func _on_dashTime_timeout():
 
 func _on_dashCooldown_timeout():
 	canDash = true
+	$Camera2D/hud/sprint.visible = canDash
 
 func dashEnd():
 	isDashing = false
@@ -252,7 +253,7 @@ func throwSpear():
 	hasSpear = false
 	
 	$Sprite/Spear.visible = false
-	emit_signal("spear_changed", hasSpear)
+	$Camera2D/hud/spear.visible = hasSpear
 	var spear = spearScene.instance()
 	get_parent().add_child(spear)
 	spear.start(get_local_mouse_position(), position, vec, spearState)
@@ -262,7 +263,7 @@ func throwSpear():
 # Creates an instance of the melee attack version of the spear
 func attackSpear():
 	$Sprite/Spear.visible = false
-	emit_signal("spear_changed", hasSpear)
+	$Camera2D/hud/spear.visible = hasSpear
 	var spear = spearMeleeScene.instance()
 	spear.start(get_local_mouse_position(), spearState)
 	add_child(spear);
@@ -280,7 +281,7 @@ func _collect_spear():
 # Prevents the spear from being thrown again immediately upon pickup
 func _on_spearCooldown_timeout():
 	hasSpear = true
-	emit_signal("spear_changed", hasSpear)
+	$Camera2D/hud/spear.visible = hasSpear
 	$spearCooldown.stop()
 
 #for the blinking of the player
@@ -331,16 +332,16 @@ func set_spear_color():
 	if(spearState == 0):
 		
 		$Sprite/Spear.modulate = Color(1, 1, 1);
-		$Camera2D/hud/health/spear.modulate = Color(1, 1, 1);
+		$Camera2D/hud/spear.modulate = Color(1, 1, 1);
 	elif(spearState == 1):
 		$Sprite/Spear.modulate = Color(0.83, 0.38, 0.38);
-		$Camera2D/hud/health/spear.modulate = Color(0.83, 0.38, 0.38);
+		$Camera2D/hud/spear.modulate = Color(0.83, 0.38, 0.38);
 	elif(spearState == 2):
 		$Sprite/Spear.modulate = Color(0.92, 0.92, 0.15);
-		$Camera2D/hud/health/spear.modulate = Color(0.92, 0.92, 0.15);
+		$Camera2D/hud/spear.modulate = Color(0.92, 0.92, 0.15);
 	elif(spearState == 3):
 		$Sprite/Spear.modulate = Color(0.41, 0.41, 1.0);
-		$Camera2D/hud/health/spear.modulate = Color(0.41, 0.41, 1.0);
+		$Camera2D/hud/spear.modulate = Color(0.41, 0.41, 1.0);
 
 
 func _on_springHitBox_area_entered(area):

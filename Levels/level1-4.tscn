@@ -7,7 +7,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Levels/platform.gd" type="Script" id=8]
+[ext_resource path="res://Interactables/platformOLD.gd" type="Script" id=8]
 [ext_resource path="res://Assets/platform.PNG" type="Texture" id=9]
 
 [sub_resource type="Curve2D" id=1]

@@ -6,6 +6,3 @@ var heartSize = 16
 #if there is some sort of change to the players health whether it be a heal or damaged
 func _on_player_health_changed(player_hearts):
 	$hearts.rect_size.x = player_hearts*heartSize
-
-func _on_player_spear_changed(usable):
-	$spear.visible = usable

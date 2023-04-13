@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/playeranims.tres" type="SpriteFrames" id=2]
@@ -7,15 +7,16 @@
 [ext_resource path="res://Player/health.gd" type="Script" id=5]
 [ext_resource path="res://Assets/newheart.png" type="Texture" id=6]
 [ext_resource path="res://Assets/newheartempty.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Spear.png" type="Texture" id=8]
 [ext_resource path="res://Sounds/PlayerSounds/Player_death_v3.Iridos.capanda.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/light.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Player.png" type="Texture" id=11]
 [ext_resource path="res://Player/SpearMelee.tscn" type="PackedScene" id=12]
 [ext_resource path="res://PlayerspearBob.tres" type="Animation" id=13]
-[ext_resource path="res://Assets/HudBackground.png" type="Texture" id=14]
+[ext_resource path="res://Assets/uiBackground.png" type="Texture" id=14]
 [ext_resource path="res://Sounds/Jump/Jump_Rocky.2.wav" type="AudioStream" id=15]
 [ext_resource path="res://Sounds/Footsteps/Lower Footsteps/Concrete/Walking_Concrete_1_Moser.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/hudSprint.png" type="Texture" id=17]
+[ext_resource path="res://Assets/hudSpear.png" type="Texture" id=18]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -92,17 +93,42 @@ drag_margin_right = 0.0
 
 [node name="hud" type="CanvasLayer" parent="Camera2D"]
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/hud"]
-margin_right = 40.0
-margin_bottom = 40.0
-texture = ExtResource( 14 )
-
 [node name="debugInf" type="Label" parent="Camera2D/hud"]
 light_mask = 0
 margin_left = 423.0
 margin_right = 521.0
 margin_bottom = 20.0
 text = "coords"
+
+[node name="background" type="TextureRect" parent="Camera2D/hud"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -71.0
+margin_top = -40.0
+margin_right = 71.0
+texture = ExtResource( 14 )
+
+[node name="spear" type="TextureRect" parent="Camera2D/hud"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -71.0
+margin_top = -40.0
+margin_right = 71.0
+texture = ExtResource( 18 )
+
+[node name="sprint" type="TextureRect" parent="Camera2D/hud"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -71.0
+margin_top = -40.0
+margin_right = 71.0
+texture = ExtResource( 17 )
 
 [node name="health" type="Control" parent="Camera2D/hud"]
 light_mask = 0
@@ -120,8 +146,10 @@ __meta__ = {
 
 [node name="heartsEmpty" type="TextureRect" parent="Camera2D/hud/health"]
 light_mask = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 1.38541
+anchor_top = 8.50008
+anchor_right = 2.38541
+anchor_bottom = 9.50008
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 2
@@ -131,23 +159,16 @@ __meta__ = {
 
 [node name="hearts" type="TextureRect" parent="Camera2D/hud/health"]
 light_mask = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 1.38541
+anchor_top = 8.50008
+anchor_right = 2.38541
+anchor_bottom = 9.50008
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": true
 }
-
-[node name="spear" type="TextureRect" parent="Camera2D/hud/health"]
-light_mask = 0
-margin_left = 1.0
-margin_top = 20.5
-margin_right = 33.0
-margin_bottom = 27.5
-texture = ExtResource( 8 )
-stretch_mode = 3
 
 [node name="worldbox" type="CollisionShape2D" parent="."]
 visible = false
@@ -226,7 +247,6 @@ wait_time = 0.4
 one_shot = true
 
 [connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
-[connection signal="spear_changed" from="." to="Camera2D/hud/health" method="_on_player_spear_changed"]
 [connection signal="timeout" from="dashTime" to="." method="_on_dashTime_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dashCooldown_timeout"]
 [connection signal="timeout" from="spearCooldown" to="." method="_on_spearCooldown_timeout"]
