@@ -8,11 +8,10 @@ func _physics_process(delta):
 				vec *= -0.2
 				move_and_collide(vec, false)
 			else:
-				#will change later to better suit the hands being within range of boss
-				if (position - get_parent().position < 1):
-					vec = (position - get_parent().position).normalized()
-					vec *= -0.2
-					move_and_collide(vec, false)
+				#should return to boss if not in range
+				vec = (position - get_parent().position).normalized()
+				vec *= -0.2
+				move_and_collide(vec, false)
 		modes.rails:#MUST be a child of a pathfollower!
 			self.get_parent().unit_offset += (.0005 * railSpeed)
 		modes.walker:
@@ -21,6 +20,9 @@ func _physics_process(delta):
 			customMode(delta)
 			
 
+func _onStopExit(body):
+	pass
+	
 func custom(_delta):
 	$AnimatedSprite.frame = engaged
 

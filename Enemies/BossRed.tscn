@@ -1,18 +1,26 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Enemies/BossRed.gd" type="Script" id=1]
 [ext_resource path="res://Enemies/baseEnemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/fingers.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Red Judgement.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 57, 71 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ SubResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 23.5, 16.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 17.5, 3.25 )
 
 [node name="enemy" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -25,6 +33,7 @@ frames = SubResource( 1 )
 [node name="BossStompHitbox" type="Area2D" parent="." index="7" groups=["enemy"]]
 
 [node name="stomp" type="CollisionShape2D" parent="BossStompHitbox" index="0"]
+position = Vector2( -1, 1 )
 shape = SubResource( 2 )
 
 [node name="aimTime" type="Timer" parent="." index="8"]
@@ -32,6 +41,16 @@ shape = SubResource( 2 )
 [node name="StompDur" type="Timer" parent="." index="9"]
 wait_time = 2.0
 
+[node name="stunDur" type="Timer" parent="." index="10"]
+
+[node name="mapCollider2" type="Area2D" parent="." index="11"]
+collision_layer = 0
+
+[node name="collider" type="CollisionShape2D" parent="mapCollider2" index="0"]
+position = Vector2( -0.5, -11.25 )
+shape = SubResource( 4 )
+
 [connection signal="timeout" from="ChargeUp" to="." method="_on_ChargeUp_timeout"]
 [connection signal="timeout" from="aimTime" to="." method="_on_aimTime_timeout"]
 [connection signal="timeout" from="StompDur" to="." method="_on_StompDur_timeout"]
+[connection signal="area_entered" from="mapCollider2" to="." method="_on_mapCollider2_area_entered"]
