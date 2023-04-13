@@ -1,6 +1,5 @@
 extends "res://Enemies/baseEnemy.gd"
 
-
 func custom(_delta):
 	# $AnimatedSprite.frame = engaged
 	pass
