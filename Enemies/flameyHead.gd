@@ -10,6 +10,7 @@ func customMode(_delta):
 func _ready():
 	$Ambiance.playing = true;
 	$TrailParticles.emitting = true;
+	$SloppyFace.visible = false;
 
 
 func _on_Ambiance_finished():
