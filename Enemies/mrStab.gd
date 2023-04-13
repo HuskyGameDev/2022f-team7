@@ -12,6 +12,7 @@ func _ready():
 
 func _onStartEnter(body):
 	._onStartEnter(body)
+	$startRange.set_deferred("monitoring", false)
 	attacking = true
 	$AnimatedSprite.animation = "alert"
 	$AnimatedSprite.playing = true
@@ -38,5 +39,6 @@ func _on_hitbox_body_entered(body):
 		p.transform = transform
 		get_parent().add_child(p)
 		p.emitting = true;
+		
 		queue_free()
 		._on_hitbox_area_entered(body)

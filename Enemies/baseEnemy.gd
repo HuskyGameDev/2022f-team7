@@ -54,5 +54,8 @@ func _on_hitbox_area_entered(area):
 	if(area.is_in_group('spear')):
 		hp -= 1
 		if (hp<=0):
-			
+			$mapCollider.set_deferred("disabled", true)
+			$startRange.set_deferred("monitoring", false)
+			$stopRange.set_deferred("monitoring", false)
+			$hitbox.set_deferred("monitoring", false)
 			queue_free()

@@ -37,6 +37,7 @@ shape = null
 
 [node name="startRange" parent="." index="4"]
 visible = true
+monitorable = false
 
 [node name="collider" parent="startRange" index="0"]
 position = Vector2( 0, 21 )
