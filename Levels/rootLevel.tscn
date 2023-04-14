@@ -246,8 +246,6 @@ text = "Quit game"
 wait_time = 3.0
 one_shot = true
 
-[node name="Node2D" type="Node2D" parent="."]
-
 [connection signal="pressed" from="optionsScreen/HBoxContainer/VBoxContainer/mute" to="." method="_on_mute_pressed"]
 [connection signal="pressed" from="optionsScreen/HBoxContainer/VBoxContainer/pauseBack" to="." method="_on_pauseBack_pressed"]
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]

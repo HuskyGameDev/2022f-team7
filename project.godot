@@ -123,7 +123,6 @@ project/assembly_name="iridos"
 
 common/physics_fps=144
 common/enable_pause_aware_picking=true
-2d/thread_model=2
 
 [rendering]
 

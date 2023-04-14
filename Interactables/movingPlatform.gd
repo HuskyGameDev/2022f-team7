@@ -14,10 +14,9 @@ var start = Vector2(0,0)
 var atEnd = false
 
 #must be a kinematic body for the player to stick to the platform when moving!!!
-
+ 
 func _ready():
-	yield(get_tree().create_timer(2.0), "timeout")
-	#$Timer.wait_time = delay
+	$Timer.wait_time = delay
 	if startEnabled:
 		movePlat()
 
