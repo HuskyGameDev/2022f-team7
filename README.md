@@ -5,8 +5,9 @@ Hello! We're Husky Game Development Enterprise over at Michigan Technological Un
 Controls:
 A to move left & D to move right,
 W/spacebar to jump,
-Q/leftclick to pick up spear if absent from inventory,
-left-click to throw spear if present in inventory,
+press Q or leftclick on the spear to pick up spear if absent from inventory,
+left-click to jab with spear if present in inventory,
+right-click to throw spear if present in inventory,
 Left-Shift to dash
 
 Credits:
@@ -28,4 +29,4 @@ Ethan Fournier
 Installation Instructions:
 Download & unzip the Iridos.zip. Select the folder that correlates to your OS and run the executable.
 
-![actionshot](https://user-images.githubusercontent.com/97367615/206595019-f7194226-baae-4ba8-84de-6394a0856fe7.png)
+![actionshot](https://user-images.githubusercontent.com/43444191/233497066-3cdff024-e4d7-4e1b-affc-76a9f09a151f.png)
