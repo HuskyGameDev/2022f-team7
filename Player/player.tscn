@@ -101,6 +101,7 @@ margin_bottom = 20.0
 text = "coords"
 
 [node name="background" type="TextureRect" parent="Camera2D/hud"]
+light_mask = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -111,6 +112,7 @@ margin_right = 71.0
 texture = ExtResource( 14 )
 
 [node name="spear" type="TextureRect" parent="Camera2D/hud"]
+light_mask = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -121,6 +123,7 @@ margin_right = 71.0
 texture = ExtResource( 18 )
 
 [node name="sprint" type="TextureRect" parent="Camera2D/hud"]
+light_mask = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
