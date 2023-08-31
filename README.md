@@ -24,6 +24,8 @@ Andrew Tran,
 Jack Colwell,
 Owen Crosby,
 Soup Cobb,
+Nicky Franklin,
+Max Meyer,
 Ethan Fournier
 
 Installation Instructions:
