@@ -51,7 +51,8 @@ func start(mouseCoords, pos, vec, s):
 
 func _unhandled_input(_event):
 	# If the player clicked on the spear OR pressed "Q", return the spear to the player
-	if(Input.is_action_just_pressed("spear_retrieve")):
+	if(Input.is_action_just_pressed("spear_retrieve") || Input.is_action_just_pressed("mouseRight")):
+		print("pressed")
 		collectSpear()
 
 

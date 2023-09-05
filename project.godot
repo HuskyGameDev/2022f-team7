@@ -31,6 +31,7 @@ window/stretch/aspect="keep"
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+theme/use_hidpi=true
 theme/custom="res://Assets/uiTheme.tres"
 theme/custom_font="res://Assets/Text/fonttheme.tres"
 
