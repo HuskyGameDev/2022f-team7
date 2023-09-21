@@ -7,6 +7,7 @@ var currentExit
 var levelDir
 var level:Node2D
 var alreadyPaused
+var optionsOpened
 
 func _ready():
 	$pauseScreen.visible = false
@@ -80,13 +81,19 @@ func _input(_event):
 func pauseControl():
 	if  !$deathScreen/deathTimer.is_stopped() || $deathScreen.visible:
 		return
-	
-	if $pauseScreen.visible == false:
+	optionsOpened = false
+	if $pauseScreen.visible == false and $optionsScreen.visible == false:
 		alreadyPaused = (get_tree().paused)
 	
+	elif $pauseScreen.visible == false and $optionsScreen.visible == true:
+		$optionsScreen.visible = false
+		optionsOpened = true
+		
 	$pauseScreen.visible = !$pauseScreen.visible
-	$AudioStreamPlayer.stream_paused = !$AudioStreamPlayer.stream_paused
-	activePlayer.get_node("./Camera2D/hud").visible = !activePlayer.get_node("./Camera2D/hud").visible
+	if optionsOpened == false:
+		$AudioStreamPlayer.stream_paused = !$AudioStreamPlayer.stream_paused
+		activePlayer.get_node("./Camera2D/hud").visible = !activePlayer.get_node("./Camera2D/hud").visible
+	
 	if !alreadyPaused:
 		get_tree().paused = $pauseScreen.visible
 
