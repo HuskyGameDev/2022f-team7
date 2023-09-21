@@ -33,10 +33,13 @@ func _ready():
 	$mapCollider2.set_collision_mask_bit(1, false)
 	var enemy1 = BossHands.instance()
 	enemy1.position = self.position
-	add_child(get_tree().current_scene.add_child(enemy1))
+	#these two add child calls have to be deferred because we can't guarantee the rest of
+	#the scene is also ready
+	get_parent().call_deferred("add_child", enemy1)
+	#add_child(get_parent().add_child(enemy1))
 	var enemy2 = BossHands.instance()
 	enemy2.position = self.position
-	add_child(get_tree().current_scene.add_child(enemy2))
+	get_parent().call_deferred("add_child", enemy2)
 	$BossStompHitbox.set_deferred("disabled",true)
 	#add intro animation here
 
@@ -57,7 +60,7 @@ func rotateBoss():
 #control if the enemy should be engaged with the player
 func _onStartEnter(body):
 	if body.is_in_group("player"):
-		if(body.get_class() == "KinematicBody2D" && !attacking):
+		if(body.get_class() == "KinematicBody2D" && !attacking): #what
 			player = body
 			engaged = true
 	#if(!aimed && body.is_in_group("player") && charge):
@@ -81,10 +84,10 @@ func _on_hitbox_area_entered(area):
 		$stopRange.set_deferred("disabled",false)
 		var enemy1 = BossHands.instance()
 		enemy1.position = self.position
-		add_child(get_tree().current_scene.add_child(enemy1))
+		add_child(get_parent().add_child(enemy1))
 		var enemy2 = BossHands.instance()
 		enemy2.position = self.position
-		add_child(get_tree().current_scene.add_child(enemy2))
+		add_child(get_parent().add_child(enemy2))
 		mode = 0
 		if (hp<=2):
 			spawnMinions()
@@ -118,7 +121,7 @@ func spawnMinions():
 	while x < 5:
 		var enemy1 = MCinder.instance()
 		enemy1.position = self.position
-		add_child(get_tree().current_scene.add_child(enemy1))
+		add_child(get_parent().add_child(enemy1))
 		x = x + 1
 	
 
@@ -139,10 +142,10 @@ func _on_stunTimer_timeout():
 		$stopRange.set_deferred("disabled",false)
 		var enemy1 = BossHands.instance()
 		enemy1.position = self.position
-		add_child(get_tree().current_scene.add_child(enemy1))
+		add_child(get_parent().add_child(enemy1))
 		var enemy2 = BossHands.instance()
 		enemy2.position = self.position
-		add_child(get_tree().current_scene.add_child(enemy2))
+		add_child(get_parent().add_child(enemy2))
 		mode = 0
 
 
