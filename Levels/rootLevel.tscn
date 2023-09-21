@@ -135,7 +135,7 @@ alignment = 1
 light_mask = 0
 margin_left = 186.0
 margin_right = 373.0
-margin_bottom = 113.0
+margin_bottom = 121.0
 size_flags_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": true
@@ -156,17 +156,17 @@ __meta__ = {
 [node name="mute" parent="optionsScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 31.0
+margin_top = 35.0
 margin_right = 187.0
-margin_bottom = 70.0
+margin_bottom = 74.0
 text = "Music On/Off"
 
 [node name="pauseBack" parent="optionsScreen/HBoxContainer/VBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 74.0
+margin_top = 82.0
 margin_right = 187.0
-margin_bottom = 113.0
+margin_bottom = 121.0
 text = "Back"
 
 [node name="deathScreen" type="CanvasLayer" parent="."]
