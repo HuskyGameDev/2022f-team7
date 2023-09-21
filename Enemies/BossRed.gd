@@ -21,15 +21,16 @@ var stunned
 #called per physics frame after mode code
 func custom(delta):
 	if(aiming): rotateBoss()
-	if(attacking): 
+	if(attacking):
 		hit = move_and_collide(attackDirection * speed)
-	.customMode(delta)
+	.custom(delta)
 
 func _ready():
 	._ready()
 	stunned = false
 	vulnerable = false
 	hp = 5
+	charge = true
 	$mapCollider2.set_collision_mask_bit(1, false)
 	var enemy1 = BossHands.instance()
 	enemy1.position = self.position
@@ -60,35 +61,24 @@ func rotateBoss():
 #control if the enemy should be engaged with the player
 func _onStartEnter(body):
 	if body.is_in_group("player"):
-		if(body.get_class() == "KinematicBody2D" && !attacking): #what
+		if(charge && !aiming && !attacking && !aimed):
+			aiming = true
+			mode = 4
+			$aimTime.start()
+		elif(body.get_class() == "KinematicBody2D" && !charge && !vulnerable):
 			player = body
-			engaged = true
-	#if(!aimed && body.is_in_group("player") && charge):
-		#charge == false
-		#mode = 4
-		#$aimTime.start()
-		#aiming = true
+			mode = 0
+	engaged = true
 
 func _onStopExit(body):
-	if(!stunned):
-		aiming = true
-		mode = 4
-		$aimTime.start()
+	engaged = false
 
 func _on_hitbox_area_entered(area):
 	if(area.is_in_group('spear')&&vulnerable):
 		print("red boss hit")
-		vulnerable = false
 		hp -= 1
-		$startRange.set_deferred("disabled",false)
-		$stopRange.set_deferred("disabled",false)
-		var enemy1 = BossHands.instance()
-		enemy1.position = self.position
-		add_child(get_parent().add_child(enemy1))
-		var enemy2 = BossHands.instance()
-		enemy2.position = self.position
-		add_child(get_parent().add_child(enemy2))
-		mode = 0
+		$stunDur.stop()
+		$stunDur.emit_signal("timeout")
 		if (hp<=2):
 			spawnMinions()
 		if (hp<=0):
@@ -105,11 +95,14 @@ func attackStomp():
 	
 func stun():
 	vulnerable = true
-	remove_child(BossHands.instance())
-	remove_child(BossHands.instance())
+	print("stun begins")
+	#remove_child(BossHands.instance())
+	#remove_child(BossHands.instance())
 	$startRange.set_deferred("disabled",true)
 	$stopRange.set_deferred("disabled",true)
+	$mapCollider2.set_collision_mask_bit(1, false)
 	engaged = false;
+	mode = 4
 	#add animation here to go into stun state
 	$stunDur.start()
 	
@@ -130,6 +123,8 @@ func _on_ChargeUp_timeout():
 	attackDirection = get_global_position().direction_to(direction).normalized()
 	$mapCollider2.set_collision_mask_bit(1, true)
 	attacking = true
+	charge = false
+	set_collision_layer_bit(4, true)
 	
 
 
@@ -161,9 +156,30 @@ func _on_StompDur_timeout():
 
 
 func _on_mapCollider2_area_entered(area):
-	if(attacking):
+	if(attacking && !area.is_in_group('spear')):
 		print("boss hit something")
 		attacking = false
-		engaged = false
 		stunned = true
+		mode = 4
 		stun()
+
+
+func _on_chargeCol_timeout():
+	charge = true 
+	print("boss charge ready")
+
+
+func _on_stunDur_timeout():
+	if (vulnerable == false):
+		vulnerable = true
+		#play recover 
+		#respawns hands after stun is over
+	$startRange.set_deferred("disabled",false)
+	$stopRange.set_deferred("disabled",false)
+	var enemy1 = BossHands.instance()
+	enemy1.position = self.position
+	add_child(get_tree().current_scene.add_child(enemy1))
+	var enemy2 = BossHands.instance()
+	enemy2.position = self.position
+	add_child(get_tree().current_scene.add_child(enemy2))
+	$chargeCol.start()

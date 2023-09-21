@@ -11,6 +11,7 @@ var attacking = false
 var attackDirection
 var hit
 var location
+var returnCheck
 var returning = false
 
 var returnVec = Vector2.ZERO
@@ -19,15 +20,15 @@ var returnVec = Vector2.ZERO
 func _onStartEnter(body):
 	if(body.get_class() == "KinematicBody2D"):
 		player = body
-	if( !(aiming || aimed) && charge):
-		engaged = false
-		charge = false
-		location = self.get_global_position()
-		$AimTimer.start()
-		aiming = true
-		print("aiming peg")
-	elif(!charge && returning):
-		engaged = true
+		if( !(aiming || aimed) && charge):
+			engaged = false
+			charge = false
+			location = self.get_global_position()
+			$AimTimer.start()
+			aiming = true
+			print("aiming peg")
+		elif(!charge && !returning):
+			engaged = true
 
 	
 	
@@ -38,14 +39,12 @@ func customMode(delta):
 	if(aiming): rotatePegasus()
 	
 	if(attacking): 
-		returnVec = move_and_slide(attackDirection * speed)
-		if(returnVec.length() < 50): #if going too slow
-			pass
+		hit = move_and_collide(attackDirection * speed)
 
 	if(returning):
-		returnVec = move_and_slide(attackDirection * speed)
-		if(returnVec.length() < 50): #if going too slow
-			pass
+		returnCheck = move_and_slide(attackDirection * speed)
+		if(returnCheck): #if going too slow
+			returning = false
 	.customMode(delta)
 	
 	
@@ -64,7 +63,7 @@ func rotatePegasus():
 
 func _on_hitbox_area_entered(area):
 	._on_hitbox_area_entered(area)
-	if(hit != null && hit.collider.is_in_group("tilemap")):
+	if(hit && !area.is_in_group('spear')):
 		returnPosition()
 	
 func returnPosition():
