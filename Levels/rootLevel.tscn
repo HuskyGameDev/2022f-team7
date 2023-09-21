@@ -19,14 +19,13 @@ volume_db = -11.0
 
 [node name="pauseScreen" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="NinePatchRect" type="NinePatchRect" parent="pauseScreen"]
 light_mask = 0
 anchor_left = 0.278571
 anchor_top = 0.0532915
 anchor_right = 0.719643
-anchor_bottom = 0.852664
+anchor_bottom = 0.909091
 margin_right = -0.000335693
 margin_bottom = 0.000106812
 texture = ExtResource( 5 )
@@ -114,7 +113,7 @@ light_mask = 0
 anchor_left = 0.314286
 anchor_top = 0.0532915
 anchor_right = 0.685715
-anchor_bottom = 0.45141
+anchor_bottom = 0.467084
 margin_right = -0.000335693
 margin_bottom = 0.000106812
 texture = ExtResource( 5 )
@@ -181,7 +180,7 @@ light_mask = 0
 anchor_left = 0.278571
 anchor_top = 0.0532915
 anchor_right = 0.719643
-anchor_bottom = 0.583072
+anchor_bottom = 0.61442
 texture = ExtResource( 5 )
 patch_margin_left = 6
 patch_margin_top = 6

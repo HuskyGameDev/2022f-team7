@@ -1,12 +1,13 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/playeranims.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://Player/Spear.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sounds/Footsteps/Lower Footsteps/Grass/Walking_Grass_4_Moser.wav" type="AudioStream" id=4]
 [ext_resource path="res://Player/health.gd" type="Script" id=5]
-[ext_resource path="res://Assets/newheart.png" type="Texture" id=6]
-[ext_resource path="res://Assets/newheartempty.png" type="Texture" id=7]
+[ext_resource path="res://Assets/health2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/health0.png" type="Texture" id=7]
+[ext_resource path="res://Assets/health1.png" type="Texture" id=8]
 [ext_resource path="res://Sounds/PlayerSounds/Player_death_v3.Iridos.capanda.wav" type="AudioStream" id=9]
 [ext_resource path="res://Assets/light.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Player.png" type="Texture" id=11]
@@ -17,6 +18,7 @@
 [ext_resource path="res://Sounds/Footsteps/Lower Footsteps/Concrete/Walking_Concrete_1_Moser.wav" type="AudioStream" id=16]
 [ext_resource path="res://Assets/hudSprint.png" type="Texture" id=17]
 [ext_resource path="res://Assets/hudSpear.png" type="Texture" id=18]
+[ext_resource path="res://Assets/health3.png" type="Texture" id=19]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -32,6 +34,14 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( -2.00759, 0.0108993 ) ]
 }
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 19 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2.25, 7.75 )
@@ -136,41 +146,17 @@ texture = ExtResource( 17 )
 light_mask = 0
 anchor_right = 0.171429
 anchor_bottom = 0.100313
-margin_left = 15.0
-margin_top = 15.0
-margin_right = -33.0
-margin_bottom = -1.0
-rect_scale = Vector2( 2, 2 )
+margin_right = -96.0002
+margin_bottom = -31.9998
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="heartsEmpty" type="TextureRect" parent="Camera2D/hud/health"]
+[node name="hearts" type="AnimatedSprite" parent="Camera2D/hud/health"]
 light_mask = 0
-anchor_left = 1.38541
-anchor_top = 8.50008
-anchor_right = 2.38541
-anchor_bottom = 9.50008
-texture = ExtResource( 7 )
-expand = true
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="hearts" type="TextureRect" parent="Camera2D/hud/health"]
-light_mask = 0
-anchor_left = 1.38541
-anchor_top = 8.50008
-anchor_right = 2.38541
-anchor_bottom = 9.50008
-texture = ExtResource( 6 )
-expand = true
-stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": true
-}
+position = Vector2( 280, 299 )
+frames = SubResource( 5 )
 
 [node name="worldbox" type="CollisionShape2D" parent="."]
 visible = false

@@ -191,13 +191,13 @@ anchor_bottom = 1.0
 margin_left = 31.0
 margin_top = 27.0
 margin_right = -31.0
-margin_bottom = -28.0
+margin_bottom = -64.0
 follow_focus = true
 scroll_horizontal_enabled = false
 
 [node name="GridContainer" type="GridContainer" parent="levelSelect/ScrollContainer"]
 margin_right = 498.0
-margin_bottom = 264.0
+margin_bottom = 228.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 3
@@ -247,6 +247,8 @@ size_flags_horizontal = 3
 text = "1-3"
 
 [node name="levelFour" parent="levelSelect/ScrollContainer/GridContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 338.0
 margin_top = 47.0
 margin_right = 498.0
@@ -255,6 +257,8 @@ size_flags_horizontal = 3
 text = "1-4"
 
 [node name="levelFive" parent="levelSelect/ScrollContainer/GridContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 94.0
 margin_right = 161.0
 margin_bottom = 133.0
@@ -262,6 +266,8 @@ size_flags_horizontal = 3
 text = "1-5"
 
 [node name="levelBoss" parent="levelSelect/ScrollContainer/GridContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 169.0
 margin_top = 94.0
 margin_right = 330.0
@@ -270,6 +276,8 @@ size_flags_horizontal = 3
 text = "1-Boss"
 
 [node name="levelSix" parent="levelSelect/ScrollContainer/GridContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 338.0
 margin_top = 94.0
 margin_right = 498.0
@@ -278,6 +286,8 @@ size_flags_horizontal = 3
 text = "2-1"
 
 [node name="levelSeven" parent="levelSelect/ScrollContainer/GridContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 141.0
 margin_right = 161.0
 margin_bottom = 180.0
@@ -285,6 +295,8 @@ size_flags_horizontal = 3
 text = "2-2"
 
 [node name="levelEight" parent="levelSelect/ScrollContainer/GridContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 169.0
 margin_top = 141.0
 margin_right = 330.0
@@ -293,6 +305,8 @@ size_flags_horizontal = 3
 text = "2-3"
 
 [node name="levelNine" parent="levelSelect/ScrollContainer/GridContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 338.0
 margin_top = 141.0
 margin_right = 498.0
@@ -301,6 +315,8 @@ size_flags_horizontal = 3
 text = "2-4"
 
 [node name="levelTen" parent="levelSelect/ScrollContainer/GridContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 188.0
 margin_right = 161.0
 margin_bottom = 227.0
@@ -319,9 +335,9 @@ text = "Debug"
 
 [node name="back" parent="levelSelect" instance=ExtResource( 4 )]
 anchor_left = 0.427679
-anchor_top = 0.774295
-anchor_right = 0.572321
-anchor_bottom = 0.896552
+anchor_top = 0.799373
+anchor_right = 0.572322
+anchor_bottom = 0.921631
 text = "Back"
 
 [node name="controlsScreen" type="Control" parent="."]
@@ -371,12 +387,12 @@ bbcode_text = "-Use WASD to move, and spacebar to jump.
 -LShift to dash
 -Left Click to throw the spear.
 -Click on the spear again or press Q to retrieve it.
--Use E to interact with objects"
+-Use E to interact with objects and npcs"
 text = "-Use WASD to move, and spacebar to jump.
 -LShift to dash
 -Left Click to throw the spear.
 -Click on the spear again or press Q to retrieve it.
--Use E to interact with objects"
+-Use E to interact with objects and npcs"
 scroll_active = false
 
 [node name="back" parent="controlsScreen" instance=ExtResource( 4 )]
