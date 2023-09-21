@@ -14,6 +14,8 @@ func _ready():
 	$deathScreen.visible = false
 	$main.visible = true
 	$optionsScreen.visible = false
+	$Black/ColorRect.modulate = Color.transparent
+	$Black.visible = false
 
 func _on_resume_pressed():
 	pauseControl()
@@ -44,14 +46,9 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_menu_pressed():
-	level.queue_free()
-	activePlayer.queue_free()
-	$AudioStreamPlayer.playing = false
-	
-	$deathScreen.hide()
-	$pauseScreen.hide()
-	$main.show()
-	get_tree().paused = false
+	$main/levelSelect.hide()
+	$main/playScreen.show()
+	levelTransition("lastLevel")
  
 func load_level(levelPath):
 	levelDir = levelPath
@@ -79,7 +76,7 @@ func _input(_event):
 		pauseControl()
 
 func pauseControl():
-	if  !$deathScreen/deathTimer.is_stopped() || $deathScreen.visible:
+	if  !$deathScreen/deathTimer.is_stopped() || $deathScreen.visible || $Black.visible:
 		return
 	optionsOpened = false
 	if $pauseScreen.visible == false and $optionsScreen.visible == false:
@@ -110,14 +107,31 @@ func createPlayer():
 	level.add_child(activePlayer)
 	activePlayer.connect("health_changed",self,"_on_healthChanged")
 	
+
 func levelTransition(nextLevel):
-	level.queue_free()
-	activePlayer.queue_free()
-	get_tree().paused = false
+	$Black.show()
+	$pauseScreen.hide()
+	$optionsScreen.hide()
+	$Fade.interpolate_property($Black/ColorRect, "modulate", Color.transparent, Color.black, 0.4, Tween.TRANS_SINE, Tween.EASE_IN)
+	$Fade.start()
+	yield($Fade, "tween_completed")
+	#check if a level is loaded in
+	if get_node("Node2D") != null:
+		level.queue_free()
+		activePlayer.queue_free()
 	if nextLevel == "lastLevel":
 		$AudioStreamPlayer.playing = false
 		$deathScreen.hide()
 		$pauseScreen.hide()
 		$main.show()
+		$Fade.interpolate_property($Black/ColorRect, "modulate", Color.black, Color.transparent, 0.4, Tween.TRANS_SINE, Tween.EASE_IN)
+		$Fade.start()
+		yield($Fade, "tween_completed")
+		$Black.hide()
 		return
 	load_level(nextLevel)
+	get_tree().paused = false
+	$Fade.interpolate_property($Black/ColorRect, "modulate", Color.black, Color.transparent, 0.4, Tween.TRANS_SINE, Tween.EASE_IN)
+	$Fade.start()
+	yield($Fade, "tween_completed")
+	$Black.hide()

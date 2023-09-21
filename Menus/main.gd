@@ -22,44 +22,44 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_Debug_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/debugLevel.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/debugLevel.tscn")
 	
 
 func _on_levelOne_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level1-1.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level1-1.tscn")
 	
 func _on_levelTwo_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level1-2.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level1-2.tscn")
 	
 func _on_levelThree_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level1-3.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level1-3.tscn")
 
 func _on_levelFour_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level1-4.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level1-4.tscn")
 	
 func _on_levelFive_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level1-5.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level1-5.tscn")
 	
 func _on_levelBoss_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level1-Boss.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level1-Boss.tscn")
 	
 func _on_levelSix_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level2-1.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level2-1.tscn")
 	
 func _on_levelSeven_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level2-2.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level2-2.tscn")
 	
 func _on_levelEight_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level2-3.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level2-3.tscn")
 
 func _on_levelNine_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level2-4.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level2-4.tscn")
 	
 func _on_levelTen_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/level2-5.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/level2-5.tscn")
 
 func _on_tutorialLevel_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/tutorialLevel.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/tutorialLevel.tscn")
 
 func _on_intro_pressed():
-	get_tree().get_root().get_child(0).load_level("res://Levels/Intro.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/Intro.tscn")

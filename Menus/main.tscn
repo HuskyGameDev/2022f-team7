@@ -72,7 +72,6 @@ tile_data = PoolIntArray( 65541, 6, 0, 65565, 6, 0, 131077, 7, 0, 131101, 7, 0, 
 light_mask = 0
 position = Vector2( 60, 287 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 offset = Vector2( 28, -2 )
 
@@ -89,6 +88,7 @@ range_layer_max = 1
 light_mask = 0
 position = Vector2( 411, -2 )
 frames = SubResource( 5 )
+frame = 3
 playing = true
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite/AnimatedSprite"]

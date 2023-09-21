@@ -19,6 +19,7 @@ volume_db = -11.0
 
 [node name="pauseScreen" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="NinePatchRect" type="NinePatchRect" parent="pauseScreen"]
 light_mask = 0
@@ -244,6 +245,17 @@ text = "Quit game"
 [node name="deathTimer" type="Timer" parent="deathScreen"]
 wait_time = 3.0
 one_shot = true
+
+[node name="Black" type="CanvasLayer" parent="."]
+layer = 11
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Black"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Fade" type="Tween" parent="."]
 
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
