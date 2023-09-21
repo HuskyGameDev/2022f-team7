@@ -19,6 +19,7 @@ volume_db = -11.0
 
 [node name="pauseScreen" type="CanvasLayer" parent="."]
 layer = 10
+visible = false
 
 [node name="NinePatchRect" type="NinePatchRect" parent="pauseScreen"]
 light_mask = 0
