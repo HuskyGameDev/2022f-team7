@@ -92,6 +92,7 @@ func stick_spear():
 		self.set_collision_mask_bit(0, false)
 	if(abs(rotation_degrees) >= 90 && abs(rotation_degrees) <= 180):
 		$SpearShape2D.scale.y *= -1 #flip the one way box if the spear sticks upside down
+		$SpearShape2D.set_deferred("one_way_collision", true)
 
 # Returns the spear to the player
 func collectSpear():
