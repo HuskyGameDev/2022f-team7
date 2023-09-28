@@ -148,7 +148,7 @@ wait_time = 0.5
 
 [node name="AnimatedSprite" parent="." index="3"]
 frames = SubResource( 1 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Ambiance" type="AudioStreamPlayer2D" parent="." index="9"]
