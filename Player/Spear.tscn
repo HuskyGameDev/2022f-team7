@@ -75,6 +75,7 @@ region_rect = Rect2( 0, 6, 32, 7 )
 position = Vector2( 0, 1 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="TipCollision" type="Area2D" parent="." groups=["spear"]]
 collision_layer = 12

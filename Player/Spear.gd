@@ -47,6 +47,7 @@ func start(mouseCoords, pos, vec, s):
 	angular_velocity = -1 if rad2deg(angle) <= -90 else 1
 	show() # show the spear now that it is positioned correctly
 	$ThrowSound.playing = true;
+	print(self.rotation_degrees)
 
 
 func _unhandled_input(_event):
@@ -89,6 +90,8 @@ func stick_spear():
 		pass
 		self.set_collision_layer_bit(0, true)
 		self.set_collision_mask_bit(0, false)
+	if(abs(rotation_degrees) >= 90 && abs(rotation_degrees) <= 180):
+		$SpearShape2D.scale.y *= -1 #flip the one way box if the spear sticks upside down
 
 # Returns the spear to the player
 func collectSpear():
