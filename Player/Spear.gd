@@ -87,12 +87,11 @@ func stick_spear():
 	set_deferred("mode", RigidBody2D.MODE_STATIC) # Set static so the spear no longer moves
 	if(!$BodyCollision.colliding): # If the spear is not laying flat on the ground
 		# updates collision layers so that the spear can collide with the player
-		pass
 		self.set_collision_layer_bit(0, true)
 		self.set_collision_mask_bit(0, false)
-	if(abs(rotation_degrees) >= 90 && abs(rotation_degrees) <= 180):
-		$SpearShape2D.scale.y *= -1 #flip the one way box if the spear sticks upside down
-		$SpearShape2D.set_deferred("one_way_collision", true)
+		$SpearShape2D.set_deferred("one_way_collision", true) #prevent spear from shoving the player into the ground
+		if(abs(rotation_degrees) >= 90 && abs(rotation_degrees) <= 180):
+			$SpearShape2D.scale.y *= -1 #flip the one way box if the spear sticks upside down
 
 # Returns the spear to the player
 func collectSpear():
