@@ -257,6 +257,8 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="Fade" type="Tween" parent="."]
 
+[node name="LevelContainer" type="Node2D" parent="."]
+
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/menu" to="." method="_on_menu_pressed"]

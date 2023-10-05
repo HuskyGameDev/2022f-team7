@@ -96,7 +96,7 @@ func pauseControl():
 
 func createLevel():
 	level = load(levelDir).instance()
-	add_child(level)
+	$LevelContainer.add_child(level)
 	$AudioStreamPlayer.playing = true
 	$AudioStreamPlayer.stream_paused = false
 
@@ -116,7 +116,7 @@ func levelTransition(nextLevel):
 	$Fade.start()
 	yield($Fade, "tween_completed")
 	#check if a level is loaded in
-	if get_node("Node2D") != null:
+	if $LevelContainer.get_child_count() > 0:
 		level.queue_free()
 		activePlayer.queue_free()
 	if nextLevel == "lastLevel":
