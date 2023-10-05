@@ -25,3 +25,13 @@ func _on_ShortCutSwitch_switchActivated(check):
 		
 	$Tween.start()
 	$StaticBody2D.set_collision_layer_bit(0, !check)
+
+
+func _on_SwitchPuzzle2_switchActivated(check):
+	if check:
+		setTween($StaticBody2D/NinePatchRect.rect_position, target)
+	else:
+		setTween($StaticBody2D/NinePatchRect.rect_position, start)
+		
+	$Tween.start()
+	$StaticBody2D.set_collision_layer_bit(0, !check)

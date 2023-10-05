@@ -111,3 +111,5 @@ func rotateSpike():
 	if(rotation > angle + aimSpeed): rotation -= aimSpeed
 	if(rotation < angle - aimSpeed): rotation += aimSpeed
 	$Light2D.global_rotation = 0
+
+
