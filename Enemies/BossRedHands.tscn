@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 266, 41, 38 )
+region = Rect2( 360, 52, 36, 42 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -21,3 +21,12 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" parent="." index="0"]
 frames = SubResource( 1 )
+
+[node name="mapCollider" parent="." index="1"]
+position = Vector2( -1, 0.5 )
+
+[node name="hitbox" parent="." index="4"]
+visible = true
+
+[node name="collider" parent="hitbox" index="0"]
+position = Vector2( -1, 0 )
