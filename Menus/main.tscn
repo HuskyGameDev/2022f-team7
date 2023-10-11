@@ -72,6 +72,7 @@ tile_data = PoolIntArray( 65541, 6, 0, 65565, 6, 0, 131077, 7, 0, 131101, 7, 0, 
 light_mask = 0
 position = Vector2( 60, 287 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 offset = Vector2( 28, -2 )
 
@@ -88,7 +89,6 @@ range_layer_max = 1
 light_mask = 0
 position = Vector2( 411, -2 )
 frames = SubResource( 5 )
-frame = 3
 playing = true
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite/AnimatedSprite"]
@@ -127,6 +127,16 @@ margin_right = -9.15527e-05
 margin_bottom = -1.00002
 texture = ExtResource( 10 )
 stretch_mode = 4
+
+[node name="play" parent="playScreen" instance=ExtResource( 4 )]
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 405.0
+margin_top = 99.5
+margin_right = 540.0
+margin_bottom = 138.5
+text = "Testing"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="playScreen"]
 light_mask = 0
@@ -342,7 +352,6 @@ text = "Back"
 
 [node name="controlsScreen" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 light_mask = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -376,10 +385,12 @@ fit_content_height = true
 scroll_active = false
 
 [node name="ControlsText" type="RichTextLabel" parent="controlsScreen"]
-margin_left = 40.0
-margin_top = 89.0
-margin_right = 647.0
-margin_bottom = 264.0
+anchor_left = 0.0642857
+anchor_top = 0.213166
+anchor_right = 0.938571
+anchor_bottom = 0.717241
+margin_right = 122.4
+margin_bottom = 40.2
 rect_scale = Vector2( 0.8, 0.8 )
 theme = ExtResource( 5 )
 bbcode_enabled = true
@@ -387,12 +398,14 @@ bbcode_text = "-Use WASD to move, and spacebar to jump.
 -LShift to dash
 -Left Click to throw the spear.
 -Click on the spear again or press Q to retrieve it.
--Use E to interact with objects and npcs"
+-Use E to interact with objects and npcs.
+-Press ESC to access the pause menu."
 text = "-Use WASD to move, and spacebar to jump.
 -LShift to dash
 -Left Click to throw the spear.
 -Click on the spear again or press Q to retrieve it.
--Use E to interact with objects and npcs"
+-Use E to interact with objects and npcs.
+-Press ESC to access the pause menu."
 scroll_active = false
 
 [node name="back" parent="controlsScreen" instance=ExtResource( 4 )]
@@ -402,7 +415,8 @@ anchor_right = 0.75
 anchor_bottom = 0.912226
 text = "Back"
 
-[connection signal="pressed" from="playScreen/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="playScreen/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="playScreen/VBoxContainer/play" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="playScreen/VBoxContainer/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="playScreen/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="levelSelect/ScrollContainer/GridContainer/intro" to="." method="_on_intro_pressed"]
