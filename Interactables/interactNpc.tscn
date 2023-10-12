@@ -41,6 +41,8 @@ position = Vector2( 0, -2 )
 shape = SubResource( 4 )
 
 [node name="hint" parent="CanvasInteractions" index="0"]
+margin_left = 5.0
+margin_right = 136.0
 text = "Mr. Cab"
 
 [node name="dialogBox" parent="CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="0"]
