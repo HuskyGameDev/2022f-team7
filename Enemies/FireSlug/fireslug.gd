@@ -15,19 +15,22 @@ func _ready():
 
 
 func _physics_process(delta):
-	
 	if(left_facing == 1 && ($RightDownRay.get_collider() == null || $RightSideRay.get_collider() != null)): 
+		print("hit!")
 		left_facing = -1;
+		$AnimatedSprite.flip_h = true
 		$RightDownRay.enabled = false;
 		$RightSideRay.enabled = false;
 		$LeftDownRay.enabled = true;
 		$LeftSideRay.enabled = true;
 	elif(left_facing == -1 && ($LeftDownRay.get_collider() == null || $LeftSideRay.get_collider() != null)): 
+		print("hit!")
 		left_facing = 1;
+		$AnimatedSprite.flip_h = false
 		$RightDownRay.enabled = true;
 		$RightSideRay.enabled = true;
 		$LeftDownRay.enabled = false;
-		$LeftDownRay.enabled = false;
+		$LeftSideRay.enabled = false;
 	
 	move_and_slide_with_snap(Vector2(move_velocity * left_facing, 1), Vector2.DOWN, Vector2.UP, false, 4)
 

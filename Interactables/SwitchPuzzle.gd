@@ -16,7 +16,9 @@ func _input(event):
 
 func _on_Area2D_area_entered(area):
 	inRange = true
+	$CanvasInteractions.visible = true
 
 
 func _on_Area2D_body_exited(body):
 	inRange = false
+	$CanvasInteractions.visible = false

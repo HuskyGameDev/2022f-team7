@@ -41,12 +41,26 @@ position = Vector2( 0, -2 )
 shape = SubResource( 4 )
 
 [node name="hint" parent="CanvasInteractions" index="0"]
+visible = true
 margin_left = 5.0
 margin_right = 136.0
 text = "Mr. Cab"
 
 [node name="dialogBox" parent="CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="0"]
 custom_fonts/normal_font = SubResource( 6 )
+
+[node name="message" parent="CanvasInteractions/popup/VBoxContainer" index="0"]
+margin_bottom = 60.0
+
+[node name="HBoxContainer" parent="CanvasInteractions/popup/VBoxContainer" index="1"]
+margin_top = 68.0
+margin_bottom = 107.0
+
+[node name="option1" parent="CanvasInteractions/popup/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 161.0
+
+[node name="option2" parent="CanvasInteractions/popup/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 169.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="4"]
 scale = Vector2( 0.5, 0.5 )
