@@ -572,7 +572,7 @@ pause_mode = 1
 position = Vector2( 0, 1 )
 
 [node name="playerSpawn" type="Position2D" parent="."]
-position = Vector2( 415, -392 )
+position = Vector2( 165, -104 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1043,7 +1043,7 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
-position = Vector2( 72.8298, -67.0564 )
+position = Vector2( 72.8298, -67.0565 )
 rotate = false
 
 [node name="enemy" parent="Path2D3/PathFollow2D" instance=ExtResource( 3 )]
@@ -1074,7 +1074,7 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D9"]
-rotation = 1.24932
+rotation = 1.64728
 
 [node name="enemy" parent="Path2D9/PathFollow2D" instance=ExtResource( 3 )]
 mode = 1
@@ -1103,6 +1103,7 @@ __meta__ = {
 }
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D8"]
+position = Vector2( -91, -16.0001 )
 rotate = false
 
 [node name="enemy" parent="Path2D8/PathFollow2D" instance=ExtResource( 3 )]
@@ -1114,7 +1115,7 @@ position = Vector2( 586, -287 )
 curve = SubResource( 27 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
-rotation = 1.2372
+rotation = 1.70964
 
 [node name="enemy" parent="Path2D4/PathFollow2D" instance=ExtResource( 3 )]
 position = Vector2( -1.13855, -0.394653 )
