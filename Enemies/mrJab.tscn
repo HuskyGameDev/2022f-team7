@@ -59,6 +59,7 @@ polygon = PoolVector2Array( 0, -11, -1, -10, 1, -10 )
 one_shot = true
 
 [node name="AttackDelay" type="Timer" parent="." index="9"]
+wait_time = 0.1
 one_shot = true
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="10"]

@@ -9,11 +9,13 @@ var attacking = false
 var speed = 200
 var angle
 var direction
-var attackDirection
+
 var aimSpeed = 0.02
 var lerpAngle
 var result
 var playerBody
+var initial_rot
+var time
 
 var returnVec = Vector2.ZERO
 
@@ -26,7 +28,7 @@ func customMode(delta):
 	if(aiming): rotateSpike()
 	
 	if(attacking): 
-		returnVec = move_and_slide(attackDirection * speed)
+		returnVec = move_and_slide((Vector2.UP.rotated(rotation)) * speed)
 		if(returnVec.length() < 50): #if going too slow
 			_onTipHit(null)
 	
@@ -55,12 +57,14 @@ func _onAimEnd():
 	$AttackDelay.start()
 
 func _onTargetDelayEnd():
+	time = Time.get_ticks_msec()
 	attacking = true
-	attackDirection = get_global_position().direction_to(direction).normalized()
 	$touchBox.set_collision_mask_bit(1, true)
 	$AnimatedSprite.animation = "fly"
 
 func _onTipHit(body):
+	if (Time.get_ticks_msec() - time) < 200:
+		return
 	if(attacking):
 		if($DeathSound != null):
 			$DeathSound.playing = true;
@@ -86,6 +90,7 @@ func lineOfSight(var body:Node2D):
 	return result.size() == 0 && $VisibilityNotifier2D.is_on_screen()
 
 func alertSpike():
+	initial_rot = rotation_degrees
 	engaged = false
 	$startRange.set_deferred("monitoring", false)
 	$stopRange.set_deferred("monitoring", false)
@@ -99,6 +104,8 @@ func alertSpike():
 	set_collision_layer_bit(4, true)
 
 func rotateSpike():
+	if !(rotation_degrees > initial_rot - 90 && rotation_degrees < initial_rot + 90):
+		return
 	direction = Vector2($"../player".get_global_position().x, $"../player".get_global_position().y) # Get player location
 	angle = get_global_position().angle_to_point(direction) + (3.0/2.0)*PI # Get angle to point toward player
 	# Adjust rotation/angle so that it doesn't rotate the long way around
@@ -108,8 +115,7 @@ func rotateSpike():
 		else:
 			angle = (fposmod(angle + PI, 2.0*PI) - PI) 
 	# Set rotation
+	
 	if(rotation > angle + aimSpeed): rotation -= aimSpeed
 	if(rotation < angle - aimSpeed): rotation += aimSpeed
 	$Light2D.global_rotation = 0
-
-

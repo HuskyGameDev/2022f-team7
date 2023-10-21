@@ -61,7 +61,7 @@ func _on_healthChanged(player_hearts):
 	if (player_hearts <= 0):
 		print('dead')
 		$deathScreen/deathTimer.start()
-		$AudioStreamPlayer.playing = false
+		#$AudioStreamPlayer.playing = false
 
 func _on_deathTimer_timeout():
 	activePlayer.get_node("./Camera2D/hud").hide()
@@ -97,7 +97,8 @@ func pauseControl():
 func createLevel():
 	level = load(levelDir).instance()
 	$LevelContainer.add_child(level)
-	$AudioStreamPlayer.playing = true
+	if !$AudioStreamPlayer.playing:
+		$AudioStreamPlayer.playing = true
 	$AudioStreamPlayer.stream_paused = false
 
 func createPlayer():

@@ -207,6 +207,9 @@ startEnabled = false
 [node name="HealthPickup" parent="." instance=ExtResource( 11 )]
 position = Vector2( -41, 38 )
 
+[node name="enemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( -12, 6 )
+
 [connection signal="switchActivated" from="SwitchPuzzle" to="DoorTest" method="_on_SwitchPuzzle_switchActivated"]
 [connection signal="timeout" from="Node2D2/Timer" to="Node2D2" method="_on_Timer_timeout"]
 [connection signal="ActivatedMovingPlatforms" from="KeyPlatform" to="MovingPlatform" method="_on_KeyPlatform_ActivatedMovingPlatforms"]
