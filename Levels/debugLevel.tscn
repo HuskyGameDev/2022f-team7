@@ -180,7 +180,10 @@ position = Vector2( -185, -13 )
 position = Vector2( -229, -42 )
 
 [node name="fireslug" parent="." instance=ExtResource( 3 )]
-position = Vector2( 7, 39 )
+position = Vector2( 14, 40 )
+hiSpeed = 50.0
+loSpeed = 10.0
+interval = 3.5
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2( 112, -100 )

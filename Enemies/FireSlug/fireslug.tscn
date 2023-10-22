@@ -17,6 +17,9 @@ animations = [ {
 collision_mask = 1
 script = ExtResource( 2 )
 trailScene = ExtResource( 4 )
+hiSpeed = 50.0
+loSpeed = 10.0
+interval = 3.5
 
 [node name="AnimatedSprite" parent="." index="0"]
 position = Vector2( 0, -2.25 )

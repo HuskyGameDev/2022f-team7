@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Sounds/Music/Cave Ambience.1.wav" type="AudioStream" id=4]
+[ext_resource path="res://Enemies/FireSlug/fireslug.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/light.png" type="Texture" id=6]
 
 [node name="Node2D" type="Node2D"]
@@ -54,3 +55,8 @@ centered = false
 [node name="interactExit" parent="." instance=ExtResource( 2 )]
 position = Vector2( 29, 46 )
 nextLevel = "lastLevel"
+
+[node name="fireslug" parent="." instance=ExtResource( 5 )]
+position = Vector2( 150, 40 )
+loSpeed = 10.0
+interval = 3.5
