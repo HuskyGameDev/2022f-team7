@@ -63,10 +63,9 @@ func _onTargetDelayEnd():
 	$AnimatedSprite.animation = "fly"
 
 func _onTipHit(body):
-	if (Time.get_ticks_msec() - time) < 200:
+	if (time == null || (Time.get_ticks_msec() - time < 200)):
 		return
 	if(attacking):
-		get_node_or_null("")
 		if(get_node_or_null("DeathSound")):
 			$DeathSound.playing = true;
 			var ds = $DeathSound;
