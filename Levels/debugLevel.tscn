@@ -174,16 +174,16 @@ dialog = "Did you know that there is an [color=red]impostor[/color] among us? He
 position = Vector2( -157, 46 )
 
 [node name="SwitchPuzzle" parent="." instance=ExtResource( 16 )]
-position = Vector2( -185, -13 )
+position = Vector2( -185, -11 )
 
-[node name="DoorTest" parent="." instance=ExtResource( 17 )]
+[node name="SwitchPuzzle2" parent="." instance=ExtResource( 16 )]
+position = Vector2( -218, -10 )
+
+[node name="Dory" parent="." instance=ExtResource( 17 )]
 position = Vector2( -229, -42 )
 
 [node name="fireslug" parent="." instance=ExtResource( 3 )]
 position = Vector2( 14, 40 )
-hiSpeed = 50.0
-loSpeed = 10.0
-interval = 3.5
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2( 112, -100 )
@@ -213,7 +213,8 @@ position = Vector2( -41, 38 )
 [node name="enemy" parent="." instance=ExtResource( 7 )]
 position = Vector2( -12, 6 )
 
-[connection signal="switchActivated" from="SwitchPuzzle" to="DoorTest" method="_on_SwitchPuzzle_switchActivated"]
+[connection signal="switchActivated" from="SwitchPuzzle" to="Dory" method="_on_SwitchPuzzle_switchActivated"]
+[connection signal="switchActivated" from="SwitchPuzzle2" to="Dory" method="_on_SwitchPuzzle_switchActivated"]
 [connection signal="timeout" from="Node2D2/Timer" to="Node2D2" method="_on_Timer_timeout"]
 [connection signal="ActivatedMovingPlatforms" from="KeyPlatform" to="MovingPlatform" method="_on_KeyPlatform_ActivatedMovingPlatforms"]
 

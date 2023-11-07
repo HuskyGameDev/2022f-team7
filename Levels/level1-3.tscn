@@ -38,7 +38,7 @@ pause_mode = 1
 position = Vector2( 0, 1 )
 
 [node name="playerSpawn" type="Position2D" parent="."]
-position = Vector2( -29, -935 )
+position = Vector2( 282, 304 )
 
 [node name="Light2D" type="Light2D" parent="playerSpawn"]
 scale = Vector2( 5, 5 )
@@ -463,7 +463,7 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
 position = Vector2( 935, -417 )
-rotation = -0.00445327
+rotation = 0.0715206
 
 [node name="enemy" parent="Path2D3/PathFollow2D" instance=ExtResource( 12 )]
 
@@ -474,7 +474,7 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
 position = Vector2( 935, -417 )
-rotation = -0.00445327
+rotation = 0.0715206
 
 [node name="enemy" parent="Path2D2/PathFollow2D" instance=ExtResource( 12 )]
 
@@ -484,7 +484,7 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 935, -417 )
-rotation = -0.00445327
+rotation = 0.0715206
 
 [node name="enemy" parent="Path2D/PathFollow2D" instance=ExtResource( 12 )]
 
@@ -494,7 +494,7 @@ rotation = 1.54551
 curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
-position = Vector2( 2.21016, -368.676 )
+position = Vector2( 2.21015, -368.675 )
 rotation = -1.50892
 offset = 46.61
 rotate = false
@@ -559,7 +559,7 @@ position = Vector2( 648, -767 )
 rotation = 1.54551
 
 [connection signal="switchActivated" from="SwitchPuzzle" to="DoorTest" method="_on_SwitchPuzzle_switchActivated"]
-[connection signal="switchActivated" from="SwitchPuzzle2" to="DoorTest" method="_on_SwitchPuzzle2_switchActivated"]
+[connection signal="switchActivated" from="SwitchPuzzle2" to="DoorTest" method="_on_SwitchPuzzle_switchActivated"]
 
 [editable path="movingPlatform"]
 [editable path="movingPlatform2"]
