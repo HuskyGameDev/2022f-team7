@@ -15,6 +15,8 @@ const health    = 3
 var invincible
 
 #player state and movement trackers
+var isCoyote = false
+var canCoyote = true
 var isDashing = false
 var dashEnd = false #for a visual effect
 var canDash = true
@@ -72,10 +74,11 @@ func processInput():
 			$dashTime.start()
 			$Camera2D.smoothing_speed = 7
 	#apply jump upward vecocity if possible
-	if Input.is_action_just_pressed("jump") && is_on_floor() && !isDashing:
+	if (Input.is_action_just_pressed("jump") && (is_on_floor() || isCoyote) && !isDashing):
 		$JumpSound.play();
 		vec.y = -jumpPower
 		isJumping = true
+		if(isCoyote): isCoyote = false
 	
 	#apply left/right target direction and reset vecocity of player if changing direction to
 	#make movement snappy but smooth
@@ -168,7 +171,11 @@ func processMovement(delta):
 	if !isDashing:
 		vec.x = clamp(vec.x, -moveSpeed, moveSpeed)
 	
-	
+	if !is_on_floor() && !isJumping && !isCoyote && canCoyote:
+		print("coyote!")
+		isCoyote = true
+		$Coyote.start()
+	elif is_on_floor(): canCoyote = true
 	
 	#apply calculated properties to body and store result in vec
 	vec = move_and_slide_with_snap(vec, Vector2.DOWN, Vector2.UP, true, 4, deg2rad(46), true)
@@ -368,3 +375,9 @@ func _on_WalkTimer_timeout():
 		$WalkTimer.start()
 	else:
 		$WalkSound.playing = false
+
+
+func _on_Coyote_timeout():
+	print("no coyote")
+	isCoyote = false
+	canCoyote = false

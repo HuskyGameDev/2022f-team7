@@ -234,6 +234,11 @@ pitch_scale = 0.8
 wait_time = 0.4
 one_shot = true
 
+[node name="Coyote" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.1
+one_shot = true
+
 [connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
 [connection signal="timeout" from="dashTime" to="." method="_on_dashTime_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dashCooldown_timeout"]
@@ -244,3 +249,4 @@ one_shot = true
 [connection signal="area_entered" from="springHitBox" to="." method="_on_springHitBox_area_entered"]
 [connection signal="area_entered" from="healthUpBox" to="." method="_on_healthUpBox_area_entered"]
 [connection signal="timeout" from="WalkTimer" to="." method="_on_WalkTimer_timeout"]
+[connection signal="timeout" from="Coyote" to="." method="_on_Coyote_timeout"]
