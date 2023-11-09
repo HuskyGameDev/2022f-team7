@@ -25,8 +25,17 @@ frames = SubResource( 1 )
 [node name="mapCollider" parent="." index="1"]
 position = Vector2( -1, 0.5 )
 
+[node name="startRange" parent="." index="2"]
+visible = true
+
+[node name="stopRange" parent="." index="3"]
+visible = true
+
 [node name="hitbox" parent="." index="4"]
 visible = true
 
 [node name="collider" parent="hitbox" index="0"]
 position = Vector2( -1, 0 )
+
+[node name="Light2D" parent="." index="5"]
+position = Vector2( 38, -2 )
