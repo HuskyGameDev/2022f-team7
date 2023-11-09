@@ -13,11 +13,13 @@ func _on_SwitchPuzzle_switchActivated(check):
 	
 	if ons > 0:
 		setTween($StaticBody2D/NinePatchRect.rect_position, target)
+		$StaticBody2D.set_collision_layer_bit(0, false)
 	else:
 		setTween($StaticBody2D/NinePatchRect.rect_position, start)
+		$StaticBody2D.set_collision_layer_bit(0, true)
 	
 	$Tween.start()
-	$StaticBody2D.set_collision_layer_bit(0, !check)
+	
 
 #this doesn't *really* need to be a separate func but it's a really long command and makes it easier to adjust properties
 func setTween(startp, endp):
