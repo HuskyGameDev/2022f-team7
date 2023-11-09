@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Interactables/interactBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Interactables/introText.gd" type="Script" id=2]
+
+[node name="interactBase" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+textSpeed = 20
+mode = 1
+pauseTree = true
+nextLevel = "res://Levels/tutorialLevel.tscn"
+
+[node name="hint" parent="CanvasInteractions" index="0"]
+text = ""
+
+[node name="TextureRect" parent="CanvasInteractions/dialog" index="0"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 560.0
+margin_right = 319.0
+margin_bottom = 241.0
+rect_rotation = 90.0
+texture = null
+stretch_mode = 1
+
+[node name="VBoxContainer" parent="CanvasInteractions/dialog" index="1"]
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.99
+anchor_bottom = 0.99
+
+[node name="HBoxContainer" parent="CanvasInteractions/dialog/VBoxContainer" index="0"]
+margin_right = 548.0
+margin_bottom = 312.0
+
+[node name="dialogBox" parent="CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 548.0
+margin_bottom = 312.0
+
+[node name="Blinky" parent="CanvasInteractions/dialog" index="2"]
+position = Vector2( 542, 306 )

@@ -1,0 +1,24 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Red Judgement.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 59, 58 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 320, 73, 64 )
+
+[resource]
+animations = [ {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "stun",
+"speed": 5.0
+} ]

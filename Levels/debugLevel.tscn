@@ -141,10 +141,10 @@ nextLevel = "res://Levels/debugLevelTwo.tscn"
 [node name="CanvasInteractions" parent="interactExit" index="2"]
 layer = 1
 
-[node name="TextureRect" parent="interactExit/CanvasInteractions/dialog" index="0"]
+[node name="TextureRect" parent="interactExit/CanvasInteractions/dialog" index="1"]
 texture = ExtResource( 10 )
 
-[node name="VBoxContainer" parent="interactExit/CanvasInteractions/dialog" index="1"]
+[node name="VBoxContainer" parent="interactExit/CanvasInteractions/dialog" index="2"]
 anchor_left = 0.192857
 anchor_top = 0.60815
 anchor_bottom = 0.984326
@@ -164,6 +164,11 @@ deselect_on_focus_loss_enabled = true
 
 [node name="MrCab" parent="." instance=ExtResource( 5 )]
 position = Vector2( 43, 46 )
+
+[node name="interactBase2" parent="." instance=ExtResource( 13 )]
+position = Vector2( -66, 38 )
+pauseTree = true
+dialog = "[rainbow][tornado radius=5 freq=5]ballsballsballsballsballsballsballsballsballsballsballsballsballsballsballsballs[/tornado][/rainbow]"
 
 [node name="interactBase" parent="." instance=ExtResource( 13 )]
 position = Vector2( 133, 14 )

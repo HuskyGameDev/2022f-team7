@@ -82,7 +82,7 @@ func dialog():
 	get_tree().paused = interacting && pauseTree
 	dialogBox.get_v_scroll().value = 0
 	amountVis = 0
-	$CanvasInteractions/dialog/Blinky.color = Color.white
+	$CanvasInteractions/dialog/Blinky.hide()
 
 func _process(delta):
 	if get_node("/root/levelRoot/pauseScreen").visible: #if game is paused and interaction doesn't pause tree
@@ -95,15 +95,17 @@ func _process(delta):
 			
 			if Input.is_action_just_pressed("interact"):
 				amountVis += 1
-				$CanvasInteractions/dialog/Blinky.color = Color.white
+				$CanvasInteractions/dialog/Blinky.hide()
 			else: 
-				$CanvasInteractions/dialog/Blinky.color = Color.red
+				$CanvasInteractions/dialog/Blinky.show()
 				return
 		amountVis += (textSpeed * delta)
 		dialogBox.visible_characters = amountVis
 		
 		if dialogBox.get_visible_line_count() > 5:
 			dialogBox.get_v_scroll().value += 3
+	elif dialogActive && !$CanvasInteractions/dialog/Blinky.visible:
+		$CanvasInteractions/dialog/Blinky.show()
 
 func cutscene():
 	pass #unfinished

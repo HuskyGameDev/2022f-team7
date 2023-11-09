@@ -103,7 +103,7 @@ func createLevel():
 
 func createPlayer():
 	activePlayer = player.instance()
-	if level.get_node("playerSpawn") != null:
+	if level.get_node_or_null("playerSpawn") != null:
 		activePlayer.position = level.get_node("playerSpawn").position
 	level.add_child(activePlayer)
 	activePlayer.connect("health_changed",self,"_on_healthChanged")

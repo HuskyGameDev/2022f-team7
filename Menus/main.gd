@@ -65,4 +65,4 @@ func _on_intro_pressed():
 	get_tree().get_root().get_child(0).levelTransition("res://Levels/Intro.tscn")
 
 func _on_start_pressed():
-	get_tree().get_root().get_child(0).levelTransition("res://Levels/tutorialLevel.tscn")
+	get_tree().get_root().get_child(0).levelTransition("res://Levels/Intro.tscn")
