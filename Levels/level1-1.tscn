@@ -173,7 +173,6 @@ railSpeed = 1.25
 layer = -1
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-visible = false
 modulate = Color( 0.12549, 0.12549, 0.12549, 1 )
 position = Vector2( 3.55271e-15, 0 )
 scale = Vector2( 8.75, 4.985 )
