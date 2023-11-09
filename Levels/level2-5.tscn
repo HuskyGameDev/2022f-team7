@@ -565,7 +565,7 @@ rotation = -3.13465
 
 [connection signal="switchActivated" from="SwitchPuzzle" to="DoorTest" method="_on_SwitchPuzzle_switchActivated"]
 [connection signal="switchActivated" from="SwitchPuzzle" to="DoorTest3" method="_on_SwitchPuzzle_switchActivated"]
-[connection signal="switchActivated" from="SwitchPuzzle2" to="DoorTest2" method="_on_SwitchPuzzle2_switchActivated"]
+[connection signal="switchActivated" from="SwitchPuzzle2" to="DoorTest2" method="_on_SwitchPuzzle_switchActivated"]
 
 [editable path="movingPlatform2"]
 [editable path="movingPlatform"]
