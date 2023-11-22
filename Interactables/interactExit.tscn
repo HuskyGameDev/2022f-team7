@@ -25,6 +25,9 @@ shape = SubResource( 1 )
 [node name="hint" parent="CanvasInteractions" index="0"]
 text = "Elevator"
 
+[node name="Blinky" parent="CanvasInteractions/dialog" index="3"]
+frame = 1
+
 [node name="message" parent="CanvasInteractions/popup/VBoxContainer" index="0"]
 text = "Proceed to the next level?"
 
