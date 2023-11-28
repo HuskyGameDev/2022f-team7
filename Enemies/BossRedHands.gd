@@ -6,7 +6,7 @@ func _physics_process(delta):
 			if engaged:
 				vec = (position - player.position).normalized()
 				vec *= -0.2
-				move_and_collide(vec, false)
+				vec = move_and_collide(vec, false)
 			else:
 				pass
 				#should return to boss if not in range

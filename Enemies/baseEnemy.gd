@@ -15,7 +15,7 @@ func _physics_process(delta):
 			if engaged:
 				vec = (position - player.position).normalized()
 				vec *= -0.2
-				move_and_collide(vec, false)
+				vec = move_and_collide(vec, false)
 		modes.rails:#MUST be a child of a pathfollower!
 			self.get_parent().unit_offset += (.0005 * railSpeed)
 		modes.walker:
@@ -26,12 +26,12 @@ func _physics_process(delta):
 	custom(delta)
 
 #called per physics frame after mode code
-func custom(delta):
+func custom(_delta):
 	pass
 	#method for inherriting enemies to override for custom functionality in addition to the modes
 
 #called per physics frame if enemy is of mode 3
-func customMode(delta):
+func customMode(_delta):
 	pass
 	#method for handling a custom mode in new enemies
 
@@ -47,7 +47,7 @@ func _onStartEnter(body):
 		player = body
 	engaged = true
 
-func _onStopExit(body):
+func _onStopExit(_body):
 	engaged = false
 
 func _on_hitbox_area_entered(area):

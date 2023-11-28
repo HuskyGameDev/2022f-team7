@@ -224,6 +224,7 @@ centered = false
 position = Vector2( 1017, 329 )
 z_index = -1
 nextLevel = "res://Levels/level1-3.tscn"
+levelindex = 3
 
 [node name="MrStab" parent="." instance=ExtResource( 7 )]
 position = Vector2( 101, 82.5 )

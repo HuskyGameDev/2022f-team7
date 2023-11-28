@@ -12,7 +12,7 @@ extents = Vector2( 146.5, 149 )
 script = ExtResource( 2 )
 mode = 1
 pauseTree = true
-dialog = "How dare you.\\ You enter my new kingdom. You kill my loyal disciples. And now you want to kill me.\\ There is nothing more to say, I must defeat you. Now Die!"
+text = "How dare you.\\ You enter my new kingdom. You kill my loyal disciples. And now you want to kill me.\\ There is nothing more to say, I must defeat you. Now Die!"
 boss = ExtResource( 4 )
 
 [node name="playerDetection" parent="." index="1"]

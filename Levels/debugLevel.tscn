@@ -168,12 +168,12 @@ position = Vector2( 43, 46 )
 [node name="interactBase2" parent="." instance=ExtResource( 13 )]
 position = Vector2( -66, 38 )
 pauseTree = true
-dialog = "[rainbow][tornado radius=5 freq=5]ballsballsballsballsballsballsballsballsballsballsballsballsballsballsballsballs[/tornado][/rainbow]"
+text = "[rainbow][tornado radius=5 freq=5]ballsballsballsballsballsballsballsballsballsballsballsballsballsballsballsballs[/tornado][/rainbow]"
 
 [node name="interactBase" parent="." instance=ExtResource( 13 )]
 position = Vector2( 133, 14 )
 pauseTree = true
-dialog = "Did you know that there is an [color=red]impostor[/color] among us? Here's another cool test sentence :3.\\ Anyways [tornado radius=5 freq=5]Blizzard T. Husky[/tornado] is a top and I WILL fight anyone who says otherwise :("
+text = "Did you know that there is an [color=red]impostor[/color] among us? Here's another cool test sentence :3.\\ Anyways [tornado radius=5 freq=5]Blizzard T. Husky[/tornado] is a top and I WILL fight anyone who says otherwise :("
 
 [node name="Node2D" parent="." instance=ExtResource( 15 )]
 position = Vector2( -157, 46 )

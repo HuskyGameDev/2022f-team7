@@ -184,6 +184,7 @@ centered = false
 position = Vector2( 809, -576 )
 z_index = -1
 nextLevel = "res://Levels/level1-2.tscn"
+levelindex = 2
 
 [node name="mrStab2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 62, -325.5 )

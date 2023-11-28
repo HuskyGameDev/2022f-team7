@@ -22,7 +22,7 @@ func _ready():
 	$RayCast2D.cast_to = Vector2(abs($RayCast2D.cast_to.x), 0) if direction else Vector2(-abs($RayCast2D.cast_to.x), 0)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if($RayCast2D.get_collider() != null && $RayCast2D.get_collider().name != "Spear" && !cooldown) : 
 		flipDirection()
 	vec.y += gravity if !is_on_floor() else 0

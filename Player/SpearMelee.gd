@@ -3,6 +3,7 @@ extends KinematicBody2D
 var distance = 12; # Length of poke
 var speed = 90; # Speed to move spear
 var direction; # Stores mouse coordinates
+var vec
 var angle; # Stores angle to poke
 var startPos = Vector2.ZERO; # Stores start position
 var endPos = Vector2.ZERO; # Stores end position
@@ -22,8 +23,9 @@ func start(mouseCoords, s):
 	if(fmod(abs(rad2deg(angle)), 180) < 90): # Flip spear vertially if poking to the right
 		$Sprite.transform.y.y = -0.5;
 
-func _physics_process(delta):
-	move_and_slide(direction.normalized() * speed, Vector2(0, 1), false);
+func _physics_process(_delta):
+	vec = direction.normalized() * speed
+	vec = move_and_slide(vec, Vector2(0, 1), false);
 	# If the spear has moved past the set distance
 	if startPos.distance_to(position) > distance && speed > 0:
 		endPos = position;

@@ -613,6 +613,7 @@ centered = false
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 490, -904 )
 nextLevel = "res://Levels/level2-3.tscn"
+levelindex = 9
 
 [node name="MrStab" parent="." instance=ExtResource( 7 )]
 position = Vector2( 141, -212 )

@@ -14,11 +14,11 @@ func _input(event):
 		SwitchOn = !SwitchOn
 		emit_signal("switchActivated",SwitchOn)
 
-func _on_Area2D_area_entered(area):
+func _on_Area2D_area_entered(_area):
 	inRange = true
 	$CanvasInteractions.visible = true
 
 
-func _on_Area2D_body_exited(body):
+func _on_Area2D_body_exited(_body):
 	inRange = false
 	$CanvasInteractions.visible = false

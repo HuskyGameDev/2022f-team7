@@ -18,7 +18,7 @@ var invincible
 var isCoyote = false
 var canCoyote = true
 var isDashing = false
-var dashEnd = false #for a visual effect
+var dashEnding = false #for a visual effect
 var canDash = true
 var tarvec = 0 #target movement direction of player -1 left 1 right 0 none
 var vec = Vector2.ZERO #vector movement applied to player
@@ -100,22 +100,22 @@ func _physics_process(delta):
 	
 	processMovement(delta)
 	
-	processGravity(delta)
+	processGravity()
 	
 	processState()
 	
 	spearBob()
 
 func processState():
-	if is_on_floor() && dashEnd:
-		dashEnd = false
+	if is_on_floor() && dashEnding:
+		dashEnding = false
 	
 	if isDying:
 		set_collision_layer_bit(2, false)
 		$Sprite.animation = "Death"
 		$Sprite/Spear.visible = false
 		$Sprite.playing = true
-	elif isDashing || dashEnd:
+	elif isDashing || dashEnding:
 		$Sprite.animation = "Strafe"  + ("Hurt" if isHurt else "")
 		$Sprite.playing = false
 		$Sprite.frame = 1
@@ -133,7 +133,7 @@ func processState():
 		$Sprite.playing = true
 
 #process player movement
-func processMovement(delta):
+func processMovement(_delta):
 	#cap player vertical and horizontal vecocity so player has terminal vecocity
 	vec.y = clamp(vec.y, -10000, 600)
 	vec.x = clamp(vec.x, -1500, 1500)
@@ -182,7 +182,7 @@ func processMovement(delta):
 	isWalking = (vec.x != 0) && is_on_floor()
 
 #process behaviour of gravity on player
-func processGravity(var delta):
+func processGravity():
 	#apply gravity effects
 	if !is_on_floor() && !isDashing:
 		vec.y += gravity 
@@ -247,7 +247,7 @@ func _on_dashCooldown_timeout():
 
 func dashEnd():
 	isDashing = false
-	dashEnd = true
+	dashEnding = true
 	canDash = false
 	$Camera2D.smoothing_speed = 10
 	$dashTime.stop()
@@ -371,6 +371,7 @@ func _on_Tween_tween_completed():
 
 func _on_WalkTimer_timeout():
 	if(isWalking):
+		$WalkSound.pitch_scale = rand_range(0.7,0.9)
 		$WalkSound.play();
 		$WalkTimer.start()
 	else:

@@ -11,7 +11,7 @@ func _ready():
 #	pass
 
 
-func _on_hitbox_area_entered(area):
+func _on_hitbox_area_entered(_area):
 	#if(area.is_in_group("player")):
 	print("hit player!");
 	queue_free()

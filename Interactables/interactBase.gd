@@ -9,18 +9,16 @@ enum type {popup, dialog, cutscene, button}
 export var textSpeed = 30
 export (type) var mode = type.popup
 export var pauseTree = false
-export (String, MULTILINE) var dialog = "placeholder!"
+export (String, MULTILINE) var text = "placeholder!"
 
 onready var dialogBox = $CanvasInteractions/dialog/VBoxContainer/HBoxContainer/dialogBox
 onready var pauseScreen = get_node("/root/levelRoot/pauseScreen")
-
-signal interacted #unused
 
 func _ready():
 	$CanvasInteractions/popup.hide()
 	$CanvasInteractions/dialog.hide()
 	$CanvasInteractions/hint.hide()
-	$CanvasInteractions/dialog/VBoxContainer/HBoxContainer/dialogBox.bbcode_text = dialog
+	$CanvasInteractions/dialog/VBoxContainer/HBoxContainer/dialogBox.bbcode_text = text
 
 func _on_body_entered(body):
 	print("interact in range of " + body.get_name())

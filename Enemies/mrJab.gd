@@ -62,7 +62,7 @@ func _onTargetDelayEnd():
 	$touchBox.set_collision_mask_bit(1, true)
 	$AnimatedSprite.animation = "fly"
 
-func _onTipHit(body):
+func _onTipHit(_body):
 	if (time == null || (Time.get_ticks_msec() - time < 200)):
 		return
 	if(attacking):
@@ -76,6 +76,7 @@ func _onTipHit(body):
 		p.transform = transform
 		get_parent().add_child(p)
 		p.emitting = true;
+		attacking = false #prevent spam firing of this
 		queue_free()
 
 func _on_hitbox_area_entered(area):
@@ -84,7 +85,7 @@ func _on_hitbox_area_entered(area):
 
 #helper methods
 
-func lineOfSight(var body:Node2D):
+func lineOfSight(var _body:Node2D):
 	if (aiming || aimed): return
 	result = get_world_2d().direct_space_state.intersect_ray($losCast.global_position, playerBody.global_position, [self, playerBody], collision_mask)
 	return result.size() == 0 && $VisibilityNotifier2D.is_on_screen()

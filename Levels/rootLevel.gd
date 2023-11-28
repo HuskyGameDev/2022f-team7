@@ -73,6 +73,7 @@ func _on_level_complete():
 
 func _input(_event):
 	if Input.is_action_just_pressed("pause_game") && $main.visible == false && $deathScreen.visible == false:
+		print("pause!")
 		pauseControl()
 
 func pauseControl():
@@ -85,7 +86,8 @@ func pauseControl():
 	elif $pauseScreen.visible == false and $optionsScreen.visible == true:
 		$optionsScreen.visible = false
 		optionsOpened = true
-		
+	
+	print("toggling!")
 	$pauseScreen.visible = !$pauseScreen.visible
 	if optionsOpened == false:
 		$AudioStreamPlayer.stream_paused = !$AudioStreamPlayer.stream_paused
@@ -107,7 +109,6 @@ func createPlayer():
 		activePlayer.position = level.get_node("playerSpawn").position
 	level.add_child(activePlayer)
 	activePlayer.connect("health_changed",self,"_on_healthChanged")
-	
 
 func levelTransition(nextLevel):
 	$Black.show()
@@ -136,3 +137,7 @@ func levelTransition(nextLevel):
 	$Fade.start()
 	yield($Fade, "tween_completed")
 	$Black.hide()
+
+func levelcompleted(nextLevel, levelindex):
+	$main.unlockLevel(levelindex)
+	levelTransition(nextLevel)

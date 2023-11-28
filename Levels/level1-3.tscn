@@ -208,6 +208,7 @@ position = Vector2( 0, -129 )
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 230, -1393 )
 nextLevel = "res://Levels/level1-4.tscn"
+levelindex = 4
 
 [node name="MrJab6" parent="." instance=ExtResource( 9 )]
 position = Vector2( -88, -315 )

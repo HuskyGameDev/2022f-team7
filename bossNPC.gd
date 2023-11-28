@@ -1,6 +1,7 @@
 extends "res://Interactables/interactBase.gd"
 
 export(PackedScene) var boss
+var used
 
 func _ready():
 	._ready()
@@ -17,6 +18,9 @@ func _on_body_entered(body):
 	dialog()
 
 func dialogEnd():
+	if used: return
+	used = true
+	print("hi")
 	var inst = boss.instance()
 	inst.position = self.position
 	get_parent().add_child(inst)

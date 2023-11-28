@@ -1,11 +1,27 @@
 extends CanvasLayer
 
+export var levelsUnlocked = 0
+onready var buttons = $levelSelect/ScrollContainer/GridContainer.get_children()
+
 func _ready():
 	#just in case these are set wrong when in editor
 	$levelSelect.visible = false
 	$playScreen.visible = true
+	
+	push_error("the game is running in debug mode, uncomment the lines after this assertion to change that.")
+	#for n in buttons:
+	#	n.disabled = true
+
+func unlockLevel(levelindex):
+	print(levelsUnlocked, " : ", levelindex)
+	if (levelindex != levelsUnlocked || levelindex == -1): 
+		return
+	buttons[levelsUnlocked].disabled = false
+	levelsUnlocked += 1
 
 func _on_play_pressed():
+	for n in buttons:
+		n.disabled = false
 	$playScreen.visible = false
 	$levelSelect.visible = true
 
@@ -23,7 +39,6 @@ func _on_quit_pressed():
 
 func _on_Debug_pressed():
 	get_tree().get_root().get_child(0).levelTransition("res://Levels/debugLevel.tscn")
-	
 
 func _on_levelOne_pressed():
 	get_tree().get_root().get_child(0).levelTransition("res://Levels/level1-1.tscn")
@@ -65,4 +80,8 @@ func _on_intro_pressed():
 	get_tree().get_root().get_child(0).levelTransition("res://Levels/Intro.tscn")
 
 func _on_start_pressed():
-	get_tree().get_root().get_child(0).levelTransition("res://Levels/Intro.tscn")
+	if levelsUnlocked == 0:
+		get_tree().get_root().get_child(0).levelTransition("res://Levels/Intro.tscn")
+	else:
+		$playScreen.visible = false
+		$levelSelect.visible = true

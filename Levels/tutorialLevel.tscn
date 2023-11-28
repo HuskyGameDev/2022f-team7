@@ -87,6 +87,7 @@ centered = false
 position = Vector2( 1130, 384 )
 z_index = -1
 nextLevel = "res://Levels/level1-1.tscn"
+levelindex = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 67.0
@@ -162,12 +163,12 @@ railSpeed = 2.5
 [node name="entranceNPC" parent="." instance=ExtResource( 7 )]
 position = Vector2( -2, 456 )
 pauseTree = true
-dialog = "Welcome, traveller.\\ It seems you are now trapped here, having fallen into the labryth under Mt. Iridos.\\ Regardless if you come here intentionally or not, your only exit is at the other end of the labrynth.\\ But beware, many enemies will stand in your way to freedom..."
+text = "Welcome, traveller.\\ It seems you are now trapped here, having fallen into the labryth under Mt. Iridos.\\ Regardless if you come here intentionally or not, your only exit is at the other end of the labrynth.\\ But beware, many enemies will stand in your way to freedom..."
 
 [node name="exitNPC" parent="." instance=ExtResource( 7 )]
 position = Vector2( 968, 376 )
 pauseTree = true
-dialog = "You are doing well, traveller.\\ Many more [color=red]demons[/color] like the one you just witnessed live and roam free within these caves.\\ Please, defeat the fire demon and free these lands. You will either be a hero, or perish within the labrynth.\\ In the meantime, take the elevator just ahead to progress to the next section of the labrynth."
+text = "You are doing well, traveller.\\ Many more [color=red]demons[/color] like the one you just witnessed live and roam free within these caves.\\ Please, defeat the fire demon and free these lands. You will either be a hero, or perish within the labrynth.\\ In the meantime, take the elevator just ahead to progress to the next section of the labrynth."
 
 [node name="SwitchPuzzle" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1032, 369 )

@@ -8,7 +8,9 @@ func _ready():
 	if get_tree().get_root().get_child(0).get_name() == "levelRoot":
 		print("connecting")
 		levelRoot = get_tree().get_root().get_child(0)
-		connect("change_level", levelRoot, "levelTransition")
+		var result = connect("change_level", levelRoot, "levelcompleted")
+		if result != OK:
+			push_error("the exit device could not connect!")
 	._ready() #super call
 	
 	dialog()
@@ -29,4 +31,4 @@ func dialog():
 func dialogEnd():
 	print("end!")
 	.dialogEnd()
-	emit_signal("change_level", nextLevel)
+	emit_signal("change_level", nextLevel, 0)

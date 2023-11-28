@@ -138,6 +138,7 @@ centered = false
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2140, -568 )
 nextLevel = "lastLevel"
+levelindex = 12
 
 [node name="MrJab" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1663, -520 )

@@ -15,7 +15,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	target = player.global_position if player != null else Vector2.ZERO
 	direction = global_position.direction_to(target).normalized()
 	if(global_position.distance_to(target) < 5):

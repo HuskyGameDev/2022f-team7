@@ -3,13 +3,16 @@ extends "res://Interactables/interactBase.gd"
 var levelRoot;
 
 export (String) var nextLevel
+export var levelindex = -1
 signal change_level(next_level)
 
 func _ready():
 	if get_tree().get_root().get_child(0).get_name() == "levelRoot":
 		print("connecting")
 		levelRoot = get_tree().get_root().get_child(0)
-		connect("change_level", levelRoot, "levelTransition")
+		var result = connect("change_level", levelRoot, "levelcompleted")
+		if result != OK:
+			push_error("the exit device could not connect!")
 	
 	._ready() #super call
 
@@ -34,4 +37,4 @@ func _on_Sprite_animation_finished():
 
 
 func _on_Tween_tween_all_completed():
-	emit_signal("change_level", nextLevel)
+	emit_signal("change_level", nextLevel, levelindex)

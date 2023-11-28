@@ -2,10 +2,11 @@ extends KinematicBody2D
 
 
 export(PackedScene) var trailScene
-export(float, 0, 200, 10) var hiSpeed = 50 #push speed
-export(float, 0, 200) var loSpeed = 10 #after push speed
+export(float, 0, 200, 10) var hiSpeed = 50.0 #push speed
+export(float, 0, 200) var loSpeed = 10.0 #after push speed
 export(float, 0, 10) var interval = 3.5 #time to move from hi to low
 
+var vec
 var left_facing = 1 # Whether the slug is moving left or right (1 for right, -1 for left)
 var tweened_vel = 0
 
@@ -17,7 +18,7 @@ func _ready():
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if(left_facing == 1 && ($RightDownRay.get_collider() == null || $RightSideRay.get_collider() != null)): 
 		left_facing = -1
 		$AnimatedSprite.flip_h = true
@@ -32,15 +33,15 @@ func _physics_process(delta):
 		$RightSideRay.enabled = true
 		$LeftDownRay.enabled = false
 		$LeftSideRay.enabled = false
-	
-	move_and_slide_with_snap(Vector2(tweened_vel * left_facing, 1), Vector2.DOWN, Vector2.UP, false, 4)
+	vec = Vector2(tweened_vel * left_facing, 1)
+	vec = move_and_slide_with_snap(vec, Vector2.DOWN, Vector2.UP, false, 4)
 
 
-func _onStartEnter(body):
+func _onStartEnter(_body):
 	pass # Replace with function body.
 
 
-func _onStopExit(body):
+func _onStopExit(_body):
 	pass # Replace with function body.
 
 

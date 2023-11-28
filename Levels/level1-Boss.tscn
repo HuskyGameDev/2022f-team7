@@ -48,6 +48,7 @@ centered = false
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 488, -193 )
 nextLevel = "res://Levels/End.tscn"
+levelindex = 7
 
 [node name="bossNPC" parent="." instance=ExtResource( 3 )]
 position = Vector2( 310, -139 )

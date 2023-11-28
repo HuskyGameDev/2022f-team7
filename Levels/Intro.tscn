@@ -16,7 +16,7 @@ width = 256
 script = ExtResource( 3 )
 
 [node name="interactBase" parent="." instance=ExtResource( 4 )]
-dialog = "Long ago, in a distant land, a lonely tribe existed at the base of a mountain known as Mt. Iridos.\\ Within this mountain, the villagers had created an expansive temple to pray to their gods and coexist with the wildlife.\\ But recently, a fire demon has taken over the temple and posessed the creatures within.\\ It is now up to you, traveller, to defeat the fire demon and free these lands."
+text = "Long ago, in a distant land, a lonely tribe existed at the base of a mountain known as Mt. Iridos.\\ Within this mountain, the villagers had created an expansive temple to pray to their gods and coexist with the wildlife.\\ But recently, a fire demon has taken over the temple and posessed the creatures within.\\ It is now up to you, traveller, to defeat the fire demon and free these lands."
 
 [node name="Light2D" parent="interactBase" index="0"]
 position = Vector2( 78, 43 )
@@ -25,6 +25,7 @@ position = Vector2( 78, 43 )
 visible = false
 
 [node name="Blinky" parent="interactBase/CanvasInteractions/dialog" index="3"]
+frame = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }

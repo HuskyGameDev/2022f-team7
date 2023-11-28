@@ -21,7 +21,7 @@ func _ready():
 		movePlat()
 
 #once moved up, start delay
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, _key):
 	$Timer.start()
 
 func _on_Timer_timeout():
