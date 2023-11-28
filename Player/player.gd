@@ -4,7 +4,7 @@ export(PackedScene) var spearScene
 export(PackedScene) var spearMeleeScene
 
 #player movement constants
-const gravity   = 2.5
+var gravity   = 2.5
 const jumpPower = 180
 const moveSpeed = 50
 const dashSpeed = 500
@@ -382,3 +382,14 @@ func _on_Coyote_timeout():
 	print("no coyote")
 	isCoyote = false
 	canCoyote = false
+
+
+func onPlayerCrush(body):
+	current_HP = 0
+	emit_signal("health_changed", current_HP)
+	isDying = true
+	$playerDeathSound.play()
+	self.modulate="353535"
+	$Light2D.visible=false
+	gravity = 0
+	$worldbox.set_deferred("disabled",true)
