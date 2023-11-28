@@ -57,6 +57,7 @@ func _onAimEnd():
 	$AttackDelay.start()
 
 func _onTargetDelayEnd():
+	$attack.play()
 	time = Time.get_ticks_msec()
 	attacking = true
 	$touchBox.set_collision_mask_bit(1, true)

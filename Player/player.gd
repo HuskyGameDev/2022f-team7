@@ -384,7 +384,10 @@ func _on_Coyote_timeout():
 	canCoyote = false
 
 
-func onPlayerCrush(body):
+func onPlayerCrush(_body):
+	vec = Vector2.ZERO
+	tarvec = Vector2.ZERO
+	if isDying || _body.name == "Spear": return
 	current_HP = 0
 	emit_signal("health_changed", current_HP)
 	isDying = true
@@ -393,3 +396,4 @@ func onPlayerCrush(body):
 	$Light2D.visible=false
 	gravity = 0
 	$worldbox.set_deferred("disabled",true)
+	$squish.play()

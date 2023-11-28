@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/playeranims.tres" type="SpriteFrames" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Assets/hudSprint.png" type="Texture" id=17]
 [ext_resource path="res://Assets/hudSpear.png" type="Texture" id=18]
 [ext_resource path="res://Assets/health3.png" type="Texture" id=19]
+[ext_resource path="res://Sounds/Other/Squish.3.wav" type="AudioStream" id=20]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -56,6 +57,7 @@ extents = Vector2( 1, 5 )
 pause_mode = 1
 z_index = 1
 collision_layer = 2
+collision_mask = 5
 collision/safe_margin = 0.04
 script = ExtResource( 1 )
 spearScene = ExtResource( 3 )
@@ -248,6 +250,10 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 1 )
 shape = SubResource( 6 )
+
+[node name="squish" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = 1.0
 
 [connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
 [connection signal="timeout" from="dashTime" to="." method="_on_dashTime_timeout"]

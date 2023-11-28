@@ -22,6 +22,7 @@ func _ready():
 
 #once moved up, start delay
 func _on_Tween_tween_completed(_object, _key):
+	$platform/AudioStreamPlayer2D.stop()
 	$Timer.start()
 
 func _on_Timer_timeout():
@@ -30,6 +31,7 @@ func _on_Timer_timeout():
 func movePlat():
 	if !atEnd: $Tween.interpolate_property($platform, "position", start, $target.position, 1/speed, type, easing)
 	else:      $Tween.interpolate_property($platform, "position", $target.position, start, 1/speed, type, easing)
+	$platform/AudioStreamPlayer2D.play()
 	$Tween.start()
 	atEnd = !atEnd
 

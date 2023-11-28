@@ -77,6 +77,8 @@ func dialog():
 	$CanvasInteractions/dialog.visible = interacting
 	if interacting == false:
 		dialogEnd()
+	else:
+		$AudioStreamPlayer.play()
 	get_tree().paused = interacting && pauseTree
 	dialogBox.get_v_scroll().value = 0
 	amountVis = 0

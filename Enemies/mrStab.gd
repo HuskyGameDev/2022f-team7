@@ -11,6 +11,7 @@ func _ready():
 	vec = Vector2(0,startSpeed)
 
 func _onStartEnter(body):
+	$attack.play()
 	._onStartEnter(body)
 	$startRange.set_deferred("monitoring", false)
 	attacking = true

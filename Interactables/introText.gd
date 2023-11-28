@@ -5,6 +5,7 @@ export (String) var nextLevel
 signal change_level(next_level)
 
 func _ready():
+	$AudioStreamPlayer.stream = null
 	if get_tree().get_root().get_child(0).get_name() == "levelRoot":
 		print("connecting")
 		levelRoot = get_tree().get_root().get_child(0)

@@ -16,7 +16,7 @@ width = 256
 script = ExtResource( 3 )
 
 [node name="interactBase" parent="." instance=ExtResource( 4 )]
-dialog = "With the fire demon defeated, \"peace\" was restored to the lands.\\ But at what cost? Traveller, you have taken away the lives of many inhabitants of the cave. Although they were posessed, it is still a crime against life itself.\\ You have been sent to hell for your sins. (CHANGE THIS FOR RELEASE IT'S A BIT IT'S A BIT)"
+text = "With the fire demon defeated, \\\"peace\\\" was restored to the lands.\\\\ But at what cost? Traveller, you have taken away the lives of many inhabitants of the cave. Although they were posessed, it is still a crime against life itself.\\\\ You have been sent to hell for your sins."
 nextLevel = "res://Levels/level2-1.tscn"
 
 [node name="Light2D" parent="interactBase" index="0"]
@@ -26,7 +26,6 @@ position = Vector2( 78, 43 )
 visible = false
 
 [node name="Blinky" parent="interactBase/CanvasInteractions/dialog" index="3"]
-frame = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }

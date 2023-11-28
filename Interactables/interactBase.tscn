@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Interactables/interactBase.gd" type="Script" id=1]
 [ext_resource path="res://Menus/buttonCus.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Text/Courneuf-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/dialogNew.png" type="Texture" id=6]
 [ext_resource path="res://Assets/arrow.png" type="Texture" id=7]
+[ext_resource path="res://Sounds/Other/male vox-v2.Team 7.ilcapand.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -125,6 +126,7 @@ deselect_on_focus_loss_enabled = false
 [node name="Blinky" type="AnimatedSprite" parent="CanvasInteractions/dialog"]
 position = Vector2( 442, 298 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="popup" type="Control" parent="CanvasInteractions"]
@@ -198,6 +200,10 @@ text = "two"
 [node name="Sprite" type="AnimatedSprite" parent="."]
 light_mask = 0
 scale = Vector2( 0.5, 0.5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

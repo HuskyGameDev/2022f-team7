@@ -32,6 +32,7 @@ func _on_option2_pressed():
 
 
 func _on_Sprite_animation_finished():
+	$elevatoridle.play()
 	$Tween.interpolate_property($Sprite, "position", $Sprite.position, Vector2(0, -60), 1, Tween.TRANS_QUAD, Tween.EASE_IN)
 	$Tween.start()
 

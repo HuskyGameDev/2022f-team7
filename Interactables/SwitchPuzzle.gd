@@ -13,6 +13,11 @@ func _input(event):
 		$AnimatedSprite.frame = !SwitchOn
 		SwitchOn = !SwitchOn
 		emit_signal("switchActivated",SwitchOn)
+		if SwitchOn:
+			$AudioStreamPlayer.pitch_scale = 1
+		else:
+			$AudioStreamPlayer.pitch_scale = 0.6
+		$AudioStreamPlayer.play()
 
 func _on_Area2D_area_entered(_area):
 	inRange = true

@@ -29,6 +29,7 @@ func customMode(delta):
 	.customMode(delta)
 
 func _ready():
+	$bossintro.play()
 	._ready()
 	$AnimatedSprite.play("default")
 	stunned = false
@@ -82,6 +83,7 @@ func _onStopExit(body):
 func _on_hitbox_area_entered(area):
 	if(area.is_in_group('spear') && vulnerable && stunned):
 		print("red boss hit")
+		$bossdmg.play()
 		hp -= 1
 		$stunDur.stop()
 		$stunDur.emit_signal("timeout")
@@ -127,6 +129,7 @@ func _on_ChargeUp_timeout():
 	attacking = true
 	$AnimatedSprite.play("attacking")
 	$mapCollider2.set_deferred("disabled", false)
+	$bossfly.play()
 	#set_collision_layer_bit(4, true)
 	
 
@@ -178,3 +181,7 @@ func _on_mapCollider2_body_entered(body):
 			attacking = false
 			stunned = true
 			stun()
+
+
+func _on_bossintro_finished():
+	$bossidle.play()

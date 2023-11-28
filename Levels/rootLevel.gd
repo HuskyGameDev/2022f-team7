@@ -32,15 +32,10 @@ func _on_pauseBack_pressed():
 	$pauseScreen.show()
 
 func _on_restart_pressed():
-	level.queue_free() #clear out player and level instances
-	activePlayer.queue_free()
 	
-	createLevel()
-	createPlayer()
-	
-	get_tree().paused = false #unpause
 	$deathScreen.hide()
 	$pauseScreen.hide()
+	levelTransition(levelDir)
 
 func _on_quit_pressed():
 	get_tree().quit()
@@ -87,7 +82,6 @@ func pauseControl():
 		$optionsScreen.visible = false
 		optionsOpened = true
 	
-	print("toggling!")
 	$pauseScreen.visible = !$pauseScreen.visible
 	if optionsOpened == false:
 		$AudioStreamPlayer.stream_paused = !$AudioStreamPlayer.stream_paused
@@ -137,6 +131,8 @@ func levelTransition(nextLevel):
 	$Fade.start()
 	yield($Fade, "tween_completed")
 	$Black.hide()
+	if nextLevel == "res://Levels/level1-Boss.tscn":
+		$AudioStreamPlayer.stop()
 
 func levelcompleted(nextLevel, levelindex):
 	$main.unlockLevel(levelindex)
