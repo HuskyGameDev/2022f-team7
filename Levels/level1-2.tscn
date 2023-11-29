@@ -2,7 +2,7 @@
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Levels/background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=6]
@@ -209,17 +209,6 @@ rotation = 3.14159
 position = Vector2( 604, -114 )
 rotation = 3.14159
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Sprite" type="Sprite" parent="CanvasLayer"]
-modulate = Color( 0.12549, 0.12549, 0.12549, 1 )
-position = Vector2( 3.55271e-15, 0 )
-scale = Vector2( 8.75, 4.985 )
-z_index = -1
-texture = ExtResource( 3 )
-centered = false
-
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1017, 329 )
 z_index = -1
@@ -255,3 +244,5 @@ position = Vector2( 418, -219.5 )
 
 [node name="MrStab10" parent="." instance=ExtResource( 7 )]
 position = Vector2( 557, -203.5 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]

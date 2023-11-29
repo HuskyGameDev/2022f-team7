@@ -185,7 +185,7 @@ volume_db = -18.656
 [node name="playerDeathSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 9 )
-volume_db = -14.942
+volume_db = -3.581
 pitch_scale = 0.94
 
 [node name="spearCooldown" type="Timer" parent="."]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/bg1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/bg2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/bgl1.png" type="Texture" id=3]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="brick" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 832, 416 )
+
+[node name="Sprite" type="Sprite" parent="brick"]
+modulate = Color( 0.380392, 0.380392, 0.380392, 1 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 832, 416 )
+
+[node name="cave2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.25, 0 )
+motion_mirroring = Vector2( 500, 0 )
+
+[node name="Sprite" type="Sprite" parent="cave2"]
+modulate = Color( 0.521569, 0.521569, 0.521569, 1 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 500, 276 )
+
+[node name="cave" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.35, 0 )
+motion_mirroring = Vector2( 500, 0 )
+
+[node name="Sprite" type="Sprite" parent="cave"]
+modulate = Color( 0.521569, 0.521569, 0.521569, 1 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 209, 500, 291 )

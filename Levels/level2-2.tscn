@@ -4,7 +4,7 @@
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/light.png" type="Texture" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Levels/background.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Interactables/platformOLD.gd" type="Script" id=8]
@@ -599,17 +599,6 @@ rotation = 1.2372
 mode = 1
 railSpeed = 2.5
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Sprite" type="Sprite" parent="CanvasLayer"]
-modulate = Color( 0.12549, 0.12549, 0.12549, 1 )
-position = Vector2( 3.55271e-15, 0 )
-scale = Vector2( 8.75, 4.985 )
-z_index = -1
-texture = ExtResource( 5 )
-centered = false
-
 [node name="interactExit" parent="." instance=ExtResource( 6 )]
 position = Vector2( 490, -904 )
 nextLevel = "res://Levels/level2-3.tscn"
@@ -924,3 +913,5 @@ shape = SubResource( 5 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatform12"]
 anims/RESET = SubResource( 48 )
 anims/platform = SubResource( 49 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]

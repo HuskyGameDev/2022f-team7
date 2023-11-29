@@ -51,7 +51,7 @@ color_initial_ramp = SubResource( 11 )
 
 [node name="Spear" type="RigidBody2D"]
 z_index = 100
-collision_layer = 4
+collision_layer = 0
 collision_mask = 17
 input_pickable = true
 mass = 5.10204
