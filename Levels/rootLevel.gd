@@ -137,3 +137,8 @@ func levelTransition(nextLevel):
 func levelcompleted(nextLevel, levelindex):
 	$main.unlockLevel(levelindex)
 	levelTransition(nextLevel)
+
+
+func onSplashEnd():
+	$Fade.interpolate_property($Splash/Sprite, "modulate", Color.white, Color.transparent, 0.4, Tween.TRANS_SINE, Tween.EASE_IN)
+	$Fade.start()

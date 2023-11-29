@@ -13,6 +13,8 @@ config_version=4
 config/name="Iridos"
 config/description="2D platformer featuring spear guy"
 run/main_scene="res://Levels/rootLevel.tscn"
+boot_splash/image="res://Assets/splash.png"
+boot_splash/use_filter=false
 config/icon="res://Assets/newheart.png"
 
 [display]

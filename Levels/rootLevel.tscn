@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menus/main.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menus/buttonCus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/rootLevel.gd" type="Script" id=3]
 [ext_resource path="res://Sounds/Music/Iridos BGM mix 2.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Buttons/defaultBase.png" type="Texture" id=5]
+[ext_resource path="res://Assets/splash.png" type="Texture" id=6]
 
 [node name="levelRoot" type="Node2D"]
 pause_mode = 2
@@ -259,6 +260,18 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="LevelContainer" type="Node2D" parent="."]
 
+[node name="Splash" type="CanvasLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Splash"]
+light_mask = 0
+position = Vector2( 280, 160 )
+texture = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="pauseScreen/HBoxContainer/VBoxContainer/menu" to="." method="_on_menu_pressed"]
@@ -270,3 +283,4 @@ color = Color( 0, 0, 0, 1 )
 [connection signal="pressed" from="deathScreen/HBoxContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="deathScreen/HBoxContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="deathScreen/deathTimer" to="." method="_on_deathTimer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="onSplashEnd"]
