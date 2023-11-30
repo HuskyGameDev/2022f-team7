@@ -172,7 +172,6 @@ func _on_stunDur_timeout():
 	$chargeCol.start()
 
 
-
 func _on_mapCollider2_body_entered(body):
 		if(attacking && !body.is_in_group('spear') && !stunned && charge):
 			charge = false

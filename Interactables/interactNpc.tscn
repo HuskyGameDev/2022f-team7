@@ -34,7 +34,6 @@ animations = [ {
 [node name="interactBase" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 mode = 1
-dialog = ""
 
 [node name="playerDetection" parent="." index="1"]
 position = Vector2( 0, -2 )
@@ -48,6 +47,9 @@ text = "Mr. Cab"
 
 [node name="dialogBox" parent="CanvasInteractions/dialog/VBoxContainer/HBoxContainer" index="0"]
 custom_fonts/normal_font = SubResource( 6 )
+
+[node name="Blinky" parent="CanvasInteractions/dialog" index="3"]
+frame = 0
 
 [node name="message" parent="CanvasInteractions/popup/VBoxContainer" index="0"]
 margin_bottom = 60.0
