@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -244,5 +245,13 @@ position = Vector2( 418, -219.5 )
 
 [node name="MrStab10" parent="." instance=ExtResource( 7 )]
 position = Vector2( 557, -203.5 )
+
+[node name="interactBase" parent="." instance=ExtResource( 8 )]
+position = Vector2( 721, -136 )
+rotation = 3.14159
+scale = Vector2( -1, -1 )
+pauseTree = true
+hint = "Mineral Blair"
+text = "Oh ho ho ho, we meet again dear traveller! It is I, Mineral Blair, historian of the realm,, don't you remember me? I remember this cavern. As a kid my father used to take me here all the time. Oh the good times we had. \\ I remember one time when he took me down the hole over yonder and told me to either jump down or die of starvation. What a peculiar sense of humor he had. I was up here for three days and four nights before I built up the courage to come down! \\ Interestingly enough, that very hole used to be used by ancient people as a ritual to prove that you are brave enough to bridge the gap between being a boy and being a man. Its not used so much anymore though due to the whole demon king situation. \\ Oh but I am tired now, thank you for listening to me dear traveller, you bring joy to my weary bones. \\ Until we meet again!"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]

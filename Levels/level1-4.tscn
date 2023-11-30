@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Interactables/SwitchPuzzle.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Interactables/DoorTest.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Interactables/HealthPickup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -366,7 +367,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1264, -453 ), Vector2( 1264, -453 ), Vector2( 1248, -453 ), Vector2( 1248, -453 ), Vector2( 1264, -453 ) ]
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 pause_mode = 1
 position = Vector2( 0, 1 )
 
@@ -864,6 +865,12 @@ position = Vector2( 596, -321 )
 
 [node name="Health Pack Door" parent="." instance=ExtResource( 11 )]
 position = Vector2( 560, -321 )
+
+[node name="interactBase5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 427, -145 )
+pauseTree = true
+hint = "Mineral Blair"
+text = "Greetings Traveler! It is I, [b] THE GREAT MINERAL BLAIR [\\b]. \\ I am usually quite long winded but I will try to be brief for once. You are going to want to go up and to the left to go down a cavern that will unlock the exit door.\\ Now that I have told you the important stuff, I can tell you the history of this land! \\ Nothing important happened in this cave, the end. TILL I MEET YOU AGAIN TRAVELLER!"
 
 [node name="HealthPack" parent="." instance=ExtResource( 12 )]
 position = Vector2( 580, -330 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Interactables/movingPlatform.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Enemies/mrStab.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Enemies/FireSlug/fireslug.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -48,7 +49,7 @@ _data = {
 "points": PoolVector2Array( -64.6145, 10.8627, 64.6145, -10.8627, 297, -1286, -11.7992, -23.2238, 11.7992, 23.2238, 378, -1242, 67.6111, -8.24069, -67.6111, 8.24069, 279, -1176, -13.2975, 17.2305, 13.2975, -17.2305, 183, -1234, -26.0331, 11.05, 26.0331, -11.05, 228, -1263, 0, 0, 0, 0, 297, -1286 )
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 pause_mode = 1
 position = Vector2( 0, 1 )
 
@@ -883,6 +884,35 @@ rotation = 3.12246
 [node name="MrJab99" parent="." instance=ExtResource( 9 )]
 position = Vector2( 263, -1321 )
 rotation = 3.10788
+
+[node name="interactBase4" parent="." instance=ExtResource( 13 )]
+position = Vector2( 311, 103 )
+pauseTree = true
+text = "Now which switch should I flip..."
+
+[node name="interactBase3" parent="." instance=ExtResource( 13 )]
+position = Vector2( 1070, -769 )
+scale = Vector2( -1, 1 )
+pauseTree = true
+text = "Itssssssssssss \\ ssssssssoooooooooooooooo \\
+[color=red][tornado radius=5 freq=5]hhoooooooooooottttttttttttttttttt[/tornado][/color]"
+
+[node name="interactBase" parent="." instance=ExtResource( 13 )]
+position = Vector2( -22, -137 )
+scale = Vector2( -1, 1 )
+pauseTree = true
+text = "Oh jeez, my buddy Frank went up on this elevator and hasn't come back yet.\\ I'm scared he may have been [color=red]killed[/color]!"
+
+[node name="interactBase5" parent="." instance=ExtResource( 13 )]
+position = Vector2( 380, -1377 )
+pauseTree = true
+hint = "Mineral Blair"
+text = "It is I, Mineral Blair, once again at your service. This here used to be a giant elevator shaft used by our ancient ancestors before the demon king rose. It used to transport all sorts of materials!\\ Dirt, \\ rock, \\[tornado radius=5 freq=5]bodies[/tornado]...\\ Just kidding on that last one, ha ha ha ha, we minerals don't care about our bodies as we will be reborn anew over time as the earth molds our bodies back into shape. \\ Well, now that I think about it, we could use the shaft to transport your body."
+
+[node name="interactBase2" parent="." instance=ExtResource( 13 )]
+position = Vector2( 7, -921 )
+pauseTree = true
+text = "There ain't no way I'm going back down there George is just going to have to \\[b]toughen[/b] up"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
 

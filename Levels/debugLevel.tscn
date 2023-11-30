@@ -23,7 +23,7 @@
 
 [sub_resource type="RectangleShape2D" id=8]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 pause_mode = 1
 
 [node name="playerSpawn" type="Position2D" parent="."]
@@ -127,6 +127,9 @@ bbcode_text = "Did you know that there is an [color=red]impostor[/color] among u
 text = "Did you know that there is an impostor among us? And if you see Dr. Breen, tell him I said 'screw you'.\\ Anyways Blizzard T. Husky is a top and I WILL fight anyone who says otherwise :("
 scroll_following = true
 deselect_on_focus_loss_enabled = true
+
+[node name="Blinky" parent="interactExit/CanvasInteractions/dialog" index="3"]
+frame = 0
 
 [node name="MrCab" parent="." instance=ExtResource( 5 )]
 position = Vector2( 43, 46 )

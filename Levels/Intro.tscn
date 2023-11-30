@@ -12,7 +12,7 @@ colors = PoolColorArray( 0, 0.0969696, 0.302734, 1, 0, 0, 0, 1 )
 gradient = SubResource( 1 )
 width = 256
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="interactBase" parent="." instance=ExtResource( 4 )]

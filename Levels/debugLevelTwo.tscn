@@ -7,7 +7,7 @@
 [ext_resource path="res://Enemies/FireSlug/fireslug.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/light.png" type="Texture" id=6]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 pause_mode = 1
 
 [node name="TileMap" type="TileMap" parent="." groups=["spear_can_stick", "tilemap"]]
@@ -58,5 +58,3 @@ nextLevel = "lastLevel"
 
 [node name="fireslug" parent="." instance=ExtResource( 5 )]
 position = Vector2( 150, 40 )
-loSpeed = 10.0
-interval = 3.5

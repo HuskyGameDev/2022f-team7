@@ -428,7 +428,7 @@ tracks/0/keys = {
 "values": [ Vector2( 456, -876 ), Vector2( 456, -876 ), Vector2( 472, -876 ), Vector2( 472, -876 ) ]
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 pause_mode = 1
 position = Vector2( 0, 1 )
 

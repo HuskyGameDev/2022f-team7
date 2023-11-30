@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/platform.PNG" type="Texture" id=9]
 [ext_resource path="res://Interactables/DoorTest.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Interactables/SwitchPuzzle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 4 )
@@ -244,7 +245,7 @@ _data = {
 "points": PoolVector2Array( 23.8315, 0, -23.8315, 0, 288, -233, 0, 23.8315, 0, -23.8315, 248, -273, -24.0543, -0.222725, 24.0543, 0.222725, 288, -313, -0.222725, -24.0543, 0.222725, 24.0543, 328, -273, 24.0543, 0.445449, -24.0543, -0.445449, 288, -233 )
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 pause_mode = 1
 position = Vector2( 0, 1 )
 
@@ -544,6 +545,20 @@ position = Vector2( 615, -292 )
 
 [node name="enemy5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 528, -303 )
+
+[node name="interactBase5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1106, -521 )
+pauseTree = true
+hint = "Mineral Blair"
+text = "Hello traveller....\\
+So... \\
+You really are going to beat the demon king. The great Mineral Blair is happy for you, I really am. But how many people have you killed to get here?\\
+All the monsters down here? They were all people just like me and you once upon a time. They were transformed when the demon king took over. You've been killing them haven't you?\\
+...\\
+I thought so. I can't blame you, your journey would have been much harder without kill them. I just hope you can live with yourself after this. \\
+...\\
+Till we meet again, I am been...\\
+[b][rainbow] MINERAL BLAIR [\\rainbow][\\b]"
 
 [node name="enemy6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 567, -275 )

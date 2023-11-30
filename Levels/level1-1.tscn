@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://OldTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Levels/background.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Enemies/flameyHead.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interactables/interactExit.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Enemies/mrJab.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Interactables/interactNpc.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve2D" id=7]
 _data = {
@@ -270,5 +271,12 @@ position = Vector2( 775, -304 )
 
 [node name="MrJab21" parent="." instance=ExtResource( 7 )]
 position = Vector2( 825, -304 )
+
+[node name="interactBase" parent="." instance=ExtResource( 8 )]
+position = Vector2( 783, -504 )
+scale = Vector2( -1, 1 )
+pauseTree = true
+hint = "Mineral Blair"
+text = "Hello there dear traveller! I see you have trapped yourself in this damned labrynth same as I. \\ Apologies, I should have introduced myself sooner. I am Mineral Blair, a historian of these lands. My great great grandfather told me all about this land as a child and it has enraptured me ever since. \\ I can tell by the way you walk that would love to hear some of my stories, well, find me later on and I shall tell some to you!"
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
