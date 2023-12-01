@@ -11,7 +11,7 @@ var BossHands = preload("res://Enemies/BossRedHands.tscn")
 var aiming
 var hit = null
 var attackDirection 
-var speed = 1
+var speed = 200
 var aimed
 var charge 
 var stunned
@@ -23,7 +23,9 @@ var playerBody
 func customMode(delta):
 	if(aiming): rotateBoss()
 	if(attacking):
-		hit = move_and_collide(attackDirection * speed)
+		hit = move_and_slide((Vector2.UP.rotated(rotation)) * speed)
+		if (hit.length() < 50):
+			_on_mapCollider2_body_entered(null)
 	if(playerBody != null):
 		_onStartEnter(playerBody)
 	.customMode(delta)
@@ -173,7 +175,10 @@ func _on_stunDur_timeout():
 
 
 func _on_mapCollider2_body_entered(body):
-		if(attacking && !body.is_in_group('spear') && !stunned && charge):
+		if((attacking && !stunned && charge)):
+			if(body != null):
+				if (!body.is_in_group("spear")):
+					return
 			charge = false
 			$mapCollider2.set_deferred("disabled", true)
 			print("boss hit something")
