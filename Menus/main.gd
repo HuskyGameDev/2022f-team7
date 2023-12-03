@@ -8,9 +8,9 @@ func _ready():
 	$levelSelect.visible = false
 	$playScreen.visible = true
 	
-	push_error("the game is running in debug mode, uncomment the lines after this assertion to change that.")
-	#for n in buttons:
-	#	n.disabled = true
+	#push_error("the game is running in debug mode, uncomment the lines after this assertion to change that.")
+	for n in buttons:
+		n.disabled = true
 
 func unlockLevel(levelindex):
 	print(levelsUnlocked, " : ", levelindex)
