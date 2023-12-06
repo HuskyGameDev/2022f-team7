@@ -70,6 +70,7 @@ func processInput():
 	if Input.is_action_just_pressed("dash"):
 		if !isDashing && canDash:
 			isDashing = true
+			$dash.play()
 			$Camera2D/hud/sprint.visible = !isDashing
 			$dashTime.start()
 			$Camera2D.smoothing_speed = 7

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player/player.gd" type="Script" id=1]
 [ext_resource path="res://Player/playeranims.tres" type="SpriteFrames" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/hudSpear.png" type="Texture" id=18]
 [ext_resource path="res://Assets/health3.png" type="Texture" id=19]
 [ext_resource path="res://Sounds/Other/Squish.3.wav" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/Spear/Whoosh.1.wav" type="AudioStream" id=21]
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -255,6 +256,10 @@ shape = SubResource( 6 )
 [node name="squish" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
 volume_db = 1.0
+
+[node name="dash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -4.0
 
 [connection signal="health_changed" from="." to="Camera2D/hud/health" method="_on_player_health_changed"]
 [connection signal="timeout" from="dashTime" to="." method="_on_dashTime_timeout"]
