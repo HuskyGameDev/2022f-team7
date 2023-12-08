@@ -11,24 +11,26 @@ right-click to throw spear if present in inventory,
 Left-Shift to dash
 
 Credits:
-Niklas Romero,
-Andy Martin,
-Reese Bunker,
-Cecilia Schmitz,
-Ian Hughes,
-Ian Sandford,
-Sage Moser,
-Alex Knapp,
-Isabella Capanda,
-Andrew Tran,
-Jack Colwell,
-Owen Crosby,
-Soup Cobb,
-Nicky Franklin,
-Max Meyer,
-Ethan Fournier
 
+Niklas Romero
+Andy Martin
+Reese Bunker
+Cecilia Schmitz
+Ian Hughes
+Ian Sandford
+Sage Moser
+Alex Knapp
+Isabella Capanda
+Andrew Tran
+Jack Colwell
+Owen Crosby
+Soup Cobb
+Nicky Franklin
+
+Max Meyer
+
+And a special thanks to Ethan Fournier, for being the best Husky Games management member, and also the rat king or something.
 Installation Instructions:
 Download & unzip the Iridos.zip. Select the folder that correlates to your OS and run the executable.
 
-![actionshot](https://user-images.githubusercontent.com/43444191/233497066-3cdff024-e4d7-4e1b-affc-76a9f09a151f.png)
+![actionshot](https://img.itch.zone/aW1hZ2UvMTQxMjgyMC8xNDI3NDgyOS5wbmc=/347x500/KnUoMf.png)
