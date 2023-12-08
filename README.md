@@ -26,7 +26,6 @@ Jack Colwell
 Owen Crosby
 Soup Cobb
 Nicky Franklin
-
 Max Meyer
 
 And a special thanks to Ethan Fournier, for being the best Husky Games management member, and also the rat king or something.
